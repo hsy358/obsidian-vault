@@ -1,0 +1,8 @@
+{
+  "env": {
+    "OPENAI_API_KEY": "sk-sp-3f1a53d9a9d24a87887a32bcdc7691a1",
+    "OPENAI_BASE_URL": "https://coding.dashscope.aliyuncs.com/v1"
+  },
+  "includeCoAuthoredBy": false,
+  "model": "kimi-k2.5"
+}

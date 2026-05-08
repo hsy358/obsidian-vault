@@ -1,0 +1,9 @@
+# Symlinks - do not sync to GitHub
+00-小龙虾工作区
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Obsidian config (optional - comment out if you want to sync plugin settings)
+# .obsidian/workspace

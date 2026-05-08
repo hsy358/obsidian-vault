@@ -1,0 +1,12 @@
+{
+  "environmentVariables": "ANTHROPIC_API_KEY=sk-sp-3f1a53d9a9d24a87887a32bcdc7691a1\nANTHROPIC_BASE_URL=https://coding.dashscope.aliyuncs.com/v1",
+  "tabManagerState": {
+    "openTabs": [
+      {
+        "tabId": "tab-1772604280166-5v9xu09",
+        "conversationId": "conv-1772604581509-1sc5sezpf"
+      }
+    ],
+    "activeTabId": "tab-1772604280166-5v9xu09"
+  }
+}
