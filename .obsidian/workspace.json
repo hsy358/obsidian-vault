@@ -209,6 +209,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -221,6 +222,8 @@
   },
   "active": "f76f244249a090ed",
   "lastOpenFiles": [
+    "notes/wechat",
+    "notes",
     "00-小龙虾工作区/面试准备_智能客服知识管理Agent平台/何四燕_面试宝典v3_跨部门协作专项版.md",
     "00-小龙虾工作区/面试准备_智能客服知识管理Agent平台/何四燕_面试宝典v2_技术深度版.md",
     "00-小龙虾工作区/面试准备_智能客服知识管理Agent平台/何四燕_面试宝典v1.md",
@@ -254,7 +257,6 @@
     "00-小龙虾工作区/skills/openclaw-skill-vetter/README.md",
     "00-小龙虾工作区/skills/openclaw-backup/references",
     "00-小龙虾工作区/skills/openclaw-backup/_meta.json",
-    "00-小龙虾工作区/skills/openclaw-backup/scripts",
     "欢迎.md"
   ]
 }
