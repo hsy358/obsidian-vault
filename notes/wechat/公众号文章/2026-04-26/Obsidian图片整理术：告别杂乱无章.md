@@ -1,0 +1,151 @@
+---
+title: "Obsidian 图片整理术：告别杂乱无章，让你的图片都“乖乖”的"
+author: "obsidian指南"
+publish_date: "2026-04-26 22:40:19"
+saved_date: "2026-05-09"
+source: "wechat"
+url: "https://mp.weixin.qq.com/s/UrQ9cpX5342hhkOpLJXWjQ"
+---
+# Obsidian 图片整理术：告别杂乱无章，让你的图片都“乖乖”的
+Obsidian 里的各种图片，一保存就会变成一长串看不懂的乱码，全堆在根目录里，找起来特别费劲？
+
+我以前就是这样：每次粘贴图片，都像在垃圾堆里翻东西。文件名看不懂，格式乱套，图片越存越多，笔记库越来越乱。
+
+![](https://mmbiz.qpic.cn/mmbiz_png/uSN9RggjCZ3m5kKmdOsszU9LcaEoMGxtFoWcLrBbotwI4KWgCVlGWd6pXnWPmwZUPZ0GRWMVa3wib4c3YgJXH0Z02sjJfqbo2Q9Eia8FA8OEc/640?wx_fmt=png&from=appmsg)
+
+而前几天有朋友留言也提到了这个问题！那今天要分享的这个方法，通过一个插件，就能让 Obsidian 的图片管理变得井井有条。这个插件叫做 **Image Converter**，它能自动做两件事：**给图片起好名字**、**优化图片格式**。
+
+## 🌟 第一步：先搞定图片放哪儿
+
+网上有各种方案，有用图床的，有本地存储的。我试了一圈，发现最简单有效的方法就是：**在 Obsidian 里设个固定地方放图片**。
+
+这样做特别简单：
+
+- 打开 Obsidian 的**设置**
+- 找到 **文件与链接** → **附件默认存放路径**
+- 把默认的"仓库根目录"，改成"当前文件所在文件夹下指定的子文件夹"
+- 输入文件夹名字：`images`
+![](https://mmbiz.qpic.cn/mmbiz_png/uSN9RggjCZ3SOq0JLtR3DUQ4cqAdCUteQwdBEh0iawJTn5RrlbeCQRKBC07WcLZDeptdsTiaYOg4hJ8oIiadnv5A5tmHgibOMicb3bF2ZK33uDibE/640?wx_fmt=png&from=appmsg)
+
+设置好后，效果是这样的：
+
+- 在"写作总结"笔记里贴图片 → 图片自动放在"写作总结"文件夹的 `images` 子文件夹里
+- 在"项目计划"笔记里贴图片 → 图片自动放在"项目计划"文件夹的 `images` 子文件夹里
+每篇笔记的图片都独立存放，再也不乱套了！
+
+自动在笔记文件夹内生成图片文件夹进行存放！
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/uSN9RggjCZ2lkiciaylvAfCnoicwWPTBnQnQwLxW2e6eEeibb7Q57ricaTFKtzC42QXj75osx8qZibuF42CW5a2LSa8VRsgFfYicUhDKs49cLJ1YUk/640?wx_fmt=png&from=appmsg)
+
+## 🎯 第二步：安装主角插件 Image Converter
+
+虽然图片有地方放了，但文件名还是乱七八糟的乱码。而且像我这种习惯用 微信截图的人，或者同步文章时，默认出来都是 PNG 格式，图片体积很大。
+
+这时候就需要 **Image Converter** 上场了。它专治两个毛病：
+
+- **文件名看不懂**
+- **图片体积大**
+安装很简单：
+
+- 打开 Obsidian 的**社区插件市场**
+- 搜索 **Image Converter**
+- 点击安装并启用。
+- 大家网络不好的可以通过小程序网盘安装！小宅的软件空间
+
+## 🔧 第三步：让图片都有"名字"
+
+安装完成后，打开 Image Converter 的设置页面。我们要让每张图片都有一个看得懂的名字。
+
+关键设置在这里：**Filename** 格式
+
+默认格式是：`{{noteName}}-{{timestamp}}`
+
+- `{{noteName}}` = 笔记名字
+- `{{timestamp}}` = 时间戳
+你也可以自己修改格式，比如：
+
+- `{{noteName}}-图片`
+- `{{year}}年{{month}}月-{{noteName}}`
+
+**设置后的效果：**
+
+- 在"公众号写作"笔记里贴截图 → 图片自动命名为"公众号写作-1776250760498"
+- 在"教程大纲"笔记里贴图片 → 图片自动命名为"教程大纲-1776250761234"
+现在每张图片都带着笔记的名称了！
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/uSN9RggjCZ1UQwez2E0TIPF9jRzSs0cIlfqp8X4WPFDeEQ2LoBwdyDugKCAYMErQia1tfjWq1kn7enafZ0McpgBicZfGvRLbFsmvraic91eHbI/640?wx_fmt=png&from=appmsg)
+
+## 💾 第四步：自动压缩图片体积
+
+Image Converter 另一个超实用的功能是：**自动转换图片格式**。
+
+很多人喜欢截图保存，或者从微信传图片，这些默认都是 PNG 格式。PNG 文件大，占空间不说，而且公众号还不支持！我平时写文章上传到公众号还要折腾格式转换。
+
+我的设置是这样的：
+
+- **输出格式**：JPEG
+- **压缩质量**：85%（兼顾清晰度和体积）
+为什么选 JPEG？
+
+- 公众号文章支持 JPEG
+- 体积比 PNG 小很多
+- 大部分网页都兼容
+如果你主要在本地使用，也可以选 WebP（更省空间）。
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/uSN9RggjCZ112ibIKOMc56LzxYgZAAAFhqzOD5fqE2Xp7q7BZVzMllHjiazMiaSuswwfvfqVEauD7NqAHTEkAWj1JQR732gE0icGwEIfgy6KE9c/640?wx_fmt=png&from=appmsg)
+
+📁 **完整工作流：粘贴 → 自动完成**
+
+经过四步设置后，现在的工作流程变得超级简单：
+
+- 碰到好内容 → 截图（或 Ctrl+C 复制图片）
+- 回到 Obsidian → Ctrl+V 粘贴
+- **系统自动完成**
+- 图片放在对应笔记的 `images` 文件夹
+- 文件名变成"笔记名-时间戳.jpeg"
+- 格式自动从 PNG 优化为 JPEG
+
+## 🏆 这样做的好处
+
+### 1. 管理方便
+
+以前找张截图要翻半天，现在一看名字就知道是哪篇笔记的图片。
+
+### 2. 节省空间
+
+PNG 转 JPEG，图片体积能减少 50-70%，也让我们云储存会轻松不少！
+
+### 3. 发布省事
+
+做公众号的朋友特别有体会：不用再手动转格式，或者遇到大于2M的情况就会少很多！
+
+### 4. 查找快捷
+
+文件名带笔记名，搜索时一找一个准。
+
+## 💡 实用小技巧
+
+### 组合拳打法
+
+把 **Image Converter** 插件和 **Excalidraw** 一起用，做图解笔记特别方便：
+
+- Excalidraw 画图 → 导出图片
+- 粘贴进 Obsidian → Image Converter 自动处理
+
+### 配合模板使用
+
+设置自动图片引用格式，让图片在笔记里显示得更整齐。
+
+## 🔍 如果遇到问题
+
+❓ **问题**：某些网站图片保存不出来
+💡 **试试**：看看有没有特殊的脚本限制
+
+❓ **问题**：转换后图片模糊
+💡 **试试**：可以尝试调高一下图片质量！
+
+## ✨ 可以说Image Converter 用最小的代价，解决了 Obsidian 图片管理最难搞的两个问题：命名乱和体积大。
+
+如果你也受够了 Obsidian 里的图片管理混乱，这个插件绝对值得一试。花 5 分钟设置，换来的是清晰整洁的笔记库。
+
+关注obsidian指南，更多小技巧等着你！
