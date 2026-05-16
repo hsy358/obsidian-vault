@@ -4,49 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b7a1fb6e29b4e8cc",
+        "id": "ae2d7400ca349e60",
         "type": "tabs",
         "children": [
           {
-            "id": "6a906142fb6678b5",
+            "id": "063d6b076e6dc56e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-小龙虾工作区/面试准备_智能客服知识管理Agent平台/何四燕_面试宝典v1.md",
+                "file": "公众号文章/unknown-date/我写了半年skill，直到上周才意识到自己从一开始就搞错了方向.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "何四燕_面试宝典v1"
-            }
-          },
-          {
-            "id": "73ea5e451022df0a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "00-小龙虾工作区/面试准备_智能客服知识管理Agent平台.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "面试准备_智能客服知识管理Agent平台"
-            }
-          },
-          {
-            "id": "f3ae335f338cb103",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "未命名.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "未命名"
+              "title": "我写了半年skill，直到上周才意识到自己从一开始就搞错了方向"
             }
           }
         ]
@@ -106,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 331.5
   },
   "right": {
     "id": "3f23c686907a35a1",
@@ -122,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "notes/wechat/Skill写得好好的，换模型就翻车？缺的不是能力是Harness.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "Skill写得好好的，换模型就翻车？缺的不是能力是Harness 的反向链接列表"
             }
           },
           {
@@ -140,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "notes/wechat/Skill写得好好的，换模型就翻车？缺的不是能力是Harness.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "出链"
+              "title": "Skill写得好好的，换模型就翻车？缺的不是能力是Harness 的出链列表"
             }
           },
           {
@@ -182,12 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "公众号文章/unknown-date/我写了半年skill，直到上周才意识到自己从一开始就搞错了方向.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "我写了半年skill，直到上周才意识到自己从一开始就搞错了方向 的大纲"
             }
           },
           {
@@ -199,13 +174,23 @@
               "icon": "bot",
               "title": "Claudian"
             }
+          },
+          {
+            "id": "c61cdd0e39df514c",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 438.5
+    "width": 282.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -222,41 +207,49 @@
   },
   "active": "f76f244249a090ed",
   "lastOpenFiles": [
-    "notes/wechat",
-    "notes",
-    "00-小龙虾工作区/面试准备_智能客服知识管理Agent平台/何四燕_面试宝典v3_跨部门协作专项版.md",
-    "00-小龙虾工作区/面试准备_智能客服知识管理Agent平台/何四燕_面试宝典v2_技术深度版.md",
-    "00-小龙虾工作区/面试准备_智能客服知识管理Agent平台/何四燕_面试宝典v1.md",
-    "00-小龙虾工作区/面试准备_智能客服知识管理Agent平台.md",
-    "00-小龙虾工作区/面试准备_智能客服知识管理Agent平台",
-    "00-小龙虾工作区/memory/2026-03-10.md",
-    "未命名.md",
-    "未命名",
+    "公众号文章/unknown-date/AI 生成 PPT 王炸！ 从 PDF、Word 、MD、图片中生成原生可编辑PPT.md",
+    "公众号文章/unknown-date/我写了半年skill，直到上周才意识到自己从一开始就搞错了方向.md",
+    "公众号文章/2026-05-13/我试了几乎所有最火的 AI 生成 PPT 方案，完整经验总结给你.md",
+    "公众号文章/2026-05-12/三器合一：gstack + Superpowers + OpenSpec 工程化 AI 编程实战.md",
     "03-资源/03-AI工具/OpenClaw+Obsidian+ClaudeCode 知识管理三件套.md",
-    "00-小龙虾工作区/HEARTBEAT.md",
-    "00-小龙虾工作区/BOOTSTRAP.md",
-    "00-小龙虾工作区/AGENTS.md",
-    "00-小龙虾工作区/skills/openclaw-backup/SKILL.md",
-    "00-小龙虾工作区/skills/openclaw-backup/references/restore.md",
-    "00-小龙虾工作区/skills/mh-obsidian/SKILL.md",
-    "00-小龙虾工作区/skills/email-daily-summary/SKILL.md",
-    "00-小龙虾工作区/skills/find-skills/SKILL.md",
-    "00-小龙虾工作区/memory/2026-03-08.md",
-    "00-小龙虾工作区/IDENTITY.md",
-    "00-小龙虾工作区/SOUL.md",
-    "00-小龙虾工作区/TOOLS.md",
-    "00-小龙虾工作区/USER.md",
-    "00-小龙虾工作区/skills/sub-agent-factory/SKILL.md",
-    "00-小龙虾工作区/skills/github/SKILL.md",
-    "00-小龙虾工作区/skills/sub-agent-factory/scripts/create_agent.sh",
-    "00-小龙虾工作区/skills/openclaw-backup/scripts/backup.sh",
-    "00-小龙虾工作区/skills/sub-agent-factory/_meta.json",
-    "00-小龙虾工作区/skills/sub-agent-factory/scripts",
-    "00-小龙虾工作区/skills/openclaw-skill-vetter/_meta.json",
-    "00-小龙虾工作区/skills/openclaw-skill-vetter/SKILL.md",
-    "00-小龙虾工作区/skills/openclaw-skill-vetter/README.md",
-    "00-小龙虾工作区/skills/openclaw-backup/references",
-    "00-小龙虾工作区/skills/openclaw-backup/_meta.json",
-    "欢迎.md"
+    "notes/wechat/2026-05-11/OpenAI、Claude开始做咨询了，对国内2B企业的启示是什么？.md",
+    "公众号文章/unknown-date",
+    "公众号文章/2026-05-13",
+    "公众号文章/2026-05-12/Agent Skill规范、构建与设计模式.md",
+    "公众号文章/2026-05-12",
+    "公众号文章/2026-05-11/给大家推荐10个做精美PPT的Skill，30秒生成10页，帮你省下半天的排版时间 ！.md",
+    "公众号文章/2026-05-11/再盘 24 个开源的 AI PPT Skill，推荐收藏.md",
+    "公众号文章/2026-05-02/最值得推荐的20个宝藏Skills，小众但真香.md",
+    "公众号文章/2026-05-02",
+    "公众号文章/2026-04-27/一句话搞定 PDFWordPPT全格式解析！AI 帮你从零搭建专属知识体系！.md",
+    "公众号文章/2026-04-27",
+    "notes/wechat/爆款日志/2026-05-15.md",
+    "notes/wechat/爆款日志/2026-05-14.md",
+    "notes/wechat/爆款日志/2026-05-13.md",
+    "notes/wechat/爆款日志/2026-05-12.md",
+    "notes/wechat/公众号文章/2026-05-11/OpenAI、Claude开始做咨询了，对国内2B企业的启示是什么？.md",
+    "notes/wechat/公众号文章/2026-05-11/Hermes Agent的4个天坑，怎么填？.md",
+    "notes/wechat/公众号文章/2026-05-11",
+    "notes/wechat/公众号文章/2026-05-10/让你的Claude Code通宵干活！含完整教程.md",
+    "notes/wechat/公众号文章/2026-05-10/Claude Code 最强配置清单：七个高效开源工具，让 AI 编程从能用变成好用.md",
+    "notes/wechat/公众号文章/2026-05-10",
+    "notes/wechat/公众号文章/2026-05-09/Hermes Agent v0.13.0更新：一台机器，三个 AI 团队成员各司其职.md",
+    "notes/wechat/公众号文章/2026-05-09/gzh-explosive-content-detector：公众号爆款文章查询Skill.md",
+    "notes/wechat/公众号文章/2026-05-09/AI 终于能写 PPT 了（不是糊弄你的那种）.md",
+    "notes/wechat/公众号文章/2026-05-09",
+    "公众号文章/2026-05-11/为什么我放弃了 OpenClaw，全面拥抱 Hermes Agent（上手指南）.md",
+    "公众号文章/2026-05-11/Hermes Agent的4个天坑，怎么填？.md",
+    "公众号文章/2026-05-11",
+    "公众号文章",
+    "notes/wechat/公众号文章/2026-05-08/智能体规范应用与创新发展实施意见.md",
+    "notes/wechat/公众号文章/2026-05-08/Superpowers 深度实战指南：从入门到精通.md",
+    "未命名.canvas",
+    "00-小龙虾工作区/screenshots/71cc2f76-74b5-42aa-a63a-c7f611557a7f.png",
+    "00-小龙虾工作区/screenshots/a77d4da9-ef9f-4c9b-a6c2-d27c0e3933eb.png",
+    "00-小龙虾工作区/screenshots/e3966d5b-e07b-485e-b9c5-fc563ad4ea76.png",
+    "00-小龙虾工作区/screenshots/f3ccd2f7-2af3-4c54-a148-74550b4b58ab.png",
+    "00-小龙虾工作区/screenshots/f090020f-4da3-4d7e-95a5-f8297772ed9d.png",
+    "00-小龙虾工作区/screenshots/b3e95dbe-e090-4610-ab12-6ebb983fa7df.png",
+    "00-小龙虾工作区/screenshots/87af2b46-e326-429a-9737-f8ed17f89fbd.png"
   ]
 }
