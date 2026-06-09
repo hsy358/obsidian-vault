@@ -1,0 +1,404 @@
+# CAPABILITY-GRAPH.yaml — Yuanzhi OS
+
+> 能力图谱，基于 Yuanzhi OS 需求文档中提到的模块与 AI 场景构建。
+> 状态：lightweight（第一轮）
+
+capabilities:
+
+  # ── 用户与权限 ──────────────────────────────────────────────
+  - id: auth.multi-role
+    name: 多角色身份识别
+    type: capability
+    layer: backend
+    status: existing
+    files:
+      - server/service/UserService.java # [inferred]
+    provides:
+      - 区分校领导、教务处管理员、系部主任、专业带头人、一线教师、评审专家、系统管理员
+    depends_on:
+      - auth.login
+    reusable_for:
+      - 三大空间权限隔离
+      - 菜单/路由权限控制
+    constraints:
+      - 角色数量与权限矩阵待确认
+    risks: []
+
+  - id: auth.space-isolation
+    name: 三大空间隔离
+    type: capability
+    layer: frontend
+    status: missing
+    files: []
+    provides:
+      - 管理空间、专业空间、教师空间的菜单/路由隔离
+    depends_on:
+      - auth.multi-role
+    reusable_for:
+      - 角色专属页面展示
+    risks:
+      - 空间切换时状态是否清空待确认
+      - 跨空间数据访问权限待定义
+
+  # ── 教学资源管理 ──────────────────────────────────────────────
+  - id: resource.upload
+    name: 教学资源上传
+    type: capability
+    layer: frontend + backend
+    status: existing
+    files:
+      - src/views/ResourceUploadView.vue    # [inferred]
+      - server/controller/ResourceController.java
+    provides:
+      - 支持 PDF/Word/PPT/图片多格式上传
+    depends_on:
+      - storage.postgres
+    reusable_for:
+      - PDF解析场景
+      - OCR识别场景
+    risks: []
+
+  - id: resource.pdf-extract
+    name: PDF 解析指标提取
+    type: capability
+    layer: backend
+    status: existing
+    files:
+      - server/service/ResourceExtractService.java
+    provides:
+      - 从 PDF 教学文档中提取结构化指标（如课程名称、学时、学分等）
+    depends_on:
+      - resource.upload
+      - ai.pdf-parser
+    reusable_for:
+      - 人才培养方案解析
+      - 教学大纲提取
+    risks:
+      - 不同模板格式的兼容性
+
+  - id: resource.ocr
+    name: 多模态 OCR 识别
+    type: capability
+    layer: backend
+    status: existing
+    files:
+      - server/service/ResourceExtractService.java  # [inferred: OCR模块]
+    provides:
+      - 对扫描件/图片进行文字识别
+    depends_on:
+      - resource.upload
+      - ai.ocr-engine
+    reusable_for:
+      - 历史纸质材料数字化
+    risks:
+      - 扫描质量对识别准确率的影响
+
+  # ── AI 核心能力 ──────────────────────────────────────────────
+  - id: ai.chat
+    name: AI 对话服务
+    type: capability
+    layer: backend
+    status: existing
+    files:
+      - server/service/AiChatService.java
+    provides:
+      - 用户与 AI 的多轮对话
+      - 意图识别与意图分发
+    depends_on:
+      - ai.llm-backend
+    reusable_for:
+      - 长文裂变任务触发
+      - 文档摘要请求
+      - 知识图谱问答
+    risks:
+      - 对话上下文长度限制
+      - AI 响应时延
+
+  - id: ai.doc-split
+    name: 长文裂变任务
+    type: capability
+    layer: backend
+    status: new
+    files:
+      - server/service/AiChatService.java  # [planned: splitMission方法]
+    provides:
+      - 将长文档自动拆解为可执行的子任务列表
+    depends_on:
+      - ai.chat
+    reusable_for:
+      - 培养方案分解为课程单元
+      - 教学计划拆解为课时任务
+    risks:
+      - 裂变结果的可执行性验证
+      - 任务粒度控制
+
+  - id: ai.summary
+    name: 文档摘要里程碑生成
+    type: capability
+    layer: backend
+    status: new
+    files:
+      - server/service/AiChatService.java  # [planned: generateSummary方法]
+    provides:
+      - 对长文档自动生成摘要和关键里程碑节点
+    depends_on:
+      - ai.chat
+    reusable_for:
+      - 课程章节摘要
+      - 教学方案概览
+    risks:
+      - 摘要准确性评估方式
+
+  - id: ai.pdf-parser
+    name: PDF 解析引擎
+    type: capability
+    layer: backend
+    status: existing
+    files:
+      - server/service/ResourceExtractService.java
+    provides:
+      - 文本提取、表格识别、布局分析
+    depends_on:
+      - storage.postgres  # 元数据存储
+    reusable_for:
+      - 指标提取
+      - 内容检索
+    risks:
+      - 加密/图片型 PDF 的处理
+
+  - id: ai.ocr-engine
+    name: OCR 引擎
+    type: capability
+    layer: backend
+    status: existing
+    files:
+      - server/service/ResourceExtractService.java  # [inferred]
+    provides:
+      - 印刷体/手写体文字识别
+    depends_on:
+      - ai.llm-backend  # [inferred]
+    reusable_for:
+      - 扫描件识别
+    risks:
+      - 多语言/公式识别能力
+
+  # ── 知识图谱 ─────────────────────────────────────────────────
+  - id: kg.engine
+    name: GraphITI 知识图谱引擎
+    type: capability
+    layer: backend
+    status: existing
+    files:
+      - server/service/GraphitiService.java  # [inferred]
+    provides:
+      -课程知识图谱构建
+      - 节点/边的 CRUD
+      - 图遍历查询
+    depends_on:
+      - storage.graph (FalkorDB/Neo4j)
+      - storage.vector (PgVector)
+    reusable_for:
+      -课程关联分析
+      - 教学路径推荐
+      - AI 问答上下文
+    risks:
+      - 大规模图谱的性能
+
+  - id: kg.frontend
+    name: 知识图谱前端展示
+    type: capability
+    layer: frontend
+    status: existing
+    files:
+      - src/views/KnowledgeGraphView.vue
+    provides:
+      - 图谱可视化展示
+      - 节点交互（点击/展开/筛选）
+    depends_on:
+      - kg.engine
+    reusable_for:
+      - 课程体系展示
+    risks: []
+
+  - id: kg.vector-search
+    name: 向量相似检索
+    type: capability
+    layer: backend
+    status: existing
+    files:
+      - server/repository/VectorRepository.java  # [inferred]
+    provides:
+      - 基于 PgVector 的向量检索
+      - 为图谱提供语义搜索能力
+    depends_on:
+      - storage.vector
+    reusable_for:
+      - AI 问答检索
+      - 知识点相似匹配
+    risks: []
+
+  # ── 人才培养方案 ────────────────────────────────────────────
+  - id: plan.import
+    name: 培养方案导入解析
+    type: capability
+    layer: backend
+    status: existing
+    files:
+      - server/service/plan/PlanImportParser.java
+    provides:
+      - Excel/Word 格式的培养方案导入
+      - 结构化字段提取
+    depends_on:
+      - resource.pdf-extract
+    reusable_for:
+      - 专业建设基础数据录入
+    risks:
+      - 不同院校方案格式差异
+
+  - id: plan.frontend
+    name: 培养方案视图
+    type: capability
+    layer: frontend
+    status: existing
+    files:
+      - src/views/ProgramPlanView.vue
+    provides:
+      - 培养方案展示/编辑
+      - 课程关联展示
+    depends_on:
+      - plan.import
+    reusable_for:
+      - 专业带头人编辑方案
+    risks: []
+
+  # ── 通用 UI组件 ────────────────────────────────────────────
+  - id: ui.tree-select
+    name: 树形选择组件
+    type: capability
+    layer: frontend
+    status: existing
+    files:
+      - src/components/TreeSelectWidget.vue
+    provides:
+      - 专业/课程/章节多级树形选择
+    reusable_for:
+      - 培养方案编辑
+      - 知识图谱节点选择
+    risks: []
+
+  - id: ui.global-dock
+    name: 全局停靠栏
+    type: capability
+    layer: frontend
+    status: existing
+    files:
+      - src/components/GlobalDock.vue
+    provides:
+      - 全局 AI 能力快捷入口
+      - 任务面板停靠
+    reusable_for:
+      - AI 任务触发
+      - 消息通知
+    risks: []
+
+  - id: ui.ai-sidebar
+    name: AI 侧边栏
+    type: capability
+    layer: frontend
+    status: existing
+    files:
+      - src/components/AISidebar.vue
+    provides:
+      - AI 对话界面
+      - 任务历史记录
+    depends_on:
+      - ai.chat
+    reusable_for:
+      - AI 任务发起
+      - 任务状态追踪
+    risks: []
+
+  # ── 存储层 ──────────────────────────────────────────────────
+  - id: storage.postgres
+    name: PostgreSQL 主数据库
+    type: external_dependency
+    layer: infrastructure
+    status: existing
+    provides:
+      - 业务数据持久化
+      - 结构化查询
+    risks: []
+
+  - id: storage.vector
+    name: PgVector 向量存储
+    type: external_dependency
+    layer: infrastructure
+    status: existing
+    provides:
+      - 向量嵌入存储与检索
+    risks: []
+
+  - id: storage.graph
+    name: FalkorDB / Neo4j 图数据库
+    type: external_dependency
+    layer: infrastructure
+    status: existing
+    provides:
+      - 知识图谱存储与查询
+    risks: []
+
+  # ── 首页 ────────────────────────────────────────────────────
+  - id: page.home
+    name: 首页
+    type: capability
+    layer: frontend
+    status: existing
+    files:
+      - src/views/HomeView.vue
+    provides:
+      - 三大空间快捷入口
+      - 角色首页面板
+    depends_on:
+      - auth.multi-role
+    reusable_for:
+      - 角色化首页定制
+    risks: []
+
+# ── 缺失能力（待新增）───────────────────────────────────────────────
+missing_capabilities:
+
+  - id: mission.tracking
+    name: AI 任务追踪面板
+    description: 用户发起长文裂变/摘要等任务后，需要统一的任务状态追踪面板
+    layer: frontend + backend
+    priority: P1
+    blocks:
+      - AI 任务结果展示
+      - 任务取消/重试
+
+  - id: milestone.review
+    name: 里程碑评审流程
+    description: AI 生成的摘要里程碑需要评审专家确认后才能作为正式教学节点
+    layer: backend
+    priority: P0
+    blocks:
+      - 教学节点入库
+      - 知识图谱节点生成
+
+  - id: audit logging
+    name: 操作审计日志
+    description: 教务处/系部操作需要完整的审计日志（谁在什么时候做了什么修改）
+    layer: backend
+    priority: P1
+    blocks:
+      - 权限变更追踪
+      - 数据变更历史
+
+  - id: notification.system
+    name: 站内通知系统
+    description: 任务完成、评审通知、方案退回等需要站内消息通知
+    layer: frontend + backend
+    priority: P1
+    blocks:
+      - 任务完成通知
+      - 审批流转通知
