@@ -1,0 +1,673 @@
+{
+  "requirement": {
+    "id": "yuanzhi-os",
+    "name": "Yuanzhi OS - AI原生教学操作系统",
+    "status": "draft"
+  },
+  "nodes": [
+    {
+      "id": "req.space-management",
+      "type": "requirement",
+      "label": "三大空间隔离",
+      "status": "open",
+      "files": [],
+      "description": "管理空间/专业空间/教师空间的菜单/路由隔离"
+    },
+    {
+      "id": "req.resource-upload",
+      "type": "requirement",
+      "label": "教学资源上传",
+      "status": "confirmed",
+      "files": ["server/controller/ResourceController.java"],
+      "description": "支持PDF/Word/PPT/图片格式上传，单文件≤100MB"
+    },
+    {
+      "id": "req.pdf-extract",
+      "type": "requirement",
+      "label": "PDF解析提取指标",
+      "status": "open",
+      "files": ["server/service/ResourceExtractService.java"],
+      "description": "从PDF教学文档提取课程名、学时、学分、考核方式"
+    },
+    {
+      "id": "req.ocr",
+      "type": "requirement",
+      "label": "多模态OCR识别",
+      "status": "open",
+      "files": ["server/service/ResourceExtractService.java"],
+      "description": "对扫描件/图片进行文字识别"
+    },
+    {
+      "id": "req.doc-split",
+      "type": "requirement",
+      "label": "长文裂变任务",
+      "status": "new",
+      "files": ["server/service/AiChatService.java"],
+      "description": "将长文档拆解为可执行的子任务列表"
+    },
+    {
+      "id": "req.summary",
+      "type": "requirement",
+      "label": "文档摘要里程碑",
+      "status": "new",
+      "files": ["server/service/AiChatService.java"],
+      "description": "对长文档生成摘要和关键里程碑节点"
+    },
+    {
+      "id": "req.knowledge-graph",
+      "type": "requirement",
+      "label": "课程知识图谱",
+      "status": "open",
+      "files": ["src/views/KnowledgeGraphView.vue", "server/service/GraphitiService.java"],
+      "description": "基于课程内容构建知识网络"
+    },
+    {
+      "id": "req.milestone-review",
+      "type": "requirement",
+      "label": "图谱节点评审流程",
+      "status": "new",
+      "files": [],
+      "description": "AI生成的图谱节点需经评审专家确认后才能发布"
+    },
+    {
+      "id": "req.professional-review",
+      "type": "requirement",
+      "label": "专业方案审核流程",
+      "status": "open",
+      "files": [],
+      "description": "系部主任提交→教务处初审→评审专家终审"
+    },
+    {
+      "id": "req.ai-chat",
+      "type": "requirement",
+      "label": "AI对话辅助",
+      "status": "existing",
+      "files": ["server/service/AiChatService.java", "src/components/AISidebar.vue"],
+      "description": "多轮对话支持教案编写"
+    },
+    {
+      "id": "req.dashboard",
+      "type": "requirement",
+      "label": "数据看板",
+      "status": "open",
+      "files": ["src/views/HomeView.vue"],
+      "description": "校领导查看专业建设统计指标"
+    },
+    {
+      "id": "req.notification",
+      "type": "requirement",
+      "label": "站内通知系统",
+      "status": "missing",
+      "files": [],
+      "description": "任务完成/审核/催办等通知"
+    },
+    {
+      "id": "req.audit-log",
+      "type": "requirement",
+      "label": "操作审计日志",
+      "status": "missing",
+      "files": [],
+      "description": "关键操作留痕"
+    },
+    {
+      "id": "req.sds-migration",
+      "type": "requirement",
+      "label": "SDS数据迁移",
+      "status": "missing",
+      "files": [],
+      "description": "SDS系统存量数据迁移至Yuanzhi OS"
+    },
+    {
+      "id": "goal.ai-native-os",
+      "type": "goal",
+      "label": "构建AI原生教学操作系统",
+      "status": "confirmed",
+      "description": "全面替代SDS，覆盖专业建设、人才培养方案、一线教学全流程"
+    },
+    {
+      "id": "role.r01",
+      "type": "role",
+      "label": "校领导",
+      "status": "confirmed",
+      "description": "管理空间，数据决策"
+    },
+    {
+      "id": "role.r02",
+      "type": "role",
+      "label": "教务处管理员",
+      "status": "confirmed",
+      "description": "管理空间，专业审批、资源配置"
+    },
+    {
+      "id": "role.r03",
+      "type": "role",
+      "label": "系部主任",
+      "status": "confirmed",
+      "description": "专业空间，专业规划、方案初审提交"
+    },
+    {
+      "id": "role.r04",
+      "type": "role",
+      "label": "专业带头人",
+      "status": "confirmed",
+      "description": "专业空间，课程体系设计、知识图谱构建"
+    },
+    {
+      "id": "role.r05",
+      "type": "role",
+      "label": "一线教师",
+      "status": "confirmed",
+      "description": "教师空间，教案编写、AI辅助教学"
+    },
+    {
+      "id": "role.r06",
+      "type": "role",
+      "label": "评审专家",
+      "status": "confirmed",
+      "description": "教师空间，方案终审、图谱节点评审"
+    },
+    {
+      "id": "role.r07",
+      "type": "role",
+      "label": "系统管理员",
+      "status": "confirmed",
+      "description": "全局，系统配置、权限管理"
+    },
+    {
+      "id": "page.home",
+      "type": "page",
+      "label": "首页",
+      "status": "existing",
+      "files": ["src/views/HomeView.vue"],
+      "description": "三大空间入口，数据看板"
+    },
+    {
+      "id": "page.program-plan",
+      "type": "page",
+      "label": "培养方案视图",
+      "status": "existing",
+      "files": ["src/views/ProgramPlanView.vue"],
+      "description": "培养方案编辑/提交"
+    },
+    {
+      "id": "page.knowledge-graph",
+      "type": "page",
+      "label": "知识图谱视图",
+      "status": "existing",
+      "files": ["src/views/KnowledgeGraphView.vue"],
+      "description": "图谱可视化与编辑"
+    },
+    {
+      "id": "comp.tree-select",
+      "type": "component",
+      "label": "树形选择组件",
+      "status": "existing",
+      "files": ["src/components/TreeSelectWidget.vue"],
+      "description": "专业/课程/章节多级选择"
+    },
+    {
+      "id": "comp.global-dock",
+      "type": "component",
+      "label": "全局停靠栏",
+      "status": "existing",
+      "files": ["src/components/GlobalDock.vue"],
+      "description": "AI能力快捷入口"
+    },
+    {
+      "id": "comp.ai-sidebar",
+      "type": "component",
+      "label": "AI侧边栏",
+      "status": "existing",
+      "files": ["src/components/AISidebar.vue"],
+      "description": "AI对话与任务追踪"
+    },
+    {
+      "id": "svc.resource-controller",
+      "type": "controller",
+      "label": "资源管理Controller",
+      "status": "existing",
+      "files": ["server/controller/ResourceController.java"],
+      "description": "资源上传/解析接口"
+    },
+    {
+      "id": "svc.ai-chat",
+      "type": "service",
+      "label": "AI对话服务",
+      "status": "existing",
+      "files": ["server/service/AiChatService.java"],
+      "description": "多轮对话/裂变/摘要"
+    },
+    {
+      "id": "svc.resource-extract",
+      "type": "service",
+      "label": "资源提取服务",
+      "status": "existing",
+      "files": ["server/service/ResourceExtractService.java"],
+      "description": "PDF解析/OCR"
+    },
+    {
+      "id": "svc.plan-import",
+      "type": "service",
+      "label": "培养方案导入解析",
+      "status": "existing",
+      "files": ["server/service/plan/PlanImportParser.java"],
+      "description": "Excel/Word方案导入"
+    },
+    {
+      "id": "svc.graphiti",
+      "type": "service",
+      "label": "GraphITI集成服务",
+      "status": "missing",
+      "files": [],
+      "description": "GraphITI引擎封装"
+    },
+    {
+      "id": "svc.review",
+      "type": "service",
+      "label": "评审服务",
+      "status": "missing",
+      "files": [],
+      "description": "图谱节点/专业方案评审"
+    },
+    {
+      "id": "svc.notification",
+      "type": "service",
+      "label": "通知服务",
+      "status": "missing",
+      "files": [],
+      "description": "站内消息发送"
+    },
+    {
+      "id": "svc.audit",
+      "type": "service",
+      "label": "审计日志服务",
+      "status": "missing",
+      "files": [],
+      "description": "关键操作审计"
+    },
+    {
+      "id": "model.resource",
+      "type": "data_model",
+      "label": "resource表",
+      "status": "planned",
+      "files": [],
+      "description": "教学资源元数据"
+    },
+    {
+      "id": "model.professional-project",
+      "type": "data_model",
+      "label": "professional_project表",
+      "status": "planned",
+      "files": [],
+      "description": "专业数据及状态"
+    },
+    {
+      "id": "model.ai-mission",
+      "type": "data_model",
+      "label": "ai_mission表",
+      "status": "planned",
+      "files": [],
+      "description": "AI任务记录"
+    },
+    {
+      "id": "model.knowledge-node",
+      "type": "data_model",
+      "label": "knowledge_node表",
+      "status": "planned",
+      "files": [],
+      "description": "知识图谱节点（FalkorDB/Neo4j）"
+    },
+    {
+      "id": "model.notification",
+      "type": "data_model",
+      "label": "notification表",
+      "status": "planned",
+      "files": [],
+      "description": "通知记录"
+    },
+    {
+      "id": "external.postgres",
+      "type": "external_dependency",
+      "label": "PostgreSQL",
+      "status": "existing",
+      "files": [],
+      "description": "主业务数据库"
+    },
+    {
+      "id": "external.pgvector",
+      "type": "external_dependency",
+      "label": "PgVector",
+      "status": "existing",
+      "files": [],
+      "description": "向量嵌入存储"
+    },
+    {
+      "id": "external.graphiti",
+      "type": "external_dependency",
+      "label": "GraphITI引擎",
+      "status": "existing",
+      "files": [],
+      "description": "知识图谱构建引擎"
+    },
+    {
+      "id": "external.graphdb",
+      "type": "external_dependency",
+      "label": "FalkorDB/Neo4j",
+      "status": "existing",
+      "files": [],
+      "description": "图数据库（选型待确认）"
+    },
+    {
+      "id": "question.q003",
+      "type": "question",
+      "label": "Q003: PDF解析必须提取的指标字段清单",
+      "status": "open",
+      "priority": "P0",
+      "category": "business"
+    },
+    {
+      "id": "question.q009",
+      "type": "question",
+      "label": "Q009: GraphITI引擎集成方式",
+      "status": "open",
+      "priority": "P0",
+      "category": "engineering"
+    },
+    {
+      "id": "question.q010",
+      "type": "question",
+      "label": "Q010: 图数据库选型",
+      "status": "open",
+      "priority": "P0",
+      "category": "engineering"
+    },
+    {
+      "id": "question.q012",
+      "type": "question",
+      "label": "Q012: 初审和终审是否可以由同一角色担任",
+      "status": "open",
+      "priority": "P0",
+      "category": "business"
+    },
+    {
+      "id": "question.q014",
+      "type": "question",
+      "label": "Q014: SDS数据迁移策略",
+      "status": "open",
+      "priority": "P0",
+      "category": "integration"
+    },
+    {
+      "id": "question.q017",
+      "type": "question",
+      "label": "Q017: AI内容审核机制",
+      "status": "open",
+      "priority": "P0",
+      "category": "business"
+    },
+    {
+      "id": "risk.r001",
+      "type": "risk",
+      "label": "RISK-001: GraphITI集成方式未知",
+      "status": "open",
+      "level": "High"
+    },
+    {
+      "id": "risk.r002",
+      "type": "risk",
+      "label": "RISK-002: 图数据库选型未确定",
+      "status": "open",
+      "level": "High"
+    },
+    {
+      "id": "risk.r005",
+      "type": "risk",
+      "label": "RISK-005: SDS数据迁移策略缺失",
+      "status": "open",
+      "level": "High"
+    },
+    {
+      "id": "risk.r008",
+      "type": "risk",
+      "label": "RISK-008: AI内容合规审查机制缺失",
+      "status": "open",
+      "level": "High"
+    }
+  ],
+  "edges": [
+    {
+      "from": "goal.ai-native-os",
+      "to": "req.space-management",
+      "type": "requires",
+      "label": "空间隔离是核心需求"
+    },
+    {
+      "from": "req.resource-upload",
+      "to": "req.pdf-extract",
+      "type": "triggers",
+      "label": "上传后自动触发解析"
+    },
+    {
+      "from": "req.resource-upload",
+      "to": "req.ocr",
+      "type": "triggers",
+      "label": "图片型自动触发OCR"
+    },
+    {
+      "from": "req.ai-chat",
+      "to": "req.doc-split",
+      "type": "requires",
+      "label": "AI对话扩展支持裂变"
+    },
+    {
+      "from": "req.ai-chat",
+      "to": "req.summary",
+      "type": "requires",
+      "label": "AI对话扩展支持摘要"
+    },
+    {
+      "from": "req.doc-split",
+      "to": "req.knowledge-graph",
+      "type": "feeds",
+      "label": "裂变结果可导入图谱"
+    },
+    {
+      "from": "req.knowledge-graph",
+      "to": "req.milestone-review",
+      "type": "requires",
+      "label": "图谱节点需评审后发布"
+    },
+    {
+      "from": "req.professional-review",
+      "to": "req.notification",
+      "type": "requires",
+      "label": "审核结果需通知"
+    },
+    {
+      "from": "req.professional-review",
+      "to": "req.audit-log",
+      "type": "requires",
+      "label": "审核操作需审计"
+    },
+    {
+      "from": "req.resource-upload",
+      "to": "page.program-plan",
+      "type": "implemented_in",
+      "label": "培养方案视图使用资源"
+    },
+    {
+      "from": "req.pdf-extract",
+      "to": "comp.global-dock",
+      "type": "implemented_in",
+      "label": "全局停靠栏提供入口"
+    },
+    {
+      "from": "req.ai-chat",
+      "to": "comp.ai-sidebar",
+      "type": "implemented_in",
+      "label": "AI侧边栏是主交互界面"
+    },
+    {
+      "from": "req.knowledge-graph",
+      "to": "page.knowledge-graph",
+      "type": "implemented_in",
+      "label": "图谱页面展示"
+    },
+    {
+      "from": "req.resource-upload",
+      "to": "svc.resource-controller",
+      "type": "implemented_in",
+      "label": "资源Controller处理上传"
+    },
+    {
+      "from": "req.pdf-extract",
+      "to": "svc.resource-extract",
+      "type": "implemented_in",
+      "label": "资源提取服务完成解析"
+    },
+    {
+      "from": "req.ocr",
+      "to": "svc.resource-extract",
+      "type": "implemented_in",
+      "label": "资源提取服务完成OCR"
+    },
+    {
+      "from": "req.ai-chat",
+      "to": "svc.ai-chat",
+      "type": "implemented_in",
+      "label": "AI对话服务核心"
+    },
+    {
+      "from": "req.doc-split",
+      "to": "svc.ai-chat",
+      "type": "implemented_in",
+      "label": "AiChatService扩展裂变"
+    },
+    {
+      "from": "req.summary",
+      "to": "svc.ai-chat",
+      "type": "implemented_in",
+      "label": "AiChatService扩展摘要"
+    },
+    {
+      "from": "req.knowledge-graph",
+      "to": "svc.graphiti",
+      "type": "implemented_in",
+      "label": "GraphitiService封装引擎"
+    },
+    {
+      "from": "req.milestone-review",
+      "to": "svc.review",
+      "type": "implemented_in",
+      "label": "ReviewService处理评审"
+    },
+    {
+      "from": "req.notification",
+      "to": "svc.notification",
+      "type": "implemented_in",
+      "label": "NotificationService发送通知"
+    },
+    {
+      "from": "role.r04",
+      "to": "req.doc-split",
+      "type": "performs",
+      "label": "专业带头人发起裂变"
+    },
+    {
+      "from": "role.r04",
+      "to": "req.knowledge-graph",
+      "type": "performs",
+      "label": "专业带头人构建图谱"
+    },
+    {
+      "from": "role.r06",
+      "to": "req.milestone-review",
+      "type": "performs",
+      "label": "评审专家审核节点"
+    },
+    {
+      "from": "role.r01",
+      "to": "req.dashboard",
+      "type": "performs",
+      "label": "校领导查看看板"
+    },
+    {
+      "from": "role.r05",
+      "to": "req.ai-chat",
+      "type": "performs",
+      "label": "教师使用AI辅助"
+    },
+    {
+      "from": "question.q009",
+      "to": "req.knowledge-graph",
+      "type": "clarifies",
+      "label": "Q009阻塞图谱构建实现"
+    },
+    {
+      "from": "question.q010",
+      "to": "req.knowledge-graph",
+      "type": "clarifies",
+      "label": "Q010阻塞存储层设计"
+    },
+    {
+      "from": "question.q014",
+      "to": "req.sds-migration",
+      "type": "clarifies",
+      "label": "Q014阻塞迁移实现"
+    },
+    {
+      "from": "question.q017",
+      "to": "req.ai-chat",
+      "type": "clarifies",
+      "label": "Q017阻塞AI输出合规"
+    },
+    {
+      "from": "risk.r001",
+      "to": "svc.graphiti",
+      "type": "conflicts_with",
+      "label": "集成方式不确定"
+    },
+    {
+      "from": "risk.r002",
+      "to": "external.graphdb",
+      "type": "conflicts_with",
+      "label": "图数据库选型未确定"
+    },
+    {
+      "from": "risk.r005",
+      "to": "req.sds-migration",
+      "type": "conflicts_with",
+      "label": "迁移策略缺失"
+    },
+    {
+      "from": "risk.r008",
+      "to": "req.ai-chat",
+      "type": "conflicts_with",
+      "label": "合规机制缺失"
+    },
+    {
+      "from": "req.sds-migration",
+      "to": "external.postgres",
+      "type": "writes",
+      "label": "迁移数据到PostgreSQL"
+    },
+    {
+      "from": "req.knowledge-graph",
+      "to": "external.pgvector",
+      "type": "writes",
+      "label": "向量嵌入写入PgVector"
+    },
+    {
+      "from": "req.knowledge-graph",
+      "to": "external.graphdb",
+      "type": "writes",
+      "label": "节点写入图数据库"
+    },
+    {
+      "from": "req.knowledge-graph",
+      "to": "external.graphiti",
+      "type": "calls",
+      "label": "调用GraphITI引擎"
+    }
+  ]
+}
