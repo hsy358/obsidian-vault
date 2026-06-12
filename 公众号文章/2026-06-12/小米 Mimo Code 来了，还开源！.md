@@ -1,0 +1,287 @@
+---
+title: "小米 Mimo Code 来了，还开源！"
+author: "AINLP"
+publish_date: "2026-06-12 11:48:00"
+saved_date: "2026-06-12"
+source: "wechat"
+url: "https://mp.weixin.qq.com/s/q_uZxmU5a6azsLdUe5bd_w"
+---
+# 小米 Mimo Code 来了，还开源！
+小米 MiMo 团队把 MiMo Code 推出来了。
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/QsOstc0fpvllhEBiaY5qZgNXzeZcia4cflEEhp8NqMrCvra3pyTB5k3WcHcnHtpGgfC3l5ibAfWich095QLMfHtr1qWxt32fWicib9hnWmYFYgo48/640?wx_fmt=jpeg&from=appmsg)
+
+这是一款终端原生的 AI 编程智能体。它的目标直接落在开发者的真实仓库：读代码、改文件、跑命令、管理 Git、记住项目上下文，并把长任务拆成可以持续推进的工作流。
+
+MiMo Code 的源码已经公开在 `XiaomiMiMo/MiMo-Code`，许可证是 MIT。v0.1.0 Release 提供多平台构建产物，npm 包也同步上线。配套的中文文档和技术博客说明了安装、模型配置、权限边界和长任务设计。
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/QsOstc0fpvkjN2qmDoVwU8YMILPf0ahB1pg8qEpvrGHYg2Vgw3Xc3BRzHKdWQt6LD0RxzK6RrQl5AhaDZbZCOqyug3DL8pOCRe9iawoh7tm4/640?wx_fmt=png&from=appmsg)
+
+## 开源版本已经能直接上手
+
+MiMo Code 的上手路径不复杂。个人开发者可以从 npm 或安装脚本启动 CLI；团队评估时，则更应该先打开 GitHub，看看项目说明、LICENSE、USE_RESTRICTIONS、配置文档和源码结构。
+
+这意味着开发者不用等内测名额，也不用只看转述。想试它，可以从文档安装命令开始；想判断它的工程含量，可以直接看仓库说明、记忆系统、工作模式、Compose 相关实现，以及仓库里的权限和使用限制文件。
+
+安装方式也很直接。文档里给 Mac/Linux 用户的命令是：
+
+```
+curl -fsSL https://mimo.xiaomi.com/install | bash
+```
+
+我试了一下，安装很丝滑：
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/QsOstc0fpvk5qcr40x5OwIp8q9xhibYkicNDhfGicPuj6j5CTw8VylzNDibXdo9AKnciaV83QlLPNWkPrf6xob0hdqYm0qVARwDs4XzbkpczTOFE/640?wx_fmt=png&from=appmsg)
+
+Windows 用户文档推荐 npm：
+
+```
+npm install -g @mimo-ai/cli
+```
+
+## MiMo Code 的产品形态
+
+MiMo Code 把产品定位写成“终端原生的 AI 编程助手”，它对标的就是 Claude Code、Codex 这一类终端编程助手：直接进入仓库目录，读代码、改文件、跑命令、管理 Git，并在多轮任务里维持项目上下文。
+
+放到日常开发流程里看，MiMo Code 更像一个运行在终端里的编程 Agent，由四层能力组成：
+
+层级
+
+作用
+
+对开发者意味着什么
+
+终端入口
+
+在命令行里启动 TUI，与项目目录直接交互
+
+不需要离开仓库上下文
+
+Agent Runtime
+
+规划、执行、检查、继续推进长任务
+
+它要处理连续开发任务
+
+记忆系统
+
+保存项目知识、会话检查点、任务进展和临时笔记
+
+长对话之后仍能恢复工作状态
+
+工具连接
+
+Git、Shell、LSP、MCP、模型 Provider 等
+
+能接入已有开发工具链
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/QsOstc0fpvl2jzh8HZ8VbEOvnvictHNJUvdEZaQHiaNiaQqAZUicJdX0c5awAxaf56tREcOtiaibHAXV5ZzpfnQYc6kaAcL0uqosZZku4ZuI90WaM/640?wx_fmt=png&from=appmsg)
+
+这个结构决定了它的定位：MiMo Code 更接近一个可进入终端工作流的 coding agent。它要接住仓库上下文、工具调用、任务状态和多轮协作，核心竞争力也会落在真实开发任务的连续完成能力上。
+
+## 三个主要模式：build、plan、compose
+
+主要模式有三个：`build`、`plan`、`compose`。
+
+`build` 是默认模式，给完整工具权限，用来完成实际开发。它可以读写文件、运行命令、推动代码改动。
+
+`plan` 是只读分析模式，适合先理解仓库、梳理方案、找改动范围。很多时候，一个靠谱的 coding agent 不该一上来就改文件，先读懂项目结构更重要。
+
+`compose` 是编排模式，面向 specs-driven 开发和 Skill 驱动流程。它对应的是更长的需求链路：从规格、计划、执行、审查、测试、调试到合并，把一个任务拆成多个阶段推进。
+
+这三个模式的分层比较务实。真实开发里，“探索代码”“制定方案”“动手改代码”“做完整交付”对应不同权限和节奏。把权限和工作模式拆开，能减少 Agent 误动手、乱改文件的概率。
+
+## 记忆系统是这次最重的一块
+
+MiMo Code 的很多设计都围绕一个问题：长任务怎么不断线。
+
+短任务里，Agent 把对话历史和工具输出放进上下文，通常还能撑住。但真实仓库里的任务会不断产生新信息：文件内容、错误日志、测试结果、设计决策、用户补充、子任务进度。对话一长，上下文窗口迟早会挤满。
+
+MiMo Code 的方案是把记忆拆成文件和数据库层：
+
+记忆/状态文件
+
+仓库说明中的定位
+
+典型用途
+
+`MEMORY.md`项目级持久知识
+
+项目规则、架构决策、反复验证过的事实
+
+`checkpoint.md`会话检查点
+
+当前意图、任务树、涉及文件、错误和修复
+
+`notes.md`临时笔记区
+
+主 Agent 随手记录待整理信息
+
+`tasks/<id>/progress.md`单任务进展
+
+每个任务的执行日志和状态
+
+SQLite history
+
+完整会话轨迹
+
+需要回查原始工具输出时兜底
+
+官方博客里的 checkpoint-writer 机制图很能说明这个思路：主 Agent 继续干活，后台 writer subagent 负责把状态结构化写入文件；当上下文接近上限时，再用这些文件重建新的上下文。
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/QsOstc0fpvk9bWUc366gWQ9NMkx5souSUqkGhEfIjDicJyeTetz7jAy1lHESs86WhVtqoQlQGCKQKFqfKxCibu5TBD1z9gTCeDmaXB7iaJXB40/640?wx_fmt=jpeg&from=appmsg)
+
+checkpoint-writer 子智能体机制图这类设计对长程 Agent 很关键。一个会改代码的模型并不稀缺，能在连续几十轮之后还知道自己为什么这么改、下一步该做什么、哪些文件已经碰过，才是工程里真正难处理的部分。
+
+## 上下文管理：历史要整理后再注入
+
+MiMo Code 里把上下文管理拆成三项：自动 checkpoint、上下文重建、预算化注入。
+
+自动 checkpoint 负责在合适时机保存状态。上下文重建负责在窗口接近上限时，从 checkpoint、项目记忆、任务进展和近期消息里恢复任务。预算化注入负责控制不同材料进入上下文的比例，避免把窗口再次塞满。
+
+这套机制对应一个很实际的经验：长上下文仍然会被噪声占满。窗口越长，工具输出越多，模型越容易被无关信息淹没。把历史整理成结构化状态，再按预算注入，通常比无脑拼接全部聊天记录更可控。
+
+## Goal：让 Agent 不要太早停
+
+长任务里有一个常见问题：Agent 做到一半，看见前面有进展，就开始乐观地说“完成了”。这在自动化编码里很危险，因为代码可能还没通过测试，边界分支还没处理，甚至改动还没真正落盘。
+
+MiMo Code 提供 `/goal` 命令，让用户给会话设置停止条件。当 Agent 想停下来时，系统会用独立 judge 模型评估对话，判断目标是否真的满足。
+
+这个设计的价值不在“多调用一次模型”，而在把“是否完成”从主 Agent 的自我判断里拆出来。主 Agent 负责推进任务，独立 judge 负责看停止条件。角色分开之后，长任务里的乐观停止会少一些。
+
+## Compose：从提示词走向流程编排
+
+Compose 模式是 MiMo Code 里很值得看的部分。
+
+项目说明把它描述为结构化的 specs-driven 开发流程，内置规划、执行、代码审查、TDD、调试、验证、合并等技能。官方博客还进一步提到 Dynamic Workflow：把编排逻辑从自然语言 prompt 变成 JavaScript 脚本，让 `if`、`for`、并发和恢复这些动作由代码保证。
+
+这对 Agent 开发很有启发。很多复杂流程如果只写在提示词里，模型可能会漏步骤、跳分支、忘记重试条件。流程一旦变成代码，Agent 负责理解和生成，运行时负责保证顺序、并发、恢复和日志。
+
+方式
+
+优点
+
+风险
+
+纯 prompt 流程
+
+写起来快，适合简单任务
+
+步骤容易被压缩、遗忘或跳过
+
+Skill 文档
+
+可沉淀流程经验
+
+复杂分支仍依赖模型遵循
+
+Dynamic Workflow
+
+分支、循环、并发更确定
+
+需要沙箱、权限、日志和恢复机制
+
+MiMo Code 把 Compose 放进产品里，说明它想处理从 spec 到交付的完整开发链路，覆盖函数改动、测试、审查和合并。
+
+## Dream 和 Distill：把使用经验沉淀下来
+
+项目说明里还有两个命令：`/dream` 和 `/distill`。
+
+`/dream` 扫描近期会话轨迹，把持久知识提取到项目记忆，同时清理过时条目。`/distill` 则发现重复手工工作流，把高置信度候选打包成可复用的 skill、subagent 或 command。
+
+这两个功能对应的是 Agent 的长期使用体验。一个工具初次跑通不难，难的是在同一个项目里用十次、二十次之后，它能不能少犯重复错误，能不能记住项目风格，能不能把常见流程沉淀成团队资产。
+
+## 连接模型：内置通道，也支持自定义 Provider
+
+MiMo Code 项目写到，首次启动会引导配置，支持四类方式：
+
+配置方式
+
+说明文档中的说法
+
+MiMo Auto
+
+限时免费，匿名通道，零配置
+
+小米 MiMo 平台
+
+OAuth 登录
+
+从 Claude Code 导入
+
+迁移已有认证
+
+Custom Provider
+
+在 TUI 内添加 OpenAI-compatible API
+
+这意味着 MiMo Code 给了多条模型接入路径。对个人开发者来说，零配置入口降低试用门槛；对团队来说，自定义 Provider 更重要，因为企业通常要管 API key、审计、模型供应商和数据边界。
+
+## 评测
+
+小米 MiMo 博客放了一张 MiMo Code 与 Claude Code 搭配不同模型在三个 Benchmark 上的对比图，并介绍了真人在环的双盲 AB 测试。
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/QsOstc0fpvkV8cQe8Wc6w6Q40cXJZVvic96todcVibv2vctic1lulhARJuCchLYpMLqpibM6OUfdoGcnEk8eJXRlgflZibUBZvx2kqicKk569Jwr8/640?wx_fmt=jpeg&from=appmsg)
+
+图MiMo Code 与 Claude Code benchmark 对比图对 coding agent 来说，benchmark 只能覆盖一部分问题。真正进入开发流程，还要看这些更具体的指标：
+
+观察点
+
+需要看什么
+
+改动质量
+
+diff 是否集中，是否误改无关文件
+
+任务完成
+
+是否能按 `/goal` 停止条件完成验证
+
+成本控制
+
+长任务中模型调用次数、token 和工具输出是否可审计
+
+安全边界
+
+Shell、Git、MCP、文件写入权限是否能管住
+
+可恢复性
+
+中断后是否能从 checkpoint 和任务进展继续
+
+团队适配
+
+是否能遵守项目规则、代码风格和 review 习惯
+
+这些问题比单个榜单分数更贴近工程现场。MiMo Code 现在给了工具入口，后续真正要看的，是它在真实仓库里的连续表现。
+
+## 总结
+
+MiMo Code 这次最值得关注的地方，是小米把终端 coding agent 的几个关键部件放到了一起：TUI、多模式任务推进、跨会话记忆、checkpoint、Goal、Compose、Dream/Distill、模型 Provider 和工具连接。它对标的是 Claude Code、Codex 这一类已经进入开发者工作流的产品，差异点则落在开源形态、长任务设计和本地可审计能力上。
+
+源码采用 MIT License，开发者可以直接看实现、看配置、看权限边界，也可以在测试仓库里跑起来。但 coding agent 的风险不会因为开源自动消失：读写文件、运行命令、改 Git 状态、连接模型和工具，都需要明确权限、保留审计、控制自动化范围。
+
+所以 MiMo Code 现在不是一个只适合围观的发布。它已经给出了产品入口、源码、文档、npm 包和 Release。真正值得后续观察的，是它在真实仓库里能不能持续完成长任务，能不能把 diff 控制住，能不能在多轮修改、测试、恢复和复盘中保持稳定。
+
+## 参考链接
+
+- MiMo Code 产品页：https://mimo.xiaomi.com/mimocode
+- MiMo Code 中文文档：简介：https://mimo.xiaomi.com/zh/mimocode/start
+- MiMo Code 中文文档：安装与启动：https://mimo.xiaomi.com/zh/mimocode/install
+- 小米 MiMo 官方博客：MiMo Code：将编程 Agent 扩展到长程任务：https://mimo.xiaomi.com/zh/blog/mimo-code-long-horizon
+- XiaomiMiMo/MiMo-Code GitHub 仓库：https://github.com/XiaomiMiMo/MiMo-Code
+- MiMo-Code 中文项目说明：https://raw.githubusercontent.com/XiaomiMiMo/MiMo-Code/main/README.zh.md
+- MiMo-Code LICENSE：https://raw.githubusercontent.com/XiaomiMiMo/MiMo-Code/main/LICENSE
+- MiMo-Code v0.1.0 Release：https://github.com/XiaomiMiMo/MiMo-Code/releases/tag/v0.1.0
+- @mimo-ai/cli npm package：https://registry.npmjs.org/%40mimo-ai%2Fcli/latest
+
+```
+**进技术交流群请添加AINLP小助手微信（id: ainlp2)**
+```
+
+```
+**请备注具体方向+所用到的相关技术点**
+![](https://mmbiz.qpic.cn/mmbiz_jpg/nW2ZPfuYqSJADkmZ2IX6Z23znAibuEevotDMq9iaMxiapK7jfMibiauGFkycicAJEs6x5U9SGyDJZ0S1tRed9TPNUUDQ/640?wx_fmt=other&wxfrom=5&wx_lazy=1&wx_co=1&randomid=1nuwjg8f&tp=webp#imgIndex=9)
+**关于AINLP**AINLP 是一个有趣有AI的自然语言处理社区，专注于 AI、NLP、机器学习、深度学习、推荐算法等相关技术的分享，主题包括LLM、预训练模型、自动生成、文本摘要、智能问答、聊天机器人、机器翻译、知识图谱、推荐系统、计算广告、招聘信息、求职经验分享等，欢迎关注！加技术交流群请添加AINLP小助手微信(id：ainlp2)，备注工作/研究方向+加群目的。
+![](https://mmbiz.qpic.cn/mmbiz_jpg/nW2ZPfuYqSKABHCqVVQkVYPrM4XY1vsd0iaeuXzyJnoFc8cibd5mYb4wdA3WMQtiaPVmr0XLZHMuVibqWncibpnTSnQ/640?wx_fmt=other&wxfrom=5&wx_lazy=1&randomid=bwsg8l57&tp=webp#imgIndex=10)
+```
