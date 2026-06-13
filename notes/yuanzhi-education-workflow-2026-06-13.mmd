@@ -1,0 +1,147 @@
+%%{ init: { 'theme': 'default' } }%%
+flowchart TD
+    %% 标题
+    title([元知教育 AI Hub<br/>课程资产自动生成与编排流程])
+
+    %% ========== 顶层：8步业务流程 ==========
+    subgraph INPUT[Step 1: 课程资料输入]
+        I1[📄 大纲]
+        I2[📊 PPT]
+        I3[📚 教材]
+        I4[🎬 视频]
+    end
+
+    subgraph KNOWLEDGE[Step 2: 知识整理]
+        K1[LLM Wiki编译]
+        K2[OBE谱图]
+        K3[向量库]
+    end
+
+    subgraph PLAN[Step 3: 选择方案]
+        P1[完整包]
+        P2[题库包]
+        P3[课件包]
+    end
+
+    subgraph ORCHESTRATE[Step 4: AI编排器]
+        O1[任务拆解]
+        O2[Agent分配]
+        O3[流程编排]
+    end
+
+    subgraph EXECUTE[Step 5: 能力执行层]
+        subgraph A_Layer[A技能层]
+            A1[课程设计]
+            A2[教案生成]
+            A3[题目生成]
+        end
+        subgraph B_Layer[B工程层]
+            B1[脚本生成]
+            B2[页面代码]
+            B3[数据处理]
+        end
+    end
+
+    subgraph GENERATE[Step 6: 生成课程资产包]
+        G1[📋 结构资产]
+        G2[📖 教学资产]
+        G3[📝 评价资产]
+        G4[🖥️ 产品资产]
+    end
+
+    subgraph COMPOSE[Step 7: 课程编排]
+        C1[👀 预览]
+        C2[✏️ 微调]
+        C3[✅ 确认]
+    end
+
+    subgraph RELEASE[Step 8: 发布运行与反馈]
+        R1[📱 学生学习空间]
+        R2[👨‍🏫 教师授课台]
+        R3[📊 管理看板]
+        R4[OBE达成度]
+    end
+
+    %% ========== 底层：7大技术支柱 ==========
+    subgraph TECH_A[数据层]
+        TA1[Raw/Wiki]
+        TA2[OBE矩阵]
+        TA3[资产清单]
+    end
+
+    subgraph TECH_B[知识API]
+        TB1[getCourseContext]
+        TB2[getGraphRelations]
+        TB3[getOBEAlignment]
+    end
+
+    subgraph TECH_C[引擎层]
+        TC1[向量搜索]
+        TC2[图谱查询]
+        TC3[LLM调用]
+    end
+
+    subgraph TECH_D[编排器]
+        TD1[工作流引擎]
+        TD2[任务调度]
+    end
+
+    subgraph TECH_E[Agent层]
+        TE1[课程设计Agent]
+        TE2[内容生成Agent]
+        TE3[评估Agent]
+    end
+
+    subgraph TECH_F[执行环境]
+        TF1[Codex Runtime]
+        TF2[沙箱执行]
+        TF3[脚本运行]
+    end
+
+    subgraph TECH_G[治理与运营]
+        TG1[质量审核]
+        TG2[版本管理]
+        TG3[权限控制]
+    end
+
+    %% ========== 连接关系 ==========
+    INPUT --> KNOWLEDGE
+    KNOWLEDGE --> PLAN
+    PLAN --> ORCHESTRATE
+    ORCHESTRATE --> EXECUTE
+    EXECUTE --> GENERATE
+    GENERATE --> COMPOSE
+    COMPOSE --> RELEASE
+    
+    %% 反馈闭环
+    RELEASE --> |数据回流| KNOWLEDGE
+    RELEASE -.-> |OBE达成度| R4
+
+    %% 技术层连接
+    TECH_A --> TECH_B
+    KNOWLEDGE -.读取.-> TA1
+    KNOWLEDGE -.读取.-> TA2
+    GENERATE -.写入.-> TA3
+    
+    TECH_B --> TECH_C
+    TECH_C --> TECH_D
+    TECH_D --> TECH_E
+    TECH_E --> TECH_F
+    TECH_F --> TECH_G
+    
+    %% 编排器调用技术层
+    O1 -.调用.-> TD1
+    O2 -.调用.-> TE1
+    O3 -.调用.-> TF1
+
+    %% 样式
+    classDef input fill:#e1f5fe,stroke:#01579b
+    classDef process fill:#f3e5f5,stroke:#4a148c
+    classDef tech fill:#e8f5e9,stroke:#1b5e20
+    classDef asset fill:#fff3e0,stroke:#e65100
+    
+    class I1,I2,I3,I4 input
+    class K1,K2,K3,O1,O2,O3 process
+    class A1,A2,A3,B1,B2,B3 process
+    class G1,G2,G3,G4 asset
+    class TECH_A,TECH_B,TECH_C,TECH_D,TECH_E,TECH_F,TECH_G tech
