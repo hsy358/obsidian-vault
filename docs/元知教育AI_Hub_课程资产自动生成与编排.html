@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>元知教育 AI Hub - 课程资产自动生成与编排</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0a1628 100%);
+    min-height: 100vh;
+    color: #e8f0fe;
+    padding: 30px 20px;
+  }
+  .container { max-width: 1400px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .header-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, #1565c0, #1976d2);
+    border: 1px solid #64b5f6;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 12px;
+    color: #90caf9;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ffffff, #90caf9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .header p {
+    color: #78909c;
+    font-size: 14px;
+  }
+
+  /* Main Flow */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .section-label span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #90caf9;
+    letter-spacing: 3px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, #1565c0, transparent);
+  }
+
+  .main-flow {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .flow-card {
+    background: linear-gradient(180deg, #1a2d4a 0%, #0f1f35 100%);
+    border-radius: 12px;
+    padding: 16px 12px;
+    border: 1px solid #1e3a5f;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  .flow-card:hover { transform: translateY(-3px); }
+  .flow-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 12px 12px 0 0;
+  }
+  .flow-card.orange::before { background: linear-gradient(90deg, #ff6f00, #ff8f00); }
+  .flow-card.green::before { background: linear-gradient(90deg, #2e7d32, #43a047); }
+  .flow-card.purple::before { background: linear-gradient(90deg, #6a1b9a, #8e24aa); }
+  .flow-card.blue::before { background: linear-gradient(90deg, #1565c0, #1976d2); }
+
+  .card-num {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  .card-num.orange { background: linear-gradient(135deg, #ff6f00, #ff8f00); }
+  .card-num.green { background: linear-gradient(135deg, #2e7d32, #43a047); }
+  .card-num.purple { background: linear-gradient(135deg, #6a1b9a, #8e24aa); }
+  .card-num.blue { background: linear-gradient(135deg, #1565c0, #1976d2); }
+
+  .card-icon {
+    width: 36px; height: 36px;
+    margin-bottom: 10px;
+  }
+  .card-icon svg { width: 100%; height: 100%; }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .card-subs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .card-sub {
+    font-size: 10px;
+    color: #90caf9;
+    padding: 3px 8px;
+    background: rgba(21, 101, 192, 0.15);
+    border-radius: 4px;
+    border-left: 2px solid #1565c0;
+  }
+  .card-sub.orange { border-left-color: #ff6f00; background: rgba(255, 111, 0, 0.1); color: #ffcc80; }
+  .card-sub.green { border-left-color: #2e7d32; background: rgba(46, 125, 50, 0.1); color: #a5d6a7; }
+  .card-sub.purple { border-left-color: #6a1b9a; background: rgba(106, 27, 154, 0.1); color: #ce93d8; }
+
+  /* Arrows between cards */
+  .arrow-row {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+    height: 20px;
+  }
+  .arrow-cell { display: flex; align-items: center; justify-content: center; }
+  .arrow-cell:not(:last-child)::after {
+    content: '▶';
+    font-size: 8px;
+    color: #1565c0;
+  }
+
+  /* One-Key Experience */
+  .quick-flow {
+    background: linear-gradient(135deg, #0d1f3c, #1a2d4a);
+    border: 1px solid #ff6f00;
+    border-radius: 14px;
+    padding: 18px 24px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .quick-badge {
+    background: linear-gradient(135deg, #ff6f00, #ff8f00);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .quick-steps {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    justify-content: center;
+  }
+  .quick-step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 111, 0, 0.1);
+    border: 1px solid rgba(255, 111, 0, 0.3);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: #ffcc80;
+  }
+  .quick-step-num {
+    width: 18px; height: 18px;
+    background: #ff6f00;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
+    color: #fff;
+  }
+  .quick-arrow { color: #ff6f00; font-size: 10px; }
+
+  /* How to Build */
+  .how-to-build {
+    background: linear-gradient(180deg, #0f1f35 0%, #0a1628 100%);
+    border: 1px solid #1e3a5f;
+    border-radius: 14px;
+    padding: 20px 24px;
+  }
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+  }
+  .how-card {
+    background: linear-gradient(180deg, #1a2d4a, #142038);
+    border-radius: 10px;
+    padding: 14px 10px;
+    border: 1px solid #1e3a5f;
+    text-align: center;
+    position: relative;
+  }
+  .how-card::after {
+    content: '▶';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 8px;
+    color: #1565c0;
+  }
+  .how-card:last-child::after { display: none; }
+  .how-icon {
+    width: 32px; height: 32px;
+    margin: 0 auto 8px;
+  }
+  .how-icon svg { width: 100%; height: 100%; }
+  .how-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .how-desc {
+    font-size: 9px;
+    color: #78909c;
+    line-height: 1.4;
+  }
+  .how-card.data { border-top: 2px solid #2e7d32; }
+  .how-card.data .how-icon { color: #43a047; }
+  .how-card.api { border-top: 2px solid #1565c0; }
+  .how-card.api .how-icon { color: #90caf9; }
+  .how-card.recipe { border-top: 2px solid #ff6f00; }
+  .how-card.recipe .how-icon { color: #ff8f00; }
+  .how-card.orch { border-top: 2px solid #6a1b9a; }
+  .how-card.orch .how-icon { color: #ce93d8; }
+  .how-card.skill { border-top: 2px solid #00838f; }
+  .how-card.skill .how-icon { color: #4dd0e1; }
+  .how-card.codex { border-top: 2px solid #e65100; }
+  .how-card.codex .how-icon { color: #ffab40; }
+  .how-card.gov { border-top: 2px solid #37474f; }
+  .how-card.gov .how-icon { color: #90a4ae; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #455a64;
+    font-size: 11px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-badge">元知教育 AI HUB · YUANZHI EDU</div>
+    <h1>课程资产自动生成与编排</h1>
+    <p>Automated Course Asset Generation & Orchestration Platform</p>
+  </div>
+
+  <!-- Section Label -->
+  <div class="section-label"><span>课程生成全链路 · 8 步流程</span></div>
+
+  <!-- Arrows -->
+  <div class="arrow-row">
+    <div class="arrow-cell"></div>
+    <div class="arrow-cell"></div>
+    <div class="arrow-cell"></div>
+    <div class="arrow-cell"></div>
+    <div class="arrow-cell"></div>
+    <div class="arrow-cell"></div>
+    <div class="arrow-cell"></div>
+    <div class="arrow-cell"></div>
+  </div>
+
+  <!-- Main Flow Cards -->
+  <div class="main-flow">
+    <!-- Step 1 -->
+    <div class="flow-card blue">
+      <div class="card-num blue">1</div>
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#90caf9" stroke-width="1.5">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+      </div>
+      <div class="card-title">课程资料输入</div>
+      <div class="card-subs">
+        <div class="card-sub">上传教学大纲</div>
+        <div class="card-sub">PDF/Word 课件</div>
+        <div class="card-sub">视频/音频素材</div>
+        <div class="card-sub">参考书目列表</div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flow-card green">
+      <div class="card-num green">2</div>
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#43a047" stroke-width="1.5">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+      </div>
+      <div class="card-title">知识整理与底座构建</div>
+      <div class="card-subs">
+        <div class="card-sub green">智能段落切分</div>
+        <div class="card-sub green">术语库构建</div>
+        <div class="card-sub green">知识点图谱</div>
+        <div class="card-sub green">章节关联建模</div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flow-card orange">
+      <div class="card-num orange">3</div>
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff8f00" stroke-width="1.5">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </div>
+      <div class="card-title">选择生成方案</div>
+      <div class="card-subs">
+        <div class="card-sub orange">精品课程模式</div>
+        <div class="card-sub orange">快速生成模式</div>
+        <div class="card-sub orange">定制编排模式</div>
+        <div class="card-sub orange">章节批量生成</div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="flow-card purple">
+      <div class="card-num purple">4</div>
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+          <line x1="3" y1="9" x2="21" y2="9"/>
+          <line x1="9" y1="21" x2="9" y2="9"/>
+        </svg>
+      </div>
+      <div class="card-title">AI 编排器</div>
+      <div class="card-subs">
+        <div class="card-sub purple">任务理解与拆解</div>
+        <div class="card-sub purple">多 Agent 路由</div>
+        <div class="card-sub purple">并行/串行决策</div>
+        <div class="card-sub purple">输出结构规划</div>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="flow-card blue">
+      <div class="card-num blue">5</div>
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#90caf9" stroke-width="1.5">
+          <polyline points="16 18 22 12 16 6"/>
+          <polyline points="8 6 2 12 8 18"/>
+        </svg>
+      </div>
+      <div class="card-title">能力执行层</div>
+      <div class="card-subs">
+        <div class="card-sub">Codex 脚本生成</div>
+        <div class="card-sub">PPT 内容填充</div>
+        <div class="card-sub">习题批量生成</div>
+        <div class="card-sub">评估量表构建</div>
+      </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="flow-card green">
+      <div class="card-num green">6</div>
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#43a047" stroke-width="1.5">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+          <line x1="12" y1="22.08" x2="12" y2="12"/>
+        </svg>
+      </div>
+      <div class="card-title">生成课程资产包</div>
+      <div class="card-subs">
+        <div class="card-sub green">课件文档包</div>
+        <div class="card-sub green">习题与答案包</div>
+        <div class="card-sub green">评估量表包</div>
+        <div class="card-sub green">元数据包</div>
+      </div>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="flow-card orange">
+      <div class="card-num orange">7</div>
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff8f00" stroke-width="1.5">
+          <line x1="8" y1="6" x2="21" y2="6"/>
+          <line x1="8" y1="12" x2="21" y2="12"/>
+          <line x1="8" y1="18" x2="21" y2="18"/>
+          <line x1="3" y1="6" x2="3.01" y2="6"/>
+          <line x1="3" y1="12" x2="3.01" y2="12"/>
+          <line x1="3" y1="18" x2="3.01" y2="18"/>
+        </svg>
+      </div>
+      <div class="card-title">进入课程编排</div>
+      <div class="card-subs">
+        <div class="card-sub orange">章节顺序编排</div>
+        <div class="card-sub orange">学习路径配置</div>
+        <div class="card-sub orange">交互节点插入</div>
+        <div class="card-sub orange">多版本分支</div>
+      </div>
+    </div>
+
+    <!-- Step 8 -->
+    <div class="flow-card purple">
+      <div class="card-num purple">8</div>
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="1.5">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+      </div>
+      <div class="card-title">发布运行与数据回流</div>
+      <div class="card-subs">
+        <div class="card-sub purple">一键发布上线</div>
+        <div class="card-sub purple">学习数据分析</div>
+        <div class="card-sub purple">效果评估反馈</div>
+        <div class="card-sub purple">资产迭代优化</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- One-Key Experience -->
+  <div class="section-label"><span>一键生成体验 · Quick Generation</span></div>
+  <div class="quick-flow">
+    <div class="quick-badge">⚡ 一键生成体验</div>
+    <div class="quick-steps">
+      <div class="quick-step">
+        <div class="quick-step-num">1</div>
+        <span>上传课程资料</span>
+      </div>
+      <div class="quick-arrow">▶</div>
+      <div class="quick-step">
+        <div class="quick-step-num">2</div>
+        <span>选择模板方案</span>
+      </div>
+      <div class="quick-arrow">▶</div>
+      <div class="quick-step">
+        <div class="quick-step-num">3</div>
+        <span>AI 自动生成</span>
+      </div>
+      <div class="quick-arrow">▶</div>
+      <div class="quick-step">
+        <div class="quick-step-num">4</div>
+        <span>下载资产包</span>
+      </div>
+      <div class="quick-arrow">▶</div>
+      <div class="quick-step">
+        <div class="quick-step-num">5</div>
+        <span>发布运行</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- How to Build -->
+  <div class="section-label"><span>How to Build · 实现方式</span></div>
+  <div class="how-to-build">
+    <div class="how-grid">
+      <div class="how-card data">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#43a047" stroke-width="1.5">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        </div>
+        <div class="how-title">数据与知识层</div>
+        <div class="how-desc">多源异构数据汇聚<br>知识图谱构建</div>
+      </div>
+
+      <div class="how-card api">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#90caf9" stroke-width="1.5">
+            <path d="M18 10h-4V6"/>
+            <path d="M14 10l-4 4"/>
+            <path d="M6 14h4v4"/>
+            <path d="M10 14l4 4"/>
+            <circle cx="12" cy="12" r="2"/>
+          </svg>
+        </div>
+        <div class="how-title">Knowledge API</div>
+        <div class="how-desc">知识检索与推理<br>语义理解接口</div>
+      </div>
+
+      <div class="how-card recipe">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ff8f00" stroke-width="1.5">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="9" y1="15" x2="15" y2="15"/>
+          </svg>
+        </div>
+        <div class="how-title">Recipe & Workflow</div>
+        <div class="how-desc">课程模板库<br>生成流程编排</div>
+      </div>
+
+      <div class="how-card orch">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ce93d8" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+        </div>
+        <div class="how-title">AI Orchestrator</div>
+        <div class="how-desc">多 Agent 协调器<br>任务路由与调度</div>
+      </div>
+
+      <div class="how-card skill">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4dd0e1" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="how-title">Skill & Agent</div>
+        <div class="how-desc">领域专用技能<br>Agent 行为定义</div>
+      </div>
+
+      <div class="how-card codex">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffab40" stroke-width="1.5">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <div class="how-title">Codex Runtime</div>
+        <div class="how-desc">代码生成引擎<br>脚本执行环境</div>
+      </div>
+
+      <div class="how-card gov">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#90a4ae" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="how-title">治理与运营</div>
+        <div class="how-desc">权限管理<br>日志审计监控</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">元知教育 AI Hub · 课程资产自动化编排平台 · 2026</div>
+</div>
+</body>
+</html>
