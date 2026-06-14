@@ -1,0 +1,137 @@
+---
+title: "平替版Fable 5的打开教程来了：性能追平，成本砍半"
+author: "量子位"
+publish_date: "2026-06-14 14:00:00"
+saved_date: "2026-06-14"
+source: "wechat"
+url: "https://mp.weixin.qq.com/s/P_5gsQ5ydYZlIAavTW_9Yg"
+---
+# 平替版Fable 5的打开教程来了：性能追平，成本砍半
+闻乐 发自 凹非寺
+量子位 | 公众号 QbitAIFable 5也不是无可替代。
+
+Kimi、DeepSeek、Gemini三个模型合体，就能顶上了。
+
+OpenRouter进行了一项有意思的实验，让多款大模型组队协作，结果还真测出了点东西。
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/A6fTew8FFGFq4tPCIk6pFW4H3FNPa1CqicxKVOnIfoAdEyPGc9r2rV0HDrwX4F7QPc9YMJdNQRaLxxktBMttUvBxBaWP5rNciaZcG17dQbBaA/640?wx_fmt=png&from=appmsg)
+
+最新测试显示，模型抱团后实力明显升级：
+
+**Opus 4.8+GPT-5.5>Fable 5**；
+
+**Kimi K2.6+ DeepSeek V4 Pro+Gemini 3 Flash=Fable 5**。
+
+能力追上了，开销还减半。
+
+根据官方定价，相比Fable 5，Kimi K2.6+ DeepSeek V4 Pro+Gemini 3 Flash这套平价阵容，成本降幅接近80%。
+
+在本次测试中，算上平台调度、内容融合等附加成本，这套组合拳单任务成本依然只有Fable 5的50%，性价比有了！
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/A6fTew8FFGGwVmq7iaQWhy6aXO25ImpFhcwyjagficDmGEE5V9lyibWhn85ibZ804SD7ibe4M7uG19Y5gchEGic1o30uoSsO0SITKUnicfHhrhPK7Q/640?wx_fmt=png&from=appmsg)
+
+## 多个模型组成Panel比单个模型更强
+
+OpenRouter这次测试的核心依托于**Fusion多模型融合方案**。
+
+向Fusion发送指令后，系统会把任务并行分发到多个模型，所有模型都支持网页检索与内容抓取。
+
+随后由判定模型逐一分析各家回复，梳理出共识观点、矛盾之处、信息缺口、独到见解与认知盲区，最后再基于这份分析生成最终答案。
+
+整套流程都在服务端完成，调用体验和使用单个模型基本一致。
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/A6fTew8FFGHCKk3HsSB3PmlgrNPzckyYicYhVZicLC9FVbzruD5WDKaP5wvS7A7Q7h6yJfuq7MHAEeSaK8OJYSIkqHiaBzeCQge3LOF7tMqN6c/640?wx_fmt=png&from=appmsg)
+
+为了验证模型的综合实力，团队选用了**DRACO深度研究基准测试集**。
+
+这套题库由Perplexity AI打造，专门用来考验模型处理复杂任务的能力。
+
+这100道实战题目里，覆盖了学术、金融、法律、医疗、技术等十大领域，基本还原了职场办公、专业调研里的真实场景。
+
+它的打分规则也比较严格，一共设置了39项加权评分标准，主要从答案准不准、内容深不深、排版观感、引用是否规范这四大维度综合评判。
+
+当然了，最具特色的的是还加了扣分机制：
+
+一旦回答出错、给出不当建议或是通篇废话，都会直接扣分。
+
+所以，模型想靠堆砌文字混分数也行不通，必须得真有料才行。
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/A6fTew8FFGHYQ4HsOZIHiaqkTPribap2rVQewpIJYsXZjgGeP5hWrGgnIYEkP7Sh96ZumfDYiaxNChf28rUBECtbxPAoUagtaQBkdrkr8ahyrc/640?wx_fmt=png&from=appmsg)
+
+从测试数据来看，多模型协同的效果，整体上要强于单一模型。
+
+一众高端模型组合后都有明显提升，Fable 5与GPT-5.5搭档，拿到了最高69.0%的成绩，超过两个模型单独参赛的分数。
+
+Opus 4.8、GPT-5.5、Gemini 3.1 Pro等高端模型两两组合、三人组队，表现也全都优于单机状态。
+
+当然了，这次测试结果最大的惊喜是，Kimi K2.6、DeepSeek V4 Pro、Gemini 3 Flash的组合表现几乎追平了Claude Fable 5。
+
+![](https://mmbiz.qpic.cn/mmbiz_png/A6fTew8FFGHII18FoxiaLmwBJ70icSjtjd1cNw5fHWWuIzzCerzDC0kbQ4V6GPs9rOL88QcT3vNS4zjGj6KxjEpQico2ZNZeY4omUpawCpI5Ao/640?wx_fmt=png&from=appmsg)
+
+## Fable 5（平价版
+
+Claude Fable 5单独运行时，在DRACO测试中的标准化得分为 65.3%；
+
+*（因内容安全过滤规则，该模型仅完成100道任务中的93道）*
+
+而Kimi K2.6、DeepSeek V4 Pro、Gemini 3 Flash三款模型组成的融合阵容，综合得分达到 64.7%；
+
+两者分差仅有0.6 个百分点，性能持平的同时，成本优势成为这套组合最大的杀手锏。
+
+根据官方公开定价，Claude Fable 5定价高昂，每百万输入Token收费10美元，每百万输出Token 收费高达50美元，是上一代Opus 4.8的两倍。
+
+这个价格对于日均调用量较大的企业、工作室和个人开发者而言，长期使用会产生不小的开支。
+
+而组合里的三款模型，均属于高性价比主流模型：
+
+DeepSeek V4 Pro经过永久降价后，百万输入Token仅需0.44美元，百万输出Token为0.87美元；
+
+Gemini 3 Flash也主打轻量化与高性价比，调用成本同样低廉，每百万输入约0.5美元、输出3美元；
+
+Kimi K2.6也延续了高性价比的定价策略，采用缓存计费机制，首次处理内容按0.95美元/百万Token计费，而重复使用同一上下文时，输入成本可降至0.16美元/百万Token，输出为4美元/百万Token。
+
+三者组成融合阵容后，整体综合调用成本相比Claude Fable 5降幅接近80%。
+
+不过，从本次测试的成本来看，不同组合的实际开销出现明显变化：
+
+比Fable表现好的组合，受调用方式影响，整体开销也略高；
+
+而三人组即便即便算上平台调度、内容融合等附加成本，单任务总花费依旧低于Claude Fable 5，是全场性价比最优的方案。
+
+![](https://mmbiz.qpic.cn/mmbiz_png/A6fTew8FFGFunu1Vw9ygbv0Vzj0HrJFYmkTfGQqUvIcEW1z48VicEicNMLJjnT3u9kH42DjXb8pjmricHCmM2Mn8syvic5aRICDaicicz8LHVrP88/640?wx_fmt=png&from=appmsg)
+
+除此之外，测试中还有一个有趣的发现，即便是单一模型自我融合，也能实现性能提升。
+
+例如 Opus 4.8 自身组合后，得分从单体58.8%提升至65.5%。
+
+这也侧面说明，Fusion融合方案的性能增益，不仅来自不同模型的能力互补，答案整合、逻辑梳理这一流程本身，就能优化输出质量。
+
+同一指令交由同一模型多次运行，会产生不同的推理路径、工具调用逻辑和信息筛选结果，再经过整合优化，输出内容会更加完善。
+
+那这套组合咋用呢？
+
+OpenRouter针对不同使用人群，提供了简易网页端和API两种使用方式。
+
+在网页端，可以直接选择预设组合一键启用，也可以按需搭配。
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/A6fTew8FFGFeB5GPUqFBdFcriajFFLPub0v1h8fLI8xwENWwicL0UIn61YACq6EONTibHxyx5mMDcrvUHngmX9DXgbOibbjH9lZ3kc8vtwSJyB4/640?wx_fmt=png&from=appmsg)
+
+如果想自动化调用，直接使用API接口，在参数里指定模型就行。
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/A6fTew8FFGGrzIpEnma04naRyKWd18bU0zNhnKww7eHUl1d9X9v8BIQ6xAAz30LFiaTn8pq6pqeO2Uj0T9I1rONHCFl3zbAIvlxOOJlFvokg/640?wx_fmt=png&from=appmsg)
+
+感兴趣的朋友可以试试效果，毕竟组队平替是真香啊…
+
+*参考链接：*
+*[1]https://openrouter.ai/blog/announcements/fusion-beats-frontier/*
+*[2]https://x.com/OpenRouter/status/2065856860435988482*
+
+— **欢迎AI产品从业者共建 **—
+
+📚「AI产品知识库」是量子位智库基于长期产品库追踪和用户行为数据推出的飞书知识库，旨在成为AI行业从业者、投资者、研究者的核心信息枢纽与决策支持平台。
+
+![](https://mmbiz.qpic.cn/mmbiz_jpg/YicUhk5aAGtBOCSwWw57NhIEGlgMl7pnQs9rEVb3vP4YSFj92VdLQBWia0WFqc1bB3S94jpVnBbrCALYyxNVrGgg/640?wx_fmt=jpeg&from=appmsg)
+
+**一键关注 👇 点亮星标**
+
+**科技前沿进展每日见**
