@@ -5,6 +5,11 @@ publish_date: "2026-04-27 08:01:26"
 saved_date: "2026-05-12"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/pP4MZpAD8hUkgXQu4eChsQ"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/pP4MZpAD8hUkgXQu4eChsQ
 ---
 # 一句话搞定 PDF/Word/PPT全格式解析！AI 帮你从零搭建专属知识体系！
 > 大家好，我是Jack Bytes，一个专注于将人工智能应用于日常生活的程序猿，平时主要分享AI、NAS、开源项目等。

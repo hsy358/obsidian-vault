@@ -5,6 +5,11 @@ publish_date: "2026-06-10 09:00:00"
 saved_date: "2026-06-10"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/Vf5lcw13OOBcJeplV70fOA"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/Vf5lcw13OOBcJeplV70fOA
 ---
 # Agent 可观测性：为什么有了 LangChain，还会出现 Langfuse？
 > AI训练营**10期**，**6月底**开班，欢迎咨询

@@ -5,6 +5,11 @@ publish_date: "2026-04-02 08:00:00"
 saved_date: "2026-05-31"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/PcZVz9Xf2-SFE_9_e41uVw"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/PcZVz9Xf2-SFE_9_e41uVw
 ---
 # 打不过就加入！OpenAI 亲手把 Codex 塞进了 Claude Code
 你现在可以在 Claude Code 里用 Codex 了。

@@ -1,3 +1,10 @@
+---
+type: ai-tool-review
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+---
+
 # OpenClaw + Obsidian + Claude Code｜AI 时代知识管理的神
 
 > 原文：[摸鱼小李](https://mp.weixin.qq.com/s/EMahAzgfAbRQrYukWE7_IQ)  

@@ -5,6 +5,11 @@ publish_date: "2026-05-08 18:20:37"
 saved_date: "2026-05-10"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/BvrB7td8iJd4vNQW3T_UFg"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/BvrB7td8iJd4vNQW3T_UFg
 ---
 # Superpowers 深度实战指南：从入门到精通
 ## 介绍

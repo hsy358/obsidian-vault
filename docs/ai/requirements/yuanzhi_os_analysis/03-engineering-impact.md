@@ -1,3 +1,10 @@
+---
+type: requirement-doc
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+---
+
 # 03-engineering-impact.md — Yuanzhi OS 工程影响分析
 
 > 分析 AI 核心场景对现有工程的影响，包括匹配到的模块、可复用能力、缺失能力、冲突点和推荐实现入口。

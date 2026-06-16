@@ -5,6 +5,11 @@ publish_date: "2026-05-19 22:17:59"
 saved_date: "2026-05-30"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/NsdUalJWe43xbWCIekcIVA"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/NsdUalJWe43xbWCIekcIVA
 ---
 # Superpowers + OpenSpec 双剑合璧：AI 全栈编程新范式，从零对话式搭建企业级知识库
 ### 前言

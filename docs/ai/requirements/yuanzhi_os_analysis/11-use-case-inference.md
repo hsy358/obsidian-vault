@@ -1,3 +1,10 @@
+---
+type: requirement-doc
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+---
+
 # 11-use-case-inference.md — Yuanzhi OS 隐含用例推导
 
 > 从原始需求中显式用例之外的隐含用例推导，记录证据和风险。

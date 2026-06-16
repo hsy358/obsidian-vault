@@ -5,6 +5,11 @@ publish_date: "2026-06-15"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/09ccKnDHeWKacVKPjuqAZw"
 description: "Agent-MemoryForge 2.0 发布 - 面向真实企业 agent 系统的生产级 Memory Layer"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/09ccKnDHeWKacVKPjuqAZw
 ---
 
 # Agent-MemoryForge 2.0 今天发布

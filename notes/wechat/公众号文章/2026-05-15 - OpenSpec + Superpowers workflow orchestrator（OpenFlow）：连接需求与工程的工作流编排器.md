@@ -5,6 +5,11 @@ publish_date: "2026-05-15 11:12:56"
 saved_date: "2026-06-03"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/8PT7nlj-Jcu8Xa6lwyApYQ"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/8PT7nlj-Jcu8Xa6lwyApYQ
 ---
 # OpenSpec + Superpowers workflow orchestrator（OpenFlow）：连接需求与工程的工作流编排器
 > 本文基于 GitHub 仓库 lininn/openflow 源码与文档进行深度分析

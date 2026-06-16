@@ -5,6 +5,11 @@ publish_date: "2026-04-21 09:01:52"
 saved_date: "2026-05-09"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/_04FWvqJwDfPhOcNJr__hQ"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/_04FWvqJwDfPhOcNJr__hQ
 ---
 # 10 个顶级 Claude Code Skills，装上就删不掉！附真实使用场景和效果对比
 三周前，我还没装 Claude Code Skills，把团队的一个新功能模块直接交给 Claude Code 来写。

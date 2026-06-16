@@ -5,6 +5,11 @@ publish_date: "2026-05-10 09:03:05"
 saved_date: "2026-05-10"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/pc5wqvG2x5AKgvaHHOC_9g"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/pc5wqvG2x5AKgvaHHOC_9g
 ---
 # Claude Code 最强配置清单：七个高效开源工具，让 AI 编程从“能用”变成“好用”​！！！
 ## 前言

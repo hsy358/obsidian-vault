@@ -5,6 +5,11 @@ publish_date: "2026-06-15 08:00:00"
 saved_date: "2026-06-15"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/uGPC0eMDTEhB9f-cOx8zyQ"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/uGPC0eMDTEhB9f-cOx8zyQ
 ---
 # Paperclip：开源「AI agent公司操作系统」70k Stars爆火！自3月以来功能暴增、架构升级全记录 | 源码深度解析 + 高效部署与实战指南
 ### 从「员工」到「公司」，Paperclip正在重新定义AI agent的规模化落地

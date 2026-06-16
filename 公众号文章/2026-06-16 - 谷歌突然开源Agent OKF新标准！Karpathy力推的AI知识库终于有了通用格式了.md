@@ -5,6 +5,11 @@ publish_date: "2026-06-16 09:00:00"
 saved_date: "2026-06-16"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/nhF1cy_lIQukq_niVFvRCA"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/nhF1cy_lIQukq_niVFvRCA
 ---
 # 谷歌突然开源Agent OKF新标准！Karpathy力推的AI知识库终于有了通用格式了
 ![](https://mmbiz.qpic.cn/mmbiz_png/kJjlNiczXgKoxNibzicCL8x3kicbpcLuYFaecgXOvG7MGe6xtQ5qyzoA4pfOMsiabic8rsKKKB7icTecM6tfzmiaN6E7xe5l3wChBpRsjDGaIcoqnYE/640?wx_fmt=png&from=appmsg)

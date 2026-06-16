@@ -5,6 +5,11 @@ publish_date: "2026-04-03 21:41:37"
 saved_date: "2026-05-10"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/MsWfAil7l8388WmYrdvXyw"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/MsWfAil7l8388WmYrdvXyw
 ---
 # 7张图搞懂Claude Code的Harness架构设计
 诗与沅方

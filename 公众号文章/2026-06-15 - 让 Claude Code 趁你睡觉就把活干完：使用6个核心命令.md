@@ -5,6 +5,11 @@ publish_date: "2026-06-15 14:04:50"
 saved_date: "2026-06-15"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/1WkaDrV4w6V9-btIY6ifCQ"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/1WkaDrV4w6V9-btIY6ifCQ
 ---
 # 让 Claude Code 趁你睡觉就把活干完：使用6个核心命令
 Claude Code 不只是一个对话式编程助手。它有一整套内置命令，覆盖目标驱动的自主工作、定时轮询、批量重构、代码清理和故障诊断。用好这些命令，能从「你和 Claude 一人一半」变成「你定方向，Claude 自己把活干完」。

@@ -1,3 +1,10 @@
+---
+type: adr
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+---
+
 # DECISIONS.md — Yuanzhi OS 项目决策日志
 
 > 记录已确认的关键决策，含时间、决策人、理由和影响。

@@ -1,3 +1,10 @@
+---
+type: requirement-doc
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+---
+
 # 05-open-questions.md — Yuanzhi OS 待确认问题
 
 > 问题从用例推演中产生，每个问题追溯到具体来源（UC/AC/流程步骤）。

@@ -5,6 +5,11 @@ publish_date: "2026-05-11 08:58:44"
 saved_date: "2026-05-11"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/YAJMK75_Qa70KR7NwQgNrQ"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/YAJMK75_Qa70KR7NwQgNrQ
 ---
 # OpenAI、Claude 开始做咨询了，对国内 2B企业的启示是什么？
 > AI训练营**10期**，**6月底**开班，欢迎咨询

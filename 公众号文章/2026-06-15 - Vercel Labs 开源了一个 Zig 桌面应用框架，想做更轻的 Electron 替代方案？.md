@@ -5,6 +5,11 @@ publish_date: "2026-06-15 13:10:00"
 saved_date: "2026-06-15"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/t6Wccx3q6ms8Wn0DdUWPdQ"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/t6Wccx3q6ms8Wn0DdUWPdQ
 ---
 # Vercel Labs 开源了一个 Zig 桌面应用框架，想做更轻的 Electron 替代方案？
 这两年桌面应用有一个很明显的现象：很多产品看起来是“原生应用”，但本质上都是一个 Web 应用套了壳。

@@ -5,6 +5,11 @@ publish_date: "2026-05-09 14:27:52"
 saved_date: "2026-05-09"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/PzwTGzG2mIIZJdTiAiJ7Bg"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/PzwTGzG2mIIZJdTiAiJ7Bg
 ---
 # 每日一 Skills 推荐｜gzh-explosive-content-detector：公众号爆款文章怎么找？这个 Skill 帮你拆解流量密码
 你是不是也有这样的困扰：想做公众号选题、对标爆款，打开微信搜关键词，满屏都是陈年旧文、营销水文；真正有参考价值的 10w + 爆款，藏在海量信息里，翻半天找不到、耗时间还没思路。手动搜爆款低效又盲目，有没有办法输入关键词，直接拿到结构化爆款清单？

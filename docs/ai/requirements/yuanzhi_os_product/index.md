@@ -1,3 +1,10 @@
+---
+type: requirement-index
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+---
+
 # Yuanzhi OS 产品需求澄清与分析
 
 **产品：** Yuanzhi OS（AI 原生教学操作系统）

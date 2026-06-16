@@ -5,6 +5,11 @@ publish_date: "2026-05-12 08:31:35"
 saved_date: "2026-05-12"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/LCpiLyLnRn5WyuHpribyHw"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/LCpiLyLnRn5WyuHpribyHw
 ---
 # Agent Skill规范、构建与设计模式
 ![](https://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naK5RGlAFq3bd5u8nMiatDDynrmteUBYK9tgujljzLjwxOwNBg2dddI3ze52P6ad4ueRxia1AxTBcIFQ/640?wx_fmt=jpeg)

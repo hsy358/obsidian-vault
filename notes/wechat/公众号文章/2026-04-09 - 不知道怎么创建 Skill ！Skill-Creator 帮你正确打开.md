@@ -5,6 +5,11 @@ publish_date: "2026-04-09 16:47:20"
 saved_date: "2026-05-09"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/MpWyPrILaddatrfm-FMwdQ"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/MpWyPrILaddatrfm-FMwdQ
 ---
 # 不知道怎么创建 Skill ！Skill-Creator 帮你正确打开
 之前疯狂囤的 AI Skill 却用不上。装别人的 Skill 怕权限泄露、代码不透明。不用再当「Skill 囤囤鼠」，也不用啃复杂教程，一套问答式生成法，让零基础的你轻松做出适配自己需求的 AI Skill，安全可控、随改随用，一次制作反复调用。

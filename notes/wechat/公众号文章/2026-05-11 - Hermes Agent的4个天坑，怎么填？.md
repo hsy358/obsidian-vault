@@ -5,6 +5,11 @@ publish_date: "2026-05-11 13:00:00"
 saved_date: "2026-05-11"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/5eyL67AOh8TiGdqupN68fw"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/5eyL67AOh8TiGdqupN68fw
 ---
 # Hermes Agent的4个天坑，怎么填？
 近期，一款名为 Hermes 的 AI Agent 突然席卷技术圈，GitHub 千星、社区热议、创业者跟风。

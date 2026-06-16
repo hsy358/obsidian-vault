@@ -4,6 +4,10 @@ author: "遥望2035"
 publish_date: "2026年5月12日 22:45"
 saved_date: "2026-05-15"
 source: "wechat"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
 ---
 # AI 生成 PPT 王炸！ 从 PDF、Word 、MD、图片中生成原生可编辑PPT
 做过 PPT 的人，大概率都经历过一种非常现实的落差。

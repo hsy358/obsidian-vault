@@ -5,6 +5,11 @@ publish_date: "2026-03-24 07:15:57"
 saved_date: "2026-05-10"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/8q187UgOVOqRz2m9WKwcpg"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/8q187UgOVOqRz2m9WKwcpg
 ---
 # Obsidian+opencode+draw.io：让架构图绘制融入笔记工作流！
 # 一、写在前面

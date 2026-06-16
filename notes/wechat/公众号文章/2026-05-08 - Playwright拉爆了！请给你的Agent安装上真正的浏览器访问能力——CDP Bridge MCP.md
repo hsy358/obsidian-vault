@@ -5,6 +5,11 @@ publish_date: "2026-05-08 19:08:59"
 saved_date: "2026-05-10"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/J1EZzYVx0VcologP-hEwVg"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/J1EZzYVx0VcologP-hEwVg
 ---
 # Playwright拉爆了！请给你的Agent安装上真正的浏览器访问能力——CDP Bridge MCP
 # CDP Bridge MCP

@@ -9,6 +9,11 @@ tags:
   - AI-Agent
   - Agent-Harness
   - 工程化
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/pG39PRnZFjSIxwYcPKD47A
 ---
 
 # 刚刚，一篇最全Agent Harness综述来了！

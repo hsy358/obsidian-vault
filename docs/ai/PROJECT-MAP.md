@@ -1,3 +1,10 @@
+---
+type: project-map
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+---
+
 # PROJECT-MAP.md — Yuanzhi OS
 
 > 轻量版项目地图，基于 Yuanzhi OS 需求文档中提到的模块构建。

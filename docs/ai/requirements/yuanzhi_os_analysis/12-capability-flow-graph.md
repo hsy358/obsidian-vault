@@ -1,3 +1,10 @@
+---
+type: requirement-doc
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+---
+
 # 12-capability-flow-graph.md — Yuanzhi OS 能力流程图谱
 
 >组合 BPMN + EventStorming + ArchiMate + C4 风格，展示从业务目标到工程代码的完整链路。

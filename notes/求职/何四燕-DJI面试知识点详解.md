@@ -1,3 +1,10 @@
+---
+type: resume-related
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+---
+
 # DJI 面试 - 知识要点详解
 
 > 何四燕 - 高级软件产品经理面试准备

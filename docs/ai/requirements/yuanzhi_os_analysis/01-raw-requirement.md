@@ -1,3 +1,10 @@
+---
+type: requirement-doc
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+---
+
 # 01-raw-requirement.md — Yuanzhi OS 竞品架构映射与 AI 重构解析
 
 > **原始需求原文**，保留歧义，不做改写。

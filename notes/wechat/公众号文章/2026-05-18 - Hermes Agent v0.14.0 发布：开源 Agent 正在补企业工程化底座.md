@@ -5,6 +5,11 @@ publish_date: "2026-05-18 08:38:47"
 saved_date: "2026-05-18"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/V3lWd-YJUiNWyn5JR8si8A"
+type: wechat-article
+okf_metadata:
+  schema: okf-v0.1-inspired
+  added_by: okf-batch-2026-06-16
+  source_url: https://mp.weixin.qq.com/s/V3lWd-YJUiNWyn5JR8si8A
 ---
 # Hermes Agent v0.14.0 发布：开源 Agent 正在补企业工程化底座
 大家好，我是独孤风。
