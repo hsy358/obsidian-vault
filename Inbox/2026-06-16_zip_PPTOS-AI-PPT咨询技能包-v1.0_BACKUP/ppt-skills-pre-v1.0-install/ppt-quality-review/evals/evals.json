@@ -1,0 +1,15 @@
+{
+  "skill_name": "ppt-quality-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "请审查这份 AI 生成的 PPT 是否可以交付客户，重点看可编辑性、逻辑和视觉问题。",
+      "expected_output": "Produces findings ordered by severity with evidence: slide count, text extraction, shape/picture counts, rendering status, and residual risks."
+    },
+    {
+      "id": 2,
+      "prompt": "这份 PPT 看起来不错，但我担心它其实是一堆图片，请帮我检查。",
+      "expected_output": "Inspects PPTX XML/package structure, reports text extractability and picture/native shape ratio, and flags full-page image risks."
+    }
+  ]
+}
