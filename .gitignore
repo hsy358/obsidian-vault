@@ -1,7 +1,10 @@
-# Obsidian workspace
+# Obsidian workspace & transient state (do NOT track)
 .trash/
 .plugins/
 .sync-queue.log
+.obsidian/workspace.json
+.obsidian/workspace.json.lock
+.obsidian/cache/
 
 # Symlinks - do not sync to GitHub
 00-小龙虾工作区
@@ -9,6 +12,24 @@
 # OS files
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Claude / agent session metadata (per-machine, not portable)
+.claude/sessions/
+.claude/projects/
+
+# Binary archives (use cloud disk or git-lfs, not raw git)
+*.rar
+*.7z
+*.zip
+*.tar.gz
+
+# Large media (avoid bloating git history)
+*.psd
+*.ai
+*.sketch
+*.mp4
+*.mov
 
 # Obsidian config (comment out if you want to sync plugin settings)
 # .obsidian/workspace
