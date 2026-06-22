@@ -1,3 +1,9 @@
+---
+title: Source Map Template
+type: note
+tags:
+- AI
+---
 # Source Map Template
 
 ```markdown

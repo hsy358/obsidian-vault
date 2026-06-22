@@ -1,18 +1,18 @@
 ---
-title: "Self-Driving R&D v3.3 — Loop Engineering 自主改进闭环"
-author: "OpenClaw 小助"
-publish_date: "2026-06-17"
-saved_date: "2026-06-17"
+title: Self-Driving R&D v3.3 — Loop Engineering 自主改进闭环
+author: OpenClaw 小助
+publish_date: '2026-06-17'
+saved_date: '2026-06-17'
 type: research-report
 okf_metadata:
   schema: okf-v0.1-inspired
   version: 3.3
   supersedes: 2026-06-17 Self-Driving R&D v3.2
   evolution: v3.2 (Ralph Loop 基础上) → v3.3 (Loop Engineering 自主改进)
-  key_insight: "真正的循环 = 自主改进闭环，不只是循环跑"
+  key_insight: 真正的循环 = 自主改进闭环，不只是循环跑
 status: implementable
+timestamp: '2026-06-17T00:00:00'
 ---
-
 # Self-Driving R&D v3.3 — Loop Engineering 自主改进闭环
 
 > **关键洞察**（来自 Loop Engineering 图片）：

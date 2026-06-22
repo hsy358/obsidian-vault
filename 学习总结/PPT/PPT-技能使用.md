@@ -1,3 +1,13 @@
+---
+title: PPT-技能使用
+description: 这 5 个 skill 的组合方式，可以理解成一条 咨询级 PPT 生产流水线。
+type: study-note
+tags:
+- Obsidian
+- PPT
+- Vault
+- 知识管理
+---
 这 5 个 skill 的组合方式，可以理解成一条 **咨询级 PPT 生产流水线**。
 
 标准顺序是：

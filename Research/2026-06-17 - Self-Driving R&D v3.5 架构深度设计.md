@@ -1,8 +1,8 @@
 ---
-title: "Self-Driving R&D v3.5 — 架构深度设计（架构维度，无代码）"
-author: "OpenClaw 小助"
-publish_date: "2026-06-17"
-saved_date: "2026-06-17"
+title: Self-Driving R&D v3.5 — 架构深度设计（架构维度，无代码）
+author: OpenClaw 小助
+publish_date: '2026-06-17'
+saved_date: '2026-06-17'
 type: architecture-design
 okf_metadata:
   schema: okf-v0.1-inspired
@@ -11,8 +11,11 @@ okf_metadata:
   evolution: v3.4 环节细化 → v3.5 架构深度
   scope: 跨切面 / 模式 / ADR / 状态机 / 数据流 / 失败 / 信任 / 演进
 status: design
+description: 我们的系统围绕 4 个核心轴设计：
+timestamp: '2026-06-17T00:00:00'
+tags:
+- LLM
 ---
-
 # Self-Driving R&D v3.5 — 架构深度设计
 
 > **本方案不写代码**。纯架构：跨切面关注点、架构模式、决策记录、状态机、数据流、失败/信任/演进模型。

@@ -3,8 +3,12 @@ type: requirement-doc
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: 10-coverage-matrix.md — Yuanzhi OS 覆盖矩阵
+tags:
+- AI
+- RAG
+- docs
 ---
-
 # 10-coverage-matrix.md — Yuanzhi OS 覆盖矩阵
 
 >需求资产覆盖情况：每个用例对应的角色、AI能力、文件、工程映射。

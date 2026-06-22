@@ -5,30 +5,37 @@ file_path: 2026-06-16_pdf_德勤Tech-Trends-2026官方报告.pdf
 source: web-fetch
 uploaded_date: 2026-06-16
 original_date: 2026-02-25
-title: "德勤 Tech Trends 2026 官方报告（英文）"
-description: "德勤 2026 技术趋势官方 PDF 报告，180+ 页，5 大趋势（Physical AI / Digital Workers / AI Infrastructure / AI-Native Org / Cyber Defense）+ 8 个 Signals"
+title: 德勤 Tech Trends 2026 官方报告（英文）
+description: 德勤 2026 技术趋势官方 PDF 报告，180+ 页，5 大趋势（Physical AI / Digital Workers / AI
+  Infrastructure / AI-Native Org / Cyber Defense）+ 8 个 Signals
 size_bytes: 2445820
 page_count: 180
 language: en
 related_entities:
-  - publisher: "Deloitte"
-  - report: "Tech Trends 2026"
-    url: "https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends.html"
+- publisher: Deloitte
+- report: Tech Trends 2026
+  url: https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends.html
 key_facts:
-  - "2026 报告：AI 从概念验证迈向价值创造"
-  - "5 大趋势：物理 AI / 数字员工 / AI 基础设施 / AI 原生组织 / 网络安全"
-  - "8 个 Signals：基础模型演进、合成数据、神经形态计算等"
-  - "11% 企业成功将智能体投入生产应用"
-  - "64% 企业增加 AI 投资"
+- 2026 报告：AI 从概念验证迈向价值创造
+- 5 大趋势：物理 AI / 数字员工 / AI 基础设施 / AI 原生组织 / 网络安全
+- 8 个 Signals：基础模型演进、合成数据、神经形态计算等
+- 11% 企业成功将智能体投入生产应用
+- 64% 企业增加 AI 投资
 okf_metadata:
   schema: okf-v0.1-inspired
   sidecar_for: 2026-06-16_pdf_德勤Tech-Trends-2026官方报告.pdf
-  downloaded_from: "https://mkto.deloitte.com/rs/712-CNF-326/images/DI_Tech-trends-2026.pdf"
-tags: [deloitte, tech-trends, 2026, ai, pdf, official-report]
+  downloaded_from: https://mkto.deloitte.com/rs/712-CNF-326/images/DI_Tech-trends-2026.pdf
+tags:
+- '2026'
+- AI
+- ai
+- deloitte
+- official-report
+- pdf
+- tech-trends
 next_actions:
-  - "提取 5 大趋势关键数据 → 写入 Research/2026-06-16 - 知识工程三角.md"
+- 提取 5 大趋势关键数据 → 写入 Research/2026-06-16 - 知识工程三角.md
 ---
-
 # 德勤 Tech Trends 2026 官方报告 — 内容摘要
 
 > 本文件是 PDF sidecar。原文件是 2.4 MB 的英文报告，180+ 页。

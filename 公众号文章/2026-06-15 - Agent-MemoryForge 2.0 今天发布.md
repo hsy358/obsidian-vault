@@ -1,17 +1,23 @@
 ---
-title: "Agent-MemoryForge 2.0 今天发布"
-author: "未署名（轻量发布文章）"
-publish_date: "2026-06-15"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/09ccKnDHeWKacVKPjuqAZw"
-description: "Agent-MemoryForge 2.0 发布 - 面向真实企业 agent 系统的生产级 Memory Layer"
+title: Agent-MemoryForge 2.0 今天发布
+author: 未署名（轻量发布文章）
+publish_date: '2026-06-15'
+source: wechat
+url: https://mp.weixin.qq.com/s/09ccKnDHeWKacVKPjuqAZw
+description: Agent-MemoryForge 2.0 发布 - 面向真实企业 agent 系统的生产级 Memory Layer
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/09ccKnDHeWKacVKPjuqAZw
+timestamp: '2026-06-15T00:00:00'
+resource: https://mp.weixin.qq.com/s/09ccKnDHeWKacVKPjuqAZw
+tags:
+- AI
+- Agent
+- 产品经理
+- 公众号
 ---
-
 # Agent-MemoryForge 2.0 今天发布
 
 > 来源：微信公众号文章（轻量产品发布，无完整正文，description 包含全部核心信息）

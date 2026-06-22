@@ -1,3 +1,12 @@
+---
+title: Platform Adapters
+description: Use the same conceptual workflow across agents. Only the tool names change.
+type: note
+tags:
+- Agent
+- PPT
+- Vault
+---
 # Platform Adapters
 
 Use the same conceptual workflow across agents. Only the tool names change.

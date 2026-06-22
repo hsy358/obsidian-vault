@@ -1,15 +1,24 @@
 ---
-title: "都是 AI Coding，为什么 Java 体验差了一个量级？五条方法论帮你构建自己的 Harness 环境"
-author: "ImportNew"
-publish_date: "2026-05-24 22:52:41"
-saved_date: "2026-05-25"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/OIwdw0wnX3bEDR7swi0Myg"
+title: 都是 AI Coding，为什么 Java 体验差了一个量级？五条方法论帮你构建自己的 Harness 环境
+author: ImportNew
+publish_date: '2026-05-24 22:52:41'
+saved_date: '2026-05-25'
+source: wechat
+url: https://mp.weixin.qq.com/s/OIwdw0wnX3bEDR7swi0Myg
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/OIwdw0wnX3bEDR7swi0Myg
+description: 1. 体验差距到底在哪
+timestamp: '2026-05-24T22:52:41'
+resource: https://mp.weixin.qq.com/s/OIwdw0wnX3bEDR7swi0Myg
+tags:
+- AI
+- Agent
+- Harness
+- notes
+- 公众号
 ---
 # 都是 AI Coding，为什么 Java 体验差了一个量级？五条方法论帮你构建自己的 Harness 环境
 ![](https://mmbiz.qpic.cn/sz_mmbiz_png/j7RlD5l5q1wYupH27hia7TlT8cFCnXVsiaeEOm9gNKpNevGC2xJcAE7BImQGS4dukATHVdzDpDLicpJaJ0UyvhKOaeKnxqTH5w34YfumHYHWFs/640?wx_fmt=png&from=appmsg)

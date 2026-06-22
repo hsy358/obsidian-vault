@@ -1,15 +1,23 @@
 ---
-title: "搞完 Hermes 多 Agent 我才发现，这根本不是技术活，是管理活"
-author: "林月半子的AI笔记"
-publish_date: "2026-04-20 18:39:43"
-saved_date: "2026-05-24"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/oGXo8psXgP6A24mmKbTGIw"
+title: 搞完 Hermes 多 Agent 我才发现，这根本不是技术活，是管理活
+author: 林月半子的AI笔记
+publish_date: '2026-04-20 18:39:43'
+saved_date: '2026-05-24'
+source: wechat
+url: https://mp.weixin.qq.com/s/oGXo8psXgP6A24mmKbTGIw
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/oGXo8psXgP6A24mmKbTGIw
+description: 关注 「林月半子的AI笔记」，设为「星标」
+timestamp: '2026-04-20T18:39:43'
+resource: https://mp.weixin.qq.com/s/oGXo8psXgP6A24mmKbTGIw
+tags:
+- AI
+- Agent
+- notes
+- 公众号
 ---
 # 搞完 Hermes 多 Agent 我才发现，这根本不是技术活，是管理活
 关注 「**林月半子的AI笔记**」，设为「**星标**」

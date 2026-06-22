@@ -3,8 +3,16 @@ type: resume-related
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: DJI 大疆创新 - 高级软件产品经理面试准备
+description: DJI 这职位偏向软件产品经理，核心考察： 1. 产品思维 - 用户场景分析、需求挖掘、产品策略 2. AI技术理解 - 多模态模型在产品落地中的应用
+  3. 跨...
+tags:
+- AI
+- notes
+- 产品经理
+- 简历
+- 面试
 ---
-
 # DJI 大疆创新 - 高级软件产品经理面试准备
 
 > 基于何四燕简历 + 职位要求定制

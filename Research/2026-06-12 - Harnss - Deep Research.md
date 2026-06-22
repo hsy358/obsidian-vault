@@ -3,8 +3,14 @@ type: research-report
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: Harnss — Deep Research Report
+description: The project is maintained by OpenSource03 and licensed under MIT. It
+  is built wi...
+tags:
+- AI
+- Agent
+- Harness
 ---
-
 # Harnss — Deep Research Report
 
 **Date:** 2026-06-12

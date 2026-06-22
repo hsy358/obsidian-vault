@@ -1,15 +1,23 @@
 ---
-title: "Playwright拉爆了！请给你的Agent安装上真正的浏览器访问能力——CDP Bridge MCP"
-author: "三黄工作室"
-publish_date: "2026-05-08 19:08:59"
-saved_date: "2026-05-10"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/J1EZzYVx0VcologP-hEwVg"
+title: Playwright拉爆了！请给你的Agent安装上真正的浏览器访问能力——CDP Bridge MCP
+author: 三黄工作室
+publish_date: '2026-05-08 19:08:59'
+saved_date: '2026-05-10'
+source: wechat
+url: https://mp.weixin.qq.com/s/J1EZzYVx0VcologP-hEwVg
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/J1EZzYVx0VcologP-hEwVg
+description: CDP Bridge MCP 是一个连接 MCP 客户端与真实浏览器会话的桥接服务。它通过配套的 Chromium 扩展接入浏览器页面，让大模型客户端可以读取标...
+timestamp: '2026-05-08T19:08:59'
+resource: https://mp.weixin.qq.com/s/J1EZzYVx0VcologP-hEwVg
+tags:
+- Agent
+- MCP
+- notes
+- 公众号
 ---
 # Playwright拉爆了！请给你的Agent安装上真正的浏览器访问能力——CDP Bridge MCP
 # CDP Bridge MCP

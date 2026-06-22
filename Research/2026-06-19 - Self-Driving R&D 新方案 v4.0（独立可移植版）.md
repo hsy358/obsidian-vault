@@ -1,3 +1,12 @@
+---
+title: Self-Driving R&D · 独立可移植版 v4.0
+description: 每个阶段声明自己需要哪些 Skill，由 SkillRouter 在该阶段触发时自动加载：
+type: note
+tags:
+- AI
+- Agent
+- Harness
+---
 # Self-Driving R&D · 独立可移植版 v4.0
 
 > **版本定位**：完全脱离 OpenClaw 依赖，做成真正可移植的独立系统

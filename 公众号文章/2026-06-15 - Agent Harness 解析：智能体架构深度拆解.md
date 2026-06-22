@@ -1,10 +1,21 @@
 ---
-title: "Agent Harness 解析：智能体架构深度拆解"
-author: "DataFunTalk"
-publish_date: "2026-06-15 13:00:00"
-saved_date: "2026-06-18"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/6NG-do3sxesuL_FLRM-mDw"
+title: Agent Harness 解析：智能体架构深度拆解
+author: DataFunTalk
+publish_date: '2026-06-15 13:00:00'
+saved_date: '2026-06-18'
+source: wechat
+url: https://mp.weixin.qq.com/s/6NG-do3sxesuL_FLRM-mDw
+description: 你搭过一个聊天机器人，接入了ReAct循环，挂了几个工具，演示效果不错。
+timestamp: '2026-06-15T13:00:00'
+resource: https://mp.weixin.qq.com/s/6NG-do3sxesuL_FLRM-mDw
+type: tech-article
+tags:
+- AI
+- Agent
+- Harness
+- LLM
+- 产品经理
+- 公众号
 ---
 # Agent Harness 解析：智能体架构深度拆解
 ![](https://mmbiz.qpic.cn/mmbiz_png/zHbzQPKIBPhTia191MRUMDiacXVJ4Y3YS8Xibicn0O9liacYp7Aia6iaYKqDSicvuWPKibvibUGXGET00pxW6Jiaicn07KRGjQ/640?wx_fmt=png&from=appmsg)

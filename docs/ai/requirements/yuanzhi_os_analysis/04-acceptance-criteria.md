@@ -3,8 +3,11 @@ type: requirement-doc
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: 04-acceptance-criteria.md — Yuanzhi OS 验收标准
+tags:
+- AI
+- docs
 ---
-
 # 04-acceptance-criteria.md — Yuanzhi OS 验收标准
 
 > 使用 Given-When-Then 格式，覆盖正常流程、边界异常、业务规则。

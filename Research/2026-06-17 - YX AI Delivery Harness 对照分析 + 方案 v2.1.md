@@ -1,8 +1,8 @@
 ---
-title: "YX AI Delivery Harness 对照分析 + Self-Driving R&D 方案 v2.1"
-author: "OpenClaw 小助"
-publish_date: "2026-06-17"
-saved_date: "2026-06-17"
+title: YX AI Delivery Harness 对照分析 + Self-Driving R&D 方案 v2.1
+author: OpenClaw 小助
+publish_date: '2026-06-17'
+saved_date: '2026-06-17'
 type: research-report
 okf_metadata:
   schema: okf-v0.1-inspired
@@ -10,8 +10,12 @@ okf_metadata:
   supersedes: 2026-06-17 AI-Native R&D 自驱动闭环 v2.0
   input_image: yx-ai-delivery-harness-dashboard.jpg
 status: implementable
+description: YX Harness 底部双栏结构：
+timestamp: '2026-06-17T00:00:00'
+tags:
+- AI
+- Harness
 ---
-
 # YX AI Delivery Harness 对照分析 + v2.1 升级
 
 > **背景**：何大人分享了 YX AI Delivery Harness 的 dashboard 截图（已存档）

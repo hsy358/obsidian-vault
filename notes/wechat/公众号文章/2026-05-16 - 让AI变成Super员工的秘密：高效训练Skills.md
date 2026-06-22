@@ -1,15 +1,22 @@
 ---
-title: "让AI变成Super员工的秘密：高效训练Skills"
-author: "DataFunTalk"
-publish_date: "2026-05-16 13:02:21"
-saved_date: "2026-05-16"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/jdIWZlZiZZSmegJJxRoooA"
+title: 让AI变成Super员工的秘密：高效训练Skills
+author: DataFunTalk
+publish_date: '2026-05-16 13:02:21'
+saved_date: '2026-05-16'
+source: wechat
+url: https://mp.weixin.qq.com/s/jdIWZlZiZZSmegJJxRoooA
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/jdIWZlZiZZSmegJJxRoooA
+description: OpenClaw 火了以后，一个变化非常明显：几乎每个人都拥有了一个“什么都能干一点”的 AI 助手。
+timestamp: '2026-05-16T13:02:21'
+resource: https://mp.weixin.qq.com/s/jdIWZlZiZZSmegJJxRoooA
+tags:
+- AI
+- notes
+- 公众号
 ---
 # 让AI变成Super员工的秘密：高效训练Skills
 > 为什么 AI 很聪明，却总干不好复杂任务？不是模型不行，而是欠缺“业务 SOP”！ 本文复盘了打造 web-testing Skill 时的 4 个真实翻车教训，分享一套极具实操性的工程化训练心法（门禁规则、Checklist、自动迭代）。教你告别玄学 Prompt，把 AI 真正调教成能闭环交付的 S 级员工！不是 AI 不够强，而是大多数 AI 还没有被你训练成“懂业务、会自检、能稳定交付”的员工。

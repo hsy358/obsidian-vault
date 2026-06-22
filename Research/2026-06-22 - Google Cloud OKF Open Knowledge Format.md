@@ -4,19 +4,24 @@ source: github
 url: https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf
 fetched: 2026-06-22
 tags:
-  - 知识管理
-  - 知识图谱
-  - markdown
-  - YAML frontmatter
-  - Google Cloud
-  - LLM
-  - RAG
-  - Obsidian
+- AI
+- Agent
+- Google Cloud
+- LLM
+- OKF
+- Obsidian
+- RAG
+- YAML frontmatter
+- markdown
+- 知识图谱
+- 知识管理
 related:
-  - /root/vault/03-资源/
-  - /root/vault/公众号文章/
+- /root/vault/03-资源/
+- /root/vault/公众号文章/
+title: Google Cloud OKF — Open Knowledge Format
+description: 不是 SDK、不是查询语言、不是中间件——就是一组带 frontmatter 的 .md 文件 + 目录结构。
+resource: https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf
 ---
-
 # Google Cloud OKF — Open Knowledge Format
 
 > **来源**：https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf

@@ -1,15 +1,26 @@
 ---
-title: "Obsidian x Agent 终极指南，从零打造个人 Agent 系统"
-author: "空格的键盘"
-publish_date: "2026-04-22 08:01:05"
-saved_date: "2026-05-10"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/l38S21qKqi6eLaqFPZS0qw"
+title: Obsidian x Agent 终极指南，从零打造个人 Agent 系统
+author: 空格的键盘
+publish_date: '2026-04-22 08:01:05'
+saved_date: '2026-05-10'
+source: wechat
+url: https://mp.weixin.qq.com/s/l38S21qKqi6eLaqFPZS0qw
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/l38S21qKqi6eLaqFPZS0qw
+description: 这应该是全网最完整的一份「Obsidian × AI 生产力」指南。
+timestamp: '2026-04-22T08:01:05'
+resource: https://mp.weixin.qq.com/s/l38S21qKqi6eLaqFPZS0qw
+tags:
+- AI
+- Agent
+- Claude
+- Obsidian
+- Vault
+- notes
+- 公众号
 ---
 # Obsidian x Agent 终极指南，从零打造个人 Agent 系统
 ![](https://mmbiz.qpic.cn/sz_mmbiz_png/CFe2b8yvCoz0VYRAoO5wdw0YDlOeIyZ0HAHYdkpdzBIwdUPxr6LCc08IO6AXcP9fyEvt8wkAeYR9Ch2OfUiatfpgdKp3F3r0BJydThWtTMrM/640?wx_fmt=png&from=appmsg)

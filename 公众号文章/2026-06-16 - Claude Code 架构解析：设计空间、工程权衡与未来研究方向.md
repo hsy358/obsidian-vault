@@ -1,10 +1,18 @@
 ---
-title: "Claude Code 架构解析：设计空间、工程权衡与未来研究方向"
-author: "Beyond Known"
-publish_date: "2026-04-29 16:46:40"
-saved_date: "2026-06-16"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/hXZBlLiT3BfHbgvGndgneQ"
+title: Claude Code 架构解析：设计空间、工程权衡与未来研究方向
+author: Beyond Known
+publish_date: '2026-04-29 16:46:40'
+saved_date: '2026-06-16'
+source: wechat
+url: https://mp.weixin.qq.com/s/hXZBlLiT3BfHbgvGndgneQ
+description: 深刻而简洁的设计理念：其实Claude Code核心代码只有一个执行引擎，却能完成所有的软件开发任务，其背后的5大核心原则主要包含：
+timestamp: '2026-04-29T16:46:40'
+resource: https://mp.weixin.qq.com/s/hXZBlLiT3BfHbgvGndgneQ
+type: tech-article
+tags:
+- Agent
+- Claude
+- 公众号
 ---
 # Claude Code 架构解析：设计空间、工程权衡与未来研究方向
 深刻而简洁的设计理念：其实Claude Code核心代码只有一个执行引擎，却能完成所有的软件开发任务，其背后的5大核心原则主要包含：

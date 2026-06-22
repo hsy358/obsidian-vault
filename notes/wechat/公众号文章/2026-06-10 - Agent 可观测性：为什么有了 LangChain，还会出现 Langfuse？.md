@@ -1,15 +1,24 @@
 ---
-title: "Agent 可观测性：为什么有了 LangChain，还会出现 Langfuse？"
-author: "叶小钗"
-publish_date: "2026-06-10 09:00:00"
-saved_date: "2026-06-10"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/Vf5lcw13OOBcJeplV70fOA"
+title: Agent 可观测性：为什么有了 LangChain，还会出现 Langfuse？
+author: 叶小钗
+publish_date: '2026-06-10 09:00:00'
+saved_date: '2026-06-10'
+source: wechat
+url: https://mp.weixin.qq.com/s/Vf5lcw13OOBcJeplV70fOA
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/Vf5lcw13OOBcJeplV70fOA
+description: 上次我们发布了一篇文章，关于Agent的可观测性： Agent Harness 可观测性
+timestamp: '2026-06-10T09:00:00'
+resource: https://mp.weixin.qq.com/s/Vf5lcw13OOBcJeplV70fOA
+tags:
+- AI
+- Agent
+- Harness
+- notes
+- 公众号
 ---
 # Agent 可观测性：为什么有了 LangChain，还会出现 Langfuse？
 > AI训练营**10期**，**6月底**开班，欢迎咨询

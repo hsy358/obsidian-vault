@@ -1,3 +1,10 @@
+---
+title: Design Rules for Editable Architecture PPTs
+type: note
+tags:
+- AI
+- PPT
+---
 # Design Rules for Editable Architecture PPTs
 
 ## One-Page Dense Diagram Rules

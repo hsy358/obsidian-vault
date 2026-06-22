@@ -1,3 +1,10 @@
+---
+title: Route Selection
+description: Choose the production route before generating slides.
+type: note
+tags:
+- PPT
+---
 # Route Selection
 
 Choose the production route before generating slides.

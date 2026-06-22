@@ -3,8 +3,11 @@ type: requirement-doc
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: 07-user-scenarios.md — Yuanzhi OS 用户场景
+tags:
+- AI
+- docs
 ---
-
 # 07-user-scenarios.md — Yuanzhi OS 用户场景
 
 > 基于角色和 AI 核心能力推导用户场景，覆盖主要角色、核心对象、高频动作。

@@ -1,3 +1,8 @@
+---
+title: Theme Tokens
+description: Define visual constants before generation.
+type: note
+---
 # Theme Tokens
 
 Define visual constants before generation.

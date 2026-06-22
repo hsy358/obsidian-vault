@@ -1,19 +1,25 @@
 ---
-title: "Self-Driving R&D v3.2 — YX Harness 二次分析后的深化"
-author: "OpenClaw 小助"
-publish_date: "2026-06-17"
-saved_date: "2026-06-17"
+title: Self-Driving R&D v3.2 — YX Harness 二次分析后的深化
+author: OpenClaw 小助
+publish_date: '2026-06-17'
+saved_date: '2026-06-17'
 type: research-report
 okf_metadata:
   schema: okf-v0.1-inspired
   version: 3.2
   supersedes: 2026-06-17 AI-Native R&D 自驱动闭环 v3.1
   inputs:
-    - v3.1 基础
-    - YX Harness 二次分析（Claude Code/ReAct/3 大特性/sub-step）
+  - v3.1 基础
+  - YX Harness 二次分析（Claude Code/ReAct/3 大特性/sub-step）
 status: implementable
+description: YX Harness 显示 1-2-3-4-5 小数字点，我们用 sub-step JSON 实现：
+timestamp: '2026-06-17T00:00:00'
+tags:
+- Agent
+- Claude
+- Harness
+- 产品经理
 ---
-
 # Self-Driving R&D v3.2 — YX Harness 第二次分析后的深化
 
 > **v3.2 关键发现**：YX Harness 不是抽象的概念产品，而是**真实落地的同构系统**。

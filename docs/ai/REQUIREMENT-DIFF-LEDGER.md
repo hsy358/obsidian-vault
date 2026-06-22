@@ -3,8 +3,10 @@ type: requirement-ledger
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: REQUIREMENT-DIFF-LEDGER.md — 需求理解偏差追踪
+tags:
+- docs
 ---
-
 # REQUIREMENT-DIFF-LEDGER.md — 需求理解偏差追踪
 
 > 记录需求分析过程中发现的理解偏差、误解和修正。

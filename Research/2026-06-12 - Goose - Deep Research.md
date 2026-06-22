@@ -3,8 +3,13 @@ type: research-report
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: Goose — Deep Research Report
+description: 1. Project Overview 2. Technical Architecture 3. All Major Features 4.
+  The MCP E...
+tags:
+- AI
+- MCP
 ---
-
 # Goose — Deep Research Report
 
 **Date:** 2026-06-12  

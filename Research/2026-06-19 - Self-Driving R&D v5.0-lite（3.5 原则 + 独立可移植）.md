@@ -1,3 +1,8 @@
+---
+title: Self-Driving R&D · v5.0-lite（3.5 原则 + 独立可移植）
+description: 要不要我直接开始写 workflow.yaml + 核心 6 个 Python 文件的代码？
+type: note
+---
 # Self-Driving R&D · v5.0-lite（3.5 原则 + 独立可移植）
 
 > **定位**：v3.5 的实战原则 + v4.x 的独立可移植架构 = **最小可落地版本**

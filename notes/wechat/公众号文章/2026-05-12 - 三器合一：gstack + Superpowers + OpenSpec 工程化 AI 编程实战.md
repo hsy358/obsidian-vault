@@ -1,15 +1,22 @@
 ---
-title: "三器合一：gstack + Superpowers + OpenSpec 工程化 AI 编程实战"
-author: "AgentBuff"
-publish_date: "2026-05-12 18:04:00"
-saved_date: "2026-05-14"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/j5_WRygYB_N4eagUCPSZwA"
+title: 三器合一：gstack + Superpowers + OpenSpec 工程化 AI 编程实战
+author: AgentBuff
+publish_date: '2026-05-12 18:04:00'
+saved_date: '2026-05-14'
+source: wechat
+url: https://mp.weixin.qq.com/s/j5_WRygYB_N4eagUCPSZwA
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/j5_WRygYB_N4eagUCPSZwA
+description: 三个工具解决三个不同的问题，装在一起不冲突：
+timestamp: '2026-05-12T18:04:00'
+resource: https://mp.weixin.qq.com/s/j5_WRygYB_N4eagUCPSZwA
+tags:
+- AI
+- notes
+- 公众号
 ---
 # 三器合一：gstack + Superpowers + OpenSpec 工程化 AI 编程实战
 ![](https://mmbiz.qpic.cn/sz_mmbiz_png/c8WXahKZ0fOyfDVAicORYHSQPAq3exJ6k1sWoYw5J7R5GsjjzOalOwFKUz0tOKsdaMbeXtlZialr7MYGoUOB5AUwDOPXQOiazflLhRdricZBheQ/640?wx_fmt=png&from=appmsg)

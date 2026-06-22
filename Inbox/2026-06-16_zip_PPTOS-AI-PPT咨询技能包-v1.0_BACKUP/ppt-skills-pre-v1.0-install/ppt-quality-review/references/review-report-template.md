@@ -1,3 +1,10 @@
+---
+title: PPT Review Report Template
+type: note
+tags:
+- AI
+- PPT
+---
 # PPT Review Report Template
 
 ```markdown

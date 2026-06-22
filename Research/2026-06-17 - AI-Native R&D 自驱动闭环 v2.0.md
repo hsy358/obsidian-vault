@@ -1,8 +1,8 @@
 ---
-title: "AI-Native R&D 自驱动闭环方案 v2.0（扔需求进去，AI 跑 10+ 小时自己闭环）"
-author: "OpenClaw 小助"
-publish_date: "2026-06-17"
-saved_date: "2026-06-17"
+title: AI-Native R&D 自驱动闭环方案 v2.0（扔需求进去，AI 跑 10+ 小时自己闭环）
+author: OpenClaw 小助
+publish_date: '2026-06-17'
+saved_date: '2026-06-17'
 type: research-report
 okf_metadata:
   schema: okf-v0.1-inspired
@@ -10,15 +10,20 @@ okf_metadata:
   supersedes: 2026-06-17 AI-Native R&D 全流程方案 v1.0
   evolution: v1.0 7 阶段人监督 → v2.0 AI 自驱动闭环
 inputs:
-  - v1.0 方案（7 阶段 + 3 Checkpoint）
-  - Anthropic Effective harnesses for long-running agents
-  - Nx Self-Healing CI (Ralph Wiggum loops)
-  - Cursor long-running async agents
-  - Cursor building self-driving codebases
-  - 火山引擎 AI 研发框架（多任务并行）
+- v1.0 方案（7 阶段 + 3 Checkpoint）
+- Anthropic Effective harnesses for long-running agents
+- Nx Self-Healing CI (Ralph Wiggum loops)
+- Cursor long-running async agents
+- Cursor building self-driving codebases
+- 火山引擎 AI 研发框架（多任务并行）
 status: implementable
+description: 1. 确认方向 ✓（已说"扔需求进去跑 10+ 小时"） 2. 选第一个项目（建议：context-recovery v2 升级 或 PPT
+  复刻 V2） 3....
+timestamp: '2026-06-17T00:00:00'
+tags:
+- AI
+- Agent
 ---
-
 # AI-Native R&D 自驱动闭环方案 v2.0
 
 > **核心目标**：扔一个需求进去，AI 跑 10+ 小时自己跑完需求 → 研发 → 测试 → 修复 → 验证 → 交付

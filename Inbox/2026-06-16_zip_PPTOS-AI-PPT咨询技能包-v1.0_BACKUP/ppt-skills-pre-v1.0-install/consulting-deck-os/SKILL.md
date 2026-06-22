@@ -1,8 +1,14 @@
 ---
 name: consulting-deck-os
-description: Use when the user wants a consulting-style PPT, strategy deck, client proposal, executive briefing, business case, product plan, roadmap, or any presentation that needs strong storyline, page planning, editability, and repeatable delivery.
+description: Use when the user wants a consulting-style PPT, strategy deck, client
+  proposal, executive briefing, business case, product plan, roadmap, or any presentation
+  that needs strong storyline, page planning, editability, and repeatable delivery.
+title: Consulting Deck OS
+type: note
+tags:
+- AI
+- Vault
 ---
-
 # Consulting Deck OS
 
 Use this skill to turn a topic, notes, vault, report, or brief into a consulting-grade deck workflow.

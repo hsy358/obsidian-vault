@@ -1,15 +1,22 @@
 ---
-title: "让你的Claude Code通宵干活！含完整教程"
-author: "硅基生命体"
-publish_date: "2026-05-10 09:01:03"
-saved_date: "2026-05-11"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/9CGRzKP5pFEF6RgJY-9DYw"
+title: 让你的Claude Code通宵干活！含完整教程
+author: 硅基生命体
+publish_date: '2026-05-10 09:01:03'
+saved_date: '2026-05-11'
+source: wechat
+url: https://mp.weixin.qq.com/s/9CGRzKP5pFEF6RgJY-9DYw
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/9CGRzKP5pFEF6RgJY-9DYw
+description: 高效利用碎片化时间是开发者提升效率的关键，Claude Code 的无人值守运行功能，可解锁“夜间生产力”。
+timestamp: '2026-05-10T09:01:03'
+resource: https://mp.weixin.qq.com/s/9CGRzKP5pFEF6RgJY-9DYw
+tags:
+- Claude
+- notes
+- 公众号
 ---
 # 让你的Claude Code通宵干活！含完整教程
 高效利用碎片化时间是开发者提升效率的关键，Claude Code 的无人值守运行功能，可解锁“夜间生产力”。

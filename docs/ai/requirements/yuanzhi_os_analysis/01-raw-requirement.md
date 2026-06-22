@@ -3,8 +3,12 @@ type: requirement-doc
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: 01-raw-requirement.md — Yuanzhi OS 竞品架构映射与 AI 重构解析
+description: Yuanzhi OS 是一个 AI 原生教学操作系统，目标是全面替代传统 SDS教学管理系统。
+tags:
+- AI
+- docs
 ---
-
 # 01-raw-requirement.md — Yuanzhi OS 竞品架构映射与 AI 重构解析
 
 > **原始需求原文**，保留歧义，不做改写。

@@ -1,15 +1,24 @@
 ---
-title: "万字干货！Agent Skills从入门到精通"
-author: "沃垠AI"
-publish_date: "2026-04-13 22:45:37"
-saved_date: "2026-05-09"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/inhBH4dgp5BPKu-4sVAaxA"
+title: 万字干货！Agent Skills从入门到精通
+author: 沃垠AI
+publish_date: '2026-04-13 22:45:37'
+saved_date: '2026-05-09'
+source: wechat
+url: https://mp.weixin.qq.com/s/inhBH4dgp5BPKu-4sVAaxA
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/inhBH4dgp5BPKu-4sVAaxA
+description: 如果你要问我，2026年最值得学习的AI技能是什么？我会毫不犹豫地推荐Skills。
+timestamp: '2026-04-13T22:45:37'
+resource: https://mp.weixin.qq.com/s/inhBH4dgp5BPKu-4sVAaxA
+tags:
+- AI
+- Agent
+- Claude
+- notes
+- 公众号
 ---
 # 万字干货！Agent Skills从入门到精通
 ![](https://mmbiz.qpic.cn/mmbiz_png/H9yPeQXaIQgPImVEjBqnwPEo6xwep78zhiaX5eutW2x52xLibO98PgBznrN1UBExiaybl3gNyKHTiaMvURjIjnfzzIukdn8uA7oEQrY6WYl5ibkw/640?wx_fmt=png&from=appmsg)

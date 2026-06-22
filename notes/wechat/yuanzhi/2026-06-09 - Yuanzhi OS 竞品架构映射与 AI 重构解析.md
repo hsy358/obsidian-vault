@@ -4,8 +4,12 @@ okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: (local
+title: Yuanzhi OS 竞品架构映射与 AI 重构解析
+description: 本模块定义了 Yuanzhi OS 如何在 L1~L3 级别全面覆盖传统竞品 (SDS 教学管理系统) 的功能，并通过 AI 工作流、知识图谱与空间架构实现体验...
+tags:
+- AI
+- notes
 ---
-
 # Yuanzhi OS 竞品架构映射与 AI 重构解析
 
 本模块定义了 Yuanzhi OS 如何在 L1~L3 级别全面覆盖传统竞品 (SDS 教学管理系统) 的功能，并通过 AI 工作流、知识图谱与空间架构实现体验的"降维打击"。

@@ -1,8 +1,8 @@
 ---
-title: "AI-Native R&D 自驱动闭环 v3.1（35min 规则 + Ralph Loop + HTN + 5-Layer Runtime + DeepWiki）"
-author: "OpenClaw 小助"
-publish_date: "2026-06-17"
-saved_date: "2026-06-17"
+title: AI-Native R&D 自驱动闭环 v3.1（35min 规则 + Ralph Loop + HTN + 5-Layer Runtime + DeepWiki）
+author: OpenClaw 小助
+publish_date: '2026-06-17'
+saved_date: '2026-06-17'
 type: research-report
 okf_metadata:
   schema: okf-v0.1-inspired
@@ -10,8 +10,13 @@ okf_metadata:
   supersedes: 2026-06-17 AI-Native R&D 自驱动闭环 v3.0
   evolution: v3.0 → v3.1（增加 7 个深度研究产物）
 status: implementable
+description: 1. 35-min 是硬限制（不是建议）— 超过就降级 2. Ralph Loop 是 1 行 bash — 简单但有效 3. HTN 减少
+  75% LLM 调...
+timestamp: '2026-06-17T00:00:00'
+tags:
+- AI
+- 产品经理
 ---
-
 # AI-Native R&D 自驱动闭环 v3.1
 
 > **核心目标**：给你需求 → 充分理解 → 拆解任务 → 编码/测试/验证/修复/再验证 → 交付完整产品。AI 自驱动，10+ 小时，中间减少人工。

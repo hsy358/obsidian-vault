@@ -1,3 +1,10 @@
+---
+title: Self-Driving R&D · 实战成本分析（v4.2 冷静版）
+description: 对单个小项目来说，纯手工可能更快。
+type: note
+tags:
+- MCP
+---
 # Self-Driving R&D · 实战成本分析（v4.2 冷静版）
 
 > **核心问题**：v4.2 是不是"大杂烩"？从 1 行需求到落地，是否太复杂？token 消耗如何？实战可行吗？

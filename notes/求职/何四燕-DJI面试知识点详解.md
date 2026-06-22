@@ -3,8 +3,14 @@ type: resume-related
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: DJI 面试 - 知识要点详解
+description: 1. 产品愿景：长期目标（1-3年） 2. 战略分解：年度目标、季度目标 3. 需求池管理：收集→筛选→排序→进入迭代 4. 版本规划：功能分组、时间节点、里程...
+tags:
+- notes
+- 产品经理
+- 简历
+- 面试
 ---
-
 # DJI 面试 - 知识要点详解
 
 > 何四燕 - 高级软件产品经理面试准备

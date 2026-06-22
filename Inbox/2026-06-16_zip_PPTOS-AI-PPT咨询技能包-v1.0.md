@@ -4,28 +4,39 @@ file_type: zip
 file_path: 2026-06-16_zip_PPTOS-AI-PPT咨询技能包-v1.0.zip
 source: user-upload
 uploaded_date: 2026-06-16
-title: "PPTOS · AI PPT 咨询技能包 v1.0"
-description: "7 个独立 PPT 技能合集：consulting-deck-os / ppt-production-engine / knowledge-to-deck / ppt-quality-review / editable-architecture-ppt / education-training-deck（新增）/ ai-ppt-consulting-skill-pack（统一入口 PPTOS）"
+title: PPTOS · AI PPT 咨询技能包 v1.0
+description: 7 个独立 PPT 技能合集：consulting-deck-os / ppt-production-engine / knowledge-to-deck
+  / ppt-quality-review / editable-architecture-ppt / education-training-deck（新增）/
+  ai-ppt-consulting-skill-pack（统一入口 PPTOS）
 size_bytes: 10039457
 language: zh-CN / en
 okf_metadata:
   schema: okf-v0.1-inspired
   sidecar_for: 2026-06-16_zip_PPTOS-AI-PPT咨询技能包-v1.0.zip
   contents:
-    - "consulting-deck-os（升级版 · 加 PPTOS 触发词）"
-    - "education-training-deck（新增 · 教育培训垂直增强）"
-    - "ppt-production-engine（PPT 生产引擎）"
-    - "knowledge-to-deck（知识转 deck）"
-    - "editable-architecture-ppt（可编辑架构 PPT）"
-    - "ppt-quality-review（PPT 质量审查）"
-    - "ai-ppt-consulting-skill-pack（统一入口 · README）"
-tags: [pptos, ppt-skill, consulting-deck, education-training, v1.0, skill-pack]
+  - consulting-deck-os（升级版 · 加 PPTOS 触发词）
+  - education-training-deck（新增 · 教育培训垂直增强）
+  - ppt-production-engine（PPT 生产引擎）
+  - knowledge-to-deck（知识转 deck）
+  - editable-architecture-ppt（可编辑架构 PPT）
+  - ppt-quality-review（PPT 质量审查）
+  - ai-ppt-consulting-skill-pack（统一入口 · README）
+tags:
+- AI
+- PPT
+- PPTOS
+- consulting-deck
+- education-training
+- ppt-skill
+- pptos
+- skill-pack
+- v1.0
+- 知识管理
 next_actions:
-  - "安装到 /root/.openclaw/workspace/skills/ppt-skills/"
-  - "验证共享软链接（~/.shared/skills/）"
-  - "未来毛概 PPT 用 education-training-deck 重做"
+- 安装到 /root/.openclaw/workspace/skills/ppt-skills/
+- 验证共享软链接（~/.shared/skills/）
+- 未来毛概 PPT 用 education-training-deck 重做
 ---
-
 # PPTOS · AI PPT 咨询技能包 v1.0
 
 > 本文件是 zip 的 sidecar 元数据。

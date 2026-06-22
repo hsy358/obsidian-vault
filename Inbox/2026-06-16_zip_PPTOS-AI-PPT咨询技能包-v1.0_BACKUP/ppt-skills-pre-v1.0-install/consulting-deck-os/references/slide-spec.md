@@ -1,3 +1,11 @@
+---
+title: Slide Spec Reference
+description: Use slides.json to make deck generation repeatable.
+type: note
+tags:
+- AI
+- PPT
+---
 # Slide Spec Reference
 
 Use `slides.json` to make deck generation repeatable.

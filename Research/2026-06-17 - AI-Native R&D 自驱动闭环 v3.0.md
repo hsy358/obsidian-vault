@@ -1,24 +1,28 @@
 ---
-title: "AI-Native R&D 自驱动闭环 v3.0（GAN 架构 + Loop Engineering + 长跑实战）"
-author: "OpenClaw 小助"
-publish_date: "2026-06-17"
-saved_date: "2026-06-17"
+title: AI-Native R&D 自驱动闭环 v3.0（GAN 架构 + Loop Engineering + 长跑实战）
+author: OpenClaw 小助
+publish_date: '2026-06-17'
+saved_date: '2026-06-17'
 type: research-report
 okf_metadata:
   schema: okf-v0.1-inspired
   version: 3.0
-  supersedes: 
-    - 2026-06-17 AI-Native R&D 全流程方案 v1.0
-    - 2026-06-17 AI-Native R&D 自驱动闭环 v2.0
-    - 2026-06-17 AI-Native R&D 对照 YX Harness v2.1
+  supersedes:
+  - 2026-06-17 AI-Native R&D 全流程方案 v1.0
+  - 2026-06-17 AI-Native R&D 自驱动闭环 v2.0
+  - 2026-06-17 AI-Native R&D 对照 YX Harness v2.1
   evolution: v1.0 7阶段 → v2.0 自驱动 → v2.1 8阶段+评分 → v3.0 GAN+Loop Engineering
   inputs:
-    - v1.0/v2.0/v2.1 历史方案
-    - 4 组新搜索结果（2026-06-17）
-    - YX AI Delivery Harness dashboard（8 阶段命名来源）
+  - v1.0/v2.0/v2.1 历史方案
+  - 4 组新搜索结果（2026-06-17）
+  - YX AI Delivery Harness dashboard（8 阶段命名来源）
 status: implementable
+description: 每次 subagent 输出后，强制 validator 跑一遍： - 输出中提到的文件存在吗？ - 提到的数字（如"覆盖率 85%"）能验证吗？
+  - 跟 sp...
+timestamp: '2026-06-17T00:00:00'
+tags:
+- AI
 ---
-
 # AI-Native R&D 自驱动闭环 v3.0
 
 > **关键发现**（来自 Anthropic 2026 最新研究）：

@@ -1,15 +1,25 @@
 ---
-title: "Superpowers 深度实战指南：从入门到精通"
-author: "AgentBuff"
-publish_date: "2026-05-08 18:20:37"
-saved_date: "2026-05-10"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/BvrB7td8iJd4vNQW3T_UFg"
+title: Superpowers 深度实战指南：从入门到精通
+author: AgentBuff
+publish_date: '2026-05-08 18:20:37'
+saved_date: '2026-05-10'
+source: wechat
+url: https://mp.weixin.qq.com/s/BvrB7td8iJd4vNQW3T_UFg
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/BvrB7td8iJd4vNQW3T_UFg
+description: Superpowers 的核心理念是统一的，但不同平台的引导方式并不完全相同；hooks/session-start 只是其中一种实现路径，而不是所有
+  harn...
+timestamp: '2026-05-08T18:20:37'
+resource: https://mp.weixin.qq.com/s/BvrB7td8iJd4vNQW3T_UFg
+tags:
+- AI
+- Claude
+- Harness
+- notes
+- 公众号
 ---
 # Superpowers 深度实战指南：从入门到精通
 ## 介绍

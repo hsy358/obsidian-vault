@@ -1,15 +1,24 @@
 ---
-title: "gpt-image-2发布后，PPT最强skill"
-author: "AI Prime"
-publish_date: "2026-04-28 11:13:13"
-saved_date: "2026-05-31"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/nAzCfRg3TxGqxGusVKC20g"
+title: gpt-image-2发布后，PPT最强skill
+author: AI Prime
+publish_date: '2026-04-28 11:13:13'
+saved_date: '2026-05-31'
+source: wechat
+url: https://mp.weixin.qq.com/s/nAzCfRg3TxGqxGusVKC20g
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/nAzCfRg3TxGqxGusVKC20g
+description: 先看一页ai ppt效果图，已经追上古法ppt了。
+timestamp: '2026-04-28T11:13:13'
+resource: https://mp.weixin.qq.com/s/nAzCfRg3TxGqxGusVKC20g
+tags:
+- AI
+- GPT
+- PPT
+- notes
+- 公众号
 ---
 # gpt-image-2发布后，PPT最强skill
 先看一页ai ppt效果图，已经追上古法ppt了。

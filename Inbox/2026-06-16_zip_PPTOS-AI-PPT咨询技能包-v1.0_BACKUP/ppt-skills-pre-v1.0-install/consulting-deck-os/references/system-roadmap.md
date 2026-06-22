@@ -1,3 +1,11 @@
+---
+title: Consulting Deck OS Roadmap
+description: 'Current skill family:'
+type: note
+tags:
+- PPT
+- 知识管理
+---
 # Consulting Deck OS Roadmap
 
 Current skill family:

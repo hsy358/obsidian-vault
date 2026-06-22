@@ -1,3 +1,11 @@
+---
+title: Self-Driving R&D · 独立可移植版 v4.1（深度优化）
+description: v4.0 把阶段当成"8 个独立 stage"，但真实 R&D 中： - 阶段可以跳过（小项目不需要探索） - 阶段可以重复（验证不通过要回到
+  apply 修复...
+type: note
+tags:
+- Agent
+---
 # Self-Driving R&D · 独立可移植版 v4.1（深度优化）
 
 > **版本定位**：v4.0 的深度优化版——修复方案 + 技术实现层面的关键问题

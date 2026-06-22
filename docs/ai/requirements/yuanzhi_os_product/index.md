@@ -3,8 +3,14 @@ type: requirement-index
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: Yuanzhi OS 产品需求澄清与分析
+description: 1. 🔴 立即： 产品经理/业务负责人回复 00A-clarification-session.md 中的 4 个 P0 问题 2. 🟡
+  澄清后： 执行 Cla...
+tags:
+- AI
+- docs
+- 产品经理
 ---
-
 # Yuanzhi OS 产品需求澄清与分析
 
 **产品：** Yuanzhi OS（AI 原生教学操作系统）

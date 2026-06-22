@@ -1,8 +1,8 @@
 ---
-title: "Self-Driving R&D v3.4 — 每个环节细化设计方案"
-author: "OpenClaw 小助"
-publish_date: "2026-06-17"
-saved_date: "2026-06-17"
+title: Self-Driving R&D v3.4 — 每个环节细化设计方案
+author: OpenClaw 小助
+publish_date: '2026-06-17'
+saved_date: '2026-06-17'
 type: technical-spec
 okf_metadata:
   schema: okf-v0.1-inspired
@@ -11,8 +11,11 @@ okf_metadata:
   evolution: v3.3 框架 → v3.4 每个环节完整设计
   scope: 9 stages + 3 roles + 4 GAMD + 5 layers + 8 sub-components
 status: implementable
+description: 详见 A1. Access stage。
+timestamp: '2026-06-17T00:00:00'
+tags:
+- Agent
 ---
-
 # Self-Driving R&D v3.4 — 每个环节细化设计方案
 
 > **本方案覆盖 33 个环节**，每个都含：目的/输入/输出/算法/数据/代码/错误处理/例子

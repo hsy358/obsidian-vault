@@ -1,15 +1,22 @@
 ---
-title: "Agent Skill规范、构建与设计模式"
-author: "阿里云开发者"
-publish_date: "2026-05-12 08:31:35"
-saved_date: "2026-05-12"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/LCpiLyLnRn5WyuHpribyHw"
+title: Agent Skill规范、构建与设计模式
+author: 阿里云开发者
+publish_date: '2026-05-12 08:31:35'
+saved_date: '2026-05-12'
+source: wechat
+url: https://mp.weixin.qq.com/s/LCpiLyLnRn5WyuHpribyHw
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/LCpiLyLnRn5WyuHpribyHw
+description: 文章从 Skill 的规范格式、三层渐进式加载机制、模型驱动触发逻辑出发，深入解析 Skill-Creator 的工程化开发范式。（文章内容基于作者个人技术实践...
+timestamp: '2026-05-12T08:31:35'
+resource: https://mp.weixin.qq.com/s/LCpiLyLnRn5WyuHpribyHw
+tags:
+- Agent
+- notes
+- 公众号
 ---
 # Agent Skill规范、构建与设计模式
 ![](https://mmbiz.qpic.cn/mmbiz_jpg/Z6bicxIx5naK5RGlAFq3bd5u8nMiatDDynrmteUBYK9tgujljzLjwxOwNBg2dddI3ze52P6ad4ueRxia1AxTBcIFQ/640?wx_fmt=jpeg)

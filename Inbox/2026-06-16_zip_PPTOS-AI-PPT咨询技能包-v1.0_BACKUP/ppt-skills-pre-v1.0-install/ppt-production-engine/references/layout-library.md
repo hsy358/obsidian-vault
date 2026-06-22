@@ -1,3 +1,8 @@
+---
+title: Layout Library
+description: Map slide types to stable layout patterns.
+type: note
+---
 # Layout Library
 
 Map slide types to stable layout patterns.

@@ -1,15 +1,24 @@
 ---
-title: "Hermes Agent v0.14.0 发布：开源 Agent 正在补企业工程化底座"
-author: "大数据流动"
-publish_date: "2026-05-18 08:38:47"
-saved_date: "2026-05-18"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/V3lWd-YJUiNWyn5JR8si8A"
+title: Hermes Agent v0.14.0 发布：开源 Agent 正在补企业工程化底座
+author: 大数据流动
+publish_date: '2026-05-18 08:38:47'
+saved_date: '2026-05-18'
+source: wechat
+url: https://mp.weixin.qq.com/s/V3lWd-YJUiNWyn5JR8si8A
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/V3lWd-YJUiNWyn5JR8si8A
+description: 大家好，我是独孤风。
+timestamp: '2026-05-18T08:38:47'
+resource: https://mp.weixin.qq.com/s/V3lWd-YJUiNWyn5JR8si8A
+tags:
+- AI
+- Agent
+- MCP
+- notes
+- 公众号
 ---
 # Hermes Agent v0.14.0 发布：开源 Agent 正在补企业工程化底座
 大家好，我是独孤风。

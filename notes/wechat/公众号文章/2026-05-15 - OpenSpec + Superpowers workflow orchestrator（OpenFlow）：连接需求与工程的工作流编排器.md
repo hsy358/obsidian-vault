@@ -1,15 +1,23 @@
 ---
-title: "OpenSpec + Superpowers workflow orchestrator（OpenFlow）：连接需求与工程的工作流编排器"
-author: "幽人"
-publish_date: "2026-05-15 11:12:56"
-saved_date: "2026-06-03"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/8PT7nlj-Jcu8Xa6lwyApYQ"
+title: OpenSpec + Superpowers workflow orchestrator（OpenFlow）：连接需求与工程的工作流编排器
+author: 幽人
+publish_date: '2026-05-15 11:12:56'
+saved_date: '2026-06-03'
+source: wechat
+url: https://mp.weixin.qq.com/s/8PT7nlj-Jcu8Xa6lwyApYQ
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/8PT7nlj-Jcu8Xa6lwyApYQ
+description: 在软件开发的漫长历史中，需求与实现之间的鸿沟始终是困扰团队的核心问题。需求文档往往以自然语言描述，抽象且模糊；而工程实现需要精确的代码、可验证的步骤、明确的交付...
+timestamp: '2026-05-15T11:12:56'
+resource: https://mp.weixin.qq.com/s/8PT7nlj-Jcu8Xa6lwyApYQ
+tags:
+- AI
+- Agent
+- notes
+- 公众号
 ---
 # OpenSpec + Superpowers workflow orchestrator（OpenFlow）：连接需求与工程的工作流编排器
 > 本文基于 GitHub 仓库 lininn/openflow 源码与文档进行深度分析

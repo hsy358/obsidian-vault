@@ -1,15 +1,24 @@
 ---
-title: "准确率狂飙34%！谷歌全新Agentic RAG来了：揪出缺失盲点，AI不搜出真相绝不停手"
-author: "AI寒武纪"
-publish_date: "2026-06-06 23:23:45"
-saved_date: "2026-06-09"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/8PdVIubBGWKtMMyCb0pc3g"
+title: 准确率狂飙34%！谷歌全新Agentic RAG来了：揪出缺失盲点，AI不搜出真相绝不停手
+author: AI寒武纪
+publish_date: '2026-06-06 23:23:45'
+saved_date: '2026-06-09'
+source: wechat
+url: https://mp.weixin.qq.com/s/8PdVIubBGWKtMMyCb0pc3g
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/8PdVIubBGWKtMMyCb0pc3g
+description: ↑阅读之前记得关注+星标⭐️，😄，每天才能第一时间接收到更新
+timestamp: '2026-06-06T23:23:45'
+resource: https://mp.weixin.qq.com/s/8PdVIubBGWKtMMyCb0pc3g
+tags:
+- AI
+- Agent
+- RAG
+- notes
+- 公众号
 ---
 # 准确率狂飙34%！谷歌全新Agentic RAG来了：揪出缺失盲点，AI不搜出真相绝不停手
 ![](https://mmbiz.qpic.cn/sz_mmbiz_png/kJjlNiczXgKrPJ3pFM9jQHPjNUdOArshwUcMubmOUpyBnSLGV24TDgyUEJv8L9we86kmF75uJ7KZQdrrcdOiaubYcYMibPMqa2z1HyBG6B4wsY/640?wx_fmt=png&from=appmsg)

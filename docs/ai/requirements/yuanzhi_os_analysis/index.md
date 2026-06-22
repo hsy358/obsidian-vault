@@ -3,8 +3,12 @@ type: requirement-index
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: Yuanzhi OS竞品架构映射与 AI 重构解析 — 需求分析索引
+description: Yuanzhi OS 是一个 AI 原生教学操作系统，通过三大空间（管理/专业/教师）和五大 AI 核心场景（PDF解析、长文裂变、文档摘要里程碑、多模态OCR...
+tags:
+- AI
+- docs
 ---
-
 # Yuanzhi OS竞品架构映射与 AI 重构解析 — 需求分析索引
 
 > 本目录包含 Yuanzhi OS 项目的完整需求分析资产，基于 AI Native 需求分析技能（`ai-native-requirement-analysis`）生成。

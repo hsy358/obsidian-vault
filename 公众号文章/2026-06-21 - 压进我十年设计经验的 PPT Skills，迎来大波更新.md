@@ -1,10 +1,18 @@
 ---
-title: "压进我十年设计经验的 PPT Skills，迎来大波更新"
-author: "歸藏的AI工具箱"
-publish_date: "2026-05-11 08:30:00"
-saved_date: "2026-06-21"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/MVXHToWtNVT_b68zxr7fSA"
+title: 压进我十年设计经验的 PPT Skills，迎来大波更新
+author: 歸藏的AI工具箱
+publish_date: '2026-05-11 08:30:00'
+saved_date: '2026-06-21'
+source: wechat
+url: https://mp.weixin.qq.com/s/MVXHToWtNVT_b68zxr7fSA
+description: 上次开源 guizang-ppt-skill（github.com/op7418/guizang-ppt-skill） 之后，大家都非常喜欢，短短几周
+  Gith...
+timestamp: '2026-05-11T08:30:00'
+resource: https://mp.weixin.qq.com/s/MVXHToWtNVT_b68zxr7fSA
+type: methodology
+tags:
+- PPT
+- 公众号
 ---
 # 压进我十年设计经验的 PPT Skills，迎来大波更新
 ![](https://mmbiz.qpic.cn/sz_mmbiz_png/ofWbZTuv4DXoQApmhVKHh654b6kh1B5gicrMJbWjn9gshSFrG6sxj6KneyOrqz78pH1PBbg6z3Oh7zc0nuFozXttmlbr47ycouWAUicKS05HQ/640?wx_fmt=png&from=appmsg)

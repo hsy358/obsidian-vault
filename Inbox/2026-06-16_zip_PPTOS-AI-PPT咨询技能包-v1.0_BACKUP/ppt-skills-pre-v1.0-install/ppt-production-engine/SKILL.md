@@ -1,8 +1,13 @@
 ---
 name: ppt-production-engine
-description: Use when slides.json, deck specs, page plans, or structured slide content must be compiled into an editable PPTX with native PowerPoint objects, reusable layouts, theme tokens, charts, speaker notes, and generation scripts.
+description: Use when slides.json, deck specs, page plans, or structured slide content
+  must be compiled into an editable PPTX with native PowerPoint objects, reusable
+  layouts, theme tokens, charts, speaker notes, and generation scripts.
+title: PPT Production Engine
+type: note
+tags:
+- PPT
 ---
-
 # PPT Production Engine
 
 Use this skill after `consulting-deck-os` has produced a slide plan, or whenever structured slide data must become an editable PowerPoint deck.

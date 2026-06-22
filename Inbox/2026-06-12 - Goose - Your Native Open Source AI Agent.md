@@ -3,8 +3,14 @@ type: inbox-temp
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: Goose - Your Native Open Source AI Agent
+description: Goose 是一个开源、可扩展的通用 AI Agent，运行在本地机器上。不仅限于代码——可用于研究、写作、自动化、数据分析等一切需要完成的任务。
+tags:
+- AI
+- Agent
+- LLM
+- MCP
 ---
-
 # Goose - Your Native Open Source AI Agent
 
 **官网：** https://goose-docs.ai/

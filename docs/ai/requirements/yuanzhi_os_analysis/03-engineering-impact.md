@@ -3,8 +3,12 @@ type: requirement-doc
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: 03-engineering-impact.md — Yuanzhi OS 工程影响分析
+description: Yuanzhi OS 是一个 AI 原生教学操作系统，通过 Vue 3 + Tailwind CSS 前端和 DDD 微服务后端构建，覆盖三大空间（管理/专业/...
+tags:
+- AI
+- docs
 ---
-
 # 03-engineering-impact.md — Yuanzhi OS 工程影响分析
 
 > 分析 AI 核心场景对现有工程的影响，包括匹配到的模块、可复用能力、缺失能力、冲突点和推荐实现入口。

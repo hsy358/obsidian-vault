@@ -1,15 +1,24 @@
 ---
-title: "Claude Code 最强配置清单：七个高效开源工具，让 AI 编程从“能用”变成“好用”​！！！"
-author: "大姚说AI"
-publish_date: "2026-05-10 09:03:05"
-saved_date: "2026-05-10"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/pc5wqvG2x5AKgvaHHOC_9g"
+title: Claude Code 最强配置清单：七个高效开源工具，让 AI 编程从“能用”变成“好用”​！！！
+author: 大姚说AI
+publish_date: '2026-05-10 09:03:05'
+saved_date: '2026-05-10'
+source: wechat
+url: https://mp.weixin.qq.com/s/pc5wqvG2x5AKgvaHHOC_9g
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/pc5wqvG2x5AKgvaHHOC_9g
+description: 在 AI 编程工具越来越普及的今天，很多开发者已经不满足于“让 AI 帮我写几行代码”这种基础用法了。
+timestamp: '2026-05-10T09:03:05'
+resource: https://mp.weixin.qq.com/s/pc5wqvG2x5AKgvaHHOC_9g
+tags:
+- AI
+- Claude
+- notes
+- 产品经理
+- 公众号
 ---
 # Claude Code 最强配置清单：七个高效开源工具，让 AI 编程从“能用”变成“好用”​！！！
 ## 前言

@@ -1,8 +1,14 @@
 ---
 name: ppt-quality-review
-description: Use when a PPTX, deck, slide image, generated presentation, consulting deck, or editable PowerPoint must be reviewed for storyline quality, editability, visual layout, text overflow, rendering issues, source coverage, and delivery readiness.
+description: Use when a PPTX, deck, slide image, generated presentation, consulting
+  deck, or editable PowerPoint must be reviewed for storyline quality, editability,
+  visual layout, text overflow, rendering issues, source coverage, and delivery readiness.
+title: PPT Quality Review
+type: note
+tags:
+- AI
+- PPT
 ---
-
 # PPT Quality Review
 
 Use this skill before claiming a deck is ready, before sending it to a client, or after generating/editing PPTX files.

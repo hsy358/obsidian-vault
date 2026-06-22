@@ -1,14 +1,26 @@
 ---
-title: "用了大半年 subagent，跑一次 Dynamic Workflows 才发现以前全在浪费上下文"
-author: "林月半子的AI笔记"
-publish_date: "2026-06-01 17:59"
-saved_date: "2026-06-17"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/KmlyQ0UxWyoZ2ha9i0nx-g"
-tags: [multi-agent, dynamic-workflow, claude-code, subagent, token-optimization]
+title: 用了大半年 subagent，跑一次 Dynamic Workflows 才发现以前全在浪费上下文
+author: 林月半子的AI笔记
+publish_date: 2026-06-01 17:59
+saved_date: '2026-06-17'
+source: wechat
+url: https://mp.weixin.qq.com/s/KmlyQ0UxWyoZ2ha9i0nx-g
+tags:
+- AI
+- Agent
+- Claude
+- claude-code
+- dynamic-workflow
+- multi-agent
+- subagent
+- token-optimization
+- 公众号
 type: article-summary
+description: Anthropic 发布 Dynamic Workflows（Claude Code v2.1.154+），让 AI 自己写编排脚本，调度几十上百个
+  subag...
+timestamp: '2026-06-01T17:59:00'
+resource: https://mp.weixin.qq.com/s/KmlyQ0UxWyoZ2ha9i0nx-g
 ---
-
 # 用了大半年 subagent，跑一次 Dynamic Workflows 才发现以前全在浪费上下文
 
 > **摘要存档**（原文 20 万字，本文档只存核心要点，保护版权）

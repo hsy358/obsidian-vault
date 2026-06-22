@@ -1,15 +1,23 @@
 ---
-title: "Hermes Agent v0.13.0更新：一台机器，三个 AI 团队成员各司其职"
-author: "量子智元"
-publish_date: "2026-05-09 09:00:00"
-saved_date: "2026-05-10"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/JH4CUsG_K_KjsqX4GA827g"
+title: Hermes Agent v0.13.0更新：一台机器，三个 AI 团队成员各司其职
+author: 量子智元
+publish_date: '2026-05-09 09:00:00'
+saved_date: '2026-05-10'
+source: wechat
+url: https://mp.weixin.qq.com/s/JH4CUsG_K_KjsqX4GA827g
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/JH4CUsG_K_KjsqX4GA827g
+description: 在折腾 Hermes 的时候，碰到一个挺常见的问题——一个 Agent 什么都管，context 越来越乱。日历提醒、代码审查、论文检索全混在一起，记忆库里夹杂...
+timestamp: '2026-05-09T09:00:00'
+resource: https://mp.weixin.qq.com/s/JH4CUsG_K_KjsqX4GA827g
+tags:
+- AI
+- Agent
+- notes
+- 公众号
 ---
 # Hermes Agent v0.13.0更新：一台机器，三个 AI 团队成员各司其职
 在折腾 Hermes 的时候，碰到一个挺常见的问题——**一个 Agent 什么都管，context 越来越乱**。日历提醒、代码审查、论文检索全混在一起，记忆库里夹杂着各种碎片。找了一圈，发现 Hermes 其实内置了一个 Profile 机制，专门解决这个问题。

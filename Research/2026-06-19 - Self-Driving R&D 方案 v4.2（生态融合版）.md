@@ -1,3 +1,13 @@
+---
+title: Self-Driving R&D · 独立可移植版 v4.2（生态融合版）
+type: note
+tags:
+- AI
+- Agent
+- Harness
+- MCP
+- Vault
+---
 # Self-Driving R&D · 独立可移植版 v4.2（生态融合版）
 
 > **版本定位**：在 v4.1 基础上吸收 **2026 年 6 月最新生态**（Paperclip / Conductor / Anthropic Harness / Routa / Harnss / Goose / Nika / GitHub multi-agent patterns）的核心设计

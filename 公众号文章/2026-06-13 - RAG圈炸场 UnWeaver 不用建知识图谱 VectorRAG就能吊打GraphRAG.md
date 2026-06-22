@@ -1,10 +1,18 @@
 ---
-title: "RAG圈炸场！UnWeaver：不用建知识图谱，VectorRAG就能吊打GraphRAG"
-author: "深耕智能体"
-publish_date: "2026-06-13 07:32:00"
-saved_date: "2026-06-20"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/sroKRZZfW39IAe6q3gRahw"
+title: RAG圈炸场！UnWeaver：不用建知识图谱，VectorRAG就能吊打GraphRAG
+author: 深耕智能体
+publish_date: '2026-06-13 07:32:00'
+saved_date: '2026-06-20'
+source: wechat
+url: https://mp.weixin.qq.com/s/sroKRZZfW39IAe6q3gRahw
+description: 在RAG（检索增强生成）领域，一直有一场旷日持久的争论：到底是简单直接的VectorRAG更实用，还是结构复杂的GraphRAG更强大？
+timestamp: '2026-06-13T07:32:00'
+resource: https://mp.weixin.qq.com/s/sroKRZZfW39IAe6q3gRahw
+type: wechat-article
+tags:
+- AI
+- RAG
+- 公众号
 ---
 # RAG圈炸场！UnWeaver：不用建知识图谱，VectorRAG就能吊打GraphRAG
 # RAG圈炸场！UnWeaver：不用建知识图谱，VectorRAG就能吊打GraphRAG

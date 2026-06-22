@@ -1,15 +1,22 @@
 ---
-title: "真的离谱!这个开源神器让Claude Code的token消耗暴降94%"
-author: "ColaAI"
-publish_date: "2026-05-23 07:08:00"
-saved_date: "2026-05-26"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/fsJ0E8pebxxQzylcb1-HdA"
+title: 真的离谱!这个开源神器让Claude Code的token消耗暴降94%
+author: ColaAI
+publish_date: '2026-05-23 07:08:00'
+saved_date: '2026-05-26'
+source: wechat
+url: https://mp.weixin.qq.com/s/fsJ0E8pebxxQzylcb1-HdA
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/fsJ0E8pebxxQzylcb1-HdA
+description: 上周接手了一个陌生的Go项目，让Claude Code帮我看一下"用户登录的鉴权流程到底是怎么走的"。
+timestamp: '2026-05-23T07:08:00'
+resource: https://mp.weixin.qq.com/s/fsJ0E8pebxxQzylcb1-HdA
+tags:
+- Claude
+- notes
+- 公众号
 ---
 # 真的离谱!这个开源神器让Claude Code的token消耗暴降94%
 上周接手了一个陌生的Go项目，让Claude Code帮我看一下"用户登录的鉴权流程到底是怎么走的"。

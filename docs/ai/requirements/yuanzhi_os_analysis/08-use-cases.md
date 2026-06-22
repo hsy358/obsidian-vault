@@ -3,8 +3,11 @@ type: requirement-doc
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: 08-use-cases.md — Yuanzhi OS 用例推导
+tags:
+- AI
+- docs
 ---
-
 # 08-use-cases.md — Yuanzhi OS 用例推导
 
 > 基于07-user-scenarios.md推导详细用例，含主流程、分支流程、异常流程、前置条件、验收标准。

@@ -1,3 +1,13 @@
+---
+title: AI-PPT
+description: codex做PPT思路：
+type: study-note
+tags:
+- AI
+- LLM
+- PPT
+- 产品经理
+---
 codex做PPT思路：
   
 可以，后续你直接给我主题，我就能按这套方案生成类似的 **可编辑架构图 PPT / 产品流程图 PPT / 能力地图 PPT**。

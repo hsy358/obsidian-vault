@@ -3,8 +3,14 @@ type: document
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: 需求澄清结论摘要 / Clarification Summary
+description: （澄清完成后填入，简洁描述确认后的核心需求口径变更）
+tags:
+- AI
+- Agent
+- docs
+- 产品经理
 ---
-
 # 需求澄清结论摘要 / Clarification Summary
 
 **文档：** Yuanzhi OS 竞品架构映射与 AI 重构解析

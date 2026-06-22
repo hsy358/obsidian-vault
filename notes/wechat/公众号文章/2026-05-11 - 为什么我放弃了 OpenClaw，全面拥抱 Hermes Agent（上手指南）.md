@@ -1,15 +1,24 @@
 ---
-title: "为什么我放弃了 OpenClaw，全面拥抱 Hermes Agent（上手指南）"
-author: "manisfast"
-publish_date: "2026-05-11 01:28:58"
-saved_date: "2026-05-11"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/cO8vESo7nlUee1BVtN3PLg"
+title: 为什么我放弃了 OpenClaw，全面拥抱 Hermes Agent（上手指南）
+author: manisfast
+publish_date: '2026-05-11 01:28:58'
+saved_date: '2026-05-11'
+source: wechat
+url: https://mp.weixin.qq.com/s/cO8vESo7nlUee1BVtN3PLg
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/cO8vESo7nlUee1BVtN3PLg
+description: Hermes Agent 是 Nous Research 开源的自主 AI Agent 框架，GitHub 上已经超过 10 万 Star，官方github地址...
+timestamp: '2026-05-11T01:28:58'
+resource: https://mp.weixin.qq.com/s/cO8vESo7nlUee1BVtN3PLg
+tags:
+- AI
+- Agent
+- notes
+- 公众号
+- 简历
 ---
 # 为什么我放弃了 OpenClaw，全面拥抱 Hermes Agent（上手指南）
 > 作为一个带大模型后训练算法团队的 AI 工程师，我用 OpenClaw（龙虾）用了大半年，积累了不少记忆和技能。但当 Hermes 发布之后，我花了一个周末完成迁移，再也没回去。这篇是我上手Hermes 的完整记录——不只是迁移教程，更是从零理解 Hermes 三大核心机制（Memory / Skill / Nudge Engine）、安装、配置 GLM-5.1、以及我用它做工作记录、简历筛选、论文调研等六个真实场景的实战心得。

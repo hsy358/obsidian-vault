@@ -1,5 +1,5 @@
 ---
-title: "二进制文档处理规范（sidecar + 命名 + Inbox 分类）"
+title: 二进制文档处理规范（sidecar + 命名 + Inbox 分类）
 type: standard
 status: active
 version: 1.0
@@ -9,12 +9,23 @@ scope: vault-wide + OpenClaw 工作区
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
-  rationale: |
-    何大人预告未来会上传文档让我查找/解析/操作。当前 vault 仅覆盖 Markdown，
-    二进制文件（PDF/Word/Excel/图片）没有规范。本规范填补这个空缺。
-tags: [standard, binary-document, sidecar, naming-convention, inbox-classification]
----
+  rationale: '何大人预告未来会上传文档让我查找/解析/操作。当前 vault 仅覆盖 Markdown，
 
+    二进制文件（PDF/Word/Excel/图片）没有规范。本规范填补这个空缺。
+
+    '
+tags:
+- OKF
+- PPT
+- Vault
+- binary-document
+- docs
+- inbox-classification
+- naming-convention
+- sidecar
+- standard
+description: 按优先级（高 → 低）：
+---
 # 二进制文档处理规范（sidecar + 命名 + Inbox 分类）
 
 ## 1. 为什么需要本规范

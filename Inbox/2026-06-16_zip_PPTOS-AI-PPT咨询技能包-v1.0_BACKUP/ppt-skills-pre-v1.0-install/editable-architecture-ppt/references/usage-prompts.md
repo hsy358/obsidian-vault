@@ -1,3 +1,12 @@
+---
+title: Usage Prompts
+type: note
+tags:
+- Obsidian
+- PPT
+- Vault
+- 产品经理
+---
 # Usage Prompts
 
 ## Minimal Prompt

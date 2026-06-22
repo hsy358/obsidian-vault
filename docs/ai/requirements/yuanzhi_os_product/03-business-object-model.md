@@ -3,8 +3,11 @@ type: requirement-doc
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: 业务对象模型 / Business Object Model
+tags:
+- AI
+- docs
 ---
-
 # 业务对象模型 / Business Object Model
 
 **文档：** Yuanzhi OS 竞品架构映射与 AI 重构解析

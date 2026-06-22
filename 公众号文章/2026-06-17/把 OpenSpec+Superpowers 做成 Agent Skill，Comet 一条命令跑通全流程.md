@@ -1,10 +1,18 @@
 ---
-title: "把 OpenSpec+Superpowers 做成 Agent Skill，Comet 一条命令跑通全流程"
-author: "java金融"
-publish_date: "2026-06-17 17:00:00"
-saved_date: "2026-06-19"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/Pl9gco7jXXKa7whi0vCuZw"
+title: 把 OpenSpec+Superpowers 做成 Agent Skill，Comet 一条命令跑通全流程
+author: java金融
+publish_date: '2026-06-17 17:00:00'
+saved_date: '2026-06-19'
+source: wechat
+url: https://mp.weixin.qq.com/s/Pl9gco7jXXKa7whi0vCuZw
+description: 前面写完 OpenSpec 和 Superpowers 的配合之后，
+timestamp: '2026-06-17T17:00:00'
+resource: https://mp.weixin.qq.com/s/Pl9gco7jXXKa7whi0vCuZw
+type: tech-article
+tags:
+- AI
+- Agent
+- 公众号
 ---
 # 把 OpenSpec+Superpowers 做成 Agent Skill，Comet 一条命令跑通全流程
 前面写完 OpenSpec 和 Superpowers 的配合之后，

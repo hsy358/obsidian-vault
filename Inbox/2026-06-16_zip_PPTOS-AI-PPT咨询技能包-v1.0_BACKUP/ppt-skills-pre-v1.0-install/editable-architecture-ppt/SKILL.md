@@ -1,8 +1,16 @@
 ---
 name: editable-architecture-ppt
-description: Use when the user asks to create an editable PowerPoint, architecture diagram, product flow diagram, capability map, one-page strategy infographic, AI platform diagram, course/product system diagram, or to convert a complex visual/process idea into a PPTX that can be edited later.
+description: Use when the user asks to create an editable PowerPoint, architecture
+  diagram, product flow diagram, capability map, one-page strategy infographic, AI
+  platform diagram, course/product system diagram, or to convert a complex visual/process
+  idea into a PPTX that can be edited later.
+title: Editable Architecture PPT
+type: note
+tags:
+- Obsidian
+- PPT
+- Vault
 ---
-
 # Editable Architecture PPT
 
 Use this skill to turn a theme, rough requirement, existing image, PRD, Markdown notes, Obsidian vault content, or product idea into a polished, editable PPTX information diagram.

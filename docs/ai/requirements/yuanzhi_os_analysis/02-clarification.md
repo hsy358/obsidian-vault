@@ -3,8 +3,12 @@ type: requirement-doc
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: 02-clarification.md — Yuanzhi OS 业务需求澄清
+description: Yuanzhi OS 是一个 AI 原生教学操作系统，通过三大空间（管理空间、专业空间、教师空间）为六类角色提供专业建设、人才培养方案管理、一线教学的全流程支撑...
+tags:
+- AI
+- docs
 ---
-
 # 02-clarification.md — Yuanzhi OS 业务需求澄清
 
 > 基于原始需求文档进行业务需求结构化澄清。

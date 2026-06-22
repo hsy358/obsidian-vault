@@ -1,10 +1,14 @@
 ---
-title: "cc-vibe Codex 使用教程"
+title: cc-vibe Codex 使用教程
 source: 微信公众号（何大人转发）
 date: 2026-06-16
 type: 配置教程
+timestamp: '2026-06-16T00:00:00'
+tags:
+- AI
+- GPT
+- RAG
 ---
-
 # cc-vibe Codex 使用教程
 
 ## 支持的模型清单

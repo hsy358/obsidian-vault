@@ -3,8 +3,13 @@ type: research-report
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: Hermes Desktop — Deep Research Report
+description: Hermes Desktop is a native cross-platform desktop application (macOS,
+  Windows, L...
+tags:
+- AI
+- Agent
 ---
-
 # Hermes Desktop — Deep Research Report
 **Date:** 2026-06-12
 **Subject:** Hermes Desktop (https://github.com/fathah/hermes-desktop)

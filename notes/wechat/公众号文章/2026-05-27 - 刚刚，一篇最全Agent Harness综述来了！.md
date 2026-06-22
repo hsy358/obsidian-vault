@@ -1,21 +1,30 @@
 ---
-title: "刚刚，一篇最全Agent Harness综述来了！"
-author: "Datawhale"
-publish_date: "2026-05-27 23:58:30"
-saved_date: "2026-06-09"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/pG39PRnZFjSIxwYcPKD47A"
+title: 刚刚，一篇最全Agent Harness综述来了！
+author: Datawhale
+publish_date: '2026-05-27 23:58:30'
+saved_date: '2026-06-09'
+source: wechat
+url: https://mp.weixin.qq.com/s/pG39PRnZFjSIxwYcPKD47A
 tags:
-  - AI-Agent
-  - Agent-Harness
-  - 工程化
+- AI
+- AI-Agent
+- Agent
+- Agent-Harness
+- Harness
+- LLM
+- notes
+- 公众号
+- 工程化
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/pG39PRnZFjSIxwYcPKD47A
+description: 分享目前看到最系统、也最工程化的一篇 Agent Harness 综述，CMU、Yale、JHU、Virginia Tech、Amazon
+  等联合出品：《Age...
+timestamp: '2026-05-27T23:58:30'
+resource: https://mp.weixin.qq.com/s/pG39PRnZFjSIxwYcPKD47A
 ---
-
 # 刚刚，一篇最全Agent Harness综述来了！
 
 # Datawhale干货 最新：Agent Harness

@@ -3,8 +3,11 @@ type: requirement-doc
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: 06-implementation-slices.md — Yuanzhi OS 实现切片
+tags:
+- AI
+- docs
 ---
-
 # 06-implementation-slices.md — Yuanzhi OS 实现切片
 
 > 将需求拆分为适合一次开发完成的小切片，说明影响范围和依赖关系。

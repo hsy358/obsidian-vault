@@ -1,18 +1,26 @@
 ---
-title: "AI-Native R&D 全流程方案 v1.0"
-author: "OpenClaw 小助（综合 13 篇存档文章 + 最新联网搜索）"
-publish_date: "2026-06-17"
-saved_date: "2026-06-17"
+title: AI-Native R&D 全流程方案 v1.0
+author: OpenClaw 小助（综合 13 篇存档文章 + 最新联网搜索）
+publish_date: '2026-06-17'
+saved_date: '2026-06-17'
 type: research-report
 okf_metadata:
   schema: okf-v0.1-inspired
   version: 1.0
   inputs:
-    - 13 篇 vault/公众号文章（6-14 ~ 6-17）
-    - 4 组 web 搜索结果（中英文各 2 组）
+  - 13 篇 vault/公众号文章（6-14 ~ 6-17）
+  - 4 组 web 搜索结果（中英文各 2 组）
 status: implementable
+description: 1. Harness 先行：基础设施先固化（OpenClaw / Claude Code） 2. Skill 模块化：每个环节一个 Skill，可复用
+  3. S...
+timestamp: '2026-06-17T00:00:00'
+tags:
+- AI
+- Agent
+- Claude
+- Harness
+- OKF
 ---
-
 # AI-Native R&D 全流程方案 v1.0
 
 > **目标**：可直接落地实施的"AI 原生研发全流程"方案

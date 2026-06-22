@@ -1,8 +1,16 @@
 ---
 name: knowledge-to-deck
-description: Use when Obsidian vaults, Markdown folders, PDF/Word/PPT files, research notes, WeChat article archives, or mixed knowledge sources must be converted into structured context, evidence, claims, and source maps for a consulting deck or editable PPT.
+description: Use when Obsidian vaults, Markdown folders, PDF/Word/PPT files, research
+  notes, WeChat article archives, or mixed knowledge sources must be converted into
+  structured context, evidence, claims, and source maps for a consulting deck or editable
+  PPT.
+title: Knowledge To Deck
+type: note
+tags:
+- AI
+- Vault
+- 知识管理
 ---
-
 # Knowledge To Deck
 
 Use this skill before `consulting-deck-os` when the user provides a knowledge base, folder, vault, article archive, or source documents.

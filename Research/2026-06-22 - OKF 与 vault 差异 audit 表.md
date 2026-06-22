@@ -3,13 +3,22 @@ type: research-report
 title: OKF 与 vault 差异 audit 表
 description: 对比 Google OKF v0.1 规范与何大人 /root/vault 实际数据，给出兼容性评估、差距清单、改进优先级。
 source: self-analysis
-tags: [okf, audit, obsidian, vault, 知识管理, llm, agent]
-timestamp: 2026-06-22T11:20:00+08:00
+tags:
+- OKF
+- Obsidian
+- Vault
+- agent
+- audit
+- llm
+- obsidian
+- okf
+- vault
+- 知识管理
+timestamp: 2026-06-22 11:20:00+08:00
 related:
-  - 2026-06-22 - Google Cloud OKF Open Knowledge Format.md
-  - 2026-06-16 - 知识工程三角：OKF 格式层 + KDD 流程层 + 成熟度评估层.md
+- 2026-06-22 - Google Cloud OKF Open Knowledge Format.md
+- 2026-06-16 - 知识工程三角：OKF 格式层 + KDD 流程层 + 成熟度评估层.md
 ---
-
 # OKF 与 vault 差异 audit 表
 
 **审计时间**：2026-06-22 11:20

@@ -1,10 +1,22 @@
 ---
-title: "Agent Harness 全景解析 模型不是产品，基础设施才是"
-author: "AI炼金学徒"
-publish_date: "2026-05-28 20:05:21"
-saved_date: "2026-06-16"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/hFJ1MKhCQBnpsDKDzjwuqQ"
+title: Agent Harness 全景解析 模型不是产品，基础设施才是
+author: AI炼金学徒
+publish_date: '2026-05-28 20:05:21'
+saved_date: '2026-06-16'
+source: wechat
+url: https://mp.weixin.qq.com/s/hFJ1MKhCQBnpsDKDzjwuqQ
+description: 阅读约 7 分钟 · 建议收藏
+timestamp: '2026-05-28T20:05:21'
+resource: https://mp.weixin.qq.com/s/hFJ1MKhCQBnpsDKDzjwuqQ
+type: tech-article
+tags:
+- AI
+- Agent
+- Claude
+- Harness
+- MCP
+- 产品经理
+- 公众号
 ---
 # Agent Harness 全景解析 模型不是产品，基础设施才是
 # 深度拆解 Anthropic、OpenAI、LangChain 的 Agent 架构之争

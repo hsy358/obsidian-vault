@@ -1,15 +1,23 @@
 ---
-title: "Skill写得好好的，换模型就翻车？缺的不是能力是Harness"
-author: "小爽爽学智能体鸭"
-publish_date: "2026-05-06 07:56:14"
-saved_date: "2026-05-10"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/CnvED2wgoWREcJBG8QD-aQ"
+title: Skill写得好好的，换模型就翻车？缺的不是能力是Harness
+author: 小爽爽学智能体鸭
+publish_date: '2026-05-06 07:56:14'
+saved_date: '2026-05-10'
+source: wechat
+url: https://mp.weixin.qq.com/s/CnvED2wgoWREcJBG8QD-aQ
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/CnvED2wgoWREcJBG8QD-aQ
+description: 你有没有遇到过这样的情况？
+timestamp: '2026-05-06T07:56:14'
+resource: https://mp.weixin.qq.com/s/CnvED2wgoWREcJBG8QD-aQ
+tags:
+- Harness
+- MCP
+- notes
+- 公众号
 ---
 # Skill写得好好的，换模型就翻车？缺的不是能力是Harness
 ![](https://mmbiz.qpic.cn/mmbiz_jpg/Ik6q9molrolpNsrLbicMVibNq3cZVtJgVm5v6beyEBH3geeWoBjcrRWictFj3UJ4Ric1lzTnKhLxOaaO4yISa5uzpRT27RmxPcEOWhL1TJYYTMY/640?wx_fmt=jpeg)

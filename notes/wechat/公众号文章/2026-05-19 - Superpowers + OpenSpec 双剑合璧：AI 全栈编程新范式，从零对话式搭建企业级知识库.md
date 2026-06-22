@@ -1,15 +1,23 @@
 ---
-title: "Superpowers + OpenSpec 双剑合璧：AI 全栈编程新范式，从零对话式搭建企业级知识库"
-author: "每天译点晓知识"
-publish_date: "2026-05-19 22:17:59"
-saved_date: "2026-05-30"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/NsdUalJWe43xbWCIekcIVA"
+title: Superpowers + OpenSpec 双剑合璧：AI 全栈编程新范式，从零对话式搭建企业级知识库
+author: 每天译点晓知识
+publish_date: '2026-05-19 22:17:59'
+saved_date: '2026-05-30'
+source: wechat
+url: https://mp.weixin.qq.com/s/NsdUalJWe43xbWCIekcIVA
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/NsdUalJWe43xbWCIekcIVA
+description: 产品场景：本系统是一个AI驱动的全自动化开发平台，能够根据用户提出的需求自动完成从需求分析到代码生成、测试、评审和部署的完整开发流程。前后端主要以：
+timestamp: '2026-05-19T22:17:59'
+resource: https://mp.weixin.qq.com/s/NsdUalJWe43xbWCIekcIVA
+tags:
+- AI
+- notes
+- 产品经理
+- 公众号
 ---
 # Superpowers + OpenSpec 双剑合璧：AI 全栈编程新范式，从零对话式搭建企业级知识库
 ### 前言

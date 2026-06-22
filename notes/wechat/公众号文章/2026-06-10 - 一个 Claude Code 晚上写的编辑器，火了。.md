@@ -1,15 +1,23 @@
 ---
-title: "一个 Claude Code 晚上写的编辑器，火了。"
-author: "开源日记"
-publish_date: "2026-06-10 15:10:18"
-saved_date: "2026-06-10"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/WTU2hw6F0nn2pzdPoVIbug"
+title: 一个 Claude Code 晚上写的编辑器，火了。
+author: 开源日记
+publish_date: '2026-06-10 15:10:18'
+saved_date: '2026-06-10'
+source: wechat
+url: https://mp.weixin.qq.com/s/WTU2hw6F0nn2pzdPoVIbug
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/WTU2hw6F0nn2pzdPoVIbug
+description: 你睡觉的时候，Claude Code 写了这个项目。
+timestamp: '2026-06-10T15:10:18'
+resource: https://mp.weixin.qq.com/s/WTU2hw6F0nn2pzdPoVIbug
+tags:
+- AI
+- Claude
+- notes
+- 公众号
 ---
 # 一个 Claude Code 晚上写的编辑器，火了。
 你睡觉的时候，Claude Code 写了这个项目。

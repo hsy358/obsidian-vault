@@ -3,8 +3,15 @@ type: inbox-temp
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: Harnss - Harness AI Coding Agents
+description: Harnss 是一个跨平台桌面应用，为 AI 编程 Agent（Claude Code、Codex 及任何 ACP 兼容 Agent）提供统一的运行、管理和切换...
+tags:
+- AI
+- Agent
+- Claude
+- GPT
+- Harness
 ---
-
 # Harnss - Harness AI Coding Agents
 
 **Source:** https://github.com/OpenSource03/harnss

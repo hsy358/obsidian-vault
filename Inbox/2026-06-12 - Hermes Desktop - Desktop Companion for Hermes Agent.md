@@ -3,8 +3,12 @@ type: inbox-temp
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: Hermes Desktop - Desktop Companion for Hermes Agent
+description: Hermes Desktop 是一个原生桌面应用，用于安装、配置和与 Hermes Agent 聊天——这是一个具有工具调用、多平台消息传递和闭环学习能力的自改...
+tags:
+- AI
+- Agent
 ---
-
 # Hermes Desktop - Desktop Companion for Hermes Agent
 
 **Source:** https://github.com/fathah/hermes-desktop

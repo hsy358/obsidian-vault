@@ -1,15 +1,22 @@
 ---
-title: "别再让 Obsidian 笔记吃灰了，一键升级成 AI 知识库！"
-author: "AI工具派"
-publish_date: "2026-06-15 23:25:39"
-saved_date: "2026-06-15"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/AcGR0qIN0uSQv-bl24atRg"
+title: 别再让 Obsidian 笔记吃灰了，一键升级成 AI 知识库！
+author: AI工具派
+publish_date: '2026-06-15 23:25:39'
+saved_date: '2026-06-15'
+source: wechat
+url: https://mp.weixin.qq.com/s/AcGR0qIN0uSQv-bl24atRg
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/AcGR0qIN0uSQv-bl24atRg
+description: 大家好，我是 Chris。
+timestamp: '2026-06-15T23:25:39'
+resource: https://mp.weixin.qq.com/s/AcGR0qIN0uSQv-bl24atRg
+tags:
+- AI
+- Obsidian
+- 公众号
 ---
 # 别再让 Obsidian 笔记吃灰了，一键升级成 AI 知识库！
 大家好，我是 Chris。

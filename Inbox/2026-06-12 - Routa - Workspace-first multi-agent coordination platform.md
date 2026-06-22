@@ -3,8 +3,11 @@ type: inbox-temp
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
+title: Routa - Workspace-first Multi-agent Coordination Platform
+description: Routa 是一个工作区优先的多 Agent 协调平台，专注于软件交付。与单线程聊天不同，Routa 将目标、任务、会话、追踪、证据和审查状态都显示在看板（Ka...
+tags:
+- Agent
 ---
-
 # Routa - Workspace-first Multi-agent Coordination Platform
 
 **Source:** https://github.com/phodal/routa

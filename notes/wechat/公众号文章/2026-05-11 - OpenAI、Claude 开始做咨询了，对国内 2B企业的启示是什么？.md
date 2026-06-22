@@ -1,15 +1,26 @@
 ---
-title: "OpenAI、Claude 开始做咨询了，对国内 2B企业的启示是什么？"
-author: "叶小钗"
-publish_date: "2026-05-11 08:58:44"
-saved_date: "2026-05-11"
-source: "wechat"
-url: "https://mp.weixin.qq.com/s/YAJMK75_Qa70KR7NwQgNrQ"
+title: OpenAI、Claude 开始做咨询了，对国内 2B企业的启示是什么？
+author: 叶小钗
+publish_date: '2026-05-11 08:58:44'
+saved_date: '2026-05-11'
+source: wechat
+url: https://mp.weixin.qq.com/s/YAJMK75_Qa70KR7NwQgNrQ
 type: wechat-article
 okf_metadata:
   schema: okf-v0.1-inspired
   added_by: okf-batch-2026-06-16
   source_url: https://mp.weixin.qq.com/s/YAJMK75_Qa70KR7NwQgNrQ
+description: 我记得还是3月份的时候为某 2B 的企业做了一场 AI 咨询，当时的甲方是一家做软件 SaaS 的公司，他们本意是想转型做 AI SaaS
+  的转型，否则产品没有...
+timestamp: '2026-05-11T08:58:44'
+resource: https://mp.weixin.qq.com/s/YAJMK75_Qa70KR7NwQgNrQ
+tags:
+- AI
+- Claude
+- LLM
+- notes
+- 产品经理
+- 公众号
 ---
 # OpenAI、Claude 开始做咨询了，对国内 2B企业的启示是什么？
 > AI训练营**10期**，**6月底**开班，欢迎咨询
