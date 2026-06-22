@@ -33,3 +33,8 @@ desktop.ini
 
 # Obsidian config (comment out if you want to sync plugin settings)
 # .obsidian/workspace
+
+# Large binary files (sync metadata only via sidecar .md)
+*.pptx
+*.ppt
+*.key
