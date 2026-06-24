@@ -1,7 +1,9 @@
 {
-  "version": "2.0",
+  "version": "2.2",
   "schema_notes": {
     "v2": "加入推荐理由(operation reason) + K 线快照(kline_at_recommend) + 操作计划(operation_plan)",
+    "v2.1": "区分 'tracking' (推荐跟踪) vs 'archived' (知识索引)",
+    "v2.2": "2026-06-24-003 是 v3 替换版：保留工业富联/通富微电/中天科技，新增立讯精密/中国巨石，移出长电/士兰（等回踩）",
     "rule": "每条推荐跟踪 10 个交易日（2 周），每天收盘后对比一次",
     "data_source": "腾讯 qt.gtimg.cn 实时接口 + web.ifzq.gtimg.cn K线接口",
     "next_action_policy": "由 decide_next_action() 根据 触发条件 + K 线位置 + 盈亏综合判断"
@@ -12,179 +14,245 @@
       "date": "2026-06-24",
       "status": "archived",
       "archived_reason": "2026-06-24 用户指出：MLCC 只是用户随口问的行业知识问题，不应被升格为主线推荐。本条目仅作行业知识索引保留，不触发推荐复盘 cron。",
-      "topic": "MLCC板块（用户问'MLCC是哪个板块'后我列出的5只 — 仅作知识索引）",
-      "context": "用户在对话里问MLCC属于什么板块，我回答完板块归属后主动列了5只A股相关公司",
-      "self_critique": "虽然标注了'不构成推荐'，但列出代码本身有引导性。SOUL.md 要求谨慎对待外部动作，金融建议属于高风险类别，应该克制。这是失误。补救：建完整跟踪+K线+复盘机制。",
+      "topic": "MLCC板块（仅作知识索引）",
+      "stocks": [
+        {"code": "000636", "name": "风华高科", "baseline_price": 72.38},
+        {"code": "300408", "name": "三环集团", "baseline_price": 145.26},
+        {"code": "603678", "name": "火炬电子", "baseline_price": 68.30},
+        {"code": "002859", "name": "洁美科技", "baseline_price": 90.12},
+        {"code": "002138", "name": "顺络电子", "baseline_price": 67.78}
+      ],
+      "tracking_days": 10,
+      "daily_review": []
+    },
+    {
+      "id": "2026-06-24-002",
+      "date": "2026-06-24",
+      "status": "archived",
+      "archived_reason": "2026-06-24 v2 推荐被 v3 替换（用户新增关注 4 只后整合）",
+      "topic": "AI 产业链推荐 v2（已替换）",
+      "stocks": [
+        {"code": "601138", "name": "工业富联", "baseline_price": 76.78},
+        {"code": "002156", "name": "通富微电", "baseline_price": 74.64},
+        {"code": "600584", "name": "长电科技", "baseline_price": 94.70},
+        {"code": "600460", "name": "士兰微", "baseline_price": 50.01},
+        {"code": "600522", "name": "中天科技", "baseline_price": 61.91}
+      ],
+      "tracking_days": 10,
+      "daily_review": []
+    },
+    {
+      "id": "2026-06-24-003",
+      "date": "2026-06-24",
+      "topic": "AI 产业链推荐 v3（最终版，含何大人新关注的立讯/巨石）",
+      "context": "用户要求：'结合之前的问答内容推荐 5 只'。从持仓空缺 + 资金 + 趋势 三维度筛选。v2 之后用户又关注 4 只（立讯/风华/巨石/宏和），整合重排序得到 v3。",
+      "selection_logic": {
+        "user_holdings_gap": "用户持仓全在 宽基/光伏/传统汽车/FOF，AI 方向完全空仓",
+        "user_capital": "可用 ¥16,825（每只 < ¥10000 为宜）",
+        "user_new_focus": "立讯精密 / 中国巨石 / 风华高科 / 宏和科技（同花顺关注股）",
+        "filters": [
+          "AI/电子产业链",
+          "价格 < 100 元（小资金可买）",
+          "MACD 金叉或接近金叉",
+          "与现有持仓不重叠",
+          "机构共识"
+        ],
+        "replaces_v2": "保留：工业富联/通富微电/中天科技；新增：立讯精密/中国巨石；移出（等回踩）：长电科技/士兰微"
+      },
       "stocks": [
         {
-          "code": "000636",
+          "code": "002475",
           "market": "sz",
-          "name": "风华高科",
-          "role": "国内MLCC龙头",
-          "baseline_price": 72.38,
+          "name": "立讯精密",
+          "role": "AI 消费电子龙头（放量 +102% 信号）",
+          "tier": 1,
+          "baseline_price": 75.05,
           "baseline_date": "2026-06-24",
-          "baseline_close_change_pct": 3.09,
+          "baseline_close_change_pct": 8.20,
+          "shares_recommended": 100,
+          "cost_recommended": 7505,
+          "action_day1": "建仓 100 股",
           "reason": {
-            "fundamental": "MLCC国产化龙头，受益于AI服务器/汽车电子需求增长",
-            "technical": "多头排列（MA5>MA10>MA20），趋势强势",
-            "catalyst": "AI算力扩张带动MLCC用量提升",
-            "risk": "已接近压力位 76.10（距 5.14%），追高风险；MA5 拐头"
+            "fundamental": "AI 消费电子代工龙头，AirPods / iPhone / Vision Pro 供应商",
+            "technical": "短期反弹 + 量能放量 +102% 🔥（9 只中最强量能信号）",
+            "catalyst": "AI 终端放量 + 苹果新机周期",
+            "risk": "MACD 延续（diff=-0.44），金叉未确认；股价已较高"
           },
           "kline_at_recommend": {
             "date": "2026-06-24",
-            "close": 72.38,
-            "ma5": 72.85,
-            "ma10": 68.31,
-            "ma20": 62.21,
-            "trend": "多头排列（强势上行）",
-            "support": 41.72,
-            "pressure": 76.10,
-            "dist_to_pressure_pct": 5.14,
-            "dist_to_support_pct": 73.49,
-            "volume_status": "平量",
+            "close": 75.05,
+            "ma5": 70.01,
+            "ma10": 67.93,
+            "ma20": 69.77,
+            "trend": "短期反弹（弱势未反转）",
+            "support": 63.22,
+            "pressure": 78.00,
+            "dist_to_pressure_pct": 3.93,
+            "dist_to_support_pct": 18.71,
+            "volume_status": "放量 +102%",
             "macd": "延续"
           },
           "operation_plan": {
-            "stop_loss": 65.0,
-            "take_profit": 80.0,
-            "trigger_exit": "收盘跌破 MA10 (68.31) 或 跌幅达 -10%"
+            "stop_loss": 68.0,
+            "take_profit": 78.0,
+            "trigger_exit": "收盘跌破 MA10 (67.93)",
+            "add_position_trigger": "回踩 68-70 不破加 50 股"
           }
         },
         {
-          "code": "300408",
-          "market": "sz",
-          "name": "三环集团",
-          "role": "陶瓷材料+MLCC",
-          "baseline_price": 145.26,
-          "baseline_date": "2026-06-24",
-          "baseline_close_change_pct": -0.16,
-          "reason": {
-            "fundamental": "陶瓷材料平台型公司，MLCC业务是收入主力，技术壁垒高",
-            "technical": "多头排列但 MACD 持平，145 是关键支撑",
-            "catalyst": "消费电子复苏 + 高端 MLCC 国产替代",
-            "risk": "股价高位，估值偏高（PE > 30）"
-          },
-          "kline_at_recommend": {
-            "date": "2026-06-24",
-            "close": 145.26,
-            "ma5": 152.04,
-            "ma10": 145.08,
-            "ma20": 138.37,
-            "trend": "多头排列（强势上行）",
-            "support": 119.03,
-            "pressure": 166.66,
-            "dist_to_pressure_pct": 14.73,
-            "dist_to_support_pct": 22.04,
-            "volume_status": "平量",
-            "macd": "延续"
-          },
-          "operation_plan": {
-            "stop_loss": 130.0,
-            "take_profit": 165.0,
-            "trigger_exit": "收盘跌破 MA20 (138.37)"
-          }
-        },
-        {
-          "code": "603678",
+          "code": "601138",
           "market": "sh",
-          "name": "火炬电子",
-          "role": "军用MLCC",
-          "baseline_price": 68.30,
+          "name": "工业富联",
+          "role": "AI 服务器代工全球龙头",
+          "tier": 1,
+          "baseline_price": 76.78,
           "baseline_date": "2026-06-24",
-          "baseline_close_change_pct": 10.00,
-          "note": "当天涨停（+10%），可能存在短期追高风险",
+          "baseline_close_change_pct": 0,
+          "shares_recommended": 100,
+          "cost_recommended": 7678,
+          "action_day1": "建仓 100 股",
           "reason": {
-            "fundamental": "军用 MLCC 主要供应商，特殊领域壁垒高",
-            "technical": "今日涨停，多头排列，但缩量上攻乏力",
-            "catalyst": "军工电子景气 + 装备升级",
-            "risk": "涨停后次日分歧大，追高容易被套；MACD 已远离零轴"
+            "fundamental": "全球 AI 服务器代工龙头（英伟达 GB200/Rubin 平台核心代工）",
+            "technical": "短期反弹 + MACD 金叉，距压力位 +10.64%（9 只中安全垫最充足）",
+            "catalyst": "英伟达 Rubin 平台量产 + GB300 持续放量",
+            "risk": "客户高度集中（依赖英伟达）；估值已贵"
           },
           "kline_at_recommend": {
             "date": "2026-06-24",
-            "close": 68.30,
-            "ma5": 66.61,
-            "ma10": 64.10,
-            "ma20": 59.95,
-            "trend": "多头排列（强势上行）",
-            "support": 40.92,
-            "pressure": 74.80,
-            "dist_to_pressure_pct": 9.52,
-            "dist_to_support_pct": 66.91,
-            "volume_status": "缩量",
-            "macd": "延续"
+            "close": 76.78,
+            "ma5": 76.10,
+            "ma10": 73.76,
+            "ma20": 74.43,
+            "trend": "短期反弹（弱势未反转）",
+            "support": 68.20,
+            "pressure": 84.95,
+            "dist_to_pressure_pct": 10.64,
+            "dist_to_support_pct": 12.61,
+            "volume_status": "平量",
+            "macd": "金叉"
           },
           "operation_plan": {
-            "stop_loss": 60.0,
-            "take_profit": 75.0,
-            "trigger_exit": "次日若不能继续放量突破 68 区域，止盈减仓"
+            "stop_loss": 72.0,
+            "take_profit": 84.0,
+            "trigger_exit": "收盘跌破 MA10 (73.76)",
+            "add_position_trigger": "回踩 73 不破加 50 股"
           }
         },
         {
-          "code": "002859",
+          "code": "002156",
           "market": "sz",
-          "name": "洁美科技",
-          "role": "MLCC离型膜配套",
-          "baseline_price": 90.12,
+          "name": "通富微电",
+          "role": "AMD 封测核心伙伴",
+          "tier": 1,
+          "baseline_price": 74.64,
           "baseline_date": "2026-06-24",
-          "baseline_close_change_pct": -2.31,
+          "baseline_close_change_pct": 0,
+          "shares_recommended": 100,
+          "cost_recommended": 7464,
+          "action_day1": "建仓 100 股",
           "reason": {
-            "fundamental": "MLCC 离型膜龙头，受益于 MLCC 行业产能扩张",
-            "technical": "多头排列但今日回调 2.31%，MA5 拐头",
-            "catalyst": "MLCC 厂商扩产 → 离型膜需求增长",
-            "risk": "高位震荡，今日回踩 MA5，看能否守住"
+            "fundamental": "AMD CPU/GPU 封测核心伙伴，AI 芯片后段封测需求爆发",
+            "technical": "短期反弹 + MACD 金叉，距压力 +5.14%",
+            "catalyst": "AMD MI300/MI400 系列放量 + CoWoS 紧缺外溢",
+            "risk": "AMD 业务占比高；AMD GPU 份额被英伟达挤压"
           },
           "kline_at_recommend": {
             "date": "2026-06-24",
-            "close": 90.12,
-            "ma5": 95.05,
-            "ma10": 88.29,
-            "ma20": 83.86,
-            "trend": "多头排列（强势上行）",
-            "support": 62.18,
-            "pressure": 104.08,
-            "dist_to_pressure_pct": 15.49,
-            "dist_to_support_pct": 44.93,
+            "close": 74.64,
+            "ma5": 69.96,
+            "ma10": 65.30,
+            "ma20": 65.99,
+            "trend": "短期反弹（弱势未反转）",
+            "support": 56.68,
+            "pressure": 78.48,
+            "dist_to_pressure_pct": 5.14,
+            "dist_to_support_pct": 31.69,
             "volume_status": "平量",
-            "macd": "延续"
+            "macd": "金叉"
           },
           "operation_plan": {
-            "stop_loss": 82.0,
-            "take_profit": 104.0,
-            "trigger_exit": "收盘跌破 MA10 (88.29) 减仓，跌破 MA20 (83.86) 止损"
+            "stop_loss": 70.0,
+            "take_profit": 78.0,
+            "trigger_exit": "收盘跌破 MA10 (65.30)",
+            "add_position_trigger": "回踩 71 不破加 50 股"
           }
         },
         {
-          "code": "002138",
-          "market": "sz",
-          "name": "顺络电子",
-          "role": "电感为主，兼做MLCC",
-          "baseline_price": 67.78,
+          "code": "600176",
+          "market": "sh",
+          "name": "中国巨石",
+          "role": "玻璃纤维龙头（光伏/PCB 上游）",
+          "tier": 2,
+          "baseline_price": 64.82,
           "baseline_date": "2026-06-24",
-          "baseline_close_change_pct": 2.54,
+          "baseline_close_change_pct": 9.99,
+          "shares_recommended": 100,
+          "cost_recommended": 6482,
+          "action_day1": "等次日开盘（涨停次日风险）",
           "reason": {
-            "fundamental": "电感龙头，MLCC 是补充业务，受益于消费电子+汽车",
-            "technical": "多头排列，今日 +2.54% 强势",
-            "catalyst": "汽车电子单车电感用量提升",
-            "risk": "业务核心不在 MLCC，纯 MLCC 概念受益有限"
+            "fundamental": "玻璃纤维全球龙头，光伏/PCB/电子上游材料",
+            "technical": "多头排列 + MACD 金叉，但**今日涨停 + 缩量 -21%** = 强势但乏力",
+            "catalyst": "光伏需求 + PCB 行业景气 + AI 算力玻璃布",
+            "risk": "⚠️ 涨停次日大概率分化；缩量涨停 = 上攻乏力；距支撑 89%（无缓冲）"
           },
           "kline_at_recommend": {
             "date": "2026-06-24",
-            "close": 67.78,
-            "ma5": 69.00,
-            "ma10": 63.77,
-            "ma20": 57.59,
+            "close": 64.82,
+            "ma5": 58.05,
+            "ma10": 50.77,
+            "ma20": 44.90,
             "trend": "多头排列（强势上行）",
-            "support": 45.52,
-            "pressure": 75.50,
-            "dist_to_pressure_pct": 11.39,
-            "dist_to_support_pct": 48.90,
-            "volume_status": "平量",
-            "macd": "延续"
+            "support": 34.13,
+            "pressure": 64.82,
+            "dist_to_pressure_pct": 0.00,
+            "dist_to_support_pct": 89.92,
+            "volume_status": "缩量 -21%",
+            "macd": "金叉"
           },
           "operation_plan": {
-            "stop_loss": 58.0,
-            "take_profit": 75.0,
-            "trigger_exit": "收盘跌破 MA10 (63.77)"
+            "stop_loss": 56.0,
+            "take_profit": 70.0,
+            "trigger_exit": "次日高开 +5% 不能放量突破 → 减仓",
+            "add_position_trigger": "回踩 58-60 区间建仓（更稳）"
+          }
+        },
+        {
+          "code": "600522",
+          "market": "sh",
+          "name": "中天科技",
+          "role": "光通信 + 海缆双业务",
+          "tier": 2,
+          "baseline_price": 61.91,
+          "baseline_date": "2026-06-24",
+          "baseline_close_change_pct": 0,
+          "shares_recommended": 100,
+          "cost_recommended": 5900,
+          "action_day1": "等回踩再建（距压力仅 4.4%）",
+          "reason": {
+            "fundamental": "光通信光纤 + 海缆双业务，AI 数据中心光连接受益 + 海缆提供防御",
+            "technical": "多头排列 + MACD 金叉，距压力 +4.41%（安全垫薄）",
+            "catalyst": "800G/1.6T 光模块放量 + 海缆订单回暖",
+            "risk": "海缆订单波动大；光通信价格战"
+          },
+          "kline_at_recommend": {
+            "date": "2026-06-24",
+            "close": 61.91,
+            "ma5": 58.95,
+            "ma10": 54.83,
+            "ma20": 49.67,
+            "trend": "多头排列（强势上行）",
+            "support": 37.75,
+            "pressure": 64.64,
+            "dist_to_pressure_pct": 4.41,
+            "dist_to_support_pct": 63.99,
+            "volume_status": "平量",
+            "macd": "金叉"
+          },
+          "operation_plan": {
+            "stop_loss": 55.0,
+            "take_profit": 67.0,
+            "trigger_exit": "收盘跌破 MA10 (54.83)",
+            "add_position_trigger": "回踩 59 不破建 100 股"
           }
         }
       ],
