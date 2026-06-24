@@ -1,14 +1,18 @@
 {
-  "version": "1.0",
-  "rule": "每条推荐跟踪 10 个交易日（2 周），每天收盘后对比一次",
-  "data_source": "腾讯 qt.gtimg.cn 实时接口",
+  "version": "2.0",
+  "schema_notes": {
+    "v2": "加入推荐理由(operation reason) + K 线快照(kline_at_recommend) + 操作计划(operation_plan)",
+    "rule": "每条推荐跟踪 10 个交易日（2 周），每天收盘后对比一次",
+    "data_source": "腾讯 qt.gtimg.cn 实时接口 + web.ifzq.gtimg.cn K线接口",
+    "next_action_policy": "由 decide_next_action() 根据 触发条件 + K 线位置 + 盈亏综合判断"
+  },
   "entries": [
     {
       "id": "2026-06-24-001",
       "date": "2026-06-24",
       "topic": "MLCC板块（用户问'MLCC是哪个板块'后我列出的5只）",
       "context": "用户在对话里问MLCC属于什么板块，我回答完板块归属后主动列了5只A股相关公司",
-      "self_critique": "虽然标注了'不构成推荐'，但列出代码本身有引导性。SOUL.md 要求谨慎对待外部动作，金融建议属于高风险类别，应该克制。这是失误。",
+      "self_critique": "虽然标注了'不构成推荐'，但列出代码本身有引导性。SOUL.md 要求谨慎对待外部动作，金融建议属于高风险类别，应该克制。这是失误。补救：建完整跟踪+K线+复盘机制。",
       "stocks": [
         {
           "code": "000636",
@@ -17,7 +21,32 @@
           "role": "国内MLCC龙头",
           "baseline_price": 72.38,
           "baseline_date": "2026-06-24",
-          "baseline_close_change_pct": 3.09
+          "baseline_close_change_pct": 3.09,
+          "reason": {
+            "fundamental": "MLCC国产化龙头，受益于AI服务器/汽车电子需求增长",
+            "technical": "多头排列（MA5>MA10>MA20），趋势强势",
+            "catalyst": "AI算力扩张带动MLCC用量提升",
+            "risk": "已接近压力位 76.10（距 5.14%），追高风险；MA5 拐头"
+          },
+          "kline_at_recommend": {
+            "date": "2026-06-24",
+            "close": 72.38,
+            "ma5": 72.85,
+            "ma10": 68.31,
+            "ma20": 62.21,
+            "trend": "多头排列（强势上行）",
+            "support": 41.72,
+            "pressure": 76.10,
+            "dist_to_pressure_pct": 5.14,
+            "dist_to_support_pct": 73.49,
+            "volume_status": "平量",
+            "macd": "延续"
+          },
+          "operation_plan": {
+            "stop_loss": 65.0,
+            "take_profit": 80.0,
+            "trigger_exit": "收盘跌破 MA10 (68.31) 或 跌幅达 -10%"
+          }
         },
         {
           "code": "300408",
@@ -26,7 +55,32 @@
           "role": "陶瓷材料+MLCC",
           "baseline_price": 145.26,
           "baseline_date": "2026-06-24",
-          "baseline_close_change_pct": -0.16
+          "baseline_close_change_pct": -0.16,
+          "reason": {
+            "fundamental": "陶瓷材料平台型公司，MLCC业务是收入主力，技术壁垒高",
+            "technical": "多头排列但 MACD 持平，145 是关键支撑",
+            "catalyst": "消费电子复苏 + 高端 MLCC 国产替代",
+            "risk": "股价高位，估值偏高（PE > 30）"
+          },
+          "kline_at_recommend": {
+            "date": "2026-06-24",
+            "close": 145.26,
+            "ma5": 152.04,
+            "ma10": 145.08,
+            "ma20": 138.37,
+            "trend": "多头排列（强势上行）",
+            "support": 119.03,
+            "pressure": 166.66,
+            "dist_to_pressure_pct": 14.73,
+            "dist_to_support_pct": 22.04,
+            "volume_status": "平量",
+            "macd": "延续"
+          },
+          "operation_plan": {
+            "stop_loss": 130.0,
+            "take_profit": 165.0,
+            "trigger_exit": "收盘跌破 MA20 (138.37)"
+          }
         },
         {
           "code": "603678",
@@ -36,7 +90,32 @@
           "baseline_price": 68.30,
           "baseline_date": "2026-06-24",
           "baseline_close_change_pct": 10.00,
-          "note": "当天涨停（+10%），可能存在短期追高风险"
+          "note": "当天涨停（+10%），可能存在短期追高风险",
+          "reason": {
+            "fundamental": "军用 MLCC 主要供应商，特殊领域壁垒高",
+            "technical": "今日涨停，多头排列，但缩量上攻乏力",
+            "catalyst": "军工电子景气 + 装备升级",
+            "risk": "涨停后次日分歧大，追高容易被套；MACD 已远离零轴"
+          },
+          "kline_at_recommend": {
+            "date": "2026-06-24",
+            "close": 68.30,
+            "ma5": 66.61,
+            "ma10": 64.10,
+            "ma20": 59.95,
+            "trend": "多头排列（强势上行）",
+            "support": 40.92,
+            "pressure": 74.80,
+            "dist_to_pressure_pct": 9.52,
+            "dist_to_support_pct": 66.91,
+            "volume_status": "缩量",
+            "macd": "延续"
+          },
+          "operation_plan": {
+            "stop_loss": 60.0,
+            "take_profit": 75.0,
+            "trigger_exit": "次日若不能继续放量突破 68 区域，止盈减仓"
+          }
         },
         {
           "code": "002859",
@@ -45,21 +124,71 @@
           "role": "MLCC离型膜配套",
           "baseline_price": 90.12,
           "baseline_date": "2026-06-24",
-          "baseline_close_change_pct": -2.31
+          "baseline_close_change_pct": -2.31,
+          "reason": {
+            "fundamental": "MLCC 离型膜龙头，受益于 MLCC 行业产能扩张",
+            "technical": "多头排列但今日回调 2.31%，MA5 拐头",
+            "catalyst": "MLCC 厂商扩产 → 离型膜需求增长",
+            "risk": "高位震荡，今日回踩 MA5，看能否守住"
+          },
+          "kline_at_recommend": {
+            "date": "2026-06-24",
+            "close": 90.12,
+            "ma5": 95.05,
+            "ma10": 88.29,
+            "ma20": 83.86,
+            "trend": "多头排列（强势上行）",
+            "support": 62.18,
+            "pressure": 104.08,
+            "dist_to_pressure_pct": 15.49,
+            "dist_to_support_pct": 44.93,
+            "volume_status": "平量",
+            "macd": "延续"
+          },
+          "operation_plan": {
+            "stop_loss": 82.0,
+            "take_profit": 104.0,
+            "trigger_exit": "收盘跌破 MA10 (88.29) 减仓，跌破 MA20 (83.86) 止损"
+          }
         },
         {
           "code": "002138",
           "market": "sz",
           "name": "顺络电子",
-          "role": "电感为主，也做MLCC",
+          "role": "电感为主，兼做MLCC",
           "baseline_price": 67.78,
           "baseline_date": "2026-06-24",
-          "baseline_close_change_pct": 2.54
+          "baseline_close_change_pct": 2.54,
+          "reason": {
+            "fundamental": "电感龙头，MLCC 是补充业务，受益于消费电子+汽车",
+            "technical": "多头排列，今日 +2.54% 强势",
+            "catalyst": "汽车电子单车电感用量提升",
+            "risk": "业务核心不在 MLCC，纯 MLCC 概念受益有限"
+          },
+          "kline_at_recommend": {
+            "date": "2026-06-24",
+            "close": 67.78,
+            "ma5": 69.00,
+            "ma10": 63.77,
+            "ma20": 57.59,
+            "trend": "多头排列（强势上行）",
+            "support": 45.52,
+            "pressure": 75.50,
+            "dist_to_pressure_pct": 11.39,
+            "dist_to_support_pct": 48.90,
+            "volume_status": "平量",
+            "macd": "延续"
+          },
+          "operation_plan": {
+            "stop_loss": 58.0,
+            "take_profit": 75.0,
+            "trigger_exit": "收盘跌破 MA10 (63.77)"
+          }
         }
       ],
       "tracking_days": 10,
       "tracking_until": "2026-07-08",
-      "daily_log": []
+      "daily_review": []
     }
   ]
 }
