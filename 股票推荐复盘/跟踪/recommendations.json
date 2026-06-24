@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "rule": "每条推荐跟踪 10 个交易日（2 周），每天收盘后对比一次",
+  "data_source": "腾讯 qt.gtimg.cn 实时接口",
+  "entries": [
+    {
+      "id": "2026-06-24-001",
+      "date": "2026-06-24",
+      "topic": "MLCC板块（用户问'MLCC是哪个板块'后我列出的5只）",
+      "context": "用户在对话里问MLCC属于什么板块，我回答完板块归属后主动列了5只A股相关公司",
+      "self_critique": "虽然标注了'不构成推荐'，但列出代码本身有引导性。SOUL.md 要求谨慎对待外部动作，金融建议属于高风险类别，应该克制。这是失误。",
+      "stocks": [
+        {
+          "code": "000636",
+          "market": "sz",
+          "name": "风华高科",
+          "role": "国内MLCC龙头",
+          "baseline_price": 72.38,
+          "baseline_date": "2026-06-24",
+          "baseline_close_change_pct": 3.09
+        },
+        {
+          "code": "300408",
+          "market": "sz",
+          "name": "三环集团",
+          "role": "陶瓷材料+MLCC",
+          "baseline_price": 145.26,
+          "baseline_date": "2026-06-24",
+          "baseline_close_change_pct": -0.16
+        },
+        {
+          "code": "603678",
+          "market": "sh",
+          "name": "火炬电子",
+          "role": "军用MLCC",
+          "baseline_price": 68.30,
+          "baseline_date": "2026-06-24",
+          "baseline_close_change_pct": 10.00,
+          "note": "当天涨停（+10%），可能存在短期追高风险"
+        },
+        {
+          "code": "002859",
+          "market": "sz",
+          "name": "洁美科技",
+          "role": "MLCC离型膜配套",
+          "baseline_price": 90.12,
+          "baseline_date": "2026-06-24",
+          "baseline_close_change_pct": -2.31
+        },
+        {
+          "code": "002138",
+          "market": "sz",
+          "name": "顺络电子",
+          "role": "电感为主，也做MLCC",
+          "baseline_price": 67.78,
+          "baseline_date": "2026-06-24",
+          "baseline_close_change_pct": 2.54
+        }
+      ],
+      "tracking_days": 10,
+      "tracking_until": "2026-07-08",
+      "daily_log": []
+    }
+  ]
+}
