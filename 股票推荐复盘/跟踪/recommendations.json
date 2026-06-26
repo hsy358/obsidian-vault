@@ -16,14 +16,119 @@
       "archived_reason": "2026-06-24 用户指出：MLCC 只是用户随口问的行业知识问题，不应被升格为主线推荐。本条目仅作行业知识索引保留，不触发推荐复盘 cron。",
       "topic": "MLCC板块（仅作知识索引）",
       "stocks": [
-        {"code": "000636", "name": "风华高科", "baseline_price": 72.38},
-        {"code": "300408", "name": "三环集团", "baseline_price": 145.26},
-        {"code": "603678", "name": "火炬电子", "baseline_price": 68.30},
-        {"code": "002859", "name": "洁美科技", "baseline_price": 90.12},
-        {"code": "002138", "name": "顺络电子", "baseline_price": 67.78}
+        {
+          "code": "000636",
+          "name": "风华高科",
+          "baseline_price": 72.38,
+          "market": "sz"
+        },
+        {
+          "code": "300408",
+          "name": "三环集团",
+          "baseline_price": 145.26,
+          "market": "sz"
+        },
+        {
+          "code": "603678",
+          "name": "火炬电子",
+          "baseline_price": 68.3,
+          "market": "sh"
+        },
+        {
+          "code": "002859",
+          "name": "洁美科技",
+          "baseline_price": 90.12,
+          "market": "sz"
+        },
+        {
+          "code": "002138",
+          "name": "顺络电子",
+          "baseline_price": 67.78,
+          "market": "sz"
+        }
       ],
       "tracking_days": 10,
-      "daily_review": []
+      "daily_review": [
+        {
+          "date": "2026-06-26",
+          "stocks": [
+            {
+              "code": "000636",
+              "name": "风华高科",
+              "close_price": 77.99
+            },
+            {
+              "code": "300408",
+              "name": "三环集团",
+              "close_price": 157.8
+            },
+            {
+              "code": "603678",
+              "name": "火炬电子",
+              "close_price": 79.14
+            },
+            {
+              "code": "002859",
+              "name": "洁美科技",
+              "close_price": 101.24
+            },
+            {
+              "code": "002138",
+              "name": "顺络电子",
+              "close_price": 68.35
+            }
+          ],
+          "avg_pnl_pct": 9.08,
+          "win_rate": "5/5",
+          "decisions": [
+            {
+              "stock": "风华高科",
+              "code": "000636",
+              "pnl_pct": 7.750759878419452,
+              "decision": "继续持有",
+              "reasons": [
+                "多头排列 + MACD 金叉，趋势健康"
+              ]
+            },
+            {
+              "stock": "三环集团",
+              "code": "300408",
+              "pnl_pct": 8.632796365138388,
+              "decision": "持有",
+              "reasons": [
+                "无明确触发条件，按计划持有"
+              ]
+            },
+            {
+              "stock": "火炬电子",
+              "code": "603678",
+              "pnl_pct": 15.871156661786243,
+              "decision": "减仓/止盈",
+              "reasons": [
+                "接近压力位 81.01（2.4%），已盈利 15.9%"
+              ]
+            },
+            {
+              "stock": "洁美科技",
+              "code": "002859",
+              "pnl_pct": 12.339103417665324,
+              "decision": "减仓/止盈",
+              "reasons": [
+                "接近压力位 104.08（2.8%），已盈利 12.3%"
+              ]
+            },
+            {
+              "stock": "顺络电子",
+              "code": "002138",
+              "pnl_pct": 0.7966951903216171,
+              "decision": "持有",
+              "reasons": [
+                "无明确触发条件，按计划持有"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "2026-06-24-002",
@@ -32,14 +137,119 @@
       "archived_reason": "2026-06-24 v2 推荐被 v3 替换（用户新增关注 4 只后整合）",
       "topic": "AI 产业链推荐 v2（已替换）",
       "stocks": [
-        {"code": "601138", "name": "工业富联", "baseline_price": 76.78},
-        {"code": "002156", "name": "通富微电", "baseline_price": 74.64},
-        {"code": "600584", "name": "长电科技", "baseline_price": 94.70},
-        {"code": "600460", "name": "士兰微", "baseline_price": 50.01},
-        {"code": "600522", "name": "中天科技", "baseline_price": 61.91}
+        {
+          "code": "601138",
+          "name": "工业富联",
+          "baseline_price": 76.78,
+          "market": "sh"
+        },
+        {
+          "code": "002156",
+          "name": "通富微电",
+          "baseline_price": 74.64,
+          "market": "sz"
+        },
+        {
+          "code": "600584",
+          "name": "长电科技",
+          "baseline_price": 94.7,
+          "market": "sh"
+        },
+        {
+          "code": "600460",
+          "name": "士兰微",
+          "baseline_price": 50.01,
+          "market": "sh"
+        },
+        {
+          "code": "600522",
+          "name": "中天科技",
+          "baseline_price": 61.91,
+          "market": "sh"
+        }
       ],
       "tracking_days": 10,
-      "daily_review": []
+      "daily_review": [
+        {
+          "date": "2026-06-26",
+          "stocks": [
+            {
+              "code": "601138",
+              "name": "工业富联",
+              "close_price": 70.21
+            },
+            {
+              "code": "002156",
+              "name": "通富微电",
+              "close_price": 72.23
+            },
+            {
+              "code": "600584",
+              "name": "长电科技",
+              "close_price": 101.88
+            },
+            {
+              "code": "600460",
+              "name": "士兰微",
+              "close_price": 50.13
+            },
+            {
+              "code": "600522",
+              "name": "中天科技",
+              "close_price": 61.29
+            }
+          ],
+          "avg_pnl_pct": -0.99,
+          "win_rate": "2/5",
+          "decisions": [
+            {
+              "stock": "工业富联",
+              "code": "601138",
+              "pnl_pct": -8.55691586350613,
+              "decision": "持有谨慎",
+              "reasons": [
+                "接近支撑位 68.20，缩量需谨慎"
+              ]
+            },
+            {
+              "stock": "通富微电",
+              "code": "002156",
+              "pnl_pct": -3.228831725616287,
+              "decision": "继续持有",
+              "reasons": [
+                "多头排列 + MACD 金叉，趋势健康"
+              ]
+            },
+            {
+              "stock": "长电科技",
+              "code": "600584",
+              "pnl_pct": 7.581837381203793,
+              "decision": "继续持有",
+              "reasons": [
+                "多头排列 + MACD 金叉，趋势健康"
+              ]
+            },
+            {
+              "stock": "士兰微",
+              "code": "600460",
+              "pnl_pct": 0.23995200959808946,
+              "decision": "继续持有",
+              "reasons": [
+                "多头排列 + MACD 金叉，趋势健康"
+              ]
+            },
+            {
+              "stock": "中天科技",
+              "code": "600522",
+              "pnl_pct": -1.001453723146499,
+              "decision": "继续持有",
+              "reasons": [
+                "多头排列 + MACD 金叉，趋势健康"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "2026-06-24-003",
@@ -68,7 +278,7 @@
           "tier": 1,
           "baseline_price": 75.05,
           "baseline_date": "2026-06-24",
-          "baseline_close_change_pct": 8.20,
+          "baseline_close_change_pct": 8.2,
           "shares_recommended": 100,
           "cost_recommended": 7505,
           "action_day1": "建仓 100 股",
@@ -86,7 +296,7 @@
             "ma20": 69.77,
             "trend": "短期反弹（弱势未反转）",
             "support": 63.22,
-            "pressure": 78.00,
+            "pressure": 78.0,
             "dist_to_pressure_pct": 3.93,
             "dist_to_support_pct": 18.71,
             "volume_status": "放量 +102%",
@@ -120,11 +330,11 @@
           "kline_at_recommend": {
             "date": "2026-06-24",
             "close": 76.78,
-            "ma5": 76.10,
+            "ma5": 76.1,
             "ma10": 73.76,
             "ma20": 74.43,
             "trend": "短期反弹（弱势未反转）",
-            "support": 68.20,
+            "support": 68.2,
             "pressure": 84.95,
             "dist_to_pressure_pct": 10.64,
             "dist_to_support_pct": 12.61,
@@ -160,7 +370,7 @@
             "date": "2026-06-24",
             "close": 74.64,
             "ma5": 69.96,
-            "ma10": 65.30,
+            "ma10": 65.3,
             "ma20": 65.99,
             "trend": "短期反弹（弱势未反转）",
             "support": 56.68,
@@ -200,11 +410,11 @@
             "close": 64.82,
             "ma5": 58.05,
             "ma10": 50.77,
-            "ma20": 44.90,
+            "ma20": 44.9,
             "trend": "多头排列（强势上行）",
             "support": 34.13,
             "pressure": 64.82,
-            "dist_to_pressure_pct": 0.00,
+            "dist_to_pressure_pct": 0.0,
             "dist_to_support_pct": 89.92,
             "volume_status": "缩量 -21%",
             "macd": "金叉"
@@ -258,7 +468,121 @@
       ],
       "tracking_days": 10,
       "tracking_until": "2026-07-08",
-      "daily_review": []
+      "daily_review": [
+        {
+          "date": "2026-06-25",
+          "stocks": [
+            {
+              "code": "002475",
+              "name": "立讯精密",
+              "close_price": 74.42
+            },
+            {
+              "code": "601138",
+              "name": "工业富联",
+              "close_price": 76.99
+            },
+            {
+              "code": "002156",
+              "name": "通富微电",
+              "close_price": 77.81
+            },
+            {
+              "code": "600176",
+              "name": "中国巨石",
+              "close_price": 70.8
+            },
+            {
+              "code": "600522",
+              "name": "中天科技",
+              "close_price": 68.1
+            }
+          ],
+          "avg_pnl_pct": 4.58,
+          "win_rate": "4/5",
+          "note": "手动补（6-25 cron 因 MiniMax 过载失败）"
+        },
+        {
+          "date": "2026-06-26",
+          "stocks": [
+            {
+              "code": "002475",
+              "name": "立讯精密",
+              "close_price": 67.11
+            },
+            {
+              "code": "601138",
+              "name": "工业富联",
+              "close_price": 70.2
+            },
+            {
+              "code": "002156",
+              "name": "通富微电",
+              "close_price": 72.23
+            },
+            {
+              "code": "600176",
+              "name": "中国巨石",
+              "close_price": 73.73
+            },
+            {
+              "code": "600522",
+              "name": "中天科技",
+              "close_price": 61.29
+            }
+          ],
+          "avg_pnl_pct": -1.93,
+          "win_rate": "1/5",
+          "decisions": [
+            {
+              "stock": "立讯精密",
+              "code": "002475",
+              "pnl_pct": -10.57961359093937,
+              "decision": "止损离场",
+              "reasons": [
+                "触及预设止损位 ¥68.0"
+              ]
+            },
+            {
+              "stock": "工业富联",
+              "code": "601138",
+              "pnl_pct": -8.569940088564728,
+              "decision": "止损离场",
+              "reasons": [
+                "触及预设止损位 ¥72.0"
+              ]
+            },
+            {
+              "stock": "通富微电",
+              "code": "002156",
+              "pnl_pct": -3.228831725616287,
+              "decision": "继续持有",
+              "reasons": [
+                "多头排列 + MACD 金叉，趋势健康"
+              ]
+            },
+            {
+              "stock": "中国巨石",
+              "code": "600176",
+              "pnl_pct": 13.74575748225858,
+              "decision": "止盈减仓",
+              "reasons": [
+                "触及预设止盈位 ¥70.0"
+              ]
+            },
+            {
+              "stock": "中天科技",
+              "code": "600522",
+              "pnl_pct": -1.001453723146499,
+              "decision": "继续持有",
+              "reasons": [
+                "多头排列 + MACD 金叉，趋势健康"
+              ]
+            }
+          ]
+        }
+      ],
+      "status": "tracking"
     }
   ]
 }
