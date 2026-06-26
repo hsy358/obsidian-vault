@@ -1,0 +1,80 @@
+{
+  "version": "1.0",
+  "articles": {
+    "https://www.lightreading.com/network-automation/verizon-unleashes-ai-agents-in-the-network-but-keeps-humans-in-the-loop": {
+      "title": "https://www.lightreading.com/network-automation/verizon-unleashes-ai-agents-in-the-network-but-keeps-humans-in-the-loop",
+      "discovered_at": "2026-06-26T14:49:31.832306",
+      "topic": "ai-agent"
+    },
+    "https://www.securityweek.com/agentic-ai-security-wrong-context-wrong-decisions-at-machine-speed/": {
+      "title": "https://www.securityweek.com/agentic-ai-security-wrong-context-wrong-decisions-at-machine-speed/",
+      "discovered_at": "2026-06-26T14:49:31.832439",
+      "topic": "ai-agent"
+    },
+    "https://www.fiercehealthcare.com/ai-and-machine-learning/assort-health-scores-120m-series-c-scale-voice-ai-agent-platform-healthcare": {
+      "title": "https://www.fiercehealthcare.com/ai-and-machine-learning/assort-health-scores-120m-series-c-scale-voice-ai-agent-platform-healthcare",
+      "discovered_at": "2026-06-26T14:49:31.832546",
+      "topic": "ai-agent"
+    },
+    "https://www.genengnews.com/topics/cancer/ai-framework-surfaces-new-car-t-target-with-multi%E2%80%91cancer-potential/": {
+      "title": "https://www.genengnews.com/topics/cancer/ai-framework-surfaces-new-car-t-target-with-multi%E2%80%91cancer-potential/",
+      "discovered_at": "2026-06-26T14:49:31.832643",
+      "topic": "ai-agent"
+    },
+    "https://www.lightreading.com/ai-machine-learning/china-mobile-aims-to-ride-ai-wave-to-intelligent-services": {
+      "title": "https://www.lightreading.com/ai-machine-learning/china-mobile-aims-to-ride-ai-wave-to-intelligent-services",
+      "discovered_at": "2026-06-26T14:49:31.832738",
+      "topic": "ai-agent"
+    },
+    "https://www.fiercehealthcare.com/ai-and-machine-learning/coval-raises-28m-series-address-ai-voice-agent-reliability-compliance": {
+      "title": "https://www.fiercehealthcare.com/ai-and-machine-learning/coval-raises-28m-series-address-ai-voice-agent-reliability-compliance",
+      "discovered_at": "2026-06-26T14:49:31.832839",
+      "topic": "ai-agent"
+    },
+    "https://hitconsultant.net/2026/06/26/rupesh-acharya-agentic-ai-patient-services/": {
+      "title": "https://hitconsultant.net/2026/06/26/rupesh-acharya-agentic-ai-patient-services/",
+      "discovered_at": "2026-06-26T14:49:31.832931",
+      "topic": "ai-agent"
+    },
+    "https://techcrunch.com/2026/06/25/from-fortnite-to-robots-general-intuitions-2-3b-bet-that-video-games-can-train-ai-agents-for-the-real-world/": {
+      "title": "https://techcrunch.com/2026/06/25/from-fortnite-to-robots-general-intuitions-2-3b-bet-that-video-games-can-train-ai-agents-for-the-real-world/",
+      "discovered_at": "2026-06-26T14:49:31.833028",
+      "topic": "ai-agent"
+    },
+    "https://www.theatlantic.com/national-security/2026/06/claude-anthropic-ai-warfare-orders/687581/": {
+      "title": "https://www.theatlantic.com/national-security/2026/06/claude-anthropic-ai-warfare-orders/687581/",
+      "discovered_at": "2026-06-26T14:49:33.418621",
+      "topic": "llm"
+    },
+    "https://letsdatascience.com/news/claude-expresses-reservations-about-military-targeting-483ae8cb": {
+      "title": "https://letsdatascience.com/news/claude-expresses-reservations-about-military-targeting-483ae8cb",
+      "discovered_at": "2026-06-26T14:49:33.418730",
+      "topic": "llm"
+    },
+    "https://www.thesunchronicle.com/business/top-developers-are-pivoting-from-chatbots-to-physical-ai/article_1c485246-27bb-50f0-b13b-414a9660e315.html": {
+      "title": "https://www.thesunchronicle.com/business/top-developers-are-pivoting-from-chatbots-to-physical-ai/article_1c485246-27bb-50f0-b13b-414a9660e315.html",
+      "discovered_at": "2026-06-26T14:49:33.418832",
+      "topic": "llm"
+    },
+    "https://www.nature.com/articles/s41467-026-74621-9": {
+      "title": "https://www.nature.com/articles/s41467-026-74621-9",
+      "discovered_at": "2026-06-26T14:49:33.418924",
+      "topic": "llm"
+    },
+    "https://techcrunch.com/2026/06/25/the-white-house-is-asking-openai-to-slow-roll-the-release-of-its-new-model-over-safety-concerns/": {
+      "title": "https://techcrunch.com/2026/06/25/the-white-house-is-asking-openai-to-slow-roll-the-release-of-its-new-model-over-safety-concerns/",
+      "discovered_at": "2026-06-26T14:49:33.419020",
+      "topic": "llm"
+    },
+    "https://nypost.com/2026/06/24/media/ai-chatbots-show-left-wing-bias-bombshell-report-finds-chatgpt-gives-lefty-answers-80-of-time/": {
+      "title": "https://nypost.com/2026/06/24/media/ai-chatbots-show-left-wing-bias-bombshell-report-finds-chatgpt-gives-lefty-answers-80-of-time/",
+      "discovered_at": "2026-06-26T14:49:33.419187",
+      "topic": "llm"
+    },
+    "https://techcrunch.com/2026/06/25/anthropics-claude-is-winning-over-paid-consumers-a-market-owned-by-chatgpt/": {
+      "title": "https://techcrunch.com/2026/06/25/anthropics-claude-is-winning-over-paid-consumers-a-market-owned-by-chatgpt/",
+      "discovered_at": "2026-06-26T14:49:33.419294",
+      "topic": "llm"
+    }
+  }
+}

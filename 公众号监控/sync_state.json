@@ -1,0 +1,25 @@
+{
+  "status": "success",
+  "last_check_time": "2026-06-26T14:49:29.997023",
+  "check_count": 1,
+  "consecutive_errors": 0,
+  "last_error": null,
+  "last_results_count": 15,
+  "topics": {
+    "ai-agent": {
+      "last_run": "2026-06-26T14:49:31.833033",
+      "last_count": 8,
+      "last_new": 8
+    },
+    "llm": {
+      "last_run": "2026-06-26T14:49:33.419300",
+      "last_count": 8,
+      "last_new": 7
+    },
+    "stock": {
+      "last_run": null,
+      "last_count": 0,
+      "last_new": 0
+    }
+  }
+}
