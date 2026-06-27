@@ -1,18 +1,18 @@
 {
   "status": "degraded",
-  "last_check_time": "2026-06-27T20:05:05.808029",
-  "check_count": 32,
-  "consecutive_errors": 4,
+  "last_check_time": "2026-06-27T21:05:07.297400",
+  "check_count": 33,
+  "consecutive_errors": 5,
   "last_error": "1 个主题搜索失败",
   "last_results_count": 0,
   "topics": {
     "ai-agent": {
-      "last_run": "2026-06-27T20:05:10.743080",
+      "last_run": "2026-06-27T21:05:11.000618",
       "last_count": 1,
       "last_new": 0
     },
     "llm": {
-      "last_run": "2026-06-27T20:05:12.757100",
+      "last_run": "2026-06-27T21:05:13.751661",
       "last_count": 0,
       "last_new": 0,
       "error": "tavily 返回空"
