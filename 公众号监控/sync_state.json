@@ -1,20 +1,20 @@
 {
   "status": "success",
-  "last_check_time": "2026-06-27T13:05:06.355801",
-  "check_count": 25,
+  "last_check_time": "2026-06-27T14:05:09.686772",
+  "check_count": 26,
   "consecutive_errors": 0,
   "last_error": "1 个主题搜索失败",
-  "last_results_count": 0,
+  "last_results_count": 1,
   "topics": {
     "ai-agent": {
-      "last_run": "2026-06-27T13:05:09.849798",
+      "last_run": "2026-06-27T14:05:13.503540",
       "last_count": 1,
       "last_new": 0
     },
     "llm": {
-      "last_run": "2026-06-27T13:05:13.265775",
+      "last_run": "2026-06-27T14:05:17.670936",
       "last_count": 1,
-      "last_new": 0
+      "last_new": 1
     },
     "stock": {
       "last_run": null,
