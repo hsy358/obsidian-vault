@@ -36,8 +36,9 @@ tags: [德勤, 项目, 索引]
 - `AI-Native/报告/2026-06-16_pdf_德勤Tech-Trends-2026官方报告.pdf` + `.md`
 - `AI-Native/报告/2026-06-16_html_德勤2026趋势中国版报告页.html` + `.md`
 
-**截图（18 张）**
+**截图（19 张）**
 - `AI-Native/截图/2026-06-16_deloitte-ppt-screenshots/` — 德勤官方 PPT 截图 18 张
+- `AI-Native/截图/2026-06-17_yx-harness-dashboard/yx-ai-delivery-harness-dashboard.jpg` — YX AI Delivery Harness dashboard（2026-06-17，从 Research/2026-06-17_AI-Native_RD/ 移入）
 
 **笔记（17 份）**
 
@@ -60,6 +61,8 @@ tags: [德勤, 项目, 索引]
 | OKF 知识工程三角 | [[AI-Native/笔记/2026-06-16 - 知识工程三角：OKF 格式层 + KDD 流程层 + 成熟度评估层]] |
 | OKF 框架图（mermaid） | [[AI-Native/笔记/2026-06-16 - 知识工程框架图（mermaid）]] |
 | OKF 框架图（png） | `AI-Native/笔记/2026-06-16 - 知识工程框架图.png` |
+| Google Cloud OKF | [[AI-Native/笔记/2026-06-22 - Google Cloud OKF Open Knowledge Format]] |
+| OKF vs vault audit | [[AI-Native/笔记/2026-06-22 - OKF 与 vault 差异 audit 表]] |
 
 ### NemoClaw-Physical-AI — 交付物 / 产品（2 个文件）
 
@@ -110,3 +113,4 @@ mkdir -p "德勤/<新主题名>/{公众号文章,报告,截图,笔记}"
 
 - **2026-06-27 (1)** — 把 `Inbox/` `Research/` `公众号文章/` 下的所有德勤相关文件统一归到 `/root/vault/德勤/AI-Native/` 下（41 个文件，git rename 保留历史）
 - **2026-06-27 (2)** — 何大人揭示 NemoClaw 提案是"去德勤要做的事情"，在 `德勤/` 下新建主题 `NemoClaw-Physical-AI/`，将 `/root/vault/03-资源/咨询/Physical-AI/` 下的 PPTX + sidecar 移入
+- **2026-06-27 (3)** — 何大人裁决"全搬"：补搬 OKF 体系 2 个文档（Google Cloud OKF + OKF audit）+ YX Harness dashboard 截图（原 UUID 文件与命名版重复，已删除 UUID 版）
