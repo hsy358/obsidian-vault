@@ -1,7 +1,7 @@
 ---
 type: document-metadata
 file_type: ppt
-file_path: 03-资源/咨询/Physical-AI/2026-06-26_pptx_NemoClaw Physical AI Consulting Proposal.pptx
+file_path: 德勤/NemoClaw-Physical-AI/报告/2026-06-26_pptx_NemoClaw Physical AI Consulting Proposal.pptx
 source: wechat-attachment (NemoClaw-Physical-AI-Consulting-Proposal_1---992fa4f2-674c-4253-8f5f-9e00ee8943fb.pptx)
 uploaded_date: 2026-06-26
 title: NemoClaw 赋能咨询公司：AI 智能体平台 × 物理 AI 解决方案
@@ -78,5 +78,7 @@ tags: [consulting, proposal, NemoClaw, physical-ai, digital-twin, omniverse, isa
 ## 备注
 - 文件来源：微信附件，14:46 发送（无 caption）
 - 文件已重命名按 `YYYY-MM-DD_类型_标题.扩展名` 规范
-- 存放路径：`/root/vault/03-资源/咨询/Physical-AI/`
+- 原存放路径：`/root/vault/03-资源/咨询/Physical-AI/`（2026-06-27 重新归类到此）
+- 当前存放路径：`/root/vault/德勤/NemoClaw-Physical-AI/报告/`
+- 归档理由：何大人 2026-06-27 明确这是"去德勤要做的事情"，NemoClaw 平台是德勤项目核心交付物
 - 待办：可考虑用 `knowledge-to-deck` skill 解析后做内容索引
