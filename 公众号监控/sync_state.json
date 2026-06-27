@@ -1,20 +1,21 @@
 {
-  "status": "success",
-  "last_check_time": "2026-06-28T03:05:06.526520",
-  "check_count": 42,
-  "consecutive_errors": 0,
+  "status": "running_with_errors",
+  "last_check_time": "2026-06-28T04:05:05.575278",
+  "check_count": 43,
+  "consecutive_errors": 1,
   "last_error": "1 个主题搜索失败",
   "last_results_count": 0,
   "topics": {
     "ai-agent": {
-      "last_run": "2026-06-28T03:05:09.344445",
+      "last_run": "2026-06-28T04:05:08.850921",
       "last_count": 1,
       "last_new": 0
     },
     "llm": {
-      "last_run": "2026-06-28T03:05:12.705524",
-      "last_count": 1,
-      "last_new": 0
+      "last_run": "2026-06-28T04:05:11.893341",
+      "last_count": 0,
+      "last_new": 0,
+      "error": "tavily 返回空"
     },
     "stock": {
       "last_run": null,
