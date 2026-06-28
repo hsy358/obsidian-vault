@@ -2,7 +2,7 @@
 title: 德勤项目资料库
 type: project-index
 created: 2026-06-27
-updated: 2026-06-27
+updated: 2026-06-29
 tags: [德勤, 项目, 索引]
 ---
 
@@ -26,7 +26,27 @@ tags: [德勤, 项目, 索引]
 
 ## 已有内容
 
-### AI-Native — 方法论 / 研究（41 个文件）
+### AI-Native — 方法论 / 研究（52 个文件）
+
+**🌟 AI Native 组织 Workspace v0.3 完整闭环（6-28 → 6-29，9 个文件）**
+
+> 战略（v0.3）+ 定位（NemoClaw 增强版）+ 架构（开发说明）+ 4 份开源调研 + 2 份速查笔记
+> 子目录索引见 [[AI-Native/笔记/README.md]]
+
+**原始 docx（3 份 + sidecar）**
+- [[AI-Native/笔记/2026-06-28 - AI Native 组织 Workspace 产品规划与开源落地方案 v0.3|AI Native 组织 Workspace 产品规划与开源落地方案 v0.3]]（6-28，60K）
+- [[AI-Native/笔记/2026-06-29 - AI Native 组织 Workspace 产品规划与开源落地方案 NemoClaw 增强版|NemoClaw 增强版]]（6-29，49K）
+- [[AI-Native/笔记/2026-06-29 - AI Native System 产品规划与功能架构开发说明|AI Native System 产品规划与功能架构开发说明]]（6-29，1MB / 21 表 + 7 图）
+
+**配套开源项目调研（4 份 Deep Research）**
+- [[AI-Native/笔记/2026-06-28 - Paperclip - GitHub Deep Research|Paperclip]]（paperclipai 组织控制平面）
+- [[AI-Native/笔记/2026-06-28 - AgentSpace - GitHub Deep Research|AgentSpace]]（HKUDS 企业 Workspace）
+- [[AI-Native/笔记/2026-06-28 - NemoClaw (NVIDIA) - GitHub Deep Research|NemoClaw (NVIDIA)]]（**NVIDIA 官方** OpenShell 沙箱）
+- [[AI-Native/笔记/2026-06-28 - OpenAgents - GitHub 仓库研究|OpenAgents]]（频道/线程协作）
+
+**速查笔记（2 份）**
+- [[AI-Native/笔记/2026-06-29 - NemoClaw 增强版速查（沟通用）|NemoClaw 增强版速查（沟通用）]] — **1 页摘要 + 跟老板沟通的标准话术** ⭐
+- [[AI-Native/笔记/2026-06-29 - 三份德勤文档对接关系速查|三份德勤文档对接关系速查]] — 文档怎么配合用
 
 **公众号文章（3 篇）**
 - [[AI-Native/公众号文章/2026-06-16 - Skill Zoo：一站式 Agent 技能管理工具|Skill Zoo：一站式 Agent 技能管理工具]]（2026-06-16，星汐引力）
@@ -47,10 +67,21 @@ tags: [德勤, 项目, 索引]
 - `AI-Native/截图/2026-06-17_loop-engineering-closed-loop/loop-engineering-closed-loop.jpg` — Loop Engineering 闭环图（2026-06-17）
 - `AI-Native/截图/2026-06-17_企业流程智能成熟度自评模型/` — 自评模型 18 页 slide 截图（从 03-资源 复刻素材目录移入）
 
-**笔记（17 份）**
+**笔记（26 份）**
 
 | 分组 | 文件 |
 |---|---|
+| **🌟 v0.3 项目（9 份）** | |
+| v0.3 产品规划 | [[AI-Native/笔记/2026-06-28 - AI Native 组织 Workspace 产品规划与开源落地方案 v0.3]] |
+| NemoClaw 增强版 | [[AI-Native/笔记/2026-06-29 - AI Native 组织 Workspace 产品规划与开源落地方案 NemoClaw 增强版]] |
+| 功能架构开发说明 | [[AI-Native/笔记/2026-06-29 - AI Native System 产品规划与功能架构开发说明]] |
+| Paperclip 调研 | [[AI-Native/笔记/2026-06-28 - Paperclip - GitHub Deep Research]] |
+| AgentSpace 调研 | [[AI-Native/笔记/2026-06-28 - AgentSpace - GitHub Deep Research]] |
+| NemoClaw (NVIDIA) 调研 | [[AI-Native/笔记/2026-06-28 - NemoClaw (NVIDIA) - GitHub Deep Research]] |
+| OpenAgents 调研 | [[AI-Native/笔记/2026-06-28 - OpenAgents - GitHub 仓库研究]] |
+| NemoClaw 速查 | [[AI-Native/笔记/2026-06-29 - NemoClaw 增强版速查（沟通用）]] |
+| 文档对接关系 | [[AI-Native/笔记/2026-06-29 - 三份德勤文档对接关系速查]] |
+| **AI-Native R&D 演进（13 份）** | |
 | AI-Native R&D v1.0 | [[AI-Native/笔记/2026-06-17 - AI-Native R&D 全流程方案 v1.0]] |
 | AI-Native R&D v2.0 | [[AI-Native/笔记/2026-06-17 - AI-Native R&D 自驱动闭环 v2.0]] |
 | AI-Native R&D v3.0 | [[AI-Native/笔记/2026-06-17 - AI-Native R&D 自驱动闭环 v3.0]] |
@@ -65,6 +96,7 @@ tags: [德勤, 项目, 索引]
 | Self-Driving v4.2 | [[AI-Native/笔记/2026-06-19 - Self-Driving R&D 方案 v4.2（生态融合版）]] |
 | Self-Driving v5.0-lite | [[AI-Native/笔记/2026-06-19 - Self-Driving R&D v5.0-lite（3.5 原则 + 独立可移植）]] |
 | 实战成本分析 | [[AI-Native/笔记/2026-06-19 - Self-Driving R&D 实战成本分析（MVP 优先）]] |
+| **OKF 知识工程（4 份）** | |
 | OKF 知识工程三角 | [[AI-Native/笔记/2026-06-16 - 知识工程三角：OKF 格式层 + KDD 流程层 + 成熟度评估层]] |
 | OKF 框架图（mermaid） | [[AI-Native/笔记/2026-06-16 - 知识工程框架图（mermaid）]] |
 | OKF 框架图（png） | `AI-Native/笔记/2026-06-16 - 知识工程框架图.png` |
@@ -127,3 +159,11 @@ mkdir -p "德勤/<新主题名>/{公众号文章,报告,截图,笔记}"
   - P0 删重：yuanzhi workflow 重复 jpg
   - P1 补 sidecar：9 个缺 sidecar 的二进制文件（德勤 3 PPTX + 毛概 3 PPTX + 元知 HTML + yuanzhi HTML + 罗睿 PDF）
   - 缺 sidecar 二进制文件数：9 → 0 ✓
+- **2026-06-29 (1) — v0.3 项目完整闭环入库**：
+  - 何大人 6-28 微信上传 `v0.3 产品规划与开源落地方案.docx`（60K）→ 存档到 `德勤/AI-Native/笔记/`
+  - 何大人 6-29 微信上传 `AI Native System 产品规划与功能架构开发说明.docx`（1MB）+ `NemoClaw 增强版.docx`（49K）
+  - 我用 subagent 并行写 4 份开源项目 Deep Research（Paperclip/AgentSpace/NemoClaw/OpenAgents）
+  - 写 2 份速查笔记：`NemoClaw 增强版速查（沟通用）` + `三份德勤文档对接关系速查`
+  - 创建子目录索引：`德勤/AI-Native/笔记/README.md`
+  - 清理废弃能力：删除 `wechat-monitor` skill（连续 19 次 tavily 搜索失败）+ 删 cron 任务 + 清状态文件
+  - 当前笔记文件数：17 → 26（+9 v0.3 相关）
