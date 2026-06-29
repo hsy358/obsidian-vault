@@ -219,24 +219,24 @@ OpenClaw（能力） + NemoClaw（安全） = 安全增强的 OpenClaw
 
 ### 7.1 优势
 
-| 优势 | 说明 |
-|---|---|
-| **NVIDIA 官方背书** | 大厂维护，生态联动确定性强 |
-| **零代码改造** | 现有 OpenClaw Agent 无需修改即可入沙箱 |
-| **单 CLI 管理** | 安装、配置、运维一条命令 |
-| **Apache 2.0** | 完全开源，无供应商锁定 |
-| **网络策略灵活** | 从"完全阻断"到"白名单"可配 |
-| **多 Agent 支持** | 同时托管 OpenClaw / Hermes / LangChain Agent |
+| 优势              | 说明                                       |
+| --------------- | ---------------------------------------- |
+| **NVIDIA 官方背书** | 大厂维护，生态联动确定性强                            |
+| **零代码改造**       | 现有 OpenClaw Agent 无需修改即可入沙箱              |
+| **单 CLI 管理**    | 安装、配置、运维一条命令                             |
+| **Apache 2.0**  | 完全开源，无供应商锁定                              |
+| **网络策略灵活**      | 从"完全阻断"到"白名单"可配                          |
+| **多 Agent 支持**  | 同时托管 OpenClaw / Hermes / LangChain Agent |
 
 ### 7.2 风险与限制
 
-| 风险 | 说明 |
-|---|---|
-| **Alpha 状态** | 无保证响应 SLA，生产环境需评估风险 |
-| **默认配置有漏洞** | Lasso Security 发现默认配置下 Agent 可访问 host 凭证文件（`~/.openclaw/openclaw.json`），需手动加固 |
-| **文档尚不完整** | 官方文档部分页面 404，生态页面（如 Isaac Sim 集成）细节缺失 |
-| **NVIDIA 强绑定** | OpenShell / NemoClaw 与 NVIDIA 生态深度耦合，非 NVIDIA 环境下可能有限制 |
-| **Physical AI 需额外工作** | NemoClaw 本身不包含物理仿真，联动 Isaac Sim 需自行集成 |
+| 风险                    | 说明                                                                            |
+| --------------------- | ----------------------------------------------------------------------------- |
+| **Alpha 状态**          | 无保证响应 SLA，生产环境需评估风险                                                           |
+| **默认配置有漏洞**           | Lasso Security 发现默认配置下 Agent 可访问 host 凭证文件（`~/.openclaw/openclaw.json`），需手动加固 |
+| **文档尚不完整**            | 官方文档部分页面 404，生态页面（如 Isaac Sim 集成）细节缺失                                         |
+| **NVIDIA 强绑定**        | OpenShell / NemoClaw 与 NVIDIA 生态深度耦合，非 NVIDIA 环境下可能有限制                        |
+| **Physical AI 需额外工作** | NemoClaw 本身不包含物理仿真，联动 Isaac Sim 需自行集成                                         |
 
 ### 7.3 部署路径建议
 
@@ -262,12 +262,12 @@ OpenClaw（能力） + NemoClaw（安全） = 安全增强的 OpenClaw
 
 ### 8.1 何时用 NemoClaw（替代纯 OpenClaw）
 
-| 场景 | 推荐 |
-|---|---|
-| 企业 IT 要求 Agent 网络隔离 | ✅ NemoClaw |
-| 多 Agent 批量部署 + 统一管理 | ✅ NemoClaw |
-| 合规要求：推理流量必须经过审计代理 | ✅ NemoClaw |
-| 个人开发 / 实验 / 快速原型 | ❌ 纯 OpenClaw（轻量） |
+| 场景                            | 推荐                 |
+| ----------------------------- | ------------------ |
+| 企业 IT 要求 Agent 网络隔离           | ✅ NemoClaw         |
+| 多 Agent 批量部署 + 统一管理           | ✅ NemoClaw         |
+| 合规要求：推理流量必须经过审计代理             | ✅ NemoClaw         |
+| 个人开发 / 实验 / 快速原型              | ❌ 纯 OpenClaw（轻量）   |
 | 需要物理仿真（Isaac Sim / Omniverse） | ⚠️ NemoClaw + 额外集成 |
 
 ### 8.2 德勤方案建议
