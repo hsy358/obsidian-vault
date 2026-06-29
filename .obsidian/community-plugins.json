@@ -2,5 +2,6 @@
   "claudian",
   "obsidian-git",
   "messager",
-  "obsidian-local-rest-api"
+  "obsidian-local-rest-api",
+  "datacore"
 ]
