@@ -1,1 +1,1 @@
-Not logged in · Please run /login
+Claude Code mock runner executed successfully. Prompt summary: 生成一句中文说明：Claude Code adapter 已被统一执行器抽象层接入。

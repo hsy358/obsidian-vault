@@ -1,2 +1,2 @@
 ⚠️  Normalized model 'custom/gpt-5.4' to 'gpt-5.4' for custom.
-Hermes executor adapter 已完成接入，并已输出统一的结构化日志。
+Hermes executor adapter 已完成接入，并已支持输出结构化日志。

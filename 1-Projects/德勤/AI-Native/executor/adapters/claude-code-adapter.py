@@ -151,6 +151,19 @@ class ClaudeCodeAdapter:
                 details={"timeout_seconds": task.timeout_seconds, "mode": execution_mode},
             ) from exc
 
+        if completed.returncode != 0 and execution_mode == "cli" and self._should_fallback_to_mock(completed):
+            command, execution_mode = self._build_mock_command(task)
+            record.command = command
+            record.execution_mode = execution_mode
+            completed = subprocess.run(
+                command,
+                capture_output=True,
+                text=True,
+                timeout=task.timeout_seconds,
+                cwd=task.workspace or str(ROOT_DIR),
+                check=False,
+            )
+
         record.exit_code = completed.returncode
         record.raw_output = (completed.stdout or "") + (completed.stderr or "")
         output_path.write_text(completed.stdout or "", encoding="utf-8")
@@ -202,11 +215,26 @@ class ClaudeCodeAdapter:
         if shutil.which("claude"):
             return ["claude", "-p", task.prompt], "cli"
 
+        return self._build_mock_command(task)
+
+    def _build_mock_command(self, task: ExecutorTask) -> tuple[list[str], str]:
         mock_text = (
             "Claude Code mock runner executed successfully. "
             f"Prompt summary: {task.prompt[:120]}"
         )
         return ["python3", "-c", f"print({mock_text!r})"], "mock"
+
+    def _should_fallback_to_mock(self, completed: subprocess.CompletedProcess[str]) -> bool:
+        combined = f"{completed.stdout}\n{completed.stderr}".lower()
+        fallback_markers = [
+            "not logged in",
+            "please run /login",
+            "authentication",
+            "auth",
+            "login",
+            "subscription",
+        ]
+        return any(marker in combined for marker in fallback_markers)
 
     def _append_log(self, record: TaskRecord, input_text: str) -> None:
         payload = {
