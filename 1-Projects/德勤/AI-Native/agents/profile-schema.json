@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://deloitte-ai-native.local/agents/profile-schema.json",
+  "title": "Agent Profile",
+  "description": "德勤 AI-Native MVP 的 Agent 注册档案。覆盖注册、角色说明、Skill 绑定、执行器绑定，以及 Hermes sessions 集成所需的最小字段。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "role",
+    "skills",
+    "executor",
+    "owner",
+    "provider",
+    "session_source",
+    "status"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z0-9][a-z0-9_-]{1,63}$",
+      "description": "Agent 唯一名称，推荐 kebab/snake 风格。"
+    },
+    "role": {
+      "type": "string",
+      "minLength": 1,
+      "description": "角色说明，例如 researcher / builder / orchestrator。"
+    },
+    "description": {
+      "type": "string",
+      "description": "补充说明，可选。"
+    },
+    "skills": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true,
+      "description": "绑定到该 Agent 的 skill 名称列表。"
+    },
+    "executor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["hermes-chat", "claude-code", "langgraph"],
+          "description": "执行器类型，和 executor 模块适配器一一对应。"
+        },
+        "adapter": {
+          "type": "string",
+          "description": "适配器脚本路径，可选。"
+        },
+        "model": {
+          "type": "string",
+          "description": "执行器默认模型，可选。"
+        },
+        "workspace": {
+          "type": "string",
+          "description": "执行器工作目录，可选。"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "执行器补充元数据。",
+          "additionalProperties": true
+        }
+      }
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["member_name", "member_role"],
+      "properties": {
+        "member_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "provider": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Agent 所属提供方/框架，例如 Hermes / Claude Code / LangGraph。"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ready", "running", "paused", "offline"],
+      "description": "注册表中的当前状态。"
+    },
+    "instruction_summary": {
+      "type": "string",
+      "description": "对系统提示或职责的摘要。"
+    },
+    "session_source": {
+      "type": "string",
+      "minLength": 1,
+      "description": "和 hermes sessions list --source 对齐的来源标签；非 Hermes 执行器也可自定义。"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "artifacts_dir": {
+      "type": "string",
+      "description": "默认产物目录，可选。"
+    }
+  }
+}

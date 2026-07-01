@@ -17,6 +17,7 @@ def main() -> None:
         DB_PATH.unlink()
 
     repo = WorkspaceRepository(DB_PATH, SCHEMA_PATH)
+    validation_conn = None
     try:
         org = repo.create_organization(
             name="Deloitte AI Native Consulting",
@@ -132,16 +133,37 @@ def main() -> None:
             "deliverable_approvals": rows_to_dicts(repo.list_deliverable_approvals(project.id)),
         }
 
+        validation_conn = repo.conn.__class__(DB_PATH)
+        validation_conn.execute("PRAGMA foreign_keys = ON")
+        validation = {
+            "foreign_keys": validation_conn.execute("PRAGMA foreign_keys").fetchone()[0],
+            "tables": [
+                row[0]
+                for row in validation_conn.execute(
+                    "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name"
+                )
+            ],
+            "triggers": [
+                row[0]
+                for row in validation_conn.execute(
+                    "SELECT name FROM sqlite_master WHERE type='trigger' ORDER BY name"
+                )
+            ],
+        }
+
         result = {
             "database": str(DB_PATH),
             "organization": org.name,
             "project": project.name,
             "before_approval": before,
             "after_approval": after,
+            "validation": validation,
         }
         print(json.dumps(result, ensure_ascii=False, indent=2))
     finally:
         repo.close()
+        if validation_conn is not None:
+            validation_conn.close()
 
 
 if __name__ == "__main__":
