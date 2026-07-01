@@ -1,0 +1,31 @@
+{
+  "name": "claude-code",
+  "role": "coding-agent",
+  "description": "负责多文件编码与执行器接入。",
+  "skills": [
+    "codex",
+    "requesting-code-review"
+  ],
+  "executor": {
+    "type": "claude-code",
+    "adapter": "/root/vault/1-Projects/德勤/AI-Native/executor/adapters/claude-code-adapter.py",
+    "workspace": "/root/vault/1-Projects/德勤/AI-Native",
+    "metadata": {
+      "fallback": "mock"
+    }
+  },
+  "owner": {
+    "member_name": "AI 工程师",
+    "member_role": "实施工程师",
+    "email": "eng@example.com"
+  },
+  "provider": "Claude Code",
+  "status": "ready",
+  "instruction_summary": "负责代码实现与验证。",
+  "session_source": "cli",
+  "tags": [
+    "mvp",
+    "code"
+  ],
+  "artifacts_dir": "/root/vault/1-Projects/德勤/AI-Native/executor/runtime/artifacts/claude-demo"
+}

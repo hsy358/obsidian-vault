@@ -1,0 +1,32 @@
+{
+  "name": "hermes-chat",
+  "role": "generalist-builder",
+  "description": "负责通用任务执行、项目协作和最小实现交付。",
+  "skills": [
+    "hermes-agent",
+    "kanban-worker"
+  ],
+  "executor": {
+    "type": "hermes-chat",
+    "adapter": "/root/vault/1-Projects/德勤/AI-Native/executor/adapters/hermes-chat-adapter.py",
+    "model": "custom/gpt-5.4",
+    "workspace": "/root/vault/1-Projects/德勤/AI-Native",
+    "metadata": {
+      "channel": "cli"
+    }
+  },
+  "owner": {
+    "member_name": "咨询 PM",
+    "member_role": "项目经理",
+    "email": "pm@example.com"
+  },
+  "provider": "Hermes",
+  "status": "ready",
+  "instruction_summary": "负责通用项目推进、任务执行、状态反馈。",
+  "session_source": "cli",
+  "tags": [
+    "mvp",
+    "generalist"
+  ],
+  "artifacts_dir": "/root/vault/1-Projects/德勤/AI-Native/executor/runtime/artifacts/hermes-demo"
+}

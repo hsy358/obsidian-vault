@@ -4,6 +4,7 @@ import importlib.util
 import json
 import sqlite3
 import subprocess
+import sys
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
@@ -21,6 +22,7 @@ spec = importlib.util.spec_from_file_location("workspace_repository", DATA_MODEL
 if spec is None or spec.loader is None:
     raise RuntimeError("failed to load data-model/repository.py")
 repo_module = importlib.util.module_from_spec(spec)
+sys.modules[spec.name] = repo_module
 spec.loader.exec_module(repo_module)
 WorkspaceRepository = repo_module.WorkspaceRepository
 rows_to_dicts = repo_module.rows_to_dicts

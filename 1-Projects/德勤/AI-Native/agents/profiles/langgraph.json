@@ -1,0 +1,31 @@
+{
+  "name": "langgraph",
+  "role": "workflow-agent",
+  "description": "负责图式工作流与状态编排。",
+  "skills": [
+    "autonomous-ai-agents",
+    "systematic-debugging"
+  ],
+  "executor": {
+    "type": "langgraph",
+    "adapter": "/root/vault/1-Projects/德勤/AI-Native/executor/langgraph-adapter.py",
+    "workspace": "/root/vault/1-Projects/德勤/AI-Native",
+    "metadata": {
+      "graph_mode": "stateful"
+    }
+  },
+  "owner": {
+    "member_name": "流程架构师",
+    "member_role": "方案架构师",
+    "email": "arch@example.com"
+  },
+  "provider": "LangGraph",
+  "status": "ready",
+  "instruction_summary": "负责多步骤工作流、状态机与流程组合。",
+  "session_source": "cli",
+  "tags": [
+    "mvp",
+    "workflow"
+  ],
+  "artifacts_dir": "/root/vault/1-Projects/德勤/AI-Native/executor/runtime/artifacts/langgraph-demo"
+}

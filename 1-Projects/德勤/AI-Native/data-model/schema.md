@@ -168,6 +168,12 @@ erDiagram
 3. 查某项目所有交付物和审批状态
 4. 查某 Agent 绑定了哪些 Skill
 
+## SQLite 注意点
+
+- `schema.sql` 里写了 `PRAGMA foreign_keys = ON;`，用于建库时启用约束。
+- 但 SQLite 的外键开关是“每个连接单独生效”，所以应用层每次新建连接都必须再次执行 `PRAGMA foreign_keys = ON`。
+- `repository.py` 已在连接初始化时处理；`demo.py` 也显式做了独立连接校验。
+
 ## 目录
 
 - `schema.sql`：SQLite DDL
