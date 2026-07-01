@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://deloitte-ai-native.local/executor/log-schema.json",
+  "title": "Deloitte Executor Log Event",
+  "description": "德勤 AI Native MVP 执行器统一日志结构。覆盖 Hermes chat、Claude Code 及后续扩展执行器。",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "task_id",
+    "executor",
+    "started_at",
+    "finished_at",
+    "status",
+    "input",
+    "output_files",
+    "failure_reason",
+    "token_cost"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "统一任务 id，由抽象层分配。"
+    },
+    "executor": {
+      "type": "string",
+      "enum": ["hermes-chat", "claude-code", "langgraph", "custom"],
+      "description": "执行器标识。"
+    },
+    "started_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "任务开始时间。"
+    },
+    "finished_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "任务结束时间；运行中可为空。"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["queued", "running", "paused", "succeeded", "failed", "terminated", "unknown"],
+      "description": "统一状态枚举。"
+    },
+    "input": {
+      "type": "string",
+      "description": "提交给执行器的原始任务输入。"
+    },
+    "output_files": {
+      "type": "array",
+      "description": "执行产生的输出文件路径列表。",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "failure_reason": {
+      "type": ["string", "null"],
+      "description": "失败原因；成功时可为空。"
+    },
+    "token_cost": {
+      "type": ["number", "null"],
+      "description": "预留字段，记录 token 或调用成本；MVP 阶段可为空。"
+    },
+    "event_type": {
+      "type": "string",
+      "description": "扩展字段，例如 task_update / heartbeat / error。"
+    },
+    "raw_output_excerpt": {
+      "type": "string",
+      "description": "底层输出截断片段，便于快速查看。"
+    },
+    "exit_code": {
+      "type": ["integer", "null"],
+      "description": "底层命令退出码。"
+    },
+    "execution_mode": {
+      "type": "string",
+      "description": "Claude Code adapter 的真实 cli / mock 等执行模式。"
+    },
+    "logged_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "日志写入时间。"
+    }
+  }
+}

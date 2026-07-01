@@ -2,29 +2,29 @@ from __future__ import annotations
 
 """
 ---
-title: Hermes chat adapter（德勤 M6 执行与日志）
+title: Claude Code adapter（德勤 M6 执行与日志）
 date: 2026-07-01
 type: code-reference
-purpose: 封装 hermes chat CLI，使其表现为统一执行器接口，并输出结构化日志
+purpose: 封装 Claude Code CLI 或 mock runner，使其表现为统一执行器接口，并输出结构化日志
 related:
   - /root/vault/1-Projects/德勤/AI-Native/executor/abstract-interface.md
   - /root/vault/1-Projects/德勤/AI-Native/executor/log-schema.json
-  - /root/vault/1-Projects/德勤/AI-Native/executor/demo-report.md
+  - /root/vault/1-Projects/德勤/AI-Native/executor/adapters/hermes-chat-adapter.py
 ---
 """
 
 """
-Hermes chat adapter（德勤 M6）
+Claude Code adapter（德勤 M6）
 
 这个文件的定位是：
-1. 把 `hermes chat -q -Q -m ...` 封装成一个统一执行器。
-2. 提供 submit / heartbeat / logs / pause / resume / terminate 五类接口。
-3. 用最小实现满足“输入、状态、失败原因、输出文件可查看”的 MVP 验收。
+1. 为 Claude Code / ACP 类执行器提供与 Hermes chat 一致的抽象接口。
+2. 优先尝试真实 `claude -p` CLI；若环境中不可用，则自动退化到 mock。
+3. 让 demo 即使没有正式 Claude Code SDK，也能验证接口与日志 schema。
 
 说明：
-- 这是面向 demo / 参考实现的 adapter，不追求完整生产级调度能力。
-- 当前采用“内存态任务注册表 + 本地 JSONL 日志文件”的最小方案。
-- pause / resume 在 MVP 中是逻辑状态，便于统一接口先跑通。
+- 德勤本轮验收重点是“至少两类执行器”与“日志可见”，因此 mock 是明确允许的。
+- 当前实现依然采用“内存态任务注册表 + 本地 JSONL 日志文件”的最小策略。
+- 与 Hermes chat adapter 保持同一套字段与方法名，便于上层注册表统一调度。
 """
 
 import json
@@ -41,7 +41,6 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 RUNTIME_DIR = ROOT_DIR / "runtime"
 LOG_DIR = RUNTIME_DIR / "logs"
 ARTIFACT_DIR = RUNTIME_DIR / "artifacts"
-DEFAULT_MODEL = "custom/gpt-5.4"
 
 
 def iso_now() -> str:
@@ -77,7 +76,7 @@ class ExecutorError(RuntimeError):
 class ExecutorTask:
     title: str
     prompt: str
-    executor: str = "hermes-chat"
+    executor: str = "claude-code"
     workspace: str | None = None
     context: dict[str, Any] = field(default_factory=dict)
     artifacts_dir: str | None = None
@@ -91,7 +90,6 @@ class TaskRecord:
     task_id: str
     task: ExecutorTask
     command: list[str]
-    process: subprocess.Popen[str] | None = None
     status: str = "queued"
     started_at: str | None = None
     finished_at: str | None = None
@@ -100,40 +98,32 @@ class TaskRecord:
     token_cost: float | None = None
     raw_output: str = ""
     exit_code: int | None = None
+    execution_mode: str = "mock"
 
 
-class HermesChatAdapter:
-    """Hermes CLI 执行器封装。"""
+class ClaudeCodeAdapter:
+    """Claude Code / ACP 执行器封装。"""
 
-    def __init__(self, model: str = DEFAULT_MODEL) -> None:
-        self.model = model
+    def __init__(self) -> None:
         self.tasks: dict[str, TaskRecord] = {}
         LOG_DIR.mkdir(parents=True, exist_ok=True)
         ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
 
     def submit(self, task: ExecutorTask) -> str:
         self._validate_task(task)
-        task_id = task.task_id or f"hermes-{uuid.uuid4().hex[:8]}"
+        task_id = task.task_id or f"claude-{uuid.uuid4().hex[:8]}"
         artifacts_dir = Path(task.artifacts_dir or ARTIFACT_DIR / task_id)
         artifacts_dir.mkdir(parents=True, exist_ok=True)
         output_path = artifacts_dir / "response.txt"
 
-        command = [
-            "hermes",
-            "chat",
-            "-q",
-            task.prompt,
-            "-Q",
-            "-m",
-            self.model,
-        ]
-
+        command, execution_mode = self._build_command(task)
         record = TaskRecord(
             task_id=task_id,
             task=task,
             command=command,
             status="running",
             started_at=iso_now(),
+            execution_mode=execution_mode,
         )
         self.tasks[task_id] = record
         self._append_log(record, input_text=task.prompt)
@@ -147,17 +137,6 @@ class HermesChatAdapter:
                 cwd=task.workspace or str(ROOT_DIR),
                 check=False,
             )
-        except FileNotFoundError as exc:
-            record.status = "failed"
-            record.finished_at = iso_now()
-            record.failure_reason = "hermes CLI not found"
-            self._append_log(record, input_text=task.prompt)
-            raise ExecutorError(
-                "E_SUBMIT_FAILED",
-                "failed to start hermes chat process",
-                retryable=False,
-                details={"executor": task.executor, "raw_error": str(exc)},
-            ) from exc
         except subprocess.TimeoutExpired as exc:
             record.status = "failed"
             record.finished_at = iso_now()
@@ -167,9 +146,9 @@ class HermesChatAdapter:
             self._append_log(record, input_text=task.prompt)
             raise ExecutorError(
                 "E_TIMEOUT",
-                "hermes chat timed out",
+                "claude execution timed out",
                 retryable=True,
-                details={"timeout_seconds": task.timeout_seconds},
+                details={"timeout_seconds": task.timeout_seconds, "mode": execution_mode},
             ) from exc
 
         record.exit_code = completed.returncode
@@ -188,19 +167,14 @@ class HermesChatAdapter:
         return task_id
 
     def heartbeat(self, task_id: str) -> str:
-        record = self._get_task(task_id)
-        return record.status
+        return self._get_task(task_id).status
 
     def logs(self, task_id: str) -> list[dict[str, Any]]:
         self._get_task(task_id)
         path = self._log_path(task_id)
         if not path.exists():
             raise ExecutorError("E_LOG_READ_FAILED", f"log file missing for {task_id}")
-        rows = []
-        for line in path.read_text(encoding="utf-8").splitlines():
-            if line.strip():
-                rows.append(json.loads(line))
-        return rows
+        return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
     def pause(self, task_id: str) -> str:
         record = self._get_task(task_id)
@@ -224,6 +198,16 @@ class HermesChatAdapter:
         self._append_log(record, input_text=record.task.prompt)
         return record.status
 
+    def _build_command(self, task: ExecutorTask) -> tuple[list[str], str]:
+        if shutil.which("claude"):
+            return ["claude", "-p", task.prompt], "cli"
+
+        mock_text = (
+            "Claude Code mock runner executed successfully. "
+            f"Prompt summary: {task.prompt[:120]}"
+        )
+        return ["python3", "-c", f"print({mock_text!r})"], "mock"
+
     def _append_log(self, record: TaskRecord, input_text: str) -> None:
         payload = {
             "task_id": record.task_id,
@@ -238,6 +222,7 @@ class HermesChatAdapter:
             "event_type": "task_update",
             "raw_output_excerpt": record.raw_output[:500],
             "exit_code": record.exit_code,
+            "execution_mode": record.execution_mode,
             "logged_at": iso_now(),
         }
         with self._log_path(record.task_id).open("a", encoding="utf-8") as handle:
@@ -255,24 +240,22 @@ class HermesChatAdapter:
     def _validate_task(self, task: ExecutorTask) -> None:
         if not task.title.strip() or not task.prompt.strip():
             raise ExecutorError("E_INVALID_TASK", "task title and prompt must be non-empty")
-        if task.executor != "hermes-chat":
+        if task.executor != "claude-code":
             raise ExecutorError(
                 "E_EXECUTOR_NOT_FOUND",
-                f"unsupported executor for HermesChatAdapter: {task.executor}",
+                f"unsupported executor for ClaudeCodeAdapter: {task.executor}",
             )
-        if shutil.which("hermes") is None:
-            raise ExecutorError("E_SUBMIT_FAILED", "hermes CLI not found in PATH")
 
 
 def build_demo_task() -> ExecutorTask:
     """构造一个最小可跑 demo 任务。"""
 
     return ExecutorTask(
-        title="Hermes chat 最小执行 demo",
-        prompt="用一句中文总结：Hermes executor adapter 已接入，并输出结构化日志。",
-        executor="hermes-chat",
+        title="Claude Code 最小执行 demo",
+        prompt="生成一句中文说明：Claude Code adapter 已被统一执行器抽象层接入。",
+        executor="claude-code",
         workspace=str(ROOT_DIR),
-        artifacts_dir=str(ARTIFACT_DIR / "hermes-demo"),
+        artifacts_dir=str(ARTIFACT_DIR / "claude-demo"),
         timeout_seconds=300,
         context={"project": "deloitte-ai-native-mvp", "phase": "M6"},
     )
@@ -281,7 +264,7 @@ def build_demo_task() -> ExecutorTask:
 def run_demo() -> dict[str, Any]:
     """运行最小 demo，并返回摘要。"""
 
-    adapter = HermesChatAdapter()
+    adapter = ClaudeCodeAdapter()
     task = build_demo_task()
     task_id = adapter.submit(task)
     events = adapter.logs(task_id)
@@ -293,6 +276,7 @@ def run_demo() -> dict[str, Any]:
         "log_events": len(events),
         "output_files": latest["output_files"],
         "failure_reason": latest["failure_reason"],
+        "execution_mode": latest.get("execution_mode", "unknown"),
     }
 
 
