@@ -1,0 +1,22 @@
+{
+  "name": "hesiyan-agent-skills",
+  "version": "0.1.0",
+  "description": "AI Agent skills for vault knowledge management, content creation, R&D, and workflow automation. Curated and maintained by 何四燕 (hesiyan2008). Based on the Agent Skills specification (https://agentskills.io/specification).",
+  "author": {
+    "name": "何四燕",
+    "email": "hesiyan2008@126.com",
+    "url": "https://github.com/hsy358"
+  },
+  "repository": "https://github.com/hsy358/agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "obsidian",
+    "vault",
+    "knowledge-management",
+    "ai-native",
+    "openclaw",
+    "hermes"
+  ],
+  "homepage": "https://github.com/hsy358/agent-skills#readme"
+}

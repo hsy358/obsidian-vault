@@ -1,0 +1,17 @@
+{
+  "name": "hesiyan-agent-skills-marketplace",
+  "owner": {
+    "name": "何四燕",
+    "email": "hesiyan2008@126.com"
+  },
+  "plugins": [
+    {
+      "name": "hesiyan-agent-skills",
+      "source": "./",
+      "description": "Vault-aware Agent skills: knowledge management, content creation, R&D, workflow automation",
+      "version": "0.1.0",
+      "keywords": ["obsidian", "vault", "knowledge-management", "ai-native"],
+      "category": "knowledge-management"
+    }
+  ]
+}
