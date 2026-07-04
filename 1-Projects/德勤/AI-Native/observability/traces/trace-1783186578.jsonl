@@ -1,0 +1,4 @@
+{"type": "trace.input", "trace_id": "trace-1783186577935", "ts": "2026-07-04T17:36:17.935562+00:00", "executor": "hermes-chat", "task_id": "demo-001", "input": "用一句中文总结 Langfuse 在本机的最小集成方式", "model": "custom/gpt-5.4"}
+{"type": "span.retrieval", "trace_id": "trace-1783186577935", "ts": "2026-07-04T17:36:17.985675+00:00", "name": "retrieve-docs", "duration_ms": 50, "metadata": {"top_k": 4, "source": "vault"}}
+{"type": "span.llm", "trace_id": "trace-1783186577935", "ts": "2026-07-04T17:36:18.085808+00:00", "name": "gpt-5.4-completion", "duration_ms": 100, "input_tokens": 28, "output_tokens": 42, "cost_usd": 0.00021}
+{"type": "trace.output", "trace_id": "trace-1783186577935", "ts": "2026-07-04T17:36:18.085831+00:00", "executor": "hermes-chat", "task_id": "demo-001", "output": "Langfuse 在本机的最小集成方式是只装 Python SDK、不部署 server，调用 get_client() 后用 trace / span 装饰器记录事件，同时本地双写 JSONL 备份。", "status": "succeeded"}
