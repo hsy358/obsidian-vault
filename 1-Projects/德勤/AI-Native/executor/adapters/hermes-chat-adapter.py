@@ -28,6 +28,7 @@ Hermes chat adapter（德勤 M6）
 """
 
 import json
+import os
 import shutil
 import subprocess
 import uuid
@@ -46,6 +47,17 @@ DEFAULT_MODEL = "custom/gpt-5.4"
 
 def iso_now() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def _mock_enabled(task: ExecutorTask | None = None) -> bool:
+    """检查是否允许在 CLI 缺失时降级为 mock。优先级：环境变量 > task.metadata.mock。"""
+    env = os.environ.get("HERMES_ADAPTER_MOCK", "").lower() in {"1", "true", "yes"}
+    if env:
+        return True
+    if task is not None:
+        meta = getattr(task, "metadata", {}) or {}
+        return bool(meta.get("mock"))
+    return False
 
 
 class ExecutorError(RuntimeError):
@@ -137,6 +149,23 @@ class HermesChatAdapter:
         )
         self.tasks[task_id] = record
         self._append_log(record, input_text=task.prompt)
+
+        # 如果 hermes CLI 不存在且开启了 mock，跳到 mock 路径
+        if shutil.which("hermes") is None and _mock_enabled(task):
+            record.exit_code = 0
+            mock_output = (
+                f"[mock] hermes CLI not on PATH; would call: {' '.join(command)}\n"
+                f"[mock] prompt: {task.prompt}\n"
+                f"[mock] 模拟响应：执行器抽象层已验证，输入→状态→输出链路完整。\n"
+            )
+            output_path.write_text(mock_output, encoding="utf-8")
+            record.raw_output = mock_output
+            record.output_files = [str(output_path)]
+            record.finished_at = iso_now()
+            record.status = "succeeded"
+            record.failure_reason = None
+            self._append_log(record, input_text=task.prompt)
+            return task_id
 
         try:
             completed = subprocess.run(
@@ -260,7 +289,8 @@ class HermesChatAdapter:
                 "E_EXECUTOR_NOT_FOUND",
                 f"unsupported executor for HermesChatAdapter: {task.executor}",
             )
-        if shutil.which("hermes") is None:
+        # hermes CLI 不存在且未设置 mock 标志时，提交失败
+        if shutil.which("hermes") is None and not _mock_enabled(task):
             raise ExecutorError("E_SUBMIT_FAILED", "hermes CLI not found in PATH")
 
 
