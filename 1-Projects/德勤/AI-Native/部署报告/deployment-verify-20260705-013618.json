@@ -1,0 +1,68 @@
+{
+  "started_at": "2026-07-04T17:36:15.072073+00:00",
+  "finished_at": "2026-07-04T17:36:18.086181+00:00",
+  "environment": {
+    "python_packages": {
+      "langgraph": "installed",
+      "langchain": "installed",
+      "langchain_openai": "installed",
+      "langfuse": "installed"
+    },
+    "cli_tools": {
+      "hermes": "MISSING",
+      "claude": "MISSING",
+      "codex": "MISSING"
+    }
+  },
+  "demos": {
+    "data-model": {
+      "name": "data-model-demo",
+      "status": "ok",
+      "exit_code": 0,
+      "started_at": "2026-07-04T17:36:16.395334+00:00",
+      "finished_at": "2026-07-04T17:36:16.669910+00:00",
+      "stdout_tail": "d\": \"task_f629a51769\",\n        \"title\": \"提交数据模型交付物\",\n        \"status\": \"done\",\n        \"priority\": 2,\n        \"assignee\": \"AI 工程师\",\n        \"agent_name\": \"workspace-builder\",\n        \"deliverable_name\": \"Sprint 1 数据模型包\"\n      }\n    ],\n    \"pending_confirmation\": [],\n    \"deliverable_approvals\": [\n      {\n        \"deliverable_name\": \"Sprint 1 数据模型包\",\n        \"deliverable_status\": \"approved\",\n        \"approval_status\": \"approved\",\n        \"approver\": \"何大人\",\n        \"decision_note\": \"结构满足 Sprint 1 MVP，允许进入已完成\"\n      }\n    ]\n  },\n  \"validation\": {\n    \"foreign_keys\": 1,\n    \"tables\": [\n      \"agents\",\n      \"approvals\",\n      \"deliverables\",\n      \"members\",\n      \"organizations\",\n      \"projects\",\n      \"skills\",\n      \"tasks\"\n    ],\n    \"triggers\": [\n      \"trg_tasks_updated_at\"\n    ]\n  }\n}\n",
+      "stderr_tail": ""
+    },
+    "agent-registry": {
+      "name": "agent-registry-demo",
+      "status": "ok",
+      "started_at": "2026-07-04T17:36:16.669952+00:00",
+      "finished_at": "2026-07-04T17:36:16.692279+00:00",
+      "output_summary": "NoneType"
+    },
+    "executor-dual-adapter": {
+      "name": "executor-dual-adapter-demo",
+      "status": "ok",
+      "started_at": "2026-07-04T17:36:16.692316+00:00",
+      "finished_at": "2026-07-04T17:36:16.758037+00:00",
+      "output_summary": "int"
+    },
+    "langgraph-adapter": {
+      "name": "langgraph-adapter-demo",
+      "status": "ok",
+      "exit_code": 0,
+      "started_at": "2026-07-04T17:36:16.758056+00:00",
+      "finished_at": "2026-07-04T17:36:17.935098+00:00",
+      "stdout_tail": ", 'Step 3: approval (auto)', 'Step 4: deliver']\n   artifacts: [{'type': 'report', 'name': 'consulting_report.md'}]\n   approvals_needed: False\n   result: {'status': 'completed', 'summary': 'LangGraph adapter 执行完成，已生成交付物元数据。', 'artifact_count': 1}\n\n[4] 测试 checkpoint 恢复...\n   checkpoint 数: 6\n   - checkpoint 0: step_count=4, next=()\n   - checkpoint 1: step_count=3, next=('deliver',)\n   - checkpoint 2: step_count=2, next=('approval',)\n\n============================================================\n✅ LangGraph Demo 跑通 — 可作为德勤执行器 adapter 的后端\n============================================================\n",
+      "stderr_tail": ""
+    },
+    "langfuse-sdk": {
+      "name": "langfuse-sdk-demo",
+      "status": "ok",
+      "started_at": "2026-07-04T17:36:17.935137+00:00",
+      "finished_at": "2026-07-04T17:36:18.086168+00:00",
+      "output_summary": "NoneType"
+    }
+  },
+  "deployed_components": [
+    "data-model (8 张核心表 + repository.py + schema.sql + demo)",
+    "agents (registry.py + profile-schema.json + 3 个 profile + demo)",
+    "executor (abstract-interface.md + log-schema.json + 2 adapters)",
+    "executor-langgraph (langgraph-adapter.py + StateGraph demo)",
+    "observability (langfuse_demo.py + 本地 trace 落盘)",
+    "collab (vault PARA 频道 + 线程 + 评论 + 文件)"
+  ],
+  "deployment_strategy": "可插拔 + 可单独部署 — 每个组件独立可跑，可独立验证。",
+  "overall_status": "healthy"
+}
