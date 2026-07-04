@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import runpy
 from pathlib import Path
 
@@ -16,6 +17,11 @@ def load_namespace(path: Path) -> dict:
 
 
 def main() -> int:
+    # 如果 hermes CLI 不在 PATH，让 adapter 走 mock 分支
+    if os.environ.get("HERMES_ADAPTER_MOCK") is None:
+        import shutil as _sh
+        if _sh.which("hermes") is None:
+            os.environ["HERMES_ADAPTER_MOCK"] = "1"
     hermes_namespace = load_namespace(ADAPTERS / "hermes-chat-adapter.py")
     claude_namespace = load_namespace(ADAPTERS / "claude-code-adapter.py")
 
