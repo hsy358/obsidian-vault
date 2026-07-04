@@ -1,0 +1,69 @@
+{
+  "started_at": "2026-07-04T17:35:39.287151+00:00",
+  "finished_at": "2026-07-04T17:35:41.191821+00:00",
+  "environment": {
+    "python_packages": {
+      "langgraph": "installed",
+      "langchain": "installed",
+      "langchain_openai": "installed",
+      "langfuse": "installed"
+    },
+    "cli_tools": {
+      "hermes": "MISSING",
+      "claude": "MISSING",
+      "codex": "MISSING"
+    }
+  },
+  "demos": {
+    "data-model": {
+      "name": "data-model-demo",
+      "status": "ok",
+      "exit_code": 0,
+      "started_at": "2026-07-04T17:35:40.663864+00:00",
+      "finished_at": "2026-07-04T17:35:40.920879+00:00",
+      "stdout_tail": "d\": \"task_4d0ebcf595\",\n        \"title\": \"提交数据模型交付物\",\n        \"status\": \"done\",\n        \"priority\": 2,\n        \"assignee\": \"AI 工程师\",\n        \"agent_name\": \"workspace-builder\",\n        \"deliverable_name\": \"Sprint 1 数据模型包\"\n      }\n    ],\n    \"pending_confirmation\": [],\n    \"deliverable_approvals\": [\n      {\n        \"deliverable_name\": \"Sprint 1 数据模型包\",\n        \"deliverable_status\": \"approved\",\n        \"approval_status\": \"approved\",\n        \"approver\": \"何大人\",\n        \"decision_note\": \"结构满足 Sprint 1 MVP，允许进入已完成\"\n      }\n    ]\n  },\n  \"validation\": {\n    \"foreign_keys\": 1,\n    \"tables\": [\n      \"agents\",\n      \"approvals\",\n      \"deliverables\",\n      \"members\",\n      \"organizations\",\n      \"projects\",\n      \"skills\",\n      \"tasks\"\n    ],\n    \"triggers\": [\n      \"trg_tasks_updated_at\"\n    ]\n  }\n}\n",
+      "stderr_tail": ""
+    },
+    "agent-registry": {
+      "name": "agent-registry-demo",
+      "status": "exception",
+      "error": "ModuleNotFoundError(\"No module named 'registry'\")",
+      "traceback": "Traceback (most recent call last):\n  File \"/root/vault/1-Projects/德勤/AI-Native/scripts/verify_all_demos.py\", line 96, in run_inproc\n    spec.loader.exec_module(module)\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/root/vault/1-Projects/德勤/AI-Native/agents/demo.py\", line 6, in <module>\n    from registry import AgentRegistry, DEFAULT_DB_PATH\nModuleNotFoundError: No module named 'registry'\n",
+      "started_at": "2026-07-04T17:35:40.920938+00:00",
+      "finished_at": "2026-07-04T17:35:40.924075+00:00"
+    },
+    "executor-dual-adapter": {
+      "name": "executor-dual-adapter-demo",
+      "status": "exception",
+      "error": "ExecutorError('hermes CLI not found in PATH')",
+      "traceback": "rojects/德勤/AI-Native/scripts/verify_all_demos.py\", line 100, in run_inproc\n    output = result()\n             ^^^^^^^^\n  File \"/root/vault/1-Projects/德勤/AI-Native/executor/scripts/run_executor_demo.py\", line 19, in main\n    hermes_namespace = load_namespace(ADAPTERS / \"hermes-chat-adapter.py\")\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vault/1-Projects/德勤/AI-Native/executor/scripts/run_executor_demo.py\", line 15, in load_namespace\n    return runpy.run_path(str(path), run_name=\"__main__\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 286, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/root/vault/1-Projects/德勤/AI-Native/executor/adapters/hermes-chat-adapter.py\", line 330, in <module>\n    print(json.dumps(run_demo(), ensure_ascii=False, indent=2))\n                     ^^^^^^^^^^\n  File \"/root/vault/1-Projects/德勤/AI-Native/executor/adapters/hermes-chat-adapter.py\", line 316, in run_demo\n    task_id = adapter.submit(task)\n              ^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vault/1-Projects/德勤/AI-Native/executor/adapters/hermes-chat-adapter.py\", line 127, in submit\n    self._validate_task(task)\n  File \"/root/vault/1-Projects/德勤/AI-Native/executor/adapters/hermes-chat-adapter.py\", line 294, in _validate_task\n    raise ExecutorError(\"E_SUBMIT_FAILED\", \"hermes CLI not found in PATH\")\nExecutorError: hermes CLI not found in PATH\n",
+      "started_at": "2026-07-04T17:35:40.924124+00:00",
+      "finished_at": "2026-07-04T17:35:40.933826+00:00"
+    },
+    "langgraph-adapter": {
+      "name": "langgraph-adapter-demo",
+      "status": "exception",
+      "error": "RuntimeError('/root/vault/1-Projects/德勤/AI-Native/executor/langgraph-adapter.py has no main function')",
+      "traceback": "Traceback (most recent call last):\n  File \"/root/vault/1-Projects/德勤/AI-Native/scripts/verify_all_demos.py\", line 99, in run_inproc\n    raise RuntimeError(f\"{target_path} has no {attr} function\")\nRuntimeError: /root/vault/1-Projects/德勤/AI-Native/executor/langgraph-adapter.py has no main function\n",
+      "started_at": "2026-07-04T17:35:40.933864+00:00",
+      "finished_at": "2026-07-04T17:35:41.039600+00:00"
+    },
+    "langfuse-sdk": {
+      "name": "langfuse-sdk-demo",
+      "status": "ok",
+      "started_at": "2026-07-04T17:35:41.039641+00:00",
+      "finished_at": "2026-07-04T17:35:41.191803+00:00",
+      "output_summary": "NoneType"
+    }
+  },
+  "deployed_components": [
+    "data-model (8 张核心表 + repository.py + schema.sql + demo)",
+    "agents (registry.py + profile-schema.json + 3 个 profile + demo)",
+    "executor (abstract-interface.md + log-schema.json + 2 adapters)",
+    "executor-langgraph (langgraph-adapter.py + StateGraph demo)",
+    "observability (langfuse_demo.py + 本地 trace 落盘)",
+    "collab (vault PARA 频道 + 线程 + 评论 + 文件)"
+  ],
+  "deployment_strategy": "可插拔 + 可单独部署 — 每个组件独立可跑，可独立验证。",
+  "overall_status": "partial"
+}
