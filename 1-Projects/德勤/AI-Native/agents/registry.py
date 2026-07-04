@@ -205,9 +205,21 @@ class AgentRegistry:
         return {**dict(row), "skills": skills}
 
     def sessions(self, profile_or_agent: dict[str, Any], limit: int = 5) -> dict[str, Any]:
+        """查询执行器的最近 session 列表。如果底层 CLI 不在 PATH，会返回降级信息而不是崩溃。"""
         source = profile_or_agent.get("session_source")
         if not source:
             return {"source": None, "items": [], "note": "session_source not configured"}
+
+        import shutil
+
+        hermes_cli = shutil.which("hermes")
+        if hermes_cli is None:
+            return {
+                "source": source,
+                "items": [],
+                "note": "hermes CLI not on PATH; skipped real query",
+                "degraded": True,
+            }
 
         command = ["hermes", "sessions", "list", "--source", source, "--limit", str(limit)]
         completed = subprocess.run(command, capture_output=True, text=True, check=False)
