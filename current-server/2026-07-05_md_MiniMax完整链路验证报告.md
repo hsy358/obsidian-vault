@@ -192,3 +192,23 @@ key 永远不进 vault（仅 shell 环境变量）。报告里全用 `<codex key
 **触发者**：何大人 23:14 提供 MiniMax API key  
 **结果**：✅ **完整链路跑通**（12 条记忆写入 + 4 个查询精准返回）  
 **关键文件**：`otel_minimax_demo.py`（200 行生产级 demo）
+---
+
+## 🛑 Hermes 切换决策 — **2026-07-05 23:56 何大人决策：N（不切）**
+
+**何大人**：N  
+**含义**：Hermes 维持 cc-vibe + Codex 配置，不切 MiniMax-M3 直连  
+**理由（何大人未说，按对话上下文推断）**：
+- 当前 cc-vibe 已工作稳定
+- 切换需要 10 分钟 + 对比测试
+- 没有 ROI 强烈动机
+- 节省的时间成本 > 节省的费用
+
+**维持现状**：
+- Hermes v0.18.0 + cc-vibe + Codex key
+- 文件：`~/.hermes/.env` + `~/.hermes/config.yaml`（chmod 0600）
+- 文档：`current-server/2026-07-05_md_hermes-agent-v0.18.0-配置指南.md`（commit `8235bb7`）
+
+**未来如需切换**：
+- 改动 `model.base_url` + `model.api_key` + `custom_providers[0]` 三处
+- 耗时 10 分钟（已验证流程，详见 Hermes 配置指南）
