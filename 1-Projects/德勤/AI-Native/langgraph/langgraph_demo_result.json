@@ -1,0 +1,52 @@
+{
+  "nodes": [
+    "receive",
+    "analyze",
+    "implement",
+    "review",
+    "escalate",
+    "END"
+  ],
+  "edges": [
+    [
+      "START",
+      "receive"
+    ],
+    [
+      "receive",
+      "analyze"
+    ],
+    [
+      "analyze",
+      "implement"
+    ],
+    [
+      "implement",
+      "review"
+    ],
+    [
+      "review",
+      "END",
+      "if approved"
+    ],
+    [
+      "review",
+      "escalate",
+      "if not approved"
+    ],
+    [
+      "escalate",
+      "END"
+    ]
+  ],
+  "demo_results": {
+    "task-1": {
+      "status": "done",
+      "final_role": "QA"
+    },
+    "task-2": {
+      "status": "done",
+      "final_role": "Director"
+    }
+  }
+}
