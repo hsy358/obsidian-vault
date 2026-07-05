@@ -53,7 +53,6 @@ related:
 -    "serveUi": false
 +    "allowedHostnames": [
 +      "101.33.212.119",
-+      "101.35.52.96",
 +      "localhost",
 +      "127.0.0.1"
 +    ],
@@ -225,7 +224,7 @@ http://localhost:3100/board-claim/<hex>?code=<hex>
 | HTTP 明文传输 | 🔴 P0 | nginx + Let's Encrypt HTTPS |
 | BETTER_AUTH_SECRET 低熵 | 🔴 P0 | `openssl rand -base64 32` 生成 |
 | Better Auth baseURL 未设置 | 🟡 P1 | 设 `auth.publicBaseUrl=http://<公网域名>` |
-| 端口 3100 腾讯云安全组未放通 | 🟡 P1 | 控制台放通（仅 101.35.52.96 需放通，101.33.212.119 已通）|
+| 端口 3100 腾讯云安全组未放通 | 🟡 P1 | 控制台放通（101.33.212.119 已通）|
 | Paperclip dev 模式（tsx）非生产 | 🟢 P2 | `pnpm build && pnpm start` 生产模式 |
 
 ---
