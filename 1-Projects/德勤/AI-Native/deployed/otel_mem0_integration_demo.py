@@ -63,28 +63,34 @@ print("  ✓ FastAPIInstrumentor / RequestsInstrumentor / LangchainInstrumentor 
 print("\n=== 2️⃣ Mem0 初始化 ===")
 from mem0 import Memory
 
-# Mem0 默认用 OpenAI API；如要换中转，配置 LLM 走自定义 base_url
-# 注意：cc-vibe 中转不支持 embedding（只有 chat），所以 embedder 用本地 fastembed
+# Mem0 配置：完全切到 MiniMax（**何大人 21:49 决策**）
+# - LLM: MiniMax 官方 chat 模型 via api.minimaxi.com
+# - Embedder: MiniMax embo-01（如果支持）或本地 fastembed 兜底
+# - **需要 MINIMAX_API_KEY 环境变量**
 mem0_config = {
     "llm": {
-        "provider": "openai",
+        "provider": "openai",  # MiniMax API 走 OpenAI 兼容协议
         "config": {
-            "model": "gpt-5.4-mini",
-            "openai_base_url": "https://cc-vibe.com/v1",  # cc-vibe 中转
-            "api_key": os.getenv("OPENAI_API_KEY"),
+            "model": "MiniMax-Text-01",  # MiniMax 官方 chat 模型（待 smoke test 确认确切名）
+            "openai_base_url": "https://api.minimaxi.com/v1",
+            "api_key": os.getenv("MINIMAX_API_KEY") or os.getenv("OPENAI_API_KEY"),
         }
     },
     "embedder": {
-        "provider": "fastembed",
+        # MiniMax 官方 embedding（如果支持）；否则需切回 fastembed
+        "provider": "openai",
         "config": {
-            "model": "BAAI/bge-small-en-v1.5",  # 384 dim，本地 fastembed
+            "model": "embo-01",  # MiniMax 官方 embedding（待 smoke test 确认）
+            "openai_base_url": "https://api.minimaxi.com/v1",
+            "api_key": os.getenv("MINIMAX_API_KEY") or os.getenv("OPENAI_API_KEY"),
+            "embedding_dims": 1536,  # 待 smoke test 后确认
         }
     },
     "vector_store": {
         "provider": "qdrant",
         "config": {
             "path": "/tmp/mem0_qdrant",  # 本地 Qdrant 文件模式
-            "embedding_model_dims": 384,  # bge-small-en-v1.5 是 384 维
+            "embedding_model_dims": 1536,  # MiniMax embedding 默认维度（待确认）
         }
     }
 }
