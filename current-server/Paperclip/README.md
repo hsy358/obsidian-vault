@@ -93,20 +93,53 @@ BETTER_AUTH_URL=http://101.33.212.119:3100
 
 ---
 
-## 5. 启动命令
+## 5. 启动命令（systemd 永久 service）
+
+⚠️ **不要用 `nohup pnpm &`**！SSH session 注销时 systemd 会 kill 子进程（2026-07-06 教训）。
+
+**正确方式**：用 systemd user service 管理。
 
 ```bash
+# 1. 写 service file
+mkdir -p ~/.config/systemd/user
+cat > ~/.config/systemd/user/paperclip.service << 'EOF'
+[Unit]
+Description=Paperclip Express dev server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/projects/paperclip
+Environment="NVM_DIR=/root/.nvm"
+ExecStart=/bin/bash -c 'export NVM_DIR=/root/.nvm && . $NVM_DIR/nvm.sh && cd /root/projects/paperclip && exec pnpm dev:once'
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
+EOF
+
+# 2. enable + start
+systemctl --user daemon-reload
+systemctl --user enable paperclip.service
+systemctl --user start paperclip.service
+
+# 3. 验证
+systemctl --user status paperclip.service
+ss -tlnp | grep 3100
+curl -sI http://localhost:3100
+curl -s http://localhost:3100/api/health
+```
+
+**临时启动**（dev 用，不推荐）：
+```bash
 cd /root/projects/paperclip
+nohup pnpm dev:once > /tmp/paperclip.log 2>&1 &
+```
 
-# 启
-pnpm build
-nohup pnpm start --port 3100 > /tmp/paperclip.log 2>&1 &
-
-# 看日志
-tail -30 /tmp/paperclip.log
-
-# 看进程
-ps aux | grep -E "next-server.*3100" | grep -v grep
+**看日志**：
+```bash
+journalctl --user -u paperclip.service -f
 ```
 
 ---
@@ -126,6 +159,12 @@ curl -s http://localhost:3100/api/auth/get-session
 ---
 
 ## 7. ⚠️ 避坑指南（按时间倒序）
+
+### 坑 6: SSH session 注销杀进程（2026-07-06 实测）
+- **现象**: Paperclip 进程在 7-6 01:56 之后无了，查 ss 看不到 3100 端口
+- **根因**: 之前用 `nohup pnpm dev:once &` 启，root 在 `pts/4` 注销时 systemd 把 cgroup 里所有进程 kill
+- **修法**: 用 `systemd-run --user` 或写 `~/.config/systemd/user/paperclip.service`（Type=simple, Restart=always）
+- **永久规则**: ✅ **任何用户态服务必须用 systemd 管生命周期**，不要 `nohup &`
 
 ### 坑 1: BETTER_AUTH_SECRET 是默认值（低熵）
 - **现象**: 容器启动 warn log "BETTER_AUTH_SECRET is using default low-entropy value"

@@ -88,24 +88,53 @@ NODE_ENV=production
 
 ---
 
-## 5. 启动命令
+## 5. 启动命令（systemd 永久 service）
+
+⚠️ **不要用 `nohup pnpm &`**！SSH session 注销时 systemd 会 kill 子进程（2026-07-06 教训）。
+
+**正确方式**：用 systemd user service 管理。
 
 ```bash
+# 1. 写 service file
+mkdir -p ~/.config/systemd/user
+cat > ~/.config/systemd/user/agentspace.service << 'EOF'
+[Unit]
+Description=AgentSpace Next.js dev server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/projects/AgentSpace
+Environment="NVM_DIR=/root/.nvm"
+ExecStart=/bin/bash -c 'export NVM_DIR=/root/.nvm && . $NVM_DIR/nvm.sh && cd /root/projects/AgentSpace && exec npm run dev:web'
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
+EOF
+
+# 2. enable + start
+systemctl --user daemon-reload
+systemctl --user enable agentspace.service
+systemctl --user start agentspace.service
+
+# 3. 验证
+systemctl --user status agentspace.service
+ss -tlnp | grep 1455
+curl -sI http://localhost:1455
+```
+
+**临时启动**（dev 用，不推荐）：
+```bash
 cd /root/projects/AgentSpace
+# 只用 dev 模式 (npm run dev:web)
+nohup npm run dev:web > /tmp/agentspace.log 2>&1 &
+```
 
-# 启动 daemon（后台）
-nohup ./packages/daemon/bin/agent-router.js serve > /tmp/agent-router.log 2>&1 &
-
-# 启动 Next.js（生产模式）
-pnpm build
-nohup pnpm start --port 1455 > /tmp/agentspace.log 2>&1 &
-
-# 看日志
-tail -30 /tmp/agentspace.log
-tail -30 /tmp/agent-router.log
-
-# 看进程
-ps aux | grep -E "agent-router|next-server" | grep -v grep
+**看日志**：
+```bash
+journalctl --user -u agentspace.service -f
 ```
 
 ---
@@ -127,6 +156,12 @@ curl -sI http://101.33.212.119:1455
 ---
 
 ## 7. ⚠️ 避坑指南（按时间倒序）
+
+### 坑 6: SSH session 注销杀进程（2026-07-06 实测）
+- **现象**: AgentSpace 进程在 7-6 01:56 之后无了，查 ss 看不到 1455 端口
+- **根因**: 之前用 `nohup npm run dev:web &` 启，root 在 `pts/4` 注销时 systemd 把 cgroup 里所有进程 kill
+- **修法**: 用 `systemd-run --user` 或写 `~/.config/systemd/user/agentspace.service`（Type=simple, Restart=always）
+- **永久规则**: ✅ **任何用户态服务必须用 systemd 管生命周期**，不要 `nohup &`
 
 ### 坑 1: OpenClaw 子进程 Node 版本错乱
 - **现象**: agent-router detect 调用 OpenClaw 时报 `node: command not found` 或版本错
