@@ -1,0 +1,334 @@
+{
+  "requirement_slug": "yuanzhi-sizheng-teaching-pilot-2026-07-08",
+  "title": "元知 AI 课程生产工作台 · 新时代思政课程教学端试点",
+  "client": "元知教育科技",
+  "analysis_date": "2026-07-08",
+  "analyst": "小助",
+  "status": "draft-v1",
+  "schema_version": "okf-v0.1-inspired",
+  "graph": {
+    "nodes": [
+      {
+        "id": "goal-1",
+        "type": "goal",
+        "label": "完成 1-2 门新时代思政课程试点闭环",
+        "success_metric": "至少 1 门课通过 5 项验收标准"
+      },
+      {
+        "id": "goal-2",
+        "type": "goal",
+        "label": "沉淀标准资料模板与交付模板",
+        "success_metric": "资料模板 1 套 + 交付模板 1 套（覆盖 9 类资产）"
+      },
+      {
+        "id": "goal-3",
+        "type": "goal",
+        "label": "验证元知教学端工作的落地可行性",
+        "success_metric": "试点复盘报告 + 推广建议"
+      },
+      {
+        "id": "step-1",
+        "type": "process-step",
+        "label": "课程立项",
+        "order": 1,
+        "actor": "老师+元知PM"
+      },
+      {
+        "id": "step-2",
+        "type": "process-step",
+        "label": "资料提交",
+        "order": 2,
+        "actor": "老师"
+      },
+      {
+        "id": "step-3",
+        "type": "process-step",
+        "label": "资料诊断",
+        "order": 3,
+        "actor": "元知顾问+AI"
+      },
+      {
+        "id": "step-4",
+        "type": "process-step",
+        "label": "知识图谱构建",
+        "order": 4,
+        "actor": "元知技术+AI"
+      },
+      {
+        "id": "step-5",
+        "type": "process-step",
+        "label": "结构确认（老师第一次确认）",
+        "order": 5,
+        "actor": "老师"
+      },
+      {
+        "id": "step-6",
+        "type": "process-step",
+        "label": "资产生成",
+        "order": 6,
+        "actor": "元知技术+AI"
+      },
+      {
+        "id": "step-7",
+        "type": "process-step",
+        "label": "教师审核（老师第二次确认）",
+        "order": 7,
+        "actor": "老师"
+      },
+      {
+        "id": "step-8",
+        "type": "process-step",
+        "label": "课程交付",
+        "order": 8,
+        "actor": "元知PM+老师"
+      },
+      {
+        "id": "obj-course",
+        "type": "business-object",
+        "label": "课程",
+        "lifecycle": "立项→资料齐备→图谱确认→资产审核→交付"
+      },
+      {
+        "id": "obj-material",
+        "type": "business-object",
+        "label": "资料包",
+        "lifecycle": "v0.1→v1.0→v1.x"
+      },
+      {
+        "id": "obj-graph",
+        "type": "business-object",
+        "label": "知识图谱",
+        "subtypes": ["知识点", "价值引领点", "案例素材", "章节结构"]
+      },
+      {
+        "id": "obj-asset",
+        "type": "business-object",
+        "label": "教学资产",
+        "subtypes": ["PPT", "教案", "讲义", "题库", "讨论题", "案例包", "视频脚本", "大纲", "教学计划"]
+      },
+      {
+        "id": "obj-package",
+        "type": "business-object",
+        "label": "课程包",
+        "lifecycle": "打包中→验收中→通过→归档"
+      },
+      {
+        "id": "actor-teacher",
+        "type": "role",
+        "label": "授课教师",
+        "permissions": ["R/W 资料", "A 课程结构", "A 资产审核"]
+      },
+      {
+        "id": "actor-pm",
+        "type": "role",
+        "label": "元知 PM",
+        "permissions": ["A 立项", "A 资产启动", "A 课程包"]
+      },
+      {
+        "id": "actor-tech",
+        "type": "role",
+        "label": "元知技术",
+        "permissions": ["E 图谱构建", "E 资产生成", "E 系统操作"]
+      },
+      {
+        "id": "actor-ai",
+        "type": "role",
+        "label": "AI 系统",
+        "permissions": ["E 自动解析", "E 资产生成", "E 图谱构建"]
+      },
+      {
+        "id": "rule-01",
+        "type": "business-rule",
+        "label": "BR-01 老师必交材料 8 类缺一不可（最低要求层）"
+      },
+      {
+        "id": "rule-02",
+        "type": "business-rule",
+        "label": "BR-02 知识图谱未完成确认前，不得进入资产生成"
+      },
+      {
+        "id": "rule-03",
+        "type": "business-rule",
+        "label": "BR-03 老师第一次确认未通过，不得进入资产生成"
+      },
+      {
+        "id": "rule-04",
+        "type": "business-rule",
+        "label": "BR-05 所有交付物必须有版本号"
+      },
+      {
+        "id": "rule-05",
+        "type": "business-rule",
+        "label": "BR-07 价值引领点缺失时不得进入已审状态"
+      },
+      {
+        "id": "ac-001",
+        "type": "acceptance-criteria",
+        "label": "AC-001 课程立项表自动生成"
+      },
+      {
+        "id": "ac-005",
+        "type": "acceptance-criteria",
+        "label": "AC-005 知识图谱自动构建"
+      },
+      {
+        "id": "ac-008",
+        "type": "acceptance-criteria",
+        "label": "AC-008 老师第一次确认工作台"
+      },
+      {
+        "id": "ac-010",
+        "type": "acceptance-criteria",
+        "label": "AC-010 9 类资产批量生成"
+      },
+      {
+        "id": "ac-013",
+        "type": "acceptance-criteria",
+        "label": "AC-013 老师第二次确认工作台"
+      },
+      {
+        "id": "ac-017",
+        "type": "acceptance-criteria",
+        "label": "AC-017 5 项验收标准"
+      },
+      {
+        "id": "q-001",
+        "type": "open-question",
+        "label": "Q-001 知识图谱 4 类子图数据源和构建方法",
+        "priority": "P0"
+      },
+      {
+        "id": "q-002",
+        "type": "open-question",
+        "label": "Q-002 9 类资产生成的 AI 工具链",
+        "priority": "P0"
+      },
+      {
+        "id": "q-003",
+        "type": "open-question",
+        "label": "Q-003 老师两次确认 SLA",
+        "priority": "P0"
+      },
+      {
+        "id": "q-004",
+        "type": "open-question",
+        "label": "Q-004 5 项验收标准定量指标",
+        "priority": "P0"
+      },
+      {
+        "id": "q-005",
+        "type": "open-question",
+        "label": "Q-005 思政导向判定标准",
+        "priority": "P0"
+      },
+      {
+        "id": "s-001",
+        "type": "implementation-slice",
+        "label": "S-001 课程立项与资料管理",
+        "estimated_days": "1-2",
+        "priority": "P0"
+      },
+      {
+        "id": "s-002",
+        "type": "implementation-slice",
+        "label": "S-002 知识图谱自动构建",
+        "estimated_days": "1-2",
+        "priority": "P0"
+      },
+      {
+        "id": "s-003",
+        "type": "implementation-slice",
+        "label": "S-003 9 类资产生成引擎",
+        "estimated_days": "2-5",
+        "priority": "P0"
+      },
+      {
+        "id": "s-004",
+        "type": "implementation-slice",
+        "label": "S-004 老师第一次确认工作台",
+        "estimated_days": "0.5-1",
+        "priority": "P0"
+      },
+      {
+        "id": "s-005",
+        "type": "implementation-slice",
+        "label": "S-005 老师第二次确认工作台",
+        "estimated_days": "0.5-1",
+        "priority": "P0"
+      },
+      {
+        "id": "s-006",
+        "type": "implementation-slice",
+        "label": "S-006 课程包打包与验收",
+        "estimated_days": "0.5-1",
+        "priority": "P0"
+      }
+    ],
+    "edges": [
+      {"from": "goal-1", "to": "step-1", "type": "decomposes-to"},
+      {"from": "goal-1", "to": "step-8", "type": "decomposes-to"},
+      {"from": "step-1", "to": "step-2", "type": "next-step"},
+      {"from": "step-2", "to": "step-3", "type": "next-step"},
+      {"from": "step-3", "to": "step-4", "type": "next-step"},
+      {"from": "step-4", "to": "step-5", "type": "next-step"},
+      {"from": "step-5", "to": "step-6", "type": "next-step"},
+      {"from": "step-6", "to": "step-7", "type": "next-step"},
+      {"from": "step-7", "to": "step-8", "type": "next-step"},
+      {"from": "step-2", "to": "obj-material", "type": "produces"},
+      {"from": "step-4", "to": "obj-graph", "type": "produces"},
+      {"from": "step-6", "to": "obj-asset", "type": "produces"},
+      {"from": "step-8", "to": "obj-package", "type": "produces"},
+      {"from": "actor-teacher", "to": "step-1", "type": "participates-in"},
+      {"from": "actor-teacher", "to": "step-2", "type": "participates-in"},
+      {"from": "actor-teacher", "to": "step-5", "type": "participates-in"},
+      {"from": "actor-teacher", "to": "step-7", "type": "participates-in"},
+      {"from": "actor-pm", "to": "step-1", "type": "participates-in"},
+      {"from": "actor-pm", "to": "step-8", "type": "participates-in"},
+      {"from": "actor-tech", "to": "step-4", "type": "participates-in"},
+      {"from": "actor-tech", "to": "step-6", "type": "participates-in"},
+      {"from": "actor-ai", "to": "step-3", "type": "participates-in"},
+      {"from": "actor-ai", "to": "step-4", "type": "participates-in"},
+      {"from": "actor-ai", "to": "step-6", "type": "participates-in"},
+      {"from": "rule-02", "to": "step-5", "type": "gates"},
+      {"from": "rule-03", "to": "step-6", "type": "gates"},
+      {"from": "rule-05", "to": "step-7", "type": "gates"},
+      {"from": "s-001", "to": "step-1", "type": "implements"},
+      {"from": "s-001", "to": "step-2", "type": "implements"},
+      {"from": "s-002", "to": "step-4", "type": "implements"},
+      {"from": "s-003", "to": "step-6", "type": "implements"},
+      {"from": "s-004", "to": "step-5", "type": "implements"},
+      {"from": "s-005", "to": "step-7", "type": "implements"},
+      {"from": "s-006", "to": "step-8", "type": "implements"},
+      {"from": "ac-001", "to": "s-001", "type": "verifies"},
+      {"from": "ac-005", "to": "s-002", "type": "verifies"},
+      {"from": "ac-008", "to": "s-004", "type": "verifies"},
+      {"from": "ac-010", "to": "s-003", "type": "verifies"},
+      {"from": "ac-013", "to": "s-005", "type": "verifies"},
+      {"from": "ac-017", "to": "s-006", "type": "verifies"},
+      {"from": "q-001", "to": "s-002", "type": "blocks"},
+      {"from": "q-002", "to": "s-003", "type": "blocks"},
+      {"from": "q-003", "to": "s-004", "type": "blocks"},
+      {"from": "q-003", "to": "s-005", "type": "blocks"},
+      {"from": "q-004", "to": "s-006", "type": "blocks"},
+      {"from": "q-005", "to": "s-002", "type": "blocks"},
+      {"from": "q-005", "to": "s-003", "type": "blocks"},
+      {"from": "q-005", "to": "ac-017", "type": "blocks"}
+    ]
+  },
+  "summary": {
+    "total_goals": 3,
+    "total_process_steps": 8,
+    "total_business_objects": 5,
+    "total_roles": 4,
+    "total_business_rules": 5,
+    "total_acceptance_criteria": 18,
+    "total_open_questions": 13,
+    "p0_questions": 5,
+    "p1_questions": 5,
+    "p2_questions": 3,
+    "total_implementation_slices": 13,
+    "p0_slices": 6,
+    "p1_slices": 6,
+    "p2_slices": 0
+  }
+}
