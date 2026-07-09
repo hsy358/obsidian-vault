@@ -175,3 +175,192 @@ server/apps/registry.js  ← 加 1 行 entry
 - MEMORY.md 顶部 pin 段集中化
 - 凭证审计
 - AGENTS.md 模板化（未来加 cron / skill 时套）
+---
+
+## 十、Schema.sql 深度解析（追加于 22:23，按"继续"指令）
+
+> 继续按"先存放和分析"原则深入 MindBase 的 schema 设计——这是最具体可借鉴的部分。
+
+### 10.1 整体结构（321 行）
+
+```sql
+-- ============================================================
+-- 公共表(对应 system/ 下的基础设施)
+-- ============================================================
+CREATE TABLE conversations / messages / compactions
+CREATE TABLE tokens         -- 外部 AI 接入授权
+CREATE TABLE settings       -- 全局 KV
+CREATE TABLE contexts       -- 系统级 pin 上下文 ⭐
+
+-- ============================================================
+-- 应用 (apps/*)
+-- ============================================================
+CREATE TABLE home_posts     -- 主页时间轴（用户+AI 共写）
+CREATE TABLE home_events    -- 应用事件流 ⭐
+CREATE TABLE todos_items    -- <name>_<entity> 命名约定
+CREATE TABLE notes_notebooks / notes_pages
+CREATE TABLE ledger_entries
+CREATE TABLE projects_items
+CREATE TABLE profile_blocks
+CREATE TABLE llms_keys
+CREATE TABLE prompts_items
+CREATE TABLE apikeys_items
+CREATE TABLE emails_addresses
+CREATE TABLE domains_items
+CREATE TABLE footprints_visits
+```
+
+### 10.2 5 条 schema 设计借鉴点（可直接套用我的 recommendations.json）
+
+#### 借鉴 1：**表命名约定**（裸名 vs `<name>_*`）
+- 公共表（基础设施）= **裸名**：`settings / tokens / contexts / conversations / messages`
+- 应用表 = **`<name>_<entity>` 命名**：`todos_items / notes_notebooks / notes_pages / ledger_entries`
+
+**套到我的系统**：
+- `recommendations.json` 是单一文件不是数据库，但 schema 字段可以分层：
+  - 公共字段（顶层）：`version / schema_notes / next_action_policy`
+  - 条目字段：`entries[]`（每条 = 应用）
+  - 每条内部结构：`<field>` 命名一致（如 `daily_review[] / events[] / stocks[]`）
+
+#### 借鉴 2：**contexts 表设计**（直接对应我"系统级置顶上下文"）
+
+```sql
+CREATE TABLE contexts (
+  id          TEXT PRIMARY KEY,
+  content     TEXT NOT NULL DEFAULT '',
+  source_app  TEXT NOT NULL DEFAULT '',  -- 哪个应用 pin 的
+  source_id   TEXT,                       -- 源记录 id
+  sort_order  INTEGER NOT NULL DEFAULT 0, -- 排序
+  created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at  TEXT NOT NULL DEFAULT (datetime('now')),
+  UNIQUE(source_app, source_id)           -- 同一应用同一记录只能 pin 一次
+);
+```
+
+**套到我的 MEMORY.md v2**：
+- 每个 Pinned Context 应该带 `source`（哪条规则 / 哪个决策产生的）
+- 应该用 sort_order 控顺序（v4 策略 > Goal-Driven > 何大人强偏好）
+- UNIQUE 约束防止重复
+
+#### 借鉴 3：**home_events 表设计**（直接对应 v4 跟踪 events 流）
+
+```sql
+CREATE TABLE home_events (
+  id          TEXT PRIMARY KEY,
+  app         TEXT NOT NULL,                -- 'ledger' / 'books' / 'goals' ...
+  action      TEXT NOT NULL,                -- 'created' / 'status_changed' / 'milestone' / 'completed'
+  ref_id      TEXT,                          -- 源记录 id, 可空(已删除时仍保留事件)
+  summary     TEXT NOT NULL,                 -- 一行人话, e.g. "记了一笔咖啡 ¥18"
+  icon        TEXT,                          -- '💰', 渲染快
+  created_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+```
+
+**v4 推荐 events 流应该长这样**：
+```json
+{
+  "events": [
+    {
+      "ts": "2026-07-10T09:00:00",
+      "app": "stock-rec",
+      "action": "recommended",        // 推荐发出
+      "ref_id": "2026-07-10-001",
+      "summary": "v4 推荐 5 只：医药+消费+有色",
+      "icon": "📋"
+    },
+    {
+      "ts": "2026-07-12T15:30:00",
+      "app": "stock-rec",
+      "action": "stop_loss_hit",      // 止损触发
+      "ref_id": "002475",
+      "summary": "立讯精密触及止损 67.55 (-9.99%)",
+      "icon": "🛑"
+    },
+    {
+      "ts": "2026-07-15T15:30:00",
+      "app": "stock-rec",
+      "action": "tracking_completed", // 跟踪期满
+      "ref_id": "2026-07-10-001",
+      "summary": "跟踪 10 日完成，平均 +1.2%",
+      "icon": "✅"
+    }
+  ]
+}
+```
+
+**关键设计**：
+- `ref_id` 可空（推荐被撤回/股票已退市也保留事件）
+- `summary` 是一行人话（不写复杂 JSON）
+- `icon` 预存（避免渲染时重新计算）
+
+#### 借鉴 4：**初始数据写在 schema.sql 末尾**
+
+```sql
+INSERT INTO home_posts (id, author, content) VALUES
+  ('welcome-1', 'system', '👋 欢迎使用 MindBase —— ...'),
+  ('welcome-2', 'system', '💡 点击右上角打开应用中心 ...');
+```
+
+**借鉴到我的 recommendations.json**：
+- 推荐条目初始化时应有"placeholder / template"
+- 比如 `entry_template.v4` 字段，存储新推荐的默认结构
+
+#### 借鉴 5：**注释即文档（schema 顶部 + 每张表上方都有）**
+
+```sql
+-- ============================================================
+-- 公共表(对应 system/ 下的基础设施)
+-- ============================================================
+
+-- ---- chat:对话(会话 + 消息) ----
+CREATE TABLE conversations ( ... );
+
+-- ---- contexts:系统级上下文 —— 用户 / 各应用 pin 进来的内容,所有 AI 协作首先读取 ----
+CREATE TABLE contexts ( ... );
+
+-- ---- todos ----
+-- 待办:单层清单。
+CREATE TABLE todos_items ( ... );
+```
+
+**借鉴到 recommendations.json**：
+- schema_notes 字段应该有完整的字段说明
+- 借鉴到改进记录的 schema 部分
+
+### 10.3 默认值设计哲学
+
+MindBase 大量使用：
+- `NOT NULL DEFAULT ''`（空字符串比 NULL 更好处理）
+- `NOT NULL DEFAULT 0`（布尔/数字）
+- `NOT NULL DEFAULT (datetime('now'))`（时间戳）
+- TEXT 主键（不用自增 INT，便于跨表引用）
+
+**借鉴**：
+- v4 推荐字段默认值要明确（避免 None）
+- 推荐条目 id 用 `YYYY-MM-DD-NNN`（TEXT 主键）而不是自增
+
+### 10.4 索引设计
+
+```sql
+CREATE INDEX idx_contexts_sort ON contexts(sort_order ASC);
+CREATE INDEX idx_home_events_created ON home_events(created_at DESC);
+CREATE INDEX idx_apikeys_items_expire ON apikeys_items(expire_at);
+CREATE INDEX idx_domains_items_expire ON domains_items(expire_date);
+```
+
+**特点**：所有索引紧跟对应 CREATE TABLE 后；命名 `<table>_<cols>` 清晰。
+
+**借鉴**：v4 tracking_events 应该按 `created_at DESC` 索引（按时间线渲染）。
+
+### 10.5 借鉴清单（不立刻动手，按"先存放和分析"暂缓）
+
+| 借鉴点 | 状态 | 实施时点 |
+|---|---|---|
+| 表命名约定（裸名 + `<name>_*`）| 📋 已记录 | v4 推荐 schema 设计时 |
+| contexts UNIQUE(source_app, source_id) | 📋 已记录 | MEMORY.md v2 设计时 |
+| home_events schema 模板 | 📋 已记录 | v4 推荐 events 流设计时 |
+| 初始数据写在 schema 末尾 | 📋 已记录 | v4 推荐 entry_template |
+| 注释即文档 | 📋 已记录 | recommendations.json schema_notes |
+| 默认值哲学 | 📋 已记录 | v4 推荐 schema 严格化时 |
+| 索引设计 `<table>_<cols>` | 📋 已记录 | recap_log.md 改成事件流时 |
+
