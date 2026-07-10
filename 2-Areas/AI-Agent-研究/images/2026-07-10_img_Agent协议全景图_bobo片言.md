@@ -24,12 +24,18 @@ size_bytes: 246461
 image_dimensions: 1024x1536
 tags: [Agent协议, MCP, ACP, A2A, ARD, ARA, 知识图谱, 科普, AI-Agent, 待归档]
 classification: image
-status: pending-archive
-target_archive: /root/vault/2-Areas/AI-Agent-研究/images/
+status: archived
+archive_date: 2026-07-10
+archive_path: /root/vault/2-Areas/AI-Agent-研究/images/
+archived_from: 0-Inbox
+original_commit: 26f2886
 ---
 
 # 2026-07-10_img_Agent协议全景图_bobo片言.jpg
 
 > 何大人 2026-07-10 14:52 通过微信发送的 Agent 协议全景图（公众号「bobo 片言」制作）。
 > 已用 image 工具深度解读所有文字与版式。
-> 待归档到 `/root/vault/2-Areas/AI-Agent-研究/images/`（该目录已有同类图片归档）。
+> 
+> **归档路径**：`/root/vault/2-Areas/AI-Agent-研究/images/`（git mv 从 0-Inbox 移过来，commit `26f2886`）
+> **PARA**：2-Areas（知识/概念研究类）
+> **GitHub URL**：https://github.com/hsy358/obsidian-vault/blob/master/2-Areas/AI-Agent-%E7%A0%94%E7%A9%B6/images/2026-07-10_img_Agent%E5%8D%8F%E8%AE%AE%E5%85%A8%E6%99%AF%E5%9B%BE_bobo%E7%89%87%E8%A8%80.jpg
