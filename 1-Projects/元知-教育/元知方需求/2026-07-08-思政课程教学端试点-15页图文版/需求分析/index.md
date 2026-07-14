@@ -42,12 +42,12 @@ related_analysis: ../../../分析/yuanzhi_os_analysis/ (12 个分析文件)
 
 ## 3. 与已有元知资料的关联
 
-| 已有资料 | 关系 |
-|---|---|
-| `2-Areas/元智-OS/yuanzhi-旧资料/` | 元知 OS 整体产品背景（Yuanzhi OS 竞品映射 + AI Hub 产品体系 + 课程资产自动生成流程图）|
-| `6-System/ai/requirements/yuanzhi_os_product/00A-clarification-session.md` | **4 个 P0 阻塞问题** — 本 PDF 是其中"思政教学端"的具体回答 |
-| `6-System/ai/requirements/yuanzhi_os_analysis/06-implementation-slices.md` | 13 个实施切片 — 本次试点对应其中"教学端课程资产生成"切片 |
-| `6-System/ai/requirements/yuanzhi_os_analysis/08-use-cases.md` | 14 个主用例 + 10 隐含用例 — 本次试点覆盖约 60-70% |
+| 已有资料                                                                       | 关系                                                        |
+| -------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `2-Areas/元智-OS/yuanzhi-旧资料/`                                               | 元知 OS 整体产品背景（Yuanzhi OS 竞品映射 + AI Hub 产品体系 + 课程资产自动生成流程图） |
+| `6-System/ai/requirements/yuanzhi_os_product/00A-clarification-session.md` | **4 个 P0 阻塞问题** — 本 PDF 是其中"思政教学端"的具体回答                   |
+| `6-System/ai/requirements/yuanzhi_os_analysis/06-implementation-slices.md` | 13 个实施切片 — 本次试点对应其中"教学端课程资产生成"切片                          |
+| `6-System/ai/requirements/yuanzhi_os_analysis/08-use-cases.md`             | 14 个主用例 + 10 隐含用例 — 本次试点覆盖约 60-70%                        |
 
 ## 4. 关键结论（v1 摘要）
 
