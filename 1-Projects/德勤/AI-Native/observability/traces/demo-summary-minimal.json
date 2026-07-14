@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-07-05T23:46:32.398292",
+  "trace_id": "7274500d3f04b67b6bc9ca599fd9908e",
+  "service": "deloitte-ai-native-mvp",
+  "version": "0.3.0-minimal",
+  "user_id": "hesiyan2008",
+  "approach": "minimal Mem0 equivalent (no spaCy/BM25 deps)",
+  "components": {
+    "llm": {
+      "provider": "MiniMax",
+      "model": "MiniMax-M2.7"
+    },
+    "embedder": {
+      "provider": "MiniMax",
+      "model": "embo-01",
+      "dim": 1536
+    },
+    "vector_store": "qdrant-local (file mode)",
+    "memory_logic": "lightweight wrapper (no Mem0 dependency)"
+  },
+  "key_decisions": {
+    "21:49": "何大人决策 B：替换 Mem0 OpenAI key → MiniMax",
+    "23:14": "何大人提供 MiniMax API key",
+    "23:50": "弃用 Mem0 0.x（spaCy/BM25 hang），改用轻量等价实现"
+  },
+  "advantages_vs_mem0": [
+    "无 spaCy 依赖（不用 pip install mem0ai[nlp]）",
+    "无 BM25 依赖（不用下载 Qdrant sparse 模型）",
+    "完全可控（代码量 < 200 行）",
+    "API 透明（直接调 MiniMax REST）"
+  ],
+  "disadvantages_vs_mem0": [
+    "没有自动记忆去重（Mem0 内置）",
+    "没有自动实体提取（Mem0 内置）",
+    "没有 graph memory（Mem0 内置）"
+  ]
+}

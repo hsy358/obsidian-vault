@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-07-05T16:20:39.077021",
+  "trace_id": "2019594cc04271e8d5ac0c0b2755ed30",
+  "service": "deloitte-ai-native-mvp",
+  "user_id": "hesiyan2008",
+  "demo": "otel+mem0 integration",
+  "components": {
+    "opentelemetry": {
+      "version": "1.43.0",
+      "instrumentors": [
+        "fastapi",
+        "requests",
+        "langchain",
+        "httpx"
+      ],
+      "exporter": "console (JSON)"
+    },
+    "mem0": {
+      "version": "2.0.11",
+      "llm_provider": "openai",
+      "model": "gpt-5.4-mini",
+      "vector_store": "qdrant (local file)"
+    }
+  },
+  "vibe_kanban_status": "SUNSET (BloopAI/vibe-kanban 关停)",
+  "vibe_kanban_alternative": "Hermes 内置 kanban daemon (/opt/hermes-venv/bin/hermes kanban)"
+}
