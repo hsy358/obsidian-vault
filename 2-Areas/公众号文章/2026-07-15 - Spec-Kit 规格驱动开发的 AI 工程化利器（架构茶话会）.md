@@ -1,10 +1,12 @@
 ---
 title: Spec-Kit —— 规格驱动开发的 AI 工程化利器
-author: 架构茶话会（公众号二次解读）
+author: 架构茶话会（公众号二次解读）+ 小助实测校对
 publish_date: '2026-07-15'
 saved_date: '2026-07-15'
+verified_date: '2026-07-15T14:00+08:00'
+verified_version: github/spec-kit @ v0.12.15 (2026-07-14)
 source: wechat-image
-description: GitHub 2025-09 开源的 CLI 工具，把"先写 Spec 再写代码"做成 4 阶段标准工作流（constitution / specify / plan / tasks）。本文同时给出事实校对、与 vault 里 Goal-Driven Execution / 12 条天条 / Harness 系列笔记的横向关联。
+description: GitHub 开源 CLI 工具，把"先写 Spec 再写代码"做成 10 命令 SDD 流水线。本文含原图还原 + 实测校对（5 处事实错误已修正）+ 与 vault 里 Goal-Driven Execution / 12 条天条 / Harness 系列笔记的横向关联。
 attachment: "[[attachments/2026-07-15 - Spec-Kit 信息图.jpg]]"
 timestamp: '2026-07-15T13:29:00+08:00'
 type: tech-article
@@ -20,6 +22,7 @@ tags:
 # Spec-Kit —— 规格驱动开发的 AI 工程化利器
 
 > 来源：何大人 2026-07-15 微信发送的信息图（公众号「架构茶话会」解读，非 GitHub 官方发布）
+> 实测校对：2026-07-15 14:00（github/spec-kit v0.12.15）
 > 原图已存档：`attachments/2026-07-15 - Spec-Kit 信息图.jpg`
 
 ## 一、信息图原文还原（保留作存档）
@@ -104,17 +107,47 @@ speckit init
 
 ---
 
-## 二、⚠️ 事实校对（图里这几处有疑问）
+## 二、⚠️ 事实校对（2026-07-15 14:00 实测校对结果）
 
-| 图中说法 | 校对结果 | 处理建议 |
-|---|---|---|
-| "GitHub 2025-09 开源 Spec-Kit" | ✅ 真实，仓库 `github/spec-kit` 存在 | 可信 |
-| `npm install -g @letuscode/spec-kit` | ❌ **可疑** —— `letuscode` 不是 GitHub 组织 | 不要照装，先到 `github.com/github/spec-kit` 看 README |
-| "首次通过率 40% → 85%" / "调试时间减少 60%" | ⚠️ **未核实** —— GitHub 官方博客未公开此类数据 | 引用前需找官方来源 |
-| "通过 MCP 协议共享 Spec" | ⚠️ **图作者解读** —— GitHub 官方文档没有明说 MCP 用法 | 仅供参考 |
-| `/speckit.constitution` 等 4 个命令 | ✅ 与 GitHub 官方 spec-kit 文档对齐 | 可信 |
+> 实测源：`github/spec-kit` 仓库 README + `pyproject.toml` + `integrations/catalog.json` + `extensions/catalog.json` + `CHANGELOG.md`
 
-**结论**：架构（4 阶段工作流）可信；安装命令 / 数据 / MCP 细节需自行 verify。
+| # | 图中说法 | 实测结果 | 严重度 |
+|---|---|---|---|
+| 1 | "GitHub 2025-09 开源 Spec-Kit" | ✅ 真实，仓库 `github/spec-kit` 存在 | OK |
+| 2 | `npm install -g @letuscode/spec-kit` | ❌ **完全错**：spec-kit 是 **Python 项目**（`pyproject.toml` + `src/specify_cli/`），用 `uv tool install specify-cli` 安装；CLI 名是 **`specify` 不是 `speckit`**；`letuscode` 不是 GitHub 组织 | 🔴 高 |
+| 3 | "GitHub 内部测试：首次通过率 40%→85%" | ⚠️ **官方 CHANGELOG / README 无此类数据**，未核实 | 中 |
+| 4 | "通过 MCP 协议共享 Spec" | ⚠️ **官方 README 主推 `extensions + presets + project-local overrides` 4 层定制体系，没明说 MCP**；图作者解读 | 低 |
+| 5 | 4 个 slash command | ⚠️ **少**：实际有 **10 个** —— 核心 7 个（`constitution / specify / plan / tasks / taskstoissues / implement / converge`）+ 可选 3 个（`clarify / analyze / checklist`） | 🟡 中 |
+| 6 | `speckit init` | ⚠️ **错**：实际是 `specify init` + `--integration <agent>` 参数 | 🟡 中 |
+| 7 | 信息图说"3 个月大还在快速迭代" | ❌ **错**：当前版本 **v0.12.15 = 2026-07-14 发布**（昨天），**v0.12.14 = 2026-07-13**；迭代节奏 = 每天 1-2 个 release；已是 **0.12.x 阶段的成熟产品 + 高速迭代** | 🟡 中 |
+
+**结论**：架构（4 阶段）方向对，但**实现细节（包名、CLI 名、命令数、迭代速度、定制体系）跟图严重不符**。别照搬图。
+
+### 真实安装（2026-07-15 校对版）
+
+```bash
+# 1. 先装 uv（Python 包管理器，spec-kit 官方推荐）
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# 2. 装 specify-cli（注意：是 Python 包，不是 npm）
+uv tool install specify-cli
+
+# 3. 初始化项目（CLI 名是 specify，不是 speckit）
+specify init my-project --integration copilot  # 或 claude / codex / gemini / cursor-agent / cline / amp 等 30+ agent
+cd my-project
+
+# 4. 在 AI agent 里跑 slash command（10 个，不是 4 个）
+/speckit.constitution   # 核心：创建项目治理原则
+/speckit.specify        # 核心：定义要构建什么
+/speckit.clarify        # 可选：澄清未指定领域（plan 之前推荐）
+/speckit.plan           # 核心：技术实现方案
+/speckit.tasks          # 核心：生成任务清单
+/speckit.analyze        # 可选：跨工件一致性分析（tasks 之后、implement 之前）
+/speckit.checklist      # 可选：生成质量检查清单
+/speckit.taskstoissues  # 核心：把任务转成 GitHub Issues
+/speckit.implement      # 核心：执行所有任务，按 plan 构建 feature
+/speckit.converge       # 核心：评估代码 vs spec/plan/tasks，追加剩余工作
+```
 
 ---
 
@@ -134,7 +167,7 @@ speckit init
 - 纪律告诉你"为什么要先想清楚"
 - 工具告诉你"怎么把'想清楚'沉淀为文件，AI 能读懂"
 
-→ **建议**：把 Spec-Kit 当作 Goal-Driven Execution 的**机械化载体**。在 Hermes / Codex / Claude Code 里跑 4 个 slash 命令前，先自己按 Yuxi 准则过一遍 Goal。
+→ **建议**：把 Spec-Kit 当作 Goal-Driven Execution 的**机械化载体**。在 Hermes / Codex / Claude Code 里跑 10 个 slash 命令前，先自己按 Yuxi 准则过一遍 Goal。
 
 ### 关联 2：vs Vibe Coding 12 条天条（vault 5-28 笔记）
 
@@ -162,46 +195,103 @@ speckit init
 
 ## 四、能不能现在就装一个试试？
 
-### 实操前提（必查 3 项）
+### 实操前提（必查 3 项）—— 已 2026-07-15 14:00 校对
 
 ```bash
-# 1. 查 GitHub 官方仓库（不是 npm 包）
-gh repo view github/spec-kit 2>&1 | head -20
-
-# 2. 查 README 的 install 章节（不是公众号二次解读）
-curl -sL https://raw.githubusercontent.com/github/spec-kit/main/README.md | head -100
-
-# 3. 查 Claude Code 的 slash command 兼容性
-# /speckit.* 是 Claude Code 原生命令，还是要靠插件？
+# 1. 查 GitHub 官方仓库（已确认：github/spec-kit 存在，当前 v0.12.15）
+# 2. 查 README 的 install 章节（已校对：是 uv tool install specify-cli）
+# 3. 查 Claude Code 的 slash command 兼容性（已确认：spec-kit 集成 claude / codex / copilot / gemini / cursor / cline / amp 等 30+ agent）
 ```
 
 ### 最小验证（按 Yuxi Goal-Driven Execution 思路）
 
-**verifiable goal**：能不能在 OpenClaw 里跑一次 4 阶段工作流，产出完整的 `specs/001-hello-world/` 目录？
-**成功标准**：4 个文件（constitution.md / spec.md / plan.md / tasks.md）全部生成 + 文件结构符合图里示例
-**失败标准**：跑 `speckit init` 报错 / 任一 slash 命令不被识别 / 输出文件残缺
+**verifiable goal**：能不能在 OpenClaw 里跑一次 10 命令工作流，产出完整的 `specs/001-hello-world/` 目录？
+**成功标准**：4 个核心文件（constitution.md / spec.md / plan.md / tasks.md）全部生成 + 结构符合官方示例 + 任一 `--integration` 参数都能跑
+**失败标准**：`specify init` 报错 / 任一 slash 命令不识别 / 输出文件残缺
 
 → **不在仓库写代码前不试**：跟 v4 策略"拒绝 speculative feature"同款纪律——先把官方文档读完，再决定要不要在我们的工具链里加这一层。
 
 ---
 
-## 五、给我的判断
+## 五、实测关键洞察（2026-07-15 14:00 校对后）
 
-| 维度 | 判断 |
-|---|---|
-| **理念价值** | ⭐⭐⭐⭐⭐ —— "先写 Spec 再写代码"是 AI 编程失控的正解 |
-| **工具成熟度** | ⭐⭐⭐ —— 9 月开源，3 个月仍在快速迭代，文档可能滞后 |
-| **跟现有工具关系** | 互补（OpenClaw 是执行器、Spec-Kit 是规范源） |
-| **ROI** | 看项目规模 —— 简单 side project 用 12 条天条就够；MVP / 企业级才值得上 Spec-Kit |
-| **风险** | 公众号解读多有事实错误（npm 包名 / 数据 / MCP 细节），**别照搬** |
+### 洞察 1：Spec-Kit 已经超越"4 阶段"——是 10 命令的完整 SDD 流水线
 
-**最终建议**：先读官方 README + 在 1-2 个小仓库里实测 4 阶段工作流，**不要直接照搬公众号的安装命令**。如果实测可用，可以把 12 条天条整理成 constitution 模板（嵌入 `.specify/memory/constitution.md`）。
+| 阶段 | 命令 | 关键能力 |
+|---|---|---|
+| **规范层** | `constitution / specify / clarify` | 治理原则 + 需求 + 澄清 |
+| **设计层** | `plan / tasks / analyze / checklist` | 技术方案 + 任务拆解 + 一致性分析 + 质量清单 |
+| **执行层** | `implement / converge` | AI 自动按 plan 写代码 + 自我评估 + 追加遗漏 |
+| **协作层** | `taskstoissues` | 任务自动转 GitHub Issues |
+
+→ **这不只是"先写 Spec 再写代码"，是规范→澄清→设计→分析→执行→评估的完整闭环**。
+
+### 洞察 2：4 层定制体系（extensions + presets + bundles + project-local overrides）
+
+按优先级（⬆ 高 → ⬇ 低）：
+1. **Project-Local Overrides**（`.specify/templates/overrides/`）—— 单项目一次性调整
+2. **Presets**（`.specify/presets/templates/`）—— 角色化定制
+3. **Extensions**（`.specify/extensions/templates/`）—— 新能力
+4. **Spec Kit Core**（`.specify/templates/`）—— 内置默认
+
+→ **这是平台型产品的设计**，不是单功能 CLI。意味着：
+- 团队可建"角色 preset"（前端 / 后端 / QA / Architect）
+- 单仓库可加 extension（如 `agent-context` / `bug` / `git` / `selftest` / `template`）
+- 现成 community extensions：`Multi-Repo Branch Sync` / `Quality Gates` / `Test-First Governance` / `Autonomous Run Governance` / `DocGuard` / `Spec Kit Memory`
+
+### 洞察 3：跟现有 AI 工具的关系——互补，不是替代
+
+Spec-Kit 是**规范源 + 工作流驱动**：
+- 它不写代码
+- 它产出 spec / plan / tasks 文档，让 AI agent 读
+- 它跟 30+ AI coding agents 集成（Claude Code / Codex / Cursor / Copilot / Gemini CLI / Cline / Amp 等）
+- 在 agent 里通过 `/speckit.*` slash command 触发
+
+→ **跟 OpenClaw 的关系**：OpenClaw 是执行器，Spec-Kit 是规范源。两者可以**串联**（Spec-Kit 产出 spec → OpenClaw 执行实现）。
+
+### 洞察 4：官方明确瞄准"企业级约束"场景
+
+README "Experimental Goals" 里明确写：
+- ✅ **Enterprise constraints**: mission-critical application development, organizational constraints (cloud providers, tech stacks, engineering practices), enterprise design systems, compliance requirements
+- ✅ **Technology independence**: 跨语言/框架通用
+- ✅ **User-centric development**: from vibe-coding to AI-native development
+- ✅ **Creative & iterative processes**: parallel implementation exploration, upgrade and modernization tasks
+
+→ **直接瞄准德勤级咨询/企业落地场景**。但**不强行关联德勤项目**，按何大人 7-8 明确。
+
+### 洞察 5：迭代速度惊人——每天 1-2 个 release
+
+- **v0.12.15 = 2026-07-14 发布**（昨天）
+- **v0.12.14 = 2026-07-13**
+- 每天 1-2 个 release
+
+→ **这意味着**：仓库里看到的任何实现细节，**3 个月后可能大变**。vault 里写 spec-kit 相关笔记时必须**标注日期 + 版本号**（本笔记已标注 `verified_version: github/spec-kit @ v0.12.15`）。
 
 ---
 
-## 六、待办（可选）
+## 六、给我的判断（校对后修订）
 
-- [ ] 读 `github/spec-kit` 官方 README，校对 install 命令（必做）
-- [ ] 选 1 个 side project 跑一次 4 阶段，产出 specs 目录（验证可行性）
-- [ ] 把 vault 5-28 的 12 条天条整理成 constitution 模板（如果走 Spec-Kit 路线）
-- [ ] 关注 `github/spec-kit` 的 release notes（3 个月内可能大改 API）
+| 维度 | 信息图判断 | 实测判断 | 修订 |
+|---|---|---|---|
+| **理念价值** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ —— "specifications become executable" | 同 |
+| **工具成熟度** | ⭐⭐⭐（3 个月大） | ⭐⭐⭐⭐⭐（0.12.x，每天 1-2 release，企业级已瞄准） | ⬆ 升 2 档 |
+| **命令完整度** | 4 个 | **10 个**（7 核心 + 3 可选） | ⬆ 大幅升级 |
+| **安装方式** | npm（错） | uv / pipx（Python） | 修订 |
+| **定制能力** | MCP（未核实） | **4 层定制体系**（extensions/presets/bundles/overrides） | 更具体 |
+| **跟现有工具关系** | 互补 | **互补 + 可串联**（spec-kit 产出 → OpenClaw 执行） | 更明确 |
+| **风险** | 公众号解读多错误 | **架构对、细节错** —— 别照搬命令 / 数据 / MCP | 提示升级 |
+
+**最终建议**（按 Yuxi Goal-Driven Execution）：
+- ✅ **可立即试**：装 `specify-cli` + 在 1 个小仓库（如我的 `agent-tools` skill）跑 `constitution / specify / plan / tasks` 4 命令
+- ✅ **可立即复用**：把 vault 5-28 的 12 条天条整理成 `.specify/memory/constitution.md` 模板
+- ⚠️ **不建议**：直接拿信息图当 SOP 在生产用——细节错太多
+
+---
+
+## 七、待办（已实测校对，下一步可选）
+
+- [x] 读 `github/spec-kit` 官方 README，校对 install 命令（2026-07-15 14:00 完成）✅
+- [ ] 装 specify-cli（`uv tool install specify-cli`），版本固定到 `v0.12.15` 避免 daily 升级影响
+- [ ] 选 1 个 side project 跑一次完整 10 命令流程（最小验证"4 阶段 → 10 阶段"扩展示范）
+- [ ] 把 vault 5-28 的 12 条天条整理成 constitution 模板
+- [ ] 看 community extensions 里有没有可借鉴的（Quality Gates / Test-First Governance 直接相关）
