@@ -1,68 +1,246 @@
 # SDD-Project 部署文档
 
-## 系统架构
-
-```
-┌─────────────────────────────────────────────────────┐
-│                    前端 (Vue3)                       │
-│               http://IP:5173                        │
-└──────────────────────┬──────────────────────────────┘
-                       │ HTTP
-┌──────────────────────▼──────────────────────────────┐
-│              Backend Master (Flask)                  │
-│                   port 8000                          │
-│  /api/*                                            │
-└──────┬──────────────┬──────────────┬────────────────┘
-       │              │              │
-       ▼              ▼              ▼
-┌────────────┐  ┌──────────┐  ┌────────────────────────┐
-│ Decision   │  │  MySQL   │  │   Executor (Node)       │
-│ Service   │  │  sdd DB  │  │   port 9001             │
-│ port 9000 │  │ port 3306│  │  (可选，分布式部署)      │
-│ (Kimi LLM)│  │          │  │                         │
-└────────────┘  └──────────┘  └────────────────────────┘
-                    │
-               ┌────▼────┐
-               │  Redis  │
-               │ port 6379│
-               └─────────┘
-```
-
-## 端口规划
-
-| 服务 | 端口 | 说明 |
-|------|------|------|
-| frontend | 5173 | Vue3 开发服务器 |
-| backend | 8000 | Flask API + WebSocket |
-| decision_service | 9000 | 决策服务（Kimi LLM） |
-| executor | 9001 | 执行器节点（可选独立部署） |
-
-## 前置依赖
-
-已在服务器运行的服务（**无需重新安装**）：
-- MySQL `127.0.0.1:3306`（root/root，数据库 `sdd`）
-- Redis `127.0.0.1:6379`
-- Node.js / npm
-
-**需要准备：**
-- Kimi API Key（用于决策服务）
-- Claude API Key（用于代码生成）
+> **服务器部署**：2026-07-15，端口 5174/8010/9010/9011
+> **公网访问**：`http://101.33.212.119:5174`（前端），`http://101.33.212.119:8010`（后端 API）
 
 ---
 
-## 部署步骤
+## 一、服务器端部署
 
-### 一、数据库初始化
+### 架构
 
-**1.1 创建数据库**
-
-```sql
-CREATE DATABASE IF NOT EXISTS sdd CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+本地电脑浏览器
+     ↓
+┌─────────────────────────────────────────────────────┐
+│              服务器 (101.33.212.119)                 │
+│                                                     │
+│  :5174  Vue3 Frontend                              │
+│  :8010  Flask Backend Master                        │
+│  :9010  Decision Service (Kimi LLM)                │
+│  :9011  Executor (本地)                            │
+│                                                     │
+│  依赖已有服务: MySQL:3306, Redis:6379               │
+└─────────────────────────────────────────────────────┘
 ```
 
-**1.2 执行数据库迁移**
+### 端口规划
+
+| 服务 | 端口 | 说明 |
+|------|------|------|
+| frontend | **5174** | Vue3 开发服务器 |
+| backend | **8010** | Flask API |
+| decision_service | **9010** | 决策服务 |
+| executor | **9011** | 执行器节点 |
+
+### 启停命令
 
 ```bash
+# 查看状态
+/root/workspace/SDD-project/start_sdd.sh status
+
+# 停止
+/root/workspace/SDD-project/start_sdd.sh stop
+
+# 启动
+/root/workspace/SDD-project/start_sdd.sh start
+```
+
+### 日志位置
+
+```
+/tmp/sdd/
+├── decision.log   # Decision Service
+├── backend.log    # Flask
+├── celery.log     # Celery Worker
+├── frontend.log  # Vite
+└── executor.log   # Executor
+```
+
+### 验证
+
+```bash
+curl http://localhost:9010/health
+curl http://localhost:8010/api/health
+```
+
+### 修改的配置（维护参考）
+
+| 文件 | 修改内容 |
+|------|---------|
+| `backend/decision_service/mcp_server.py` | 改为读取 config.json 动态端口 |
+| `backend/backend/flask_app.py` | 改为读取环境变量端口 |
+| `backend/backend/config.local.json` | Kimi API Key 等配置 |
+| `frontend/src/api.js` | API 地址 8000 → 8010 |
+| `executor/config/executor.json` | 指向本机 8010/9011 |
+
+---
+
+## 二、本地 Windows 部署
+
+> 本地部署连接**同一台服务器**的后端，不自己起数据库和 Redis。
+
+### 2.1 前置依赖
+
+**下载安装：**
+- **Python 3.9+**：https://www.python.org/downloads/
+- **Node.js 18+**：https://nodejs.org/
+- **Git**：https://git-scm.com/download/win
+
+安装时勾选 `Add Python to PATH`。
+
+### 2.2 获取代码
+
+```bash
+# 克隆代码（在 D:\SDD-project 或任意目录）
+git clone <仓库地址> SDD-project
+cd SDD-project
+```
+
+### 2.3 安装后端依赖
+
+```bat
+:: 进入后端目录
+cd backend\backend
+
+:: 创建虚拟环境
+python -m venv venv
+
+:: 激活虚拟环境
+venv\Scripts\activate
+
+:: 安装依赖
+pip install Flask>=3.0.0 requests>=2.31.0 psutil>=5.9.0 pymysql>=1.1.0 anthropic>=0.40.0 flask-cors celery redis gevent
+```
+
+### 2.4 配置后端
+
+在 `backend\backend\` 目录下新建 `config.local.json`：
+
+```json
+{
+  "KIMI_API_KEY": "你的Kimi API Key",
+  "CLAUDE_PERMISSION_MODE": "bypassPermissions",
+  "DECISION_SERVICE_URL": "http://101.33.212.119:9010",
+  "AI_NATIVE_PORT": "8010"
+}
+```
+
+### 2.5 启动 Backend
+
+```bat
+cd backend\backend
+venv\Scripts\activate
+set AI_NATIVE_DB_HOST=101.33.212.119
+set AI_NATIVE_DB_PORT=3306
+set AI_NATIVE_DB_USER=root
+set AI_NATIVE_DB_PASSWORD=root
+set AI_NATIVE_DB_NAME=sdd
+python flask_app.py
+```
+
+看到 `Running on http://0.0.0.0:8010` 即成功，**不要关闭此窗口**。
+
+### 2.6 安装前端依赖
+
+新开一个命令行窗口：
+
+```bat
+cd frontend
+npm install
+```
+
+### 2.7 修改前端 API 地址
+
+打开 `frontend\src\api.js`，把 `localhost:8000` 替换为 `101.33.212.119:8010`：
+
+```javascript
+// 第 7 行
+return 'http://101.33.212.119:8010'
+// 第 10-13 行
+if (!port || port === '8010') {
+    return ''
+}
+return `${protocol}//101.33.212.119:8010`
+```
+
+### 2.8 启动前端
+
+```bat
+npm run dev -- --host 0.0.0.0 --port 5174
+```
+
+访问 **`http://localhost:5174`**（或 `http://101.33.212.119:5174` 从其他设备访问）。
+
+### 2.9 Windows 一键启动脚本
+
+在 `SDD-project` 根目录下新建 `start_local.bat`：
+
+```bat
+@echo off
+chcp 65001 >nul
+echo ================================
+echo   SDD-Project 本地启动
+echo ================================
+
+:: 启动后端
+echo [1/2] 启动后端 Backend...
+start "SDD-Backend" cmd /k "cd /d %~dp0backend\backend && venv\Scripts\activate && set AI_NATIVE_DB_HOST=101.33.212.119 && set AI_NATIVE_DB_PORT=3306 && set AI_NATIVE_DB_USER=root && set AI_NATIVE_DB_PASSWORD=root && set AI_NATIVE_DB_NAME=sdd && python flask_app.py"
+
+:: 等待后端启动
+timeout /t 5 /nobreak >nul
+
+:: 启动前端
+echo [2/2] 启动前端 Frontend...
+start "SDD-Frontend" cmd /k "cd /d %~dp0frontend && npm run dev -- --host 0.0.0.0 --port 5174"
+
+echo.
+echo 前端: http://localhost:5174
+echo 后端: http://101.33.212.119:8010
+echo.
+pause
+```
+
+### 2.10 验证
+
+```bat
+:: 检查后端
+curl http://localhost:8010/api/health
+
+:: 检查决策服务（需服务器端已启动）
+curl http://101.33.212.119:9010/health
+```
+
+---
+
+## 三、架构总览
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                     本地 Windows                              │
+│   浏览器 http://localhost:5174                               │
+│        ↓                                                      │
+│   Flask Backend (localhost:8010)  ──────────────────────────│
+│                                                      ↓       │
+└──────────────────────────────────────────────────────────────┘
+                                                               ↓
+                                            ┌─────────────────────────────────┐
+                                            │      服务器 101.33.212.119      │
+                                            │                                 │
+                                            │  :9010  Decision Service        │
+                                            │  :3306  MySQL (sdd)             │
+                                            │  :6379  Redis                   │
+                                            │  :9011  Executor                │
+                                            └─────────────────────────────────┘
+```
+
+---
+
+## 四、数据库初始化（服务器端，只需执行一次）
+
+```bash
+mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS sdd CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
 cd /root/workspace/SDD-project/backend/backend/migrations
 mysql -uroot -proot sdd < 001_init.sql
 mysql -uroot -proot sdd < 002_phase1_pipeline.sql
@@ -71,274 +249,54 @@ mysql -uroot -proot sdd < 004_pipeline_config.sql
 mysql -uroot -proot sdd < 005_add_executor_node.sql
 ```
 
-> 如迁移文件不存在或格式不同，也可由后端启动时自动执行。
-
 ---
 
-### 二、Backend 部署
+## 五、常见问题
 
-**2.1 安装依赖**
+### 1. 后端连接数据库失败
+```bat
+set AI_NATIVE_DB_HOST=101.33.212.119
+set AI_NATIVE_DB_PORT=3306
+set AI_NATIVE_DB_USER=root
+set AI_NATIVE_DB_PASSWORD=root
+set AI_NATIVE_DB_NAME=sdd
+```
 
+### 2. 前端报 API 错误
+确认 `frontend\src\api.js` 中已把所有 `8000` 替换为 `101.33.212.119:8010`。
+
+### 3. Decision Service 不可用
+确认服务器端 Decision Service（9010）已启动：
 ```bash
-cd /root/workspace/SDD-project/backend
-
-# Python 虚拟环境
-python3 -m venv venv
-source venv/bin/activate
-
-# 后端核心依赖
-pip install Flask>=3.0.0 requests>=2.31.0 psutil>=5.9.0 pymysql>=1.1.0 anthropic>=0.40.0 flask-cors celery redis
-
-# 决策服务依赖
-cd decision_service
-pip install flask>=2.3.0 requests>=2.31.0 aiohttp>=3.8.0
-cd ..
+curl http://101.33.212.119:9010/health
 ```
-
-**2.2 配置 config.local.json**
-
-```bash
-vim /root/workspace/SDD-project/backend/backend/config.local.json
-```
-
-内容：
-
-```json
-{
-  "KIMI_API_KEY": "your-kimi-api-key",
-  "CLAUDE_PERMISSION_MODE": "bypassPermissions",
-  "DECISION_SERVICE_URL": "http://127.0.0.1:9000"
-}
-```
-
-环境变量也可覆盖：
-
-```bash
-export AI_NATIVE_DB_HOST="127.0.0.1"
-export AI_NATIVE_DB_PORT="3306"
-export AI_NATIVE_DB_USER="root"
-export AI_NATIVE_DB_PASSWORD="root"
-export AI_NATIVE_DB_NAME="sdd"
-export AI_NATIVE_PORT="8000"
-```
-
-**2.3 启动 Backend Master**
-
-```bash
-cd /root/workspace/SDD-project/backend/backend
-source ../venv/bin/activate
-python flask_app.py
-```
-
-日志出现 `Running on http://0.0.0.0:8000` 即成功。
-
-**2.4 启动 Celery Worker（异步任务）**
-
-```bash
-cd /root/workspace/SDD-project/backend/backend
-source ../venv/bin/activate
-celery -A celery_config.celery_app worker --loglevel=info -P gevent -c 4 &
-```
-
----
-
-### 三、Decision Service 部署
-
-```bash
-cd /root/workspace/SDD-project/backend/decision_service
-
-# 决策服务依赖（独立 venv 或复用 backend venv）
-pip install flask>=2.3.0 requests>=2.31.0 aiohttp>=3.8.0
-
-# 配置 Kimi API Key
-export KIMI_API_KEY="your-kimi-api-key"
-
-# 启动
-python mcp_server.py
-```
-
-服务监听 `0.0.0.0:9000`。
-
----
-
-### 四、Frontend 部署
-
-**4.1 安装依赖**
-
-```bash
-cd /root/workspace/SDD-project/frontend
-npm install
-```
-
-**4.2 配置后端地址**
-
-如前端无法访问 `localhost:8000`，修改 `src/api.js` 中的 `apiBase`：
-
-```javascript
-// 开发环境 Vite 代理，或直接写死：
-const apiBase = 'http://<服务器IP>:8000'
-```
-
-**4.3 启动前端**
-
-```bash
-npm run dev -- --host 0.0.0.0
-```
-
-访问 `http://<服务器IP>:5173`
-
----
-
-### 五、Executor 部署（可选）
-
-Executor 可与 Master 部署在同一机器，也可单独部署在局域网其他机器上。
-
-**5.1 安装依赖**
-
-```bash
-cd /root/workspace/SDD-project/executor
-pip install -r requirements.txt  # Flask requests psutil pymysql
-```
-
-**5.2 配置 executor.json**
-
-```bash
-cp config/executor.example.json config/executor.json
-vim config/executor.json
-```
-
-关键配置：
-
-```json
-{
-    "executor_id": "exec-node-1",
-    "master_url": "http://<Master服务器IP>:8000",
-    "endpoint": "http://<本机IP>:9001",
-    "server": {
-        "host": "0.0.0.0",
-        "port": 9001
-    },
-    "supported_ide": ["claude_code", "trae", "cursor"],
-    "workspace": {
-        "root": "./executor_workspace"
-    },
-    "heartbeat": {
-        "interval_seconds": 30
-    }
-}
-```
-
-> - `master_url`：Master 的地址（前端调用的那个地址）
-> - `endpoint`：Master 回调 Executor 的地址（如有 NAT 需填写公网/可通地址）
-> - Executor 会每 30 秒向 Master 发送心跳，超过 120 秒无心跳则 Master 认为其离线
-
-**5.3 启动 Executor**
-
-```bash
-python executor_agent.py --config config/executor.json
-```
-
----
-
-## 启动汇总（一键脚本）
-
-```bash
-#!/bin/bash
-set -e
-
-# 1. 启动 Decision Service (后台)
-cd /root/workspace/SDD-project/backend/decision_service
-source ../../venv/bin/activate
-python mcp_server.py &
-DECISION_PID=$!
-
-# 2. 启动 Backend
-cd /root/workspace/SDD-project/backend/backend
-source ../../venv/bin/activate
-python flask_app.py &
-BACKEND_PID=$!
-
-# 3. 启动 Celery Worker
-source ../../venv/bin/activate
-celery -A celery_config.celery_app worker --loglevel=info -P gevent -c 4 &
-CELERY_PID=$!
-
-# 4. 启动 Frontend
-cd /root/workspace/SDD-project/frontend
-npm run dev -- --host 0.0.0.0 &
-FRONTEND_PID=$!
-
-echo "Decision Service: PID $DECISION_PID (port 9000)"
-echo "Backend Master:   PID $BACKEND_PID (port 8000)"
-echo "Celery Worker:    PID $CELERY_PID"
-echo "Frontend:         PID $FRONTEND_PID (port 5173)"
-echo ""
-echo "停止所有服务: kill $DECISION_PID $BACKEND_PID $CELERY_PID $FRONTEND_PID"
-```
-
----
-
-## 验证部署
-
-```bash
-# Decision Service
-curl http://localhost:9000/health
-
-# Backend Master
-curl http://localhost:8000/api/health
-
-# 查看在线执行器
-curl http://localhost:8000/api/executor-nodes
-```
-
----
-
-## 常见问题
-
-### 1. 数据库连接失败
-检查 `config.local.json` 中的数据库配置，或设置环境变量：
-```bash
-export AI_NATIVE_DB_HOST="127.0.0.1"
-export AI_NATIVE_DB_USER="root"
-export AI_NATIVE_DB_PASSWORD="root"
-```
-
-### 2. Decision Service 不可用
-Backend 启动时会连接 `http://127.0.0.1:9000`，确认决策服务先启动。
-
-### 3. Executor 无法注册
-- 检查 Master 地址是否可通
-- 检查防火墙是否开放 `9001` 端口
-- 如 Executor 在 NAT 后，需确保 Master 能通过 `endpoint` 回调到 Executor
 
 ### 4. Kimi/Claude API Key 无效
-在 `config.local.json` 或环境变量中配置正确 Key。
+在 `backend\backend\config.local.json` 中填写真实 Key。
 
 ---
 
-## 目录结构
+## 六、目录结构
 
 ```
-/root/workspace/SDD-project/
-├── frontend/                      # Vue3 前端
-│   ├── src/
+SDD-project/
+├── frontend/
+│   ├── src/api.js              # API 地址配置
 │   ├── package.json
 │   └── vite.config.js
 ├── backend/
 │   ├── backend/
-│   │   ├── flask_app.py          # Flask 入口
-│   │   ├── config.local.json     # 本地配置
-│   │   ├── config.py             # 配置读取
-│   │   ├── migrations/           # 数据库迁移 SQL
-│   │   └── ...                   # 业务模块
+│   │   ├── flask_app.py         # Flask 入口
+│   │   ├── config.local.json    # 本地配置（新建）
+│   │   ├── config.py            # 配置读取
+│   │   └── migrations/           # 数据库迁移 SQL
 │   ├── decision_service/
-│   │   ├── mcp_server.py         # 决策服务入口
+│   │   ├── mcp_server.py        # 决策服务入口
 │   │   └── config.json
-│   ├── executor/                  # 执行器（可独立部署）
-│   │   ├── executor_agent.py
-│   │   └── config/
-│   │       └── executor.json
-│   └── scripts/
-│       └── start_all.sh
-└── ...
+│   └── executor/
+│       ├── executor_agent.py
+│       └── config/
+│           └── executor.json
+├── start_local.bat              # Windows 一键启动脚本（新建）
+└── start_sdd.sh                 # 服务器启停脚本
 ```
