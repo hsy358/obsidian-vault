@@ -97,15 +97,19 @@ YYYY-MM-DD - <类型>-<标题>.md
 
 ---
 
-## 📊 违规回溯记录
+## 📊 历史违规记录（何大人 11:37 决定**不回溯**）
 
-| 时间 | 文件 | 原违规位置 | 回溯后位置 | commit |
-|---|---|---|---|---|
-| （待补） | 2026-07-09 又一个多 Agent IDE | `2-Areas/公众号文章/` | `current-server/from-agent/`（待回溯）| — |
-| （待补） | 2026-07-10 Pi：2026 最被低估 | `2-Areas/公众号文章/` | `current-server/from-agent/`（待回溯）| — |
-| （待补） | 2026-07-10 Spring AI 2.0 | `2-Areas/公众号文章/` | `current-server/from-agent/`（待回溯）| — |
-| （待补） | 2026-07-11 OpenMaic | `2-Areas/公众号文章/` | `current-server/from-agent/`（待回溯）| — |
-| （待补） | 2026-07-14 25K+ Star DeepTutor | `2-Areas/公众号文章/` | `current-server/from-agent/`（待回溯）| — |
+最近 7 天我（agent）违规直接归档到 `2-Areas/公众号文章/` 的 5 篇（按当时 PARA 规则归档）：
+
+| 时间 | 文件 | 当前位置 |
+|---|---|---|
+| 2026-07-09 | 又一个多 Agent 编程 IDE 神器，开源了！ | `2-Areas/公众号文章/`（保留）|
+| 2026-07-10 | Pi：2026 年最被低估的 Agent | `2-Areas/公众号文章/`（保留）|
+| 2026-07-10 | Spring AI 2.0 和 Spring AI Alibaba，哪个更好？ | `2-Areas/公众号文章/`（保留）|
+| 2026-07-11 | OpenMaic 智能体开源项目二开一下怎么样？ | `2-Areas/公众号文章/`（保留）|
+| 2026-07-14 | 25K+ Star DeepTutor | `2-Areas/公众号文章/`（保留）|
+
+**决定保留原位**——何大人明确 "只移动这两篇就可以了"，**历史归档按当时规则不追溯**。
 
 ---
 
