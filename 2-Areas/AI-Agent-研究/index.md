@@ -1,10 +1,11 @@
 # Research/ Index
 
-> 由 `gen_index.py` 自动生成（24 条目）。OKF 规范渐进披露。
+> 由 `gen_index.py` 自动生成（25 条目）。OKF 规范渐进披露。
 
 
 ## AI-Native / R&D
 
+* [Block Buzz — Hive-Mind 协作平台（GitHub 仓库分析）](2026-07-25 - Block Buzz - GitHub 仓库分析.md) — Jack Dorsey 旗下 Block 推出的开源 人类 + AI Agent 协作工作区，底层是自托管 Nostr relay，所有消息/git 事件/工作流都建模为同一类签名事件。  `github-repo-analysis · 2026-07-25`
 * [Multica — AI 编程员工管理平台（GitHub 仓库分析）](2026-07-25 - Multica - GitHub 仓库分析.md) — Multica 是位于 Claude Code、Codex、OpenClaw、Hermes 等执行器之上的 Agent 团队管理与任务控制平面。  `github-repo-analysis · 2026-07-25`
 * [OKF 与 vault 差异 audit 表](2026-06-22 - OKF 与 vault 差异 audit 表.md) — 对比 Google OKF v0.1 规范与何大人 /root/vault 实际数据，给出兼容性评估、差距清单、改进优先级。  `research-report · 2026-06-22`
 * [YX AI Delivery Harness 对照分析 + Self-Driving R&D 方案 v2.1](2026-06-17 - YX AI Delivery Harness 对照分析 + 方案 v2.1.md) — YX Harness 底部双栏结构：  `research-report · 2026-06-17`
