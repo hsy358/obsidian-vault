@@ -11,7 +11,7 @@ tags:
 - LLM
 - MCP
 ---
-# Goose - Your Native Open Source AI Agent
+ # Goose - Your Native Open Source AI Agent
 
 **官网：** https://goose-docs.ai/
 **GitHub：** https://github.com/aaif-goose/goose（现属于 Linux Foundation 下的 Agentic AI Foundation）
