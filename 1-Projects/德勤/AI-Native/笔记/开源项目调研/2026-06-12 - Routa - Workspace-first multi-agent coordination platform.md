@@ -30,14 +30,14 @@ Routa 是一个工作区优先的多 Agent 协调平台，专注于软件交付�
 
 看板每列都有不同的专家 prompt，卡片每经过一列都会变得更严格：
 
-| 阶段 | 专家 | 职责 |
-|------|------|------|
-| Backlog | Backlog Refiner | 将需求改写为标准 YAML story，含验收标准、约束、依赖、INVEST 检查 |
-| Todo | Todo Orchestrator | 重新验证，生成可执行简报（执行计划、关键文件、依赖计划、风险笔记） |
-| Dev | Dev Crafter | 实施实现、运行验证、提交代码、生成 Dev Evidence |
-| Review | Review Guard | 独立验证每条验收标准，拒绝缺失证据、范围蔓延、脏 git 状态 |
-| Done | Done Reporter | 追加完成总结 |
-| Blocked | Blocked Resolver | 分类 blocker，说明根因，路由回正确泳道 |
+| 阶段      | 专家                | 职责                                        |
+| ------- | ----------------- | ----------------------------------------- |
+| Backlog | Backlog Refiner   | 将需求改写为标准 YAML story，含验收标准、约束、依赖、INVEST 检查 |
+| Todo    | Todo Orchestrator | 重新验证，生成可执行简报（执行计划、关键文件、依赖计划、风险笔记）         |
+| Dev     | Dev Crafter       | 实施实现、运行验证、提交代码、生成 Dev Evidence            |
+| Review  | Review Guard      | 独立验证每条验收标准，拒绝缺失证据、范围蔓延、脏 git 状态           |
+| Done    | Done Reporter     | 追加完成总结                                    |
+| Blocked | Blocked Resolver  | 分类 blocker，说明根因，路由回正确泳道                   |
 
 **三核心角色：**
 - **ROUTA Coordinator**：只规划，不直接编辑文件，写 spec，等批准，委托工作，调用 GATE 验证
