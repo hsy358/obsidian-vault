@@ -166,16 +166,16 @@ strategy = cliHubAvailable
 
 ## 📊 AgentSpace vs Paperclip vs 德勤 R3 对比
 
-| 维度 | **AgentSpace** | **Paperclip** | **德勤 R3 借鉴** |
-|---|---|---|---|
-| **adapter 数量** | 7（hermes/openclaw/codex/claude/gemini/opencode/nanobot）| 13（更多 variant）| 4 起步（h/o/c/claude）|
-| **adapter 注册** | Registry URL（动态拉）| 硬编码 `packages/adapters/` | **推荐：Registry + 硬编码双轨** |
-| **风险评估** | regex 检测 + risk 等级 | 无（trust based）| **借鉴 AgentSpace** |
-| **审计日志** | `tryRecordWorkspaceAuditEventSync()` | 无统一 | **借鉴 AgentSpace** |
-| **权限检查** | workspace owner/admin | paperclip 隐含 | **借鉴 AgentSpace** |
-| **心跳机制** | `daemon.status === "online"` | 显式 heartbeat | **借鉴 Paperclip** |
-| **接口契约** | `RuntimeAppOperationRequestResult` | `AdapterExecutionContext` | **融合两者** |
-| **远程执行** | `agent-space-daemon` 独立包 | paperclip-fork 内部 | **借鉴 AgentSpace（更轻）**|
+| 维度             | **AgentSpace**                                          | **Paperclip**             | **德勤 R3 借鉴**            |
+| -------------- | ------------------------------------------------------- | ------------------------- | ----------------------- |
+| **adapter 数量** | 7（hermes/openclaw/codex/claude/gemini/opencode/nanobot） | 13（更多 variant）            | 4 起步（h/o/c/claude）      |
+| **adapter 注册** | Registry URL（动态拉）                                       | 硬编码 `packages/adapters/`  | **推荐：Registry + 硬编码双轨** |
+| **风险评估**       | regex 检测 + risk 等级                                      | 无（trust based）            | **借鉴 AgentSpace**       |
+| **审计日志**       | `tryRecordWorkspaceAuditEventSync()`                    | 无统一                       | **借鉴 AgentSpace**       |
+| **权限检查**       | workspace owner/admin                                   | paperclip 隐含              | **借鉴 AgentSpace**       |
+| **心跳机制**       | `daemon.status === "online"`                            | 显式 heartbeat              | **借鉴 Paperclip**        |
+| **接口契约**       | `RuntimeAppOperationRequestResult`                      | `AdapterExecutionContext` | **融合两者**                |
+| **远程执行**       | `agent-space-daemon` 独立包                                | paperclip-fork 内部         | **借鉴 AgentSpace（更轻）**   |
 
 ---
 
