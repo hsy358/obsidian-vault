@@ -86,3 +86,19 @@ date: YYYY-MM-DD
 ---
 
 **作者**：小助 — OpenClaw (MiniMax-M3) — 2026-07-05 12:24
+
+## Octafuse Gateway（2026-08-07）
+- **Proxy**: http://octafuse.101.33.212.119.nip.io/
+- **Admin**: http://admin-octafuse.101.33.212.119.nip.io/
+- 部署手册：./octafuse/README.md
+- 端口：8787（proxy）/ 8789（admin）/ 5436（pg）
+
+**快速部署**：参考 [./octafuse/DEPLOYMENT-QUICKSTART.md](./octafuse/DEPLOYMENT-QUICKSTART.md)（可复制粘贴版，~8 分钟完成）
+
+## OpenOPC（2026-08-11 部署，08-12 SPA patch 实战）
+- **访问入口**：http://101.33.212.119/openopc/
+- **WebSocket**：ws://101.33.212.119/ws（nginx `=` 精确匹配，前缀路由不生效）
+- **部署手册（含 nginx 模板 + SPA WS patch + 故障排查）**：[./openopc/2026-08-11-OpenOPC-部署文档.md](./openopc/2026-08-11-OpenOPC-部署文档.md)
+- **关联 issue**：HKUDS/OpenOPC issue #38（project-local config attack）
+- **风险**：`_handle_session_send` 不触发 LLM 流（0.1.0 已知 bug）；SPA patch 未持久化，重启需重新跑或 `docker commit`
+

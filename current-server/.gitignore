@@ -1,0 +1,40 @@
+# 凭据 / 密钥 —— 绝对不入库
+*.credentials
+*.credentials.*
+!**/.credentials.example  # 允许入库（脱敏版）
+*.secret
+*.secrets
+*.secrets.*
+.env
+.env.*
+!.env.example
+
+# 0 字节污染文件（来自 `pip install pkg=X.X.X` 误解析）
+=*
+=*.0
+=*.1
+=*.2
+=*.3
+=*.4
+=*.5
+=*.6
+=*.7
+=*.8
+=*.9
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# 临时文件
+*.tmp
+*.swp
+.DS_Store
+
+# 大文件 / 二进制（deploy 报告里如果有超过 5MB 的图，应转 webp 或外链）
+*.zip
+*.tar.gz
+*.rar
+!docs/**/*.zip

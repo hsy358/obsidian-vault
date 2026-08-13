@@ -1,0 +1,123 @@
+# OctaFuse Gateway - 本服务器自托管部署
+# 参考：https://github.com/OctaFuse/octafuse-gateway/blob/main/docs/operators/deployment/docker.md
+# 端口规划：proxy 8787, admin 8789, postgres 5436（全空闲，与现有服务零冲突）
+# 网络：172.30.0.0/16（已用段 172.17~172.29 都避开）
+# 容器名：octafuse- 前缀
+# 镜像：本地 build（:local），由 Dockerfile.{proxy,admin,migrate}
+
+name: octafuse
+
+networks:
+  octafuse-net:
+    name: octafuse-net
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
+
+volumes:
+  octafuse-pg-data:
+    name: octafuse-pg-data
+
+services:
+  # ============ PostgreSQL（独立容器，零冲突）============
+  octafuse-pg:
+    image: postgres:16-alpine
+    container_name: octafuse-pg
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?set in .secrets}
+      POSTGRES_USER: ${POSTGRES_USER:?set in .secrets}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set in .secrets}
+      TZ: ${TZ}
+      PGTZ: ${DB_TIMEZONE}
+    command:
+      - "postgres"
+      - "-c"
+      - "timezone=UTC"
+      - "-c"
+      - "log_timezone=UTC"
+    volumes:
+      - octafuse-pg-data:/var/lib/postgresql/data
+    networks:
+      octafuse-net:
+        ipv4_address: 172.30.0.10
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    ports:
+      - "127.0.0.1:5436:5432"  # 只本机访问；其他容器走网络
+
+  # ============ 一次性迁移（profile migrate，用后即弃）============
+  octafuse-migrate:
+    image: ${GATEWAY_MIGRATE_IMAGE}
+    container_name: octafuse-migrate
+    profiles: ["migrate"]
+    depends_on:
+      octafuse-pg:
+        condition: service_healthy
+    environment:
+      DATABASE_DRIVER: postgres
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@octafuse-pg:5432/${POSTGRES_DB}
+      TZ: ${TZ}
+    networks:
+      - octafuse-net
+    restart: "no"
+
+  # ============ Proxy（OpenAI/Anthropic/Gemini 协议入口，:8787）============
+  octafuse-proxy:
+    image: ${GATEWAY_PROXY_IMAGE}
+    container_name: octafuse-proxy
+    restart: unless-stopped
+    depends_on:
+      octafuse-pg:
+        condition: service_healthy
+    environment:
+      DATABASE_DRIVER: postgres
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@octafuse-pg:5432/${POSTGRES_DB}
+      PORT: "8787"
+      # AUTO_MIGRATE=1 让 proxy 启动时自动跑迁移（已建好库之后幂等空操作）
+      AUTO_MIGRATE: "1"
+      TZ: ${TZ}
+    networks:
+      octafuse-net:
+        ipv4_address: 172.30.0.20
+    ports:
+      - "0.0.0.0:8787:8787"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8787/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # ============ Admin（Next.js 后台，:8789）============
+  octafuse-admin:
+    image: ${GATEWAY_ADMIN_IMAGE}
+    container_name: octafuse-admin
+    restart: unless-stopped
+    depends_on:
+      octafuse-pg:
+        condition: service_healthy
+      octafuse-proxy:
+        condition: service_healthy
+    environment:
+      DATABASE_DRIVER: postgres
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@octafuse-pg:5432/${POSTGRES_DB}
+      PORT: "8789"
+      ADMIN_USERNAME: ${ADMIN_USERNAME:?set in .secrets}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?set in .secrets}
+      ADMIN_COOKIE_SECURE: "0"  # HTTP 反代（80 端口）；上 HTTPS 后改 1
+      TZ: ${TZ}
+    networks:
+      octafuse-net:
+        ipv4_address: 172.30.0.21
+    ports:
+      - "0.0.0.0:8789:8789"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8789/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 30s

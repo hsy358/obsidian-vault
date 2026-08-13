@@ -1,0 +1,4 @@
+# 在 ontology-studio 目录里：父目录的 .gitignore 把 .credentials.example 也屏蔽了
+# 这里反转：只忽略真正的明文凭据文件，允许脱敏版 .example 入库
+*.credentials
+!*.credentials.example
