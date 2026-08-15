@@ -12,7 +12,7 @@
 | **版本** | v0.6.5 |
 | **协议** | MIT |
 | **部署路径** | `/root/projects/semantica/` |
-| **公网 URL** | `http://101.33.212.119:8100/` |
+| **公网 URL** | `http://semantica.101.33.212.119.nip.io/`（标准 80 端口，子域名反代） |
 | **Knowledge Explorer** | <http://101.33.212.119:8100/>（FastAPI + React 前端） |
 | **API 健康检查** | `GET /api/health` → `{"status":"ok"}` |
 | **API endpoints** | **74 个**（决策 / 因果链 / 合规 / 先例 / 溯源 / 导出...） |
@@ -341,5 +341,95 @@ systemd user 服务：
 - [ ] 添加 spacy 模型 `en_core_web_sm`（~50MB），启用 NER 功能（要先装 spacy）
 - [ ] 添加 faiss-cpu，启用 `embed` 命令（~30MB）
 - [ ] 测试一次端到端 decision 记录 + trace_decision_chain
-- [ ] 公网 URL 反代到 80（可选）
+- [x] 公网 URL 反代到 80（2026-08-15 完成，详见 §11）
 - [ ] 写 Langfuse ↔ Semantica 集成 demo（两者互补，可串起来）
+
+## 11. 公网反代（2026-08-15 加）
+
+### 11.1 为什么用子域名而不是 `/semantica/` 路径前缀
+
+Semantica 前端是 Vite/React SPA，HTML 里所有静态资源都用**绝对路径**（`<script src="/assets/index-X.js">`、`href="/assets/..."`）。如果走 `/semantica/` 路径前缀，浏览器解析这些绝对路径时会绕开 nginx 反代（因为它们不在 `/semantica/*` 范围内），全 404。
+
+子域名方案 → 前端零修改、零 sub_filter hack。
+
+### 11.2 域名方案
+
+`semantica.101.33.212.119.nip.io`（nip.io 是 wildcard DNS，自动把 `*.IP.nip.io` 解析成 `IP`）
+
+- 公共 DNS 验证：`dig +short @8.8.8.8 semantica.101.33.212.119.nip.io` → `101.33.212.119` ✅
+- 无需注册域名、无需 SSL（HTTP）、零运维
+
+### 11.3 nginx 配置
+
+`/etc/nginx/sites-available/semantica.conf`：
+
+```nginx
+server {
+    listen 80;
+    server_name semantica.101.33.212.119.nip.io;
+
+    client_max_body_size 100M;
+    access_log /var/log/nginx/semantica.access.log;
+    error_log /var/log/nginx/semantica.error.log;
+
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_read_timeout 120s;
+    proxy_send_timeout 120s;
+
+    location / {
+        proxy_pass http://127.0.0.1:8100;
+    }
+}
+```
+
+**重要**：`proxy_set_header Host $host;` 让 backend 收到 `Host: semantica.101.33.212.119.nip.io`，backend 据此做 CORS 校验。必须在 `.env` 的 `ALLOWED_ORIGINS` 加这个 origin（否则前端 fetch 会被 CORS 拦截）。
+
+### 11.4 `.env` 改动
+
+```diff
+-ALLOWED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000,http://101.33.212.119:8000
++ALLOWED_ORIGINS=http://localhost:8100,http://127.0.0.1:8100,http://101.33.212.119:8100,http://semantica.101.33.212.119.nip.io
+```
+
+注意端口从 8000 → 8100（因为 8000 被 agentos-api 占）。
+
+### 11.5 生效顺序
+
+```bash
+# 1. nginx -t + ln -s
+ln -sf /etc/nginx/sites-available/semantica.conf /etc/nginx/sites-enabled/semantica.conf
+systemctl reload nginx
+
+# 2. .env 改了 → 必须 restart backend（不 restart 不重读 env）
+systemctl --user restart semantica-explorer.service
+
+# 3. 三维度验证
+curl -s -m 5 -o /dev/null -w "%{http_code}\n" http://127.0.0.1:8100/                        # 直连 backend
+curl -s -m 10 -o /dev/null -w "%{http_code}\n" -H "Host: semantica.101.33.212.119.nip.io" http://101.33.212.119/   # 模拟子域名访问
+curl -s -m 10 -o /dev/null -w "%{http_code}\n" http://semantica.101.33.212.119.nip.io/      # 真实子域名访问
+```
+
+### 11.6 验证结果（2026-08-15 10:35）
+
+| 测试 | URL | 结果 |
+|---|---|---|
+| 直连 backend | `http://127.0.0.1:8100/` | HTTP 200 (561B) |
+| 模拟子域名 Host | `Host: semantica.101.33.212.119.nip.io` @ 101.33.212.119 | HTTP 200 (561B) |
+| 真实子域名 | `http://semantica.101.33.212.119.nip.io/` | HTTP 200 (561B) |
+| 健康检查 | `/api/health` | `{"status":"ok"}` |
+| OpenAPI | `/openapi.json` | Semantica Knowledge Explorer v0.6.5，74 paths / 77 endpoints |
+
+### 11.7 ⚠️ 安全提醒
+
+backend 启动日志会打：
+
+> `Explorer is running with SEMANTICA_ALLOW_ANONYMOUS=true — all API routes are unauthenticated. Do not expose this process beyond localhost.`
+
+当前我们用了 ANONYMOUS=true 是为了 demo 用（不用 API key 也能调）。**何大人先体验，认可以后再加 auth**：
+- 关闭 ANONYMOUS：`SEMANTICA_ALLOW_ANONYMOUS=false`
+- 强制要求 `X-API-Key` header（值=`.env` 里 `SEMANTICA_API_KEY`）
+- 跟 Langfuse / Dify 那种 token-gate 思路一致
