@@ -2,10 +2,20 @@
 title: "DeepSeek 把 Harness 开源了：模型、工具、Agent Loop 全是插件"
 author: "InfoQ"
 publish_date: "2026-08-13 22:04:36"
-saved_date: "2026-08-13"
+saved_date: "2026-08-16"
 source: "wechat"
 url: "https://mp.weixin.qq.com/s/hHCpyIlDiBHSzA3TzO5LmQ"
+tags:
+  - AI-Agent-研究
+  - Harness
+  - DeepSeek
+  - Cordis
+  - 多Agent
+  - 插件架构
+  - 德勤-可借鉴
 ---
+
+# DeepSeek 把 Harness 开源了：模型、工具、Agent Loop 全是插件
 # DeepSeek 把 Harness 开源了：模型、工具、Agent Loop 全是插件
 ![](https://mmbiz.qpic.cn/mmbiz_gif/YriaiaJPb26VPQqHC66RJFpttVIMWG83T3lWHahUD4bvhxlKSayjeV2ibvC5ydqklP9QHDPD3qHJM07TV3IfHstjA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=1)
 
