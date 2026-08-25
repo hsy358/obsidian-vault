@@ -1,6 +1,6 @@
 # Research/ Index
 
-> 由 `gen_index.py` 自动生成（25 条目）。OKF 规范渐进披露。
+> 由 `gen_index.py` 自动生成（26 条目）。OKF 规范渐进披露。
 
 
 ## AI-Native / R&D
@@ -22,6 +22,7 @@
 * [Hermes Desktop — Deep Research Report](2026-06-12 - Hermes Desktop - Deep Research.md) — Hermes Desktop is a native cross-platform desktop application (macOS, Windows, L...  `research-report`
 * [Harnss — Deep Research Report](2026-06-12 - Harnss - Deep Research.md) — The project is maintained by OpenSource03 and licensed under MIT. It is built wi...  `research-report`
 * [Goose — Deep Research Report](2026-06-12 - Goose - Deep Research.md) — 1. Project Overview 2. Technical Architecture 3. All Major Features 4. The MCP E...  `research-report`
+* [OpenConnector — AI Agent 的 SaaS 工具网关（GitHub 仓库分析）](2026-08-25 - OpenConnector - GitHub 仓库分析.md) — 位于 Agent 与外部 SaaS 之间的"工具调用层 + 凭据隔离层"：通过 MCP / HTTP / SDK / CLI / OpenAPI 五种协议暴露 1000+ SaaS 的 10000+ Actions，让 Agent 调用外部应用时永远不接触明文密钥。  `github-repo-analysis · 2026-08-25`
 
 
 ## OKF / 知识工程
