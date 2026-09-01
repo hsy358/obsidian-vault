@@ -1,0 +1,641 @@
+{
+  "deck_title": "Seeing China's AI Reality",
+  "deck_subtitle": "A different path from productivity to business reinvention",
+  "deck_full_name": "China AI Environment and Business Reinvention",
+  "audience": "executives / consulting clients / LELI China",
+  "objective": "把 EY 24 页高管 deck 一比一复刻为可编辑 PPTX，保留原风格/数据/结构/金句",
+  "decision_question": "如何用工程化方式一比一复刻 EY 24 页高管 deck？",
+  "governing_message": "Prompt 编排 + pptxgenjs native shape = 一比一复刻 + 可二次编辑",
+  "style": {
+    "tone": "consulting / executive briefing",
+    "palette": "EY navy + teal",
+    "editability": "native-pptx",
+    "page_size": "16:9 (13.333in x 7.5in)"
+  },
+  "theme_tokens_ref": "theme-tokens.json",
+  "storyline_ref": "storyline.md",
+  "slides": [
+    {
+      "id": 1,
+      "type": "cover",
+      "role": "opener",
+      "eyebrow": "Executive Discussion Deck",
+      "title": "Seeing China's AI Reality",
+      "title_color": "primary",
+      "title_size": "44pt",
+      "subtitle": "A different path from productivity to business reinvention",
+      "subtitle_color": "secondary",
+      "tagline": "What has changed in China since 2024?",
+      "tagline_color": "gray_700",
+      "decorative": {
+        "right_visual": "China dot-map with Shanghai skyline silhouette + flowing curves",
+        "footer_5step": ["Productivity", "Agent", "Workflow", "Process Redesign", "Business Reinvention"]
+      },
+      "footer": {
+        "left": "Executive Discussion Deck | China AI Environment and Business Reinvention",
+        "right": "1"
+      },
+      "speaker_notes": "封面页。开场引导高管注意中国 AI 自 2024 以来发生的剧变，以及与西方的差异化路径。底部 5 步流程图预告整份 deck 的'产品力→智能体→工作流→流程再造→业务重塑'主线。"
+    },
+    {
+      "id": 2,
+      "type": "agenda",
+      "role": "navigation",
+      "title": "Agenda",
+      "title_size": "32pt",
+      "subtitle": "How the discussion will move from China's AI environment to enterprise action.",
+      "subtitle_color": "secondary",
+      "parts": [
+        {"num": 1, "title": "What Changed in China?", "desc": "环境扫描：AI 格局、规模、速度、开源、Physical AI"},
+        {"num": 2, "title": "What Changes Inside the Enterprise?", "desc": "组织变革：从工具采纳到工作流重设计"},
+        {"num": 3, "title": "What Does It Look Like in Real Business?", "desc": "实证落地：5 大行业用例"},
+        {"num": 4, "title": "What Does This Mean for LELI China?", "desc": "行动落点：优先级与管理决策"}
+      ],
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "2"},
+      "speaker_notes": "议程页。整份 deck 的论述主线：环境 → 行动（from environment to action）。每个 Part 都有明确的章节归属。"
+    },
+    {
+      "id": 3,
+      "type": "section_divider",
+      "role": "section_opener",
+      "part_label": "PART 1",
+      "title": "What Changed in China?",
+      "title_size": "36pt",
+      "subtitle": "Understanding how China's AI environment has changed since 2024.",
+      "subtitle_color": "secondary",
+      "callout": "This section looks at the scale, speed, structure, and industrial depth of China's AI environment.",
+      "callout_icon": "target",
+      "decorative": {
+        "right_visual": "流动轨迹图（多条曲线从左到右汇聚再分叉）",
+        "background": "淡蓝色细线流动轨迹 + 点阵世界地图"
+      },
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "3"},
+      "speaker_notes": "Part I 章节过渡页。本章将考察中国 AI 环境的规模 / 速度 / 结构 / 产业纵深 4 个维度。5-10 秒停留，承担'翻篇信号'作用。"
+    },
+    {
+      "id": 4,
+      "type": "data_dashboard",
+      "role": "evidence_key_metrics",
+      "title": "China's AI market is no longer the same market",
+      "title_size": "22pt",
+      "subtitle": "What changed in just two years?",
+      "subtitle_color": "secondary",
+      "data_cards": [
+        {"icon": "users", "value": "515M", "label": "GenAI Users", "time": "Jun 2025"},
+        {"icon": "gauge", "value": "36.5%", "label": "Population penetration", "time": "Jun 2025"},
+        {"icon": "network", "value": "302 → 868", "label": "Filed GenAI services", "time": "YE 2024 – Apr 2026"},
+        {"icon": "buildings", "value": "RMB 1.2T+", "label": "Core AI industry", "time": "2025"},
+        {"icon": "robot_arm", "value": "30%+", "label": "Large manufacturers using AI", "time": "2025"},
+        {"icon": "download", "value": "10B+", "label": "Open model downloads", "time": "2025"}
+      ],
+      "callouts": [
+        {"text": "AI is becoming part of China's operating environment.", "icon": "star"},
+        {"text": "China also accounted for 54% of the world's new industrial robot installations in 2024.", "icon": "robot_arm"}
+      ],
+      "decorative": {"top_right": "数据流光粒子曲线"},
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "4"},
+      "speaker_notes": "关键证据页。6 大数据卡片量化'中国 AI 市场已不同'。论证链：用户规模（5.15 亿）→ 渗透（36.5%）→ 产品供给（302→868）→ 产业规模（1.2T+）→ B 端落地（30%+ 制造商）→ 模型生态（10B+ 下载）。底部两条金句：AI 成为中国经营环境一部分 + 中国占全球新工业机器人 54%。"
+    },
+    {
+      "id": 5,
+      "type": "timeline",
+      "role": "evidence_acceleration",
+      "title": "2024 to 2026: the slope of change matters",
+      "title_size": "22pt",
+      "subtitle": "Users, services, enterprises and factories started moving together.",
+      "subtitle_color": "secondary",
+      "milestones": [
+        {"time": "YE 2024", "icon": "doc", "value": "302", "label": "Filed GenAI services", "sub": "AI core industry ~RMB 60B"},
+        {"time": "Jun 2025", "icon": "people", "value": "515M", "label": "GenAI Users", "sub": "Penetration 36.5%; +266M in 6 months"},
+        {"time": "YE 2025", "icon": "factory", "value": "748", "label": "Filed services", "sub": "AI core industry >RMB 1.2T; 30%+ manufacturers; 10B+ downloads"},
+        {"time": "Apr 2026", "icon": "rising_bars", "value": "868", "label": "Filed GenAI services", "sub": "Services near triple"}
+      ],
+      "callout": "This is not one technology moving. It is an ecosystem accelerating together.",
+      "callout_icon": "lightbulb",
+      "decorative": {"background": "水平蓝绿渐变箭头（从细到粗，从浅到深，暗示动能累积）+ 右上角多波纹粒子"},
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "5"},
+      "speaker_notes": "时间轴里程碑页。整份报告的'决定性证据页'——一条单一时间轴把 4 个看似独立的数字串成加速曲线。'slope'（斜率）暗示未来还会更陡。"
+    },
+    {
+      "id": 6,
+      "type": "loop",
+      "role": "concept_definition",
+      "title": "Velocity: China's edge is shorter learning loops",
+      "title_size": "22pt",
+      "subtitle": "Shorter business learning cycles, not just faster technology releases.",
+      "subtitle_color": "secondary",
+      "left_data": [
+        {"value": "302 → 868", "label": "Filed GenAI services (YE 2024 → Apr 2026) · 2.9× growth"},
+        {"value": "+266M", "label": "New GenAI users (Dec 2024 – Jun 2025, ~6 months)"},
+        {"value": "10B+", "label": "Open model downloads (2025)"}
+      ],
+      "center_loop_5steps": ["Discover a problem", "Build a prototype", "Deploy to real users", "Collect operational feedback", "Iterate again"],
+      "right_definition": {
+        "title": "What velocity means",
+        "items": [
+          {"icon": "lightning", "text": "Faster feedback cycles"},
+          {"icon": "money", "text": "Lower experimentation cost"},
+          {"icon": "rocket", "text": "Quicker move from idea to pilot"}
+        ]
+      },
+      "callout": "Velocity means shorter business learning cycles, not just faster technology releases.",
+      "callout_icon": "target",
+      "decorative": {"center_background": "动态波纹/粒子效果（暗示流动感）"},
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "6"},
+      "speaker_notes": "概念定义页。把'velocity'重新定义为'商业学习速度'，而非'技术速度'。5 步学习闭环图：发现→原型→部署→反馈→迭代。3 个速度含义：更快反馈 / 更低实验成本 / 更快从想法到试点。"
+    },
+    {
+      "id": 7,
+      "type": "hub_and_spoke",
+      "role": "evidence_embeddedness",
+      "title": "AI is becoming part of China's operating environment",
+      "title_size": "22pt",
+      "subtitle": "AI is no longer additional software. It is infrastructure embedded in operations.",
+      "subtitle_color": "secondary",
+      "left_consumer": [
+        {"value": "515M", "label": "GenAI users"},
+        {"value": "6,200+", "label": "AI companies"},
+        {"value": "868", "label": "Filed GenAI services"}
+      ],
+      "center_hub": "AI Operating Environment",
+      "spokes_8_scenarios": ["Customer Service", "Sales", "Supply Chain", "Manufacturing", "Finance", "Tax", "Logistics", "Employee Work"],
+      "right_industrial": [
+        {"value": "30%+", "label": "Large manufacturers using AI"},
+        {"value": "54%", "label": "Global new industrial robot installations"},
+        {"value": "2M+", "label": "Industrial robots in operation"}
+      ],
+      "callout": "Consumer + Enterprise + Industrial — AI is becoming China's new operating layer.",
+      "callout_icon": "target",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "7"},
+      "speaker_notes": "关键证据页。论证 AI 已嵌入 8 大运营场景（客户服务/销售/供应链/制造/财务/税务/物流/员工工作）。三组数据形成三角闭环：人（5.15 亿）→ 公司（6200+）→ 机器（2M+）。54% 全球占比数据特别醒目。"
+    },
+    {
+      "id": 8,
+      "type": "flow_5step",
+      "role": "evidence_opensource",
+      "title": "Open models dramatically lowered the cost of experimentation",
+      "title_size": "22pt",
+      "subtitle": "Companies no longer need to wait for a perfect enterprise AI platform before experimenting.",
+      "subtitle_color": "secondary",
+      "left_kpis": [
+        {"value": "10B+", "label": "China open model downloads (2025)"},
+        {"value": "41%", "label": "Hugging Face downloads from Chinese models (2026)"},
+        {"value": "2.06B", "label": "Qwen cumulative downloads (2026 mid)"}
+      ],
+      "center_flow_5steps": ["Model", "Open Weight", "Fine-tune / Distill", "Enterprise Deployment", "Industry Solution"],
+      "tags_below_flow": ["Lower trial cost", "Faster iteration", "More deployment choices"],
+      "right_business_impact": [
+        {"icon": "experiment", "text": "Prototype quickly"},
+        {"icon": "server", "text": "Deploy locally"},
+        {"icon": "wrench", "text": "Fine-tune for industry"},
+        {"icon": "puzzle", "text": "Choose from many models"}
+      ],
+      "examples_pills": ["Qwen", "DeepSeek", "Distillation", "Industry fine-tuning"],
+      "callout": "Open models dramatically lowered the cost of experimentation.",
+      "callout_icon": "target",
+      "decorative": {"top_right": "青色光点粒子"},
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "8"},
+      "speaker_notes": "开源改变 AI 经济性。3 个关键数据：10B+ 下载、Hugging Face 41% 占比、Qwen 累计 2.06B 下载。5 步流程：Model → Open Weight → Fine-tune → Deployment → Industry Solution。3 大收益标签：Lower trial cost / Faster iteration / More deployment choices。"
+    },
+    {
+      "id": 9,
+      "type": "3_column_framework",
+      "role": "evidence_adoption",
+      "title": "China's Agent Adoption Has Moved Beyond the Concept Stage",
+      "title_size": "22pt",
+      "subtitle": "The frontier is shifting from chatbots to workflow execution, though most companies are still early in the journey.",
+      "subtitle_color": "secondary",
+      "left_snapshot": {
+        "title": "Adoption snapshot",
+        "items": [
+          {"ring": "60%", "label": "Still in understanding, evaluation or pilot stage (IDC China)"},
+          {"ring": "18%", "label": "Integrated agents into core business workflows (IDC China / 2026)"}
+        ]
+      },
+      "center_5stage_maturity": {
+        "title": "From concept to execution",
+        "stages": ["Chatbot", "Copilot", "Agent", "Workflow", "Core Business"],
+        "bottom_bands": ["Experimentation", "Workflow Integration", "Core Business"],
+        "frontier_marker": "The frontier"
+      },
+      "right_what_changes": {
+        "title": "What changes when agents mature",
+        "items": [
+          {"icon": "tasks", "text": "Multi-step tasks"},
+          {"icon": "link", "text": "System interconnection"},
+          {"icon": "search", "text": "Retrieval and execution"},
+          {"icon": "loop", "text": "Faster feedback"},
+          {"icon": "leadership", "text": "Workflow design becomes leadership topic"}
+        ],
+        "app_areas": ["Finance", "Tax", "Customer service", "Internal IT"]
+      },
+      "callout": "The frontier has already moved from chatbot to workflow execution.",
+      "callout_icon": "quote",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "9"},
+      "speaker_notes": "60% 早期 / 18% 突破至核心业务集成。前沿从 chatbot 迁移到 workflow execution。5 阶段成熟度：Chatbot → Copilot → Agent → Workflow → Core Business。4 个应用领域：Finance / Tax / Customer service / Internal IT。"
+    },
+    {
+      "id": 10,
+      "type": "3_column_composite",
+      "role": "evidence_physical_ai",
+      "title": "For Manufacturing, China Has Another Layer: Physical AI",
+      "title_size": "22pt",
+      "subtitle": "China's AI story is increasingly connected to the physical operating system of manufacturing.",
+      "subtitle_color": "secondary",
+      "left_industrial_signals": {
+        "title": "Industrial signals",
+        "items": [
+          {"value": "295,000", "label": "New industrial robots in China (2024)"},
+          {"value": "54%", "label": "Share of global new installations"},
+          {"value": "2M+", "label": "Industrial robots in operation"},
+          {"value": "567", "label": "Robots per 10,000 manufacturing workers"}
+        ],
+        "source": "IFR / manufacturing robotics statistics"
+      },
+      "center_physical_ai_hub": {
+        "title": "What Physical AI combines",
+        "center": "Physical AI",
+        "spokes_5": [
+          {"icon": "brain", "text": "AI"},
+          {"icon": "signal", "text": "Sensor"},
+          {"icon": "database", "text": "Factory Data"},
+          {"icon": "control", "text": "Control System"},
+          {"icon": "machine", "text": "Machine"}
+        ],
+        "bottom_loop": ["Perception", "Decision", "Action", "Feedback"],
+        "tags": ["Flexible automation", "Robotic perception", "Adaptive control", "Shop-floor learning"]
+      },
+      "right_why_it_matters": {
+        "title": "Why it matters",
+        "items": [
+          "Moves AI beyond chat and dashboards",
+          "Connects digital intelligence with physical work",
+          "Makes China a large real-world testbed",
+          "Accelerates iteration through factory deployment",
+          "Strengthens the link between AI and manufacturing competitiveness"
+        ],
+        "highlight_box": "China is not only an AI market. It is also a large-scale industrial experimentation environment."
+      },
+      "callout": "China's AI story is not only about chatbots. It is increasingly connected to the physical operating system of manufacturing.",
+      "callout_icon": "quote",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "10"},
+      "speaker_notes": "Physical AI 把感知→决策→行动→反馈闭环嵌入物理操作系统。中央 5 节点放射图（AI/Sensor/Factory Data/Control System/Machine）+ 水平闭环（Perception→Decision→Action→Feedback）。中国占全球新工业机器人 54%。"
+    },
+    {
+      "id": 11,
+      "type": "section_divider",
+      "role": "section_opener",
+      "part_label": "PART 2",
+      "title": "What Changes Inside the Enterprise?",
+      "title_size": "36pt",
+      "subtitle": "From tool adoption to workflow redesign, context, and business reinvention.",
+      "subtitle_color": "secondary",
+      "callout": "The real proposition is no longer 'what can AI do' but 'what does AI change inside the enterprise'.",
+      "callout_icon": "target",
+      "decorative": {"right_visual": "办公楼建筑线描 + AI 力量辐射弧线"},
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "11"},
+      "speaker_notes": "Part II 章节过渡页。讨论重心从外部能力转向内部转型。"
+    },
+    {
+      "id": 12,
+      "type": "framework_5stage",
+      "role": "core_framework",
+      "title": "From Tool Adoption to Business Reinvention",
+      "title_size": "22pt",
+      "subtitle": "The real AI transformation starts when the workflow changes.",
+      "subtitle_color": "secondary",
+      "stages_5": [
+        {"num": 1, "name": "Copilot", "desc": "Writing, summarizing, searching"},
+        {"num": 2, "name": "Agent", "desc": "Performs a chain of related tasks"},
+        {"num": 3, "name": "Workflow", "desc": "Connects systems, data, and actions"},
+        {"num": 4, "name": "Process Redesign", "desc": "Removes unnecessary steps"},
+        {"num": 5, "name": "Organization Redesign", "desc": "Changes roles, approvals, accountability"}
+      ],
+      "left_what_changes": {
+        "title": "What changes",
+        "items": [
+          "From assisting the worker",
+          "To performing the work",
+          "To redesigning the way work gets done"
+        ]
+      },
+      "right_why_it_matters": {
+        "title": "Why it matters",
+        "items": [
+          "Value moves beyond productivity",
+          "Management decisions get closer to operations",
+          "Process design becomes strategic",
+          "Operating model becomes the real transformation target"
+        ]
+      },
+      "callout": "AI is moving from tools into workflows, processes, and organizational design.",
+      "callout_icon": "target",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "12"},
+      "speaker_notes": "整份 deck 的核心理论框架页。5 阶段递进：Copilot → Agent → Workflow → Process Redesign → Organization Redesign。越深入到组织层面变革，AI 战略价值越大。"
+    },
+    {
+      "id": 13,
+      "type": "core_foundation",
+      "role": "framework_moat",
+      "title": "Core Foundation: Context",
+      "title_size": "22pt",
+      "subtitle": "Models may become widely available. Context, integration, and execution determine the real advantage.",
+      "subtitle_color": "secondary",
+      "model_layer_5": ["GPT", "Claude", "DeepSeek", "Qwen", "Other open / industry models"],
+      "context_12_assets": [
+        "Customer data", "Transaction data", "Financial data", "Process rules", "Historical decisions", "Product knowledge",
+        "Supply chain relationships", "Local market experience", "Risk boundaries", "Codebase & system architecture", "APIs & integrations", "Permissions & data access rules"
+      ],
+      "right_arrow_chain": [
+        {"stage": "Integration", "items": ["Data integration", "System integration", "API orchestration", "Unified semantics", "Governance"]},
+        {"stage": "Execution", "items": ["Safety by design", "Observability", "Quality & security", "Continuous improvement", "Operational excellence"]},
+        {"stage": "Business Value", "items": ["Revenue growth", "Cost efficiency", "Risk reduction", "Customer experience", "Strategic resilience"]}
+      ],
+      "bottom_flow_5step": ["Model", "Context", "Integration", "Execution", "Business Value"],
+      "callout": "Models may become widely available. Context, integration, and execution determine the real advantage.",
+      "callout_icon": "target",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "13"},
+      "speaker_notes": "全 deck 方法论价值最高的页面。'Context' 是真正的护城河——12 类企业核心资产。从模型到商业价值需经过：模型 → Context → Integration → Execution → Business Value，缺一环价值转化就断裂。"
+    },
+    {
+      "id": 14,
+      "type": "section_divider",
+      "role": "section_opener",
+      "part_label": "PART 3",
+      "title": "What Does It Look Like in Real Business?",
+      "title_size": "36pt",
+      "subtitle": "Turning abstract capabilities into concrete business impact.",
+      "subtitle_color": "secondary",
+      "callout": "This section covers: Finance, Tax, Proactive Insight, AI Coding, Manufacturing.",
+      "callout_icon": "target",
+      "decorative": {"right_visual": "办公楼线描 + 多条青色弧形箭头汇聚"},
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "14"},
+      "speaker_notes": "Part III 章节过渡页。从'框架/能力'转向'真实业务案例'。5 大行业：Finance / Tax / Proactive Insight / AI Coding / Manufacturing。"
+    },
+    {
+      "id": 15,
+      "type": "case_study_3col",
+      "role": "case_study_finance",
+      "title": "Business Case 1: Finance Reporting Agent",
+      "title_size": "22pt",
+      "subtitle": "From producing reports to helping management understand business changes faster.",
+      "subtitle_color": "secondary",
+      "left_traditional_flow_7": ["ERP / Excel / BI", "Manual data extraction", "Manual reconciliation", "Manual report preparation", "Manual commentary", "Management review", "Management asks follow-up questions"],
+      "middle_ai_flow_7": ["Financial data + business context", "Finance Agent", "Automatic report generation", "Variance analysis", "Anomaly identification", "AI explanation of drivers", "Management can directly ask questions and trace underlying business factors"],
+      "right_qa_example": {
+        "question": "Why did China gross margin decline last month?",
+        "drivers_8_icons": ["Sales volume", "Product mix", "Customer/channel mix", "Procurement cost", "Discount", "FX", "Production cost", "Inventory & supply chain"],
+        "value_metrics_3": ["Faster monthly reporting", "Shorter explanation cycle", "Management closer to business reality"]
+      },
+      "callout": "The value is not only faster reporting. It is bringing management closer to the business reality.",
+      "callout_icon": "target",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "15"},
+      "speaker_notes": "财务报告智能体。左侧 7 步传统流程 vs 中间 7 步 AI 流程（Finance Agent 高亮）。右侧问答示例：为何中国毛利率下降？→ 8 个驱动因素 + 3 大价值。"
+    },
+    {
+      "id": 16,
+      "type": "case_study_compare",
+      "role": "case_study_tax",
+      "title": "Business Case 2: Tax Agent",
+      "title_size": "22pt",
+      "subtitle": "From tax processing to risk identification, expert judgment, and business support.",
+      "subtitle_color": "secondary",
+      "left_traditional_flow_6": ["Contract / Invoice / Policy / Transaction data", "Manual checking", "Manual reconciliation", "Manual classification", "Manual filing preparation", "Tax team answers follow-up questions"],
+      "middle_ai_flow_8": ["Contracts + invoices + policy + transaction context", "Tax Agent", "Contract understanding", "Invoice recognition", "Policy matching", "Transaction classification", "Exception detection", "Risk alerts", "Preparation support"],
+      "right_human_judgment_6": [
+        {"icon": "scale", "text": "Complex judgment"},
+        {"icon": "warning", "text": "Risk trade-offs"},
+        {"icon": "chat", "text": "Business communication"},
+        {"icon": "edit", "text": "Transaction design"},
+        {"icon": "user", "text": "Management advice"},
+        {"icon": "link", "text": "Cross-functional coordination"}
+      ],
+      "value_metrics_3": ["Less repetitive processing", "Faster issue identification", "Higher-value tax expertise"],
+      "callout": "AI does not replace tax expertise. It changes where tax expertise creates value.",
+      "callout_icon": "target",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "16"},
+      "speaker_notes": "税务智能体。左侧 6 步传统流程 vs 中间 8 步 AI 流程。右侧 6 个人类高价值判断场景。AI 不替代税务专长，而是重新定位其价值到复杂判断 / 风险权衡 / 业务沟通等高价值领域。"
+    },
+    {
+      "id": 17,
+      "type": "case_study_3col",
+      "role": "case_study_proactive",
+      "title": "Business Case 3: From Reporting to Proactive Insight",
+      "title_size": "22pt",
+      "subtitle": "AI moves from answering questions to identifying issues, explaining causes, and supporting action.",
+      "subtitle_color": "secondary",
+      "left_traditional_mode_5": ["Ask questions", "Generate report", "Manual analysis", "Issue identification", "Delayed action"],
+      "middle_ai_proactive_6": ["Detect", "Explain", "Assign", "Suggest", "Track", "Learn"],
+      "right_7_issues_ai_can_surface": ["Margin decline", "Supplier price anomaly", "Rising DSO", "Budget deviation", "Inventory turnover issue", "Regional sales anomaly", "Tax treatment inconsistency"],
+      "value_metrics_3": ["Faster response", "Better issue visibility", "From questions to action"],
+      "callout": "AI moves from answering questions to finding problems and supporting action.",
+      "callout_icon": "target",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "17"},
+      "speaker_notes": "主动洞察智能体。AI 从被动回答问题转向主动发现问题、解释成因、支持行动。6 步流程：Detect → Explain → Assign → Suggest → Track → Learn。7 类 AI 可识别问题。"
+    },
+    {
+      "id": 18,
+      "type": "case_study_3col_kpi",
+      "role": "case_study_coding",
+      "title": "Business Case 4: AI Coding in China",
+      "title_size": "22pt",
+      "subtitle": "From code assistance to faster internal applications and business automation.",
+      "subtitle_color": "secondary",
+      "left_why_accelerating_5": ["More local model choices", "Lower prototyping cost", "Faster app development", "Business demand for internal tools", "Natural-language programming"],
+      "middle_how_ai_coding_used": {
+        "center": "Coding Agent",
+        "above_3": ["Code generation & completion", "Test case generation", "Code review"],
+        "below_3": ["Documentation", "API integration / automation scripts", "Internal tools & analytics apps"]
+      },
+      "right_business_implications_5": ["Shorter demand-to-prototype cycle", "Lower cost of building internal tools", "More self-service automation", "Developer role shifts to review and architecture", "Governance and security become critical"],
+      "kpi_2": [
+        {"value": "43%+", "label": "of Baidu's new daily code is AI-generated"},
+        {"value": "10M+", "label": "developers served", "sub": "10,000+ enterprises"}
+      ],
+      "kpi_note": "Note: Public / vendor-reported figures.",
+      "callout": "AI coding is lowering the cost of turning business needs into working applications.",
+      "callout_icon": "dartboard",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "18"},
+      "speaker_notes": "AI 编程。百度新增每日代码中 43%+ AI 生成；服务 10M+ 开发者 / 10,000+ 企业。三栏叙事：Why 加速 → How 使用（中央 Coding Agent 上下 6 步）→ 业务影响。"
+    },
+    {
+      "id": 19,
+      "type": "case_study_3col_loop",
+      "role": "case_study_manufacturing",
+      "title": "Business Case 5: AI in Manufacturing",
+      "title_size": "22pt",
+      "subtitle": "From detecting problems to creating a closed loop between sensing, decision, and production improvement.",
+      "subtitle_color": "secondary",
+      "left_signals_5": ["Machine data", "Vision inspection", "Process parameters", "Quality records", "Shop-floor events"],
+      "middle_closed_loop_6": ["Sense", "Detect", "Explain", "Adjust", "Feedback", "Continuous improvement"],
+      "middle_ai_capabilities_4": ["AI vision inspection", "Root-cause analysis", "Process optimization", "Predictive intervention"],
+      "right_3_kpis": [
+        {"value": "99.98%", "label": "Inspection accuracy"},
+        {"value": "+275%", "label": "Per-capita productivity"},
+        {"value": "Faster", "label": "Quality feedback to production"}
+      ],
+      "illustrative_note": "Illustrative public case from China's industrial AI deployment.",
+      "callout": "The next step is not only better inspection. It is closing the loop between detection, decision, and production.",
+      "callout_icon": "target",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "19"},
+      "speaker_notes": "AI 制造。视觉检测 99.98% 准确率，人均生产率提升 275%。6 节点闭环：Sense → Detect → Explain → Adjust → Feedback → Continuous Improvement。4 大 AI 能力：视觉检测 / 根因分析 / 工艺优化 / 预测干预。"
+    },
+    {
+      "id": 20,
+      "type": "section_divider",
+      "role": "section_opener",
+      "part_label": "PART 4",
+      "title": "What Does This Mean for LELI China?",
+      "title_size": "36pt",
+      "subtitle": "Turning China's AI reality into management choices and action.",
+      "subtitle_color": "secondary",
+      "callout": "The focus now shifts from understanding AI to choosing where LELI China should move first.",
+      "callout_icon": "target",
+      "decorative": {"right_visual": "3 栋蓝色线框建筑 + 多条青色曲线汇聚指向建筑"},
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "20"},
+      "speaker_notes": "Part IV 章节过渡页。从'分析'转向'行动'。后续内容聚焦'LELI 中国应优先从哪里着手'。"
+    },
+    {
+      "id": 21,
+      "type": "action_roadmap_8step",
+      "role": "action_framework",
+      "title": "Enterprise Action: From Tool Trial to Business Redesign",
+      "title_size": "22pt",
+      "subtitle": "A practical path for moving from scattered AI use cases to measurable business transformation.",
+      "subtitle_color": "secondary",
+      "steps_8": [
+        {"num": 1, "title": "Identify high-value use cases", "desc": "Prioritize processes with clear pain points and usable data"},
+        {"num": 2, "title": "Move from Copilot to Agent", "desc": "From assistance to connecting tasks, systems and accountable owners"},
+        {"num": 3, "title": "Redesign workflows, not just tasks", "desc": "Rethink data flow, approval, cross-functional collaboration"},
+        {"num": 4, "title": "Build enterprise context", "desc": "Turn business data / rules / experience into AI-ready knowledge"},
+        {"num": 5, "title": "Balance global standards with local practice", "desc": "Global governance + China local experimentation in parallel"},
+        {"num": 6, "title": "Establish AI coding governance", "desc": "Clarify security, IP, testing, release rules"},
+        {"num": 7, "title": "Measure business value", "desc": "Track cycle / cost / quality / risk / revenue"},
+        {"num": 8, "title": "Manage two kinds of risk", "desc": "Manage both 'risk of using AI' and 'risk of moving too slowly'"}
+      ],
+      "pilot_metrics_8": ["Usage rate", "Active users", "Task time", "Human intervention", "Error rate", "Business volume", "Cost savings", "Scale-up cycle"],
+      "callout": "The goal is not more AI tools. It is redesigning how value is created, governed, and scaled.",
+      "callout_icon": "target",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "21"},
+      "speaker_notes": "8 步行动框架 + 8 项试点指标。从识别高价值用例 → Copilot 到 Agent → 重设计工作流 → 构建企业 Context → 平衡全球标准与中国速度 → AI Coding 治理 → 衡量业务价值 → 管理两类风险。"
+    },
+    {
+      "id": 22,
+      "type": "questions_3col",
+      "role": "decision_framework",
+      "title": "Three Questions for LELI China",
+      "title_size": "22pt",
+      "subtitle": "Turning AI discussion into priority-setting for the China business.",
+      "subtitle_color": "secondary",
+      "questions_3": [
+        {
+          "num": 1,
+          "title": "Workflow Redesign",
+          "main": "Where should China redesign workflows rather than simply add another tool?",
+          "sub_questions": [
+            "Which processes are still manual?",
+            "Where are decisions slowed by fragmented data?",
+            "Which approval steps may no longer be necessary?"
+          ],
+          "icon": "flow"
+        },
+        {
+          "num": 2,
+          "title": "Global Standards vs China Speed",
+          "main": "How should LELI combine global standards with China speed and market reality?",
+          "sub_questions": [
+            "What must stay globally governed?",
+            "Where should local experimentation be allowed?",
+            "How can risk control coexist with faster iteration?"
+          ],
+          "icon": "globe_speed"
+        },
+        {
+          "num": 3,
+          "title": "Pilot Areas",
+          "main": "Which areas should LELI China explore first?",
+          "candidates_4": ["Finance and Tax", "Sales and Customer Service", "Supply Chain and Manufacturing", "AI Coding and Internal Tools"],
+          "icon": "target"
+        }
+      ],
+      "follow_up_4": [
+        "What can China pilot first?",
+        "What can later scale globally?",
+        "What data should be prepared first?",
+        "How will success be measured?"
+      ],
+      "callout": "The most important next step is not to discuss AI in general. It is to choose where LELI China should move first.",
+      "callout_icon": "target",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "22"},
+      "speaker_notes": "3 大决策问题。Workflow Redesign / Global Standards vs China Speed / Pilot Areas。每问都有 3 个子问题 + 候选领域 + 后续追问。最重要：金句'不是讨论 AI 本身，而是选择从哪里开始行动'。"
+    },
+    {
+      "id": 23,
+      "type": "judgments_3col",
+      "role": "closing_summary",
+      "title": "Three Key Judgments",
+      "title_size": "22pt",
+      "subtitle": "What Thomas should take away from this discussion about China's AI reality",
+      "subtitle_color": "secondary",
+      "judgments_3": [
+        {
+          "icon": "globe",
+          "title": "China is developing its own path",
+          "main": "China is not simply following a global AI playbook. It is developing its own path of adoption.",
+          "support": "The environment is shaped by open models, rapid experimentation, manufacturing depth, and business integration."
+        },
+        {
+          "icon": "rising_bars",
+          "title": "Distinctive combination of advantages",
+          "main": "China's distinctive feature is the combination of speed, scale, market integration, and business experimentation.",
+          "support": "What matters is not only model capability, but the shorter loop from technology to real business use."
+        },
+        {
+          "icon": "brain_chip",
+          "title": "AI is moving beyond productivity tools",
+          "main": "AI is moving from productivity tools into workflows, decisions, software development, and organizational design.",
+          "support": "The real management question is no longer whether AI can help. It is what should change inside the enterprise."
+        }
+      ],
+      "bottom_flow_3stage": ["Productivity", "Workflow", "Reinvention"],
+      "callout": "The next question is not whether AI will change the business. It is how deliberately, measurably, and how quickly we choose to shape that change.",
+      "callout_icon": "target",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "23"},
+      "speaker_notes": "3 大关键判断。1）中国走自己的路径（开源+快速迭代+制造深度+业务整合）。2）独特优势是速度+规模+整合+实验组合。3）AI 从工具走向工作流/决策/软件开发/组织设计。底部 3 阶段进阶：Productivity → Workflow → Reinvention。"
+    },
+    {
+      "id": 24,
+      "type": "closing_challenge",
+      "role": "closing",
+      "title": "The Management Challenge Ahead",
+      "title_size": "32pt",
+      "subtitle": "Balancing global governance, China speed, and enterprise redesign.",
+      "subtitle_color": "secondary",
+      "three_forces": [
+        {
+          "name": "Global Governance",
+          "items": ["Security", "Compliance", "Architecture", "Control"]
+        },
+        {
+          "name": "China Speed",
+          "items": ["Experimentation", "Customer expectations", "Local competition", "Iteration"]
+        },
+        {
+          "name": "Enterprise Redesign",
+          "items": ["Workflow", "Context", "Decision-making", "Operating model"]
+        }
+      ],
+      "center_convergence": "Management Agenda",
+      "right_4_discussion_questions": [
+        "What should China do first?",
+        "What must remain globally standardized?",
+        "Where should AI remain supervised by humans?",
+        "How will value and risk both be measured?"
+      ],
+      "callout": "The challenge is not only to adopt AI. It is to redesign the business deliberately while managing both action risk and inaction risk.",
+      "callout_icon": "target",
+      "footer": {"left": "Executive Discussion Deck | China AI Environment and Business Reinvention", "right": "24"},
+      "speaker_notes": "管理挑战收尾页。3 股力量汇聚到 Management Agenda：Global Governance / China Speed / Enterprise Redesign。4 个高管讨论问题 + 收尾金句（action risk vs inaction risk）。"
+    }
+  ]
+}

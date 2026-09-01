@@ -1,0 +1,221 @@
+{
+  "$schema": "ThemeTokens v1.0 — ppt-master standard",
+  "meta": {
+    "name": "EY Executive Discussion Deck — China AI Reality",
+    "description": "EY 安永 Executive Discussion Deck 风格 — 深海军蓝 + teal 青色 + 衬线大标题，16:9 宽屏",
+    "audience": "executives / consulting clients / LELI China",
+    "created_at": "2026-09-01",
+    "based_on": "EY Seeing China's AI Reality 24P PDF"
+  },
+  "colors": {
+    "primary": {
+      "value": "#1B2D5C",
+      "usage": "主色 — 标题、强调、关键图表、key bullet"
+    },
+    "secondary": {
+      "value": "#00A3B4",
+      "usage": "辅色 — 副标题、AI 标签条、强调装饰线"
+    },
+    "accent": {
+      "value": "#1E5BA8",
+      "usage": "强调色 — callout 高亮框、KPI 描边、数据点"
+    },
+    "neutral": {
+      "black": "#000000",
+      "white": "#FFFFFF",
+      "gray_900": "#1F2937",
+      "gray_700": "#374151",
+      "gray_500": "#6B7280",
+      "gray_300": "#D1D5DB",
+      "gray_100": "#F3F4F6",
+      "off_white": "#F9FCFF",
+      "very_light_blue": "#E8F0F8"
+    },
+    "background": {
+      "light": "#FFFFFF",
+      "dark": "#0F1A3A",
+      "subtle": "#F9FCFF",
+      "card": "#FFFFFF",
+      "card_alt": "#FBFDFF"
+    }
+  },
+  "typography": {
+    "primary_font_en": {
+      "value": "Calibri",
+      "fallback": "Arial, sans-serif",
+      "usage": "英文正文/标题"
+    },
+    "primary_font_zh": {
+      "value": "Microsoft YaHei",
+      "fallback": "PingFang SC, sans-serif",
+      "usage": "中文正文/标题"
+    },
+    "serif_font": {
+      "value": "Georgia",
+      "fallback": "Times New Roman, serif",
+      "usage": "EY 风格大标题（衬线）"
+    },
+    "title_size": {
+      "cover_main": "44pt",
+      "cover_sub": "20pt",
+      "section": "32pt",
+      "page": "22pt",
+      "page_sub": "14pt"
+    },
+    "body_size": {
+      "large": "18pt",
+      "normal": "13pt",
+      "small": "11pt",
+      "footnote": "9pt",
+      "data_big": "32pt",
+      "data_huge": "44pt"
+    },
+    "line_height": 1.4
+  },
+  "spacing": {
+    "page_margin": {
+      "top": "0.4in",
+      "bottom": "0.4in",
+      "left": "0.5in",
+      "right": "0.5in"
+    },
+    "title_zone_height": "1.0in",
+    "footer_zone_height": "0.3in",
+    "grid": {
+      "columns": 12,
+      "gutter": "0.15in"
+    },
+    "section_gap": "0.2in"
+  },
+  "shapes": {
+    "card": {
+      "border_radius": "0.05in",
+      "border_width": "0.75pt",
+      "shadow": "subtle (5% opacity)"
+    },
+    "arrow": {
+      "width": "1.5pt",
+      "head_size": "0.08in"
+    },
+    "badge": {
+      "padding": "0.04in 0.12in",
+      "border_radius": "0.04in"
+    },
+    "kpi_circle": {
+      "border_radius": "0.5in",
+      "border_width": "1.5pt"
+    }
+  },
+  "logo": {
+    "primary": "<无 EY logo，复刻时使用文字 'Executive Discussion Deck' 占位>",
+    "favicon": "<N/A>",
+    "footer_text": "Executive Discussion Deck | China AI Environment and Business Reinvention",
+    "page_number_position": "right",
+    "part_label_position": "left"
+  },
+  "page_types": {
+    "cover": {
+      "layout": "left_text_right_visual",
+      "title_size": "44pt",
+      "title_color": "primary",
+      "background": "white",
+      "decorative_elements": ["dot_map_china", "shanghai_skyline", "flowing_curves", "5_step_footer"]
+    },
+    "agenda": {
+      "layout": "two_column_quadrant",
+      "title_size": "32pt",
+      "title_color": "primary",
+      "background": "white"
+    },
+    "section_divider": {
+      "layout": "left_text_right_decorative",
+      "title_size": "36pt",
+      "title_color": "primary",
+      "decorative_elements": ["part_label", "decorative_line", "subtle_dot_map"]
+    },
+    "data_dashboard": {
+      "layout": "2x3_grid_cards",
+      "title_size": "22pt",
+      "data_number_size": "36pt",
+      "card_style": "white_with_icon"
+    },
+    "timeline": {
+      "layout": "horizontal_4_milestones",
+      "milestone_size": "1.0in",
+      "connector": "gradient_arrow"
+    },
+    "loop": {
+      "layout": "5_node_circular",
+      "node_size": "0.8in",
+      "connector": "curved_arrows"
+    },
+    "hub_and_spoke": {
+      "layout": "center_with_radial_spokes",
+      "center_size": "1.4in",
+      "spoke_size": "0.7in"
+    },
+    "flow": {
+      "layout": "horizontal_5_step",
+      "step_size": "1.5in x 1.0in"
+    },
+    "framework": {
+      "layout": "horizontal_5_stage",
+      "stage_size": "1.3in x 2.5in"
+    },
+    "case_study": {
+      "layout": "3_column_compare",
+      "column_width": "equal"
+    },
+    "action_roadmap": {
+      "layout": "2x4_grid_cards",
+      "title_size": "22pt"
+    },
+    "questions": {
+      "layout": "3_column_cards_with_subquestions",
+      "title_size": "22pt"
+    },
+    "judgments": {
+      "layout": "3_column_cards",
+      "title_size": "22pt"
+    },
+    "closing": {
+      "layout": "centered_with_3_converging_arrows",
+      "title_size": "32pt"
+    }
+  },
+  "chart_style": {
+    "color_palette": ["#1B2D5C", "#00A3B4", "#1E5BA8", "#374151"],
+    "grid": "minimal (only baseline)",
+    "data_labels": "show on key values",
+    "font_size": "11pt"
+  },
+  "speaker_notes": {
+    "required": true,
+    "min_length_per_slide": "20-50 字",
+    "tone": "executive briefing, structured"
+  },
+  "icons": {
+    "style": "linear_outline",
+    "primary_color": "primary",
+    "accent_color": "secondary",
+    "stroke_width": "1.2pt"
+  },
+  "decorative_elements": {
+    "dot_map_world": {
+      "color": "#E8F0F8",
+      "opacity": "30%",
+      "position": "background"
+    },
+    "flowing_curves": {
+      "color": "secondary",
+      "opacity": "50%",
+      "count": "3-5",
+      "style": "bezier"
+    },
+    "gradient_arrows": {
+      "from": "primary",
+      "to": "secondary",
+      "style": "linear_gradient"
+    }
+  }
+}
