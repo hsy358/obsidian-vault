@@ -25,8 +25,12 @@ async function main() {
     const slide = pptx.addSlide();
     slide.background = { color: "FFFFFF" };
 
-    // 底图（覆盖整页）
-    const bgPath = path.join(PAGES_DIR, page.background);
+    // 底图（覆盖整页）—— 自动尝试 png/jpg
+    let bgPath = path.join(PAGES_DIR, page.background);
+    if (!fs.existsSync(bgPath)) {
+      const jpgPath = bgPath.replace(/\.png$/i, ".jpg");
+      if (fs.existsSync(jpgPath)) bgPath = jpgPath;
+    }
     if (fs.existsSync(bgPath)) {
       slide.addImage({
         path: bgPath,
@@ -35,7 +39,7 @@ async function main() {
         h: ps.height,
       });
     } else {
-      console.warn(`⚠️ p${page.id}: 底图 ${bgPath} 不存在`);
+      console.warn(`⚠️ p${page.id}: 底图不存在`);
     }
 
     // 仅在底图外的安全位置加 native text（如编辑标记）
