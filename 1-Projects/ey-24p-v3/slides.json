@@ -1,0 +1,224 @@
+{
+  "deck_title": "Seeing China's AI Reality",
+  "deck_full_name": "China AI Environment and Business Reinvention",
+  "publisher": "EY 安永",
+  "strategy": "方案 B：原 PDF 渲染 PNG 作为底图 + native text 覆盖关键文字（标题/数据/金句）",
+  "pages_dir": "pages_jpg",
+  "page_size": {"width": 13.333, "height": 7.5},
+  "slides": [
+    {
+      "id": 1,
+      "type": "cover",
+      "background": "p01.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 1.5, "w": 7, "h": 1.2, "text": "Seeing China's AI Reality", "size": 36, "bold": true, "color": "1B2D5C", "font": "serif"}
+      ]
+    },
+    {
+      "id": 2,
+      "type": "agenda",
+      "background": "p02.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.4, "w": 12, "h": 0.8, "text": "Agenda", "size": 32, "bold": true, "color": "1B2D5C", "font": "serif"}
+      ]
+    },
+    {
+      "id": 3,
+      "type": "section_divider",
+      "background": "p03.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 2.2, "w": 8, "h": 1.5, "text": "What Changed in China?", "size": 36, "bold": true, "color": "1B2D5C", "font": "serif"}
+      ]
+    },
+    {
+      "id": 4,
+      "type": "data_dashboard",
+      "background": "p04.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "China's AI market is no longer the same market", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 0.95, "w": 12, "h": 0.4, "text": "What changed in just two years?", "size": 14, "italic": true, "color": "00A3B4"},
+        {"x": 0.5, "y": 5.4, "w": 6, "h": 0.7, "text": "AI is becoming part of China's operating environment.", "size": 11, "bold": true, "color": "1B2D5C"},
+        {"x": 6.7, "y": 5.4, "w": 6, "h": 0.7, "text": "China also accounted for 54% of the world's new industrial robot installations in 2024.", "size": 11, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 5,
+      "type": "timeline",
+      "background": "p05.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "2024 to 2026: the slope of change matters", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 0.95, "w": 12, "h": 0.4, "text": "Users, services, enterprises and factories started moving together.", "size": 14, "italic": true, "color": "00A3B4"},
+        {"x": 0.5, "y": 6.4, "w": 12, "h": 0.5, "text": "This is not one technology moving. It is an ecosystem accelerating together.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 6,
+      "type": "loop",
+      "background": "p06.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "Velocity: China's edge is shorter learning loops", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.4, "w": 12, "h": 0.5, "text": "Velocity means shorter business learning cycles, not just faster technology releases.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 7,
+      "type": "hub_and_spoke",
+      "background": "p07.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "AI is becoming part of China's operating environment", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.4, "w": 12, "h": 0.5, "text": "Consumer + Enterprise + Industrial — AI is becoming China's new operating layer.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 8,
+      "type": "flow_5step",
+      "background": "p08.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "Open models dramatically lowered the cost of experimentation", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.0, "w": 12, "h": 0.5, "text": "Open models dramatically lowered the cost of experimentation.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 9,
+      "type": "agent_adoption",
+      "background": "p09.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "China's Agent Adoption Has Moved Beyond the Concept Stage", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.4, "w": 12, "h": 0.5, "text": "The frontier has already moved from chatbot to workflow execution.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 10,
+      "type": "physical_ai",
+      "background": "p10.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "For Manufacturing, China Has Another Layer: Physical AI", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.5, "w": 12, "h": 0.5, "text": "China's AI story is not only about chatbots. It is increasingly connected to the physical operating system of manufacturing.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 11,
+      "type": "section_divider",
+      "background": "p11.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 2.2, "w": 8, "h": 1.5, "text": "What Changes Inside the Enterprise?", "size": 36, "bold": true, "color": "1B2D5C", "font": "serif"}
+      ]
+    },
+    {
+      "id": 12,
+      "type": "framework_5stage",
+      "background": "p12.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "From Tool Adoption to Business Reinvention", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.5, "w": 12, "h": 0.5, "text": "AI is moving from tools into workflows, processes, and organizational design.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 13,
+      "type": "core_foundation",
+      "background": "p13.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "Core Foundation: Context", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 0.95, "w": 12, "h": 0.4, "text": "Models may become widely available. Context, integration, and execution determine the real advantage.", "size": 14, "italic": true, "color": "00A3B4"},
+        {"x": 0.5, "y": 6.6, "w": 12, "h": 0.5, "text": "Models may become widely available. Context, integration, and execution determine the real advantage.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 14,
+      "type": "section_divider",
+      "background": "p14.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 2.2, "w": 8, "h": 1.5, "text": "What Does It Look Like in Real Business?", "size": 36, "bold": true, "color": "1B2D5C", "font": "serif"}
+      ]
+    },
+    {
+      "id": 15,
+      "type": "case_study",
+      "background": "p15.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "Business Case 1: Finance Reporting Agent", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.4, "w": 12, "h": 0.5, "text": "The value is not only faster reporting. It is bringing management closer to the business reality.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 16,
+      "type": "case_study",
+      "background": "p16.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "Business Case 2: Tax Agent", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.4, "w": 12, "h": 0.5, "text": "AI does not replace tax expertise. It changes where tax expertise creates value.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 17,
+      "type": "case_study",
+      "background": "p17.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "Business Case 3: From Reporting to Proactive Insight", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.4, "w": 12, "h": 0.5, "text": "AI moves from answering questions to finding problems and supporting action.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 18,
+      "type": "case_study_kpi",
+      "background": "p18.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "Business Case 4: AI Coding in China", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.0, "w": 12, "h": 0.5, "text": "AI coding is lowering the cost of turning business needs into working applications.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 19,
+      "type": "case_study_manufacturing",
+      "background": "p19.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "Business Case 5: AI in Manufacturing", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.5, "w": 12, "h": 0.5, "text": "The next step is not only better inspection. It is closing the loop between detection, decision, and production.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 20,
+      "type": "section_divider",
+      "background": "p20.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 2.2, "w": 8, "h": 1.5, "text": "What Does This Mean for LELI China?", "size": 36, "bold": true, "color": "1B2D5C", "font": "serif"}
+      ]
+    },
+    {
+      "id": 21,
+      "type": "action_8step",
+      "background": "p21.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "Enterprise Action: From Tool Trial to Business Redesign", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 5.7, "w": 12, "h": 0.5, "text": "The goal is not more AI tools. It is redesigning how value is created, governed, and scaled.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 22,
+      "type": "questions_3col",
+      "background": "p22.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "Three Questions for LELI China", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.5, "w": 12, "h": 0.5, "text": "The most important next step is not to discuss AI in general. It is to choose where LELI China should move first.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 23,
+      "type": "judgments_3col",
+      "background": "p23.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.25, "w": 12, "h": 0.7, "text": "Three Key Judgments", "size": 22, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.5, "w": 12, "h": 0.5, "text": "The next question is not whether AI will change the business. It is how deliberately, measurably, and how quickly we choose to shape that change.", "size": 11, "bold": true, "color": "1B2D5C"}
+      ]
+    },
+    {
+      "id": 24,
+      "type": "closing",
+      "background": "p24.png",
+      "text_overlays": [
+        {"x": 0.5, "y": 0.5, "w": 12, "h": 0.8, "text": "The Management Challenge Ahead", "size": 32, "bold": true, "color": "1B2D5C", "font": "serif"},
+        {"x": 0.5, "y": 6.0, "w": 12, "h": 0.7, "text": "The challenge is not only to adopt AI. It is to redesign the business deliberately while managing both action risk and inaction risk.", "size": 12, "bold": true, "color": "1B2D5C"}
+      ]
+    }
+  ]
+}
