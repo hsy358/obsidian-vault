@@ -1,0 +1,149 @@
+{
+  "$schema": "ThemeTokens v1.0 — image-to-editable-ppt standard",
+  "meta": {
+    "name": "<theme-name>",
+    "description": "<主题描述>",
+    "audience": "<目标读者>",
+    "created_at": "YYYY-MM-DD",
+    "based_on": "<原图/PDF 来源>"
+  },
+  "colors": {
+    "primary": {
+      "value": "#1B2D5C",
+      "usage": "主色 — 标题、强调、关键图表（深海军蓝，EY 风格）"
+    },
+    "secondary": {
+      "value": "#00A3B4",
+      "usage": "辅色 — 副标题、AI 标签条、强调装饰线（teal 青色）"
+    },
+    "accent": {
+      "value": "#1E5BA8",
+      "usage": "强调色 — callout 高亮框、KPI 描边"
+    },
+    "neutral": {
+      "black": "#000000",
+      "white": "#FFFFFF",
+      "gray_900": "#1F2937",
+      "gray_700": "#374151",
+      "gray_500": "#6B7280",
+      "gray_300": "#D1D5DB",
+      "gray_100": "#F3F4F6",
+      "off_white": "#F9FCFF",
+      "very_light_blue": "#E8F0F8"
+    },
+    "background": {
+      "light": "#FFFFFF",
+      "dark": "#0F1A3A",
+      "subtle": "#F9FCFF",
+      "card": "#FFFFFF",
+      "card_alt": "#FBFDFF"
+    }
+  },
+  "typography": {
+    "primary_font_en": {
+      "value": "Calibri",
+      "fallback": "Arial, sans-serif",
+      "usage": "英文正文/标题"
+    },
+    "primary_font_zh": {
+      "value": "Microsoft YaHei",
+      "fallback": "PingFang SC, sans-serif",
+      "usage": "中文正文/标题"
+    },
+    "serif_font": {
+      "value": "Georgia",
+      "fallback": "Times New Roman, serif",
+      "usage": "EY/咨询风格大标题（衬线）"
+    },
+    "title_size": {
+      "cover_main": "44pt",
+      "cover_sub": "20pt",
+      "section": "32pt",
+      "page": "22pt",
+      "page_sub": "14pt"
+    },
+    "body_size": {
+      "large": "18pt",
+      "normal": "13pt",
+      "small": "11pt",
+      "footnote": "9pt",
+      "data_big": "32pt",
+      "data_huge": "44pt"
+    },
+    "line_height": 1.4
+  },
+  "spacing": {
+    "page_margin": {
+      "top": "0.4in",
+      "bottom": "0.4in",
+      "left": "0.5in",
+      "right": "0.5in"
+    },
+    "title_zone_height": "1.0in",
+    "footer_zone_height": "0.3in",
+    "grid": {
+      "columns": 12,
+      "gutter": "0.15in"
+    },
+    "section_gap": "0.2in"
+  },
+  "shapes": {
+    "card": {
+      "border_radius": "0.05in",
+      "border_width": "0.75pt",
+      "shadow": "subtle (5% opacity)"
+    },
+    "arrow": {
+      "width": "1.5pt",
+      "head_size": "0.08in"
+    },
+    "badge": {
+      "padding": "0.04in 0.12in",
+      "border_radius": "0.04in"
+    },
+    "kpi_circle": {
+      "border_radius": "0.5in",
+      "border_width": "1.5pt"
+    }
+  },
+  "logo": {
+    "primary": "<路径或留空>",
+    "favicon": "<N/A>",
+    "footer_text": "<页脚文字>"
+  },
+  "page_types": {
+    "cover": {"layout": "left_text_right_visual", "title_size": "44pt"},
+    "agenda": {"layout": "two_column_quadrant", "title_size": "32pt"},
+    "section_divider": {"layout": "left_text_right_decorative", "title_size": "36pt"},
+    "data_dashboard": {"layout": "2x3_grid_cards", "data_number_size": "36pt"},
+    "timeline": {"layout": "horizontal_4_milestones"},
+    "loop": {"layout": "5_node_circular"},
+    "hub_and_spoke": {"layout": "center_with_radial_spokes"},
+    "flow_5step": {"layout": "horizontal_5_step"},
+    "framework_5stage": {"layout": "horizontal_5_stage"},
+    "case_study": {"layout": "3_column_compare"},
+    "action_roadmap": {"layout": "2x4_grid_cards"},
+    "questions": {"layout": "3_column_cards"},
+    "judgments": {"layout": "3_column_cards"},
+    "closing": {"layout": "centered_with_3_converging_arrows"}
+  },
+  "chart_style": {
+    "color_palette": ["#1B2D5C", "#00A3B4", "#1E5BA8", "#374151"],
+    "grid": "minimal",
+    "data_labels": "show on key values"
+  },
+  "speaker_notes": {
+    "required": true,
+    "min_length_per_slide": "20-50 字"
+  },
+  "icons": {
+    "style": "linear_outline",
+    "primary_color": "#1B2D5C",
+    "accent_color": "#00A3B4",
+    "stroke_width": "1.2pt"
+  },
+  "decorative_elements": {
+    "dot_map_world": {"color": "#E8F0F8", "opacity": "30%"},
+    "flowing_curves": {"color": "#00A3B4", "opacity": "50%"}
+  }
+}
