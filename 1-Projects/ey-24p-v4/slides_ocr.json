@@ -1,0 +1,3851 @@
+{
+  "deck_title": "Seeing China's AI Reality",
+  "deck_full_name": "China AI Environment and Business Reinvention",
+  "publisher": "EY 安永",
+  "strategy": "方案 C 精准对齐",
+  "pages_dir": "pages_jpg",
+  "page_size": {
+    "width": 13.333,
+    "height": 7.5
+  },
+  "img_size": {
+    "width": 2008,
+    "height": 1130
+  },
+  "slides": [
+    {
+      "id": 1,
+      "background": "p01.jpg",
+      "text_overlays": [
+        {
+          "x": 4.48,
+          "y": 1.29,
+          "w": 0.16,
+          "h": 0.29,
+          "text": "9",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.56,
+          "y": 1.27,
+          "w": 5.22,
+          "h": 0.76,
+          "text": "Seeing China’s AI",
+          "size": 33,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.56,
+          "y": 2.46,
+          "w": 5.86,
+          "h": 0.48,
+          "text": "A different path from productivity",
+          "size": 20,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.55,
+          "y": 2.94,
+          "w": 4.01,
+          "h": 0.41,
+          "text": "to business reinvention",
+          "size": 17,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.57,
+          "y": 3.74,
+          "w": 3.75,
+          "h": 0.31,
+          "text": "What has changed in China since 2024?",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.78,
+          "y": 5.83,
+          "w": 11.75,
+          "h": 0.45,
+          "text": "(1) Productivity Agent (3) Workflow 4) Process Redesign Business Reinvention",
+          "size": 14,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.91,
+          "y": 6.96,
+          "w": 5.1,
+          "h": 0.29,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "background": "p02.jpg",
+      "text_overlays": [
+        {
+          "x": 0.54,
+          "y": 1.49,
+          "w": 7.92,
+          "h": 0.33,
+          "text": "How the discussion will move from China’s Al environment to enterprise action.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.62,
+          "y": 2.1,
+          "w": 10.26,
+          "h": 0.57,
+          "text": "ts Part I— What Changed in China? Part IT — What Changes",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 8.35,
+          "y": 2.55,
+          "w": 2.31,
+          "h": 0.33,
+          "text": "Inside the Enterprise?",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 2.38,
+          "y": 2.94,
+          "w": 6.36,
+          "h": 0.33,
+          "text": "The Al environment, scale, speed, —",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.39,
+          "y": 3.18,
+          "w": 8.68,
+          "h": 0.36,
+          "text": "open source, and Physical Al. From tool adoption to workflow",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 8.35,
+          "y": 3.45,
+          "w": 1.86,
+          "h": 0.29,
+          "text": "redesign and context.",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.64,
+          "y": 4.19,
+          "w": 10.41,
+          "h": 0.5,
+          "text": "3} Part III — What Does It Look Part IV — What Does This",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 2.39,
+          "y": 4.61,
+          "w": 8.29,
+          "h": 0.29,
+          "text": "Like in Real Business? Mean for LELI China?",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 2.4,
+          "y": 5.18,
+          "w": 7.83,
+          "h": 0.3,
+          "text": "Five business cases: Finance, Tax, Actions, priorities, and",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.4,
+          "y": 5.44,
+          "w": 8.65,
+          "h": 0.3,
+          "text": "Proactive Insight, Al Coding, management choices for China.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 2.39,
+          "y": 5.71,
+          "w": 1.7,
+          "h": 0.3,
+          "text": "and Manufacturing.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.88,
+          "y": 6.95,
+          "w": 11.97,
+          "h": 0.26,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 2",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "background": "p03.jpg",
+      "text_overlays": [
+        {
+          "x": 0.6,
+          "y": 1.47,
+          "w": 0.69,
+          "h": 0.26,
+          "text": "PART",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.59,
+          "y": 2.44,
+          "w": 8.9,
+          "h": 0.72,
+          "text": "What Ch din China?",
+          "size": 38,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.83,
+          "y": 2.52,
+          "w": 7.55,
+          "h": 0.83,
+          "text": "at Changed in China'",
+          "size": 30,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.61,
+          "y": 3.48,
+          "w": 8.13,
+          "h": 0.37,
+          "text": "Understanding how China’s Al environment has changed since 2024.",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.76,
+          "y": 4.18,
+          "w": 8.14,
+          "h": 0.41,
+          "text": "G This section looks at the scale, speed, structure, and industrial depth of China’s Al environment.",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.9,
+          "y": 6.95,
+          "w": 11.95,
+          "h": 0.27,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 3",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "background": "p04.jpg",
+      "text_overlays": [
+        {
+          "x": 1.38,
+          "y": 0.68,
+          "w": 4.23,
+          "h": 0.26,
+          "text": "e 9 e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.58,
+          "y": 0.67,
+          "w": 12.11,
+          "h": 0.69,
+          "text": "China’s AI market is no longer the same market",
+          "size": 25,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.6,
+          "y": 1.65,
+          "w": 4.25,
+          "h": 0.39,
+          "text": "What changed in just two years?",
+          "size": 15,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 2.06,
+          "y": 2.53,
+          "w": 10.3,
+          "h": 0.52,
+          "text": "515M 868",
+          "size": 24,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.11,
+          "y": 2.94,
+          "w": 10.62,
+          "h": 0.45,
+          "text": "O GenAI users in China Population penetration Filed GenAI services",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.07,
+          "y": 3.48,
+          "w": 9.33,
+          "h": 0.23,
+          "text": "Jun 2025 Jun 2025 YE 2024 to Apr 2026",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 6.75,
+          "y": 4.21,
+          "w": 0.18,
+          "h": 0.26,
+          "text": "0",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 6.19,
+          "y": 4.15,
+          "w": 1.17,
+          "h": 0.49,
+          "text": "30%+",
+          "size": 24,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 3.44,
+          "y": 4.65,
+          "w": 8.58,
+          "h": 0.39,
+          "text": "seate cumulative",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 2.07,
+          "y": 5.16,
+          "w": 8.35,
+          "h": 0.21,
+          "text": "2025 2025 2025",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.23,
+          "y": 5.8,
+          "w": 2.43,
+          "h": 0.25,
+          "text": "China also accounted for 54% of",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.81,
+          "y": 5.87,
+          "w": 10.79,
+          "h": 0.57,
+          "text": "Al is becoming part of China’s operating environment. Ke the world’s new industrial robot",
+          "size": 14,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 10.23,
+          "y": 6.29,
+          "w": 1.52,
+          "h": 0.23,
+          "text": "installations in 2024.",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.91,
+          "y": 7.01,
+          "w": 5.1,
+          "h": 0.29,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "background": "p05.jpg",
+      "text_overlays": [
+        {
+          "x": 0.59,
+          "y": 0.96,
+          "w": 8.52,
+          "h": 0.56,
+          "text": "2024 to 2026: the slope of change matters",
+          "size": 22,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.59,
+          "y": 1.55,
+          "w": 0.73,
+          "h": 0.13,
+          "text": "—",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.6,
+          "y": 1.72,
+          "w": 8.04,
+          "h": 0.37,
+          "text": "Users, services, enterprises and factories started moving together.",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 11.06,
+          "y": 2.41,
+          "w": 0.42,
+          "h": 0.32,
+          "text": "ZA",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 4.77,
+          "y": 2.54,
+          "w": 6.7,
+          "h": 0.39,
+          "text": "an all",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.57,
+          "y": 3.09,
+          "w": 10.14,
+          "h": 0.29,
+          "text": "YE 2024 Jun 2025 YE 2025 Apr 2026",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.91,
+          "y": 3.32,
+          "w": 3.16,
+          "h": 0.26,
+          "text": "i i",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.91,
+          "y": 4.51,
+          "w": 11.38,
+          "h": 0.27,
+          "text": "Filed GenAI services GenAI users Filed GenAI services Filed GenAI services",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.88,
+          "y": 4.82,
+          "w": 8.25,
+          "h": 0.27,
+          "text": "~RMB 600B Al core industry 36.5% population penetration Al core industry RMB 1.2T",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.07,
+          "y": 5.08,
+          "w": 5.4,
+          "h": 0.27,
+          "text": "+266M users in six months 30%+ large manufacturers applying Al",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 7.03,
+          "y": 5.34,
+          "w": 2.12,
+          "h": 0.27,
+          "text": "10B+ open-model downloads",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 3.56,
+          "y": 5.86,
+          "w": 4.02,
+          "h": 0.35,
+          "text": "This is not one technology moving.",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 3.58,
+          "y": 6.17,
+          "w": 4.64,
+          "h": 0.36,
+          "text": "It is an ecosystem accelerating together.",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.91,
+          "y": 6.95,
+          "w": 11.94,
+          "h": 0.28,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 5",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "background": "p06.jpg",
+      "text_overlays": [
+        {
+          "x": 1.93,
+          "y": 0.64,
+          "w": 4.31,
+          "h": 0.25,
+          "text": "e e 9 e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.57,
+          "y": 0.78,
+          "w": 0.14,
+          "h": 0.19,
+          "text": "e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.64,
+          "y": 0.62,
+          "w": 11.42,
+          "h": 0.66,
+          "text": "Velocity: China’s edge is shorter learning loops.",
+          "size": 29,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.61,
+          "y": 1.55,
+          "w": 8.06,
+          "h": 0.35,
+          "text": "The distinctive feature is not simply speed. It is the connection between",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.61,
+          "y": 1.87,
+          "w": 5.72,
+          "h": 0.35,
+          "text": "technology iteration and business experimentation.",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 3.11,
+          "y": 2.48,
+          "w": 0.73,
+          "h": 0.41,
+          "text": "868",
+          "size": 18,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.02,
+          "y": 2.75,
+          "w": 6.12,
+          "h": 0.3,
+          "text": "=, Discover",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.83,
+          "y": 2.9,
+          "w": 5.35,
+          "h": 0.29,
+          "text": "Filed GenAI services a problem",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.83,
+          "y": 3.15,
+          "w": 1.46,
+          "h": 0.25,
+          "text": "YE 2024 to Apr 2026",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.69,
+          "y": 3.37,
+          "w": 7.19,
+          "h": 0.4,
+          "text": "(5) (2) What velocity means",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 5.04,
+          "y": 3.61,
+          "w": 0.47,
+          "h": 0.29,
+          "text": "Iterate",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.83,
+          "y": 3.7,
+          "w": 10.28,
+          "h": 0.47,
+          "text": "+266M Faster feedback cycles",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.83,
+          "y": 4.12,
+          "w": 1.5,
+          "h": 0.25,
+          "text": "New users",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.83,
+          "y": 4.36,
+          "w": 1.54,
+          "h": 0.21,
+          "text": "Dec 2024 to Jun 2025",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.46,
+          "y": 4.53,
+          "w": 2.0,
+          "h": 0.26,
+          "text": "Lower experimentation cost",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.84,
+          "y": 4.7,
+          "w": 10.04,
+          "h": 0.72,
+          "text": "1 OB+ (4) all Quicker move from",
+          "size": 16,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.83,
+          "y": 5.28,
+          "w": 9.52,
+          "h": 0.34,
+          "text": "Open-model downloads operational idea to pilot",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.83,
+          "y": 5.52,
+          "w": 4.25,
+          "h": 0.27,
+          "text": "2025 feedback",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.72,
+          "y": 6.23,
+          "w": 8.74,
+          "h": 0.35,
+          "text": "Velocity means shorter business learning cycles, not just faster technology releases.",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.9,
+          "y": 6.95,
+          "w": 11.95,
+          "h": 0.29,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 6",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "background": "p07.jpg",
+      "text_overlays": [
+        {
+          "x": 6.49,
+          "y": 0.31,
+          "w": 1.52,
+          "h": 0.17,
+          "text": "e e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.49,
+          "y": 0.31,
+          "w": 8.08,
+          "h": 0.56,
+          "text": "Scale Embeddedness: AI is moving",
+          "size": 20,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.5,
+          "y": 0.84,
+          "w": 4.96,
+          "h": 0.18,
+          "text": "e e e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.48,
+          "y": 0.84,
+          "w": 6.93,
+          "h": 0.57,
+          "text": "into the operating environment",
+          "size": 21,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.51,
+          "y": 1.51,
+          "w": 6.19,
+          "h": 0.41,
+          "text": "In China, Al is no longer just an additional software tool.",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.79,
+          "y": 2.16,
+          "w": 10.46,
+          "h": 0.48,
+          "text": "51 5M 30%+",
+          "size": 21,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.79,
+          "y": 2.63,
+          "w": 10.75,
+          "h": 0.29,
+          "text": "GenAI users Large manufacturers",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.79,
+          "y": 2.87,
+          "w": 10.11,
+          "h": 0.27,
+          "text": "Consumer environment Sales applying Al",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.78,
+          "y": 3.5,
+          "w": 10.25,
+          "h": 0.52,
+          "text": "6,200+ 54%",
+          "size": 23,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 2.6,
+          "y": 3.87,
+          "w": 9.87,
+          "h": 0.33,
+          "text": "i 1 i Share of global new",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.57,
+          "y": 4.01,
+          "w": 7.59,
+          "h": 0.41,
+          "text": "Logistics Environment industrial robot",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.79,
+          "y": 4.28,
+          "w": 10.75,
+          "h": 0.27,
+          "text": "Supply-side ecosystem installations in China",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.78,
+          "y": 4.88,
+          "w": 9.96,
+          "h": 0.58,
+          "text": "868 Manufacturing 2 M",
+          "size": 18,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.79,
+          "y": 5.36,
+          "w": 10.79,
+          "h": 0.27,
+          "text": "Filed GenAI services Operational industrial",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.79,
+          "y": 5.56,
+          "w": 10.38,
+          "h": 0.31,
+          "text": "Commercial service layer Finance robots in China",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.26,
+          "y": 6.33,
+          "w": 9.3,
+          "h": 0.32,
+          "text": "Consumer scale enterprise supply industrial deployment create a different Al environment.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.83,
+          "y": 6.95,
+          "w": 12.02,
+          "h": 0.33,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 7",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "background": "p08.jpg",
+      "text_overlays": [
+        {
+          "x": 0.41,
+          "y": 0.32,
+          "w": 10.57,
+          "h": 0.56,
+          "text": "Open Source Changed the Economics of AI Adoption",
+          "size": 23,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.44,
+          "y": 0.95,
+          "w": 9.27,
+          "h": 0.31,
+          "text": "Open models lowered the cost of experimentation and accelerated enterprise Al adoption in China.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.43,
+          "y": 1.39,
+          "w": 10.51,
+          "h": 0.29,
+          "text": "Signal numbers How open source changes adoption Business implications",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.4,
+          "y": 1.87,
+          "w": 1.3,
+          "h": 0.27,
+          "text": "Experimentation",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.9,
+          "y": 1.91,
+          "w": 9.9,
+          "h": 0.44,
+          "text": "10B+ becomes cheaper",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.85,
+          "y": 2.32,
+          "w": 1.41,
+          "h": 0.27,
+          "text": "China open-model",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.92,
+          "y": 2.58,
+          "w": 0.54,
+          "h": 0.23,
+          "text": "choice",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.85,
+          "y": 2.77,
+          "w": 9.94,
+          "h": 0.27,
+          "text": "MIIT official disclosure becomes broader",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.24,
+          "y": 2.93,
+          "w": 4.51,
+          "h": 0.31,
+          "text": "Model Open Industry",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 5.22,
+          "y": 3.12,
+          "w": 3.53,
+          "h": 0.31,
+          "text": "Weight Distill Deployment Solution",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.85,
+          "y": 3.21,
+          "w": 9.96,
+          "h": 0.54,
+          "text": "4 1 Ee Local deployment",
+          "size": 15,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.85,
+          "y": 3.45,
+          "w": 10.42,
+          "h": 0.42,
+          "text": "Share of Hugging Face 9 becomes more practical",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.85,
+          "y": 3.8,
+          "w": 1.19,
+          "h": 0.22,
+          "text": "downloads from",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.85,
+          "y": 3.96,
+          "w": 10.18,
+          "h": 0.25,
+          "text": "Chinese models i More deployment loption shifts from",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.09,
+          "y": 3.92,
+          "w": 3.06,
+          "h": 0.47,
+          "text": "©) Lower trial cost Faster iteration",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.4,
+          "y": 4.34,
+          "w": 1.27,
+          "h": 0.27,
+          "text": "business testing",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.46,
+          "y": 4.65,
+          "w": 9.17,
+          "h": 0.51,
+          "text": "6B Companies no longer need to wait for a perfect enterprise 3",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.01,
+          "y": 4.95,
+          "w": 10.85,
+          "h": 0.4,
+          "text": "all Qwen cumulative Al platform before experimenting. Open models make DeepSeek",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.85,
+          "y": 5.23,
+          "w": 5.57,
+          "h": 0.31,
+          "text": "downloads prototyping, adaptation, and local deployment much",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.85,
+          "y": 5.49,
+          "w": 1.47,
+          "h": 0.23,
+          "text": "Hugging Face mid-2026",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.0,
+          "y": 6.02,
+          "w": 10.06,
+          "h": 0.6,
+          "text": "G Open models dramatically lowered the cost of experimentation.",
+          "size": 17,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.84,
+          "y": 6.95,
+          "w": 12.02,
+          "h": 0.34,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 8",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "background": "p09.jpg",
+      "text_overlays": [
+        {
+          "x": 0.92,
+          "y": 0.28,
+          "w": 3.74,
+          "h": 0.24,
+          "text": "e 9 e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.31,
+          "y": 0.27,
+          "w": 12.64,
+          "h": 0.57,
+          "text": "China’s Agent Adoption Has Moved Beyond the Concept Stage",
+          "size": 25,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.33,
+          "y": 0.93,
+          "w": 11.56,
+          "h": 0.33,
+          "text": "The frontier is shifting from chatbots to workflow execution, though most companies are still early in the journey.",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.2,
+          "y": 1.43,
+          "w": 11.36,
+          "h": 0.29,
+          "text": "Adoption snapshot What changes when agents mature",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.9,
+          "y": 2.04,
+          "w": 10.13,
+          "h": 0.27,
+          "text": "Still in understanding, Tasks become multi-step",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.9,
+          "y": 2.23,
+          "w": 3.68,
+          "h": 0.37,
+          "text": "evaluation, or fe)",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.8,
+          "y": 2.28,
+          "w": 1.96,
+          "h": 0.47,
+          "text": "60% pilot stage",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.91,
+          "y": 2.69,
+          "w": 10.35,
+          "h": 0.31,
+          "text": "IDC China enterprise survey Systems become connected",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.17,
+          "y": 2.9,
+          "w": 4.44,
+          "h": 0.33,
+          "text": "Chatbot Copilot Agent Workflow Core",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 8.11,
+          "y": 3.13,
+          "w": 0.65,
+          "h": 0.23,
+          "text": "Business",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.21,
+          "y": 3.33,
+          "w": 2.01,
+          "h": 0.27,
+          "text": "Agents can retrieve and act",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.9,
+          "y": 3.46,
+          "w": 1.56,
+          "h": 0.28,
+          "text": "Already integrating",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.26,
+          "y": 3.69,
+          "w": 1.94,
+          "h": 0.32,
+          "text": "0 agents into core",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.82,
+          "y": 3.7,
+          "w": 11.79,
+          "h": 0.54,
+          "text": "1 8 business workflows Experimentation Management gets faster feedback",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.91,
+          "y": 4.21,
+          "w": 1.07,
+          "h": 0.21,
+          "text": "IDC China 2026",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.79,
+          "y": 4.39,
+          "w": 7.36,
+          "h": 0.54,
+          "text": "an Workflow Integration i oF Workflow design becomes",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.99,
+          "y": 4.71,
+          "w": 10.53,
+          "h": 0.31,
+          "text": "4 of the market is The frontier a leadership issue",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.35,
+          "y": 4.92,
+          "w": 1.96,
+          "h": 0.27,
+          "text": "early-stage, but the leading",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.35,
+          "y": 5.0,
+          "w": 5.24,
+          "h": 0.45,
+          "text": "edge has moved into real Eh Core Business",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 7.28,
+          "y": 5.23,
+          "w": 5.46,
+          "h": 0.33,
+          "text": "e Finance Tax || Customer service || Internal IT",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.35,
+          "y": 6.17,
+          "w": 10.93,
+          "h": 0.4,
+          "text": "i... The frontier has already moved from chatbot to workflow execution.",
+          "size": 14,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.76,
+          "y": 6.95,
+          "w": 12.09,
+          "h": 0.33,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 9",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "background": "p10.jpg",
+      "text_overlays": [
+        {
+          "x": 3.9,
+          "y": 0.26,
+          "w": 7.93,
+          "h": 0.17,
+          "text": "e e e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.41,
+          "y": 0.38,
+          "w": 0.14,
+          "h": 0.18,
+          "text": "e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.39,
+          "y": 0.24,
+          "w": 12.69,
+          "h": 0.61,
+          "text": "For Manufacturing, China Has Another Layer: Physical AI",
+          "size": 26,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.39,
+          "y": 0.92,
+          "w": 8.98,
+          "h": 0.32,
+          "text": "China’s Al story is increasingly connected to the physical operating system of manufacturing.",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.39,
+          "y": 1.37,
+          "w": 10.34,
+          "h": 0.29,
+          "text": "Industrial signals What Physical Al combines Why it matters",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 9.28,
+          "y": 1.83,
+          "w": 2.65,
+          "h": 0.27,
+          "text": "é Moves Al beyond chat",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.76,
+          "y": 1.81,
+          "w": 9.73,
+          "h": 0.48,
+          "text": "295,000 and dashboards",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.77,
+          "y": 2.17,
+          "w": 4.82,
+          "h": 0.34,
+          "text": "New industrial robots Al",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.77,
+          "y": 2.36,
+          "w": 1.72,
+          "h": 0.23,
+          "text": "installed in China in 2024",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.89,
+          "y": 2.52,
+          "w": 7.43,
+          "h": 0.37,
+          "text": "PR an Connects digital intelligence",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 4.9,
+          "y": 2.71,
+          "w": 6.76,
+          "h": 0.33,
+          "text": "\\\\ with physical work",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.76,
+          "y": 2.79,
+          "w": 0.71,
+          "h": 0.37,
+          "text": "54%",
+          "size": 16,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.77,
+          "y": 3.12,
+          "w": 10.0,
+          "h": 0.39,
+          "text": "Share of global new Machine Sensor Makes China a large",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.77,
+          "y": 3.2,
+          "w": 9.33,
+          "h": 0.49,
+          "text": "robot installations cal real-world",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.77,
+          "y": 3.77,
+          "w": 10.57,
+          "h": 0.37,
+          "text": "2 M é Accelerates iteration through",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.77,
+          "y": 4.03,
+          "w": 9.96,
+          "h": 0.36,
+          "text": "Operational industrial of factory deployment",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.77,
+          "y": 4.31,
+          "w": 6.24,
+          "h": 0.25,
+          "text": "robot stock Control System Factory Data",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 9.28,
+          "y": 4.5,
+          "w": 3.07,
+          "h": 0.33,
+          "text": "i Strengthens the link between",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.45,
+          "y": 4.69,
+          "w": 7.41,
+          "h": 0.29,
+          "text": "Perception —> Decision —> Action Feedback Al and manufacturing",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.75,
+          "y": 4.74,
+          "w": 10.75,
+          "h": 0.41,
+          "text": "eo 567 competitiveness",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.77,
+          "y": 5.06,
+          "w": 7.78,
+          "h": 0.28,
+          "text": "Robots per 10,000 la",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.77,
+          "y": 5.26,
+          "w": 10.57,
+          "h": 0.27,
+          "text": "manufacturing workers China is not only an Al market.",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.28,
+          "y": 5.41,
+          "w": 8.17,
+          "h": 0.35,
+          "text": "&} Flexible Robotic Adaptive Shop-floor It is also a large-scale industrial",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 7.15,
+          "y": 5.6,
+          "w": 5.18,
+          "h": 0.34,
+          "text": "control learning tation i nt.",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.96,
+          "y": 5.77,
+          "w": 2.14,
+          "h": 0.24,
+          "text": "IFR manufacturing robotics statistics",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.05,
+          "y": 6.35,
+          "w": 9.72,
+          "h": 0.29,
+          "text": "China’s AI story is not only about chatbots. It is increasingly connected to the physical operating system of manufacturing,",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.74,
+          "y": 6.95,
+          "w": 12.25,
+          "h": 0.3,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 10",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "background": "p11.jpg",
+      "text_overlays": [
+        {
+          "x": 0.6,
+          "y": 1.4,
+          "w": 0.65,
+          "h": 0.43,
+          "text": "PART",
+          "size": 19,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.64,
+          "y": 2.33,
+          "w": 9.64,
+          "h": 0.62,
+          "text": "What Ch ide th ise?",
+          "size": 29,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.58,
+          "y": 2.36,
+          "w": 8.63,
+          "h": 0.74,
+          "text": "at Changes Inside the Enterprise?",
+          "size": 32,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.6,
+          "y": 3.53,
+          "w": 8.14,
+          "h": 0.34,
+          "text": "From tool adoption to workflow redesign, context, and business reinvention.",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.78,
+          "y": 4.23,
+          "w": 8.44,
+          "h": 0.55,
+          "text": "G The next question is no longer what Al can do, but what it changes inside the enterprise.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.9,
+          "y": 7.0,
+          "w": 4.97,
+          "h": 0.21,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "background": "p12.jpg",
+      "text_overlays": [
+        {
+          "x": 0.48,
+          "y": 0.35,
+          "w": 9.29,
+          "h": 0.57,
+          "text": "From Tool Adoption to Business Reinvention",
+          "size": 22,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.48,
+          "y": 1.06,
+          "w": 6.86,
+          "h": 0.35,
+          "text": "The real Al transformation starts when the workflow changes.",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 8.13,
+          "y": 1.69,
+          "w": 0.4,
+          "h": 0.45,
+          "text": "0",
+          "size": 21,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.21,
+          "y": 2.1,
+          "w": 10.37,
+          "h": 0.36,
+          "text": "From assisting we",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.2,
+          "y": 2.35,
+          "w": 11.34,
+          "h": 0.33,
+          "text": "the worker productivity",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 11.75,
+          "y": 2.82,
+          "w": 0.85,
+          "h": 0.29,
+          "text": "Management",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 11.39,
+          "y": 3.0,
+          "w": 1.22,
+          "h": 0.26,
+          "text": "Q decisions get",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.2,
+          "y": 3.18,
+          "w": 11.13,
+          "h": 0.25,
+          "text": "To en closer to",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.93,
+          "y": 3.05,
+          "w": 7.67,
+          "h": 0.43,
+          "text": "Copilot Agent Workfl Process Organization",
+          "size": 16,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.45,
+          "y": 3.28,
+          "w": 11.0,
+          "h": 0.38,
+          "text": "work Redesign Redesign operations",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 3.03,
+          "y": 3.56,
+          "w": 7.49,
+          "h": 0.31,
+          "text": "Personal Task Cross-system End-to-end Human-machine",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.93,
+          "y": 3.72,
+          "w": 9.79,
+          "h": 0.35,
+          "text": "productivity execution orchestration process change responsibility redesign design",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 11.75,
+          "y": 4.1,
+          "w": 0.59,
+          "h": 0.24,
+          "text": "strategic",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.2,
+          "y": 4.26,
+          "w": 8.83,
+          "h": 0.27,
+          "text": "To redesigning 4",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.7,
+          "y": 4.53,
+          "w": 7.75,
+          "h": 0.34,
+          "text": "Writes, summarizes, Executes a set of Connects systems, Removes Changes roles,",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 3.01,
+          "y": 4.75,
+          "w": 9.7,
+          "h": 0.29,
+          "text": "searches linked tasks data, and actions unnecessary steps transformation",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 11.75,
+          "y": 4.98,
+          "w": 0.42,
+          "h": 0.23,
+          "text": "target",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 7.06,
+          "y": 5.32,
+          "w": 2.13,
+          "h": 0.25,
+          "text": "Deeper Transformation Stages",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.44,
+          "y": 5.89,
+          "w": 9.05,
+          "h": 0.39,
+          "text": "Al is moving from tools into workflows, processes, and organizational design.",
+          "size": 14,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 4.1,
+          "y": 6.27,
+          "w": 5.16,
+          "h": 0.29,
+          "text": "The real Al transformation starts when the workflow changes.",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.84,
+          "y": 6.95,
+          "w": 12.14,
+          "h": 0.35,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 12",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "background": "p13.jpg",
+      "text_overlays": [
+        {
+          "x": 3.37,
+          "y": 0.3,
+          "w": 0.13,
+          "h": 0.19,
+          "text": "e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.05,
+          "y": 0.42,
+          "w": 0.13,
+          "h": 0.18,
+          "text": "e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.45,
+          "y": 0.29,
+          "w": 5.53,
+          "h": 0.48,
+          "text": "Core Foundation: Context",
+          "size": 22,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.46,
+          "y": 0.96,
+          "w": 10.35,
+          "h": 0.33,
+          "text": "Models may become widely available. Context, integration, and execution determine the real advantage.",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.92,
+          "y": 1.59,
+          "w": 12.03,
+          "h": 0.26,
+          "text": "MODEL LAYER ENTERPRISE CONTEXT: THE REAL MOAT INTEGRATION BUSINESS VALUE",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.68,
+          "y": 1.9,
+          "w": 1.52,
+          "h": 0.25,
+          "text": "Models are increasingly",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.08,
+          "y": 2.0,
+          "w": 6.24,
+          "h": 0.31,
+          "text": "accessible. Your unique data, knowledge, rules, and relationships.",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.72,
+          "y": 2.24,
+          "w": 11.77,
+          "h": 0.54,
+          "text": "S all",
+          "size": 16,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 8.63,
+          "y": 2.76,
+          "w": 4.23,
+          "h": 0.23,
+          "text": "Connect context Execute with Better decisions.",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.41,
+          "y": 2.94,
+          "w": 8.38,
+          "h": 0.28,
+          "text": "2 across systems trust, scale, Faster impact.",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 3.96,
+          "y": 3.1,
+          "w": 8.75,
+          "h": 0.35,
+          "text": "— and data and reliability. Sustainable",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 8.88,
+          "y": 3.27,
+          "w": 3.81,
+          "h": 0.31,
+          "text": "sources. advantage.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.29,
+          "y": 3.57,
+          "w": 0.65,
+          "h": 0.29,
+          "text": "DeepSeek",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 10.33,
+          "y": 3.73,
+          "w": 2.42,
+          "h": 0.29,
+          "text": "Secure by design Revenue growth",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 6.61,
+          "y": 3.97,
+          "w": 4.43,
+          "h": 0.3,
+          "text": "</> Observabilty",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.33,
+          "y": 4.1,
+          "w": 2.31,
+          "h": 0.36,
+          "text": "Quality safety reduction",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 3.92,
+          "y": 4.33,
+          "w": 3.99,
+          "h": 0.3,
+          "text": "Local market Risk Code base APIs Permissions",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 3.96,
+          "y": 4.47,
+          "w": 5.71,
+          "h": 0.33,
+          "text": "experience system integrations data access Unified semantics",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.21,
+          "y": 4.63,
+          "w": 8.18,
+          "h": 0.31,
+          "text": "Other open architecture rules Governance",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.21,
+          "y": 4.79,
+          "w": 11.16,
+          "h": 0.26,
+          "text": "industry models Operational Strategic",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.33,
+          "y": 4.95,
+          "w": 2.08,
+          "h": 0.19,
+          "text": "excellence resilience",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.46,
+          "y": 5.53,
+          "w": 9.38,
+          "h": 0.45,
+          "text": "&B Model S Context Integration G Execution —> al Business Value",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.89,
+          "y": 6.18,
+          "w": 10.18,
+          "h": 0.55,
+          "text": "G Models may become widely available. Context, integration, and execution will determine the real advantage.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.83,
+          "y": 6.95,
+          "w": 12.16,
+          "h": 0.35,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 13",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "background": "p14.jpg",
+      "text_overlays": [
+        {
+          "x": 0.61,
+          "y": 1.48,
+          "w": 1.17,
+          "h": 0.26,
+          "text": "PART III",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.68,
+          "y": 2.34,
+          "w": 6.96,
+          "h": 0.63,
+          "text": "What Does It Look Lik",
+          "size": 31,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.64,
+          "y": 3.17,
+          "w": 5.2,
+          "h": 0.44,
+          "text": "e 9",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.6,
+          "y": 3.16,
+          "w": 5.14,
+          "h": 0.62,
+          "text": "in Real Business’",
+          "size": 28,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 11.12,
+          "y": 4.27,
+          "w": 0.36,
+          "h": 0.31,
+          "text": "co",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.63,
+          "y": 4.48,
+          "w": 6.82,
+          "h": 0.35,
+          "text": "Turning abstract capabilities into concrete business impact.",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.73,
+          "y": 5.13,
+          "w": 5.9,
+          "h": 0.51,
+          "text": "GC) This section moves from framework to real business cases across",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.28,
+          "y": 5.38,
+          "w": 3.38,
+          "h": 0.29,
+          "text": "finance, tax, coding, and manufacturing.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.49,
+          "y": 6.88,
+          "w": 12.51,
+          "h": 0.42,
+          "text": "ar Executive Discussion Deck China Al Environment and Business Reinvention 14",
+          "size": 8,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "background": "p15.jpg",
+      "text_overlays": [
+        {
+          "x": 1.32,
+          "y": 0.34,
+          "w": 7.23,
+          "h": 0.47,
+          "text": "i Case 1: Fi R ing A",
+          "size": 17,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 3.88,
+          "y": 0.46,
+          "w": 0.14,
+          "h": 0.19,
+          "text": "e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.48,
+          "y": 0.35,
+          "w": 8.95,
+          "h": 0.56,
+          "text": "Business Case 1: Finance Reporting Agent",
+          "size": 18,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.49,
+          "y": 1.03,
+          "w": 8.15,
+          "h": 0.31,
+          "text": "From producing reports to helping management understand business changes faster.",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.99,
+          "y": 1.48,
+          "w": 5.0,
+          "h": 0.25,
+          "text": "Traditional (Manual) Flow Al-enabled Flow",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 8.55,
+          "y": 1.79,
+          "w": 3.64,
+          "h": 0.27,
+          "text": "Why did China gross margin decline last month?",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.47,
+          "y": 1.99,
+          "w": 5.13,
+          "h": 0.21,
+          "text": "ERP Excel BI Financial data business context",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.47,
+          "y": 2.56,
+          "w": 4.69,
+          "h": 0.27,
+          "text": "Manual data extraction Finance Agent",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.47,
+          "y": 3.13,
+          "w": 4.95,
+          "h": 0.23,
+          "text": "Manual reconciliation Automatic report generation",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 7.24,
+          "y": 3.25,
+          "w": 1.13,
+          "h": 0.45,
+          "text": "al O",
+          "size": 16,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.47,
+          "y": 3.6,
+          "w": 11.58,
+          "h": 0.4,
+          "text": "Manual report preparation Q Variance analysis Sales Procurement FX Production Inventory",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 7.18,
+          "y": 3.89,
+          "w": 5.89,
+          "h": 0.3,
+          "text": "volume mix channel mix cost change cost supply-chain",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 12.54,
+          "y": 4.08,
+          "w": 0.39,
+          "h": 0.19,
+          "text": "factors",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.47,
+          "y": 4.23,
+          "w": 4.59,
+          "h": 0.25,
+          "text": "Manual commentary Anomaly identification",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.28,
+          "y": 4.72,
+          "w": 3.92,
+          "h": 0.33,
+          "text": "review Al of drivers",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 9.19,
+          "y": 4.98,
+          "w": 3.68,
+          "h": 0.49,
+          "text": "£) explanation closer to business",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.46,
+          "y": 5.2,
+          "w": 10.55,
+          "h": 0.39,
+          "text": "Management asks Finance can directly ask li",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.65,
+          "y": 5.34,
+          "w": 7.5,
+          "h": 0.34,
+          "text": "questions and trace underlying reporting cycle reality",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.65,
+          "y": 5.52,
+          "w": 0.96,
+          "h": 0.21,
+          "text": "business factors",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.3,
+          "y": 6.25,
+          "w": 8.69,
+          "h": 0.32,
+          "text": "value is not only faster reporting. It is bringing management closer to the business reality.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.77,
+          "y": 6.95,
+          "w": 12.22,
+          "h": 0.33,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 15",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "background": "p16.jpg",
+      "text_overlays": [
+        {
+          "x": 0.46,
+          "y": 0.37,
+          "w": 6.52,
+          "h": 0.63,
+          "text": "Business Case 2: Tax Agent",
+          "size": 26,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.48,
+          "y": 1.06,
+          "w": 7.62,
+          "h": 0.31,
+          "text": "From tax processing to risk identification, expert judgment, and business support.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.22,
+          "y": 1.51,
+          "w": 5.15,
+          "h": 0.27,
+          "text": "Traditional Tax Work Al-supported Flow",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 8.31,
+          "y": 1.69,
+          "w": 3.91,
+          "h": 0.26,
+          "text": "Where should human judgment create the most value?",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.47,
+          "y": 1.95,
+          "w": 4.94,
+          "h": 0.4,
+          "text": "Contract Invoice g Contracts invoices",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.47,
+          "y": 2.14,
+          "w": 5.42,
+          "h": 0.27,
+          "text": "Policy Transaction data policy transaction context",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.47,
+          "y": 2.6,
+          "w": 4.79,
+          "h": 0.35,
+          "text": "Manual checking Tax Agent",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 5.02,
+          "y": 3.07,
+          "w": 1.54,
+          "h": 0.24,
+          "text": "Contract understanding",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.47,
+          "y": 3.3,
+          "w": 1.49,
+          "h": 0.22,
+          "text": "Manual reconciliation",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 5.02,
+          "y": 3.43,
+          "w": 5.96,
+          "h": 0.34,
+          "text": "Invoice recognition Complex Risk Business Transaction",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 7.52,
+          "y": 3.69,
+          "w": 5.4,
+          "h": 0.22,
+          "text": "judgment trade-offs design advice coordination",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.47,
+          "y": 3.81,
+          "w": 4.57,
+          "h": 0.43,
+          "text": "Manual classification —",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 5.01,
+          "y": 4.18,
+          "w": 1.58,
+          "h": 0.21,
+          "text": "Transaction classification",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.96,
+          "y": 4.49,
+          "w": 0.08,
+          "h": 0.12,
+          "text": "9",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.47,
+          "y": 4.48,
+          "w": 4.84,
+          "h": 0.31,
+          "text": "Manual filing preparation Exception detection",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 8.27,
+          "y": 4.79,
+          "w": 4.55,
+          "h": 0.3,
+          "text": "Less Faster Higher-value",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.77,
+          "y": 4.85,
+          "w": 11.46,
+          "h": 0.51,
+          "text": "arg, L\\ i repetitive £9 issue at tax",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.46,
+          "y": 5.18,
+          "w": 9.47,
+          "h": 0.29,
+          "text": "follow-up questions processing identification",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.83,
+          "y": 6.22,
+          "w": 7.69,
+          "h": 0.31,
+          "text": "Al does not replace tax expertise. It changes where tax expertise creates value.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.8,
+          "y": 6.95,
+          "w": 12.2,
+          "h": 0.34,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 16",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "background": "p17.jpg",
+      "text_overlays": [
+        {
+          "x": 1.28,
+          "y": 0.32,
+          "w": 10.43,
+          "h": 0.48,
+          "text": "i Case 3: F R ting to Proactive Insight",
+          "size": 20,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.46,
+          "y": 0.34,
+          "w": 10.82,
+          "h": 0.56,
+          "text": "Business Case 3: From Reporting to Proactive Insig",
+          "size": 16,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.46,
+          "y": 0.99,
+          "w": 9.49,
+          "h": 0.31,
+          "text": "Al moves from answering questions to identifying issues, explaining causes, and supporting action.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.04,
+          "y": 1.47,
+          "w": 11.55,
+          "h": 0.27,
+          "text": "Traditional Mode Al Proactive Insight Examples of issues Al can surface",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.44,
+          "y": 1.92,
+          "w": 0.87,
+          "h": 0.24,
+          "text": "Management",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.43,
+          "y": 2.1,
+          "w": 1.03,
+          "h": 0.25,
+          "text": "asks a question",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.27,
+          "y": 2.6,
+          "w": 2.27,
+          "h": 0.34,
+          "text": "decline anomaly Dso",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 5.67,
+          "y": 2.83,
+          "w": 1.34,
+          "h": 0.29,
+          "text": "O ++",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 3.55,
+          "y": 2.81,
+          "w": 5.57,
+          "h": 0.56,
+          "text": "G “al",
+          "size": 26,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.43,
+          "y": 3.28,
+          "w": 1.17,
+          "h": 0.24,
+          "text": "Team investigates",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.44,
+          "y": 3.43,
+          "w": 7.69,
+          "h": 0.37,
+          "text": "manually Detect Explain Assign Suggest Track Learn",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 4.47,
+          "y": 3.75,
+          "w": 8.32,
+          "h": 0.28,
+          "text": "Al explains Alroutes tothe recommends Al tracks from Budget Regional sales",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.44,
+          "y": 3.93,
+          "w": 7.89,
+          "h": 0.31,
+          "text": "Follow-up _right owner actions and progress and 'outcomes and",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.44,
+          "y": 4.12,
+          "w": 7.89,
+          "h": 0.31,
+          "text": "coordination and surfaces and why with context best steps outcomes improves over",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 3.57,
+          "y": 4.33,
+          "w": 5.51,
+          "h": 0.28,
+          "text": "signals time",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.45,
+          "y": 4.49,
+          "w": 10.5,
+          "h": 0.32,
+          "text": "Delayed Tax treatment",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.44,
+          "y": 4.67,
+          "w": 10.49,
+          "h": 0.3,
+          "text": "action inconsistency",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.6,
+          "y": 5.48,
+          "w": 9.19,
+          "h": 0.24,
+          "text": "'aster response etter issue visibili questions to action",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.52,
+          "y": 5.47,
+          "w": 9.09,
+          "h": 0.22,
+          "text": "F Better i isibili i i",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.8,
+          "y": 6.27,
+          "w": 6.95,
+          "h": 0.29,
+          "text": "Al moves from answering questions to finding problems and supporting action.",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.82,
+          "y": 7.06,
+          "w": 4.92,
+          "h": 0.21,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "background": "p18.jpg",
+      "text_overlays": [
+        {
+          "x": 1.38,
+          "y": 0.25,
+          "w": 7.41,
+          "h": 0.19,
+          "text": "e e e e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.31,
+          "y": 0.39,
+          "w": 0.15,
+          "h": 0.19,
+          "text": "e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.42,
+          "y": 0.25,
+          "w": 8.99,
+          "h": 0.64,
+          "text": "Business Case 4: AI Coding in China",
+          "size": 25,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.45,
+          "y": 0.95,
+          "w": 7.29,
+          "h": 0.31,
+          "text": "From code assistance to faster internal applications and business automation.",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.29,
+          "y": 1.39,
+          "w": 10.68,
+          "h": 0.23,
+          "text": "WHY IT IS ACCELERATING HOW AI CODING IS USED BUSINESS IMPLICATIONS",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 5.15,
+          "y": 1.83,
+          "w": 2.61,
+          "h": 0.25,
+          "text": "</> Code generation completion",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.56,
+          "y": 1.94,
+          "w": 10.88,
+          "h": 0.27,
+          "text": "More local model choices Shorter demand-to-prototype cycle",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 5.8,
+          "y": 2.29,
+          "w": 1.37,
+          "h": 0.23,
+          "text": "Test case generation",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.81,
+          "y": 2.34,
+          "w": 10.83,
+          "h": 0.54,
+          "text": "@® Lower prototyping cost Lower cost of building",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 5.8,
+          "y": 2.72,
+          "w": 5.24,
+          "h": 0.22,
+          "text": "Code review internal tools",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.56,
+          "y": 3.11,
+          "w": 7.59,
+          "h": 0.25,
+          "text": "Faster app development y",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 6.07,
+          "y": 3.22,
+          "w": 6.04,
+          "h": 0.29,
+          "text": "Coding Agent More self-service automation",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.56,
+          "y": 3.63,
+          "w": 1.19,
+          "h": 0.21,
+          "text": "Business demand",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.55,
+          "y": 3.77,
+          "w": 10.15,
+          "h": 0.26,
+          "text": "for internal tools Developer role shifts to",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.15,
+          "y": 3.97,
+          "w": 1.57,
+          "h": 0.21,
+          "text": "review and architecture",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 5.8,
+          "y": 4.12,
+          "w": 2.32,
+          "h": 0.23,
+          "text": "API integration automation scripts",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.15,
+          "y": 4.37,
+          "w": 1.65,
+          "h": 0.24,
+          "text": "Governance and security",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 5.81,
+          "y": 4.55,
+          "w": 5.36,
+          "h": 0.24,
+          "text": "Internal tools analytics apps become critical",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.39,
+          "y": 5.37,
+          "w": 9.24,
+          "h": 0.35,
+          "text": "43%+ of Baidu’s new daily code is Al-generated 10M+ developers 10,000+ enterprises served",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 5.46,
+          "y": 5.98,
+          "w": 2.37,
+          "h": 0.23,
+          "text": "Note: Public vendor-reported figures.",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.83,
+          "y": 6.28,
+          "w": 9.44,
+          "h": 0.57,
+          "text": "G Al coding is lowering the cost of turning business needs into working applications.",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 12.7,
+          "y": 6.95,
+          "w": 0.3,
+          "h": 0.26,
+          "text": "18",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.78,
+          "y": 7.14,
+          "w": 4.63,
+          "h": 0.21,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "background": "p19.jpg",
+      "text_overlays": [
+        {
+          "x": 5.34,
+          "y": 0.33,
+          "w": 3.56,
+          "h": 0.19,
+          "text": "e e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.28,
+          "y": 0.46,
+          "w": 0.14,
+          "h": 0.19,
+          "text": "e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.48,
+          "y": 0.33,
+          "w": 9.03,
+          "h": 0.64,
+          "text": "Business Case 5: AI in Manufacturing",
+          "size": 25,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.51,
+          "y": 1.08,
+          "w": 10.08,
+          "h": 0.31,
+          "text": "From detecting problems to creating a closed loop between sensing, decision, and production improvement.",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.78,
+          "y": 1.59,
+          "w": 7.04,
+          "h": 0.22,
+          "text": "TYPICAL MANUFACTURING SIGNALS CLOSED-LOOP AI-ENABLED FLOW",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.5,
+          "y": 2.2,
+          "w": 0.99,
+          "h": 0.23,
+          "text": "Machine data",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.02,
+          "y": 2.25,
+          "w": 2.01,
+          "h": 0.53,
+          "text": "G 99.98%",
+          "size": 20,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 9.17,
+          "y": 2.62,
+          "w": 3.18,
+          "h": 0.26,
+          "text": "4 inspection accuracy",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.49,
+          "y": 2.78,
+          "w": 6.78,
+          "h": 0.31,
+          "text": "Vision inspection Sense Detect Explain",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.5,
+          "y": 3.29,
+          "w": 10.18,
+          "h": 0.45,
+          "text": "Process parameters 4 +275",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 4.88,
+          "y": 3.66,
+          "w": 7.7,
+          "h": 0.29,
+          "text": "oO per-capita productivity",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.49,
+          "y": 4.07,
+          "w": 6.7,
+          "h": 0.32,
+          "text": "Quality records Continuous Feedback Adjust",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 4.61,
+          "y": 4.25,
+          "w": 7.44,
+          "h": 0.35,
+          "text": "improvement Faster quality",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 10.92,
+          "y": 4.52,
+          "w": 1.01,
+          "h": 0.25,
+          "text": "feedback to",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.8,
+          "y": 4.72,
+          "w": 11.05,
+          "h": 0.27,
+          "text": "902 roduction",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.67,
+          "y": 4.8,
+          "w": 1.17,
+          "h": 0.25,
+          "text": "op-floor events",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.6,
+          "y": 5.24,
+          "w": 7.73,
+          "h": 0.31,
+          "text": "Al vision Root-cause Process Predictive Illustrative public case from China's",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.55,
+          "y": 5.42,
+          "w": 7.16,
+          "h": 0.29,
+          "text": "inspection analysis optimization intervention industrial Al deployment",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.93,
+          "y": 6.13,
+          "w": 10.38,
+          "h": 0.54,
+          "text": "G next step is not only better inspection. It is closing the loop between detection, decision, and production.",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 12.7,
+          "y": 6.95,
+          "w": 0.3,
+          "h": 0.26,
+          "text": "19",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.79,
+          "y": 7.1,
+          "w": 4.99,
+          "h": 0.21,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "background": "p20.jpg",
+      "text_overlays": [
+        {
+          "x": 0.61,
+          "y": 1.47,
+          "w": 1.16,
+          "h": 0.27,
+          "text": "PART 1V",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.68,
+          "y": 2.26,
+          "w": 6.03,
+          "h": 0.66,
+          "text": "What Does This M",
+          "size": 32,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 4.51,
+          "y": 3.14,
+          "w": 1.29,
+          "h": 0.46,
+          "text": "ina?",
+          "size": 22,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.6,
+          "y": 3.11,
+          "w": 5.1,
+          "h": 0.66,
+          "text": "for LELI China'",
+          "size": 33,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.6,
+          "y": 3.96,
+          "w": 6.9,
+          "h": 0.34,
+          "text": "Turning China’s Al reality into management choices and action.",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.75,
+          "y": 4.82,
+          "w": 5.73,
+          "h": 0.29,
+          "text": "The focus now shifts from understanding Al to choosing on",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.75,
+          "y": 5.06,
+          "w": 3.09,
+          "h": 0.25,
+          "text": "where LELI China should move first.",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.49,
+          "y": 6.9,
+          "w": 12.51,
+          "h": 0.37,
+          "text": "B Executive Discussion Deck China Al Environment and Business Reinvention 20",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "background": "p21.jpg",
+      "text_overlays": [
+        {
+          "x": 2.21,
+          "y": 0.32,
+          "w": 9.72,
+          "h": 0.19,
+          "text": "e e e e e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.35,
+          "y": 0.44,
+          "w": 0.14,
+          "h": 0.19,
+          "text": "e",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.46,
+          "y": 0.32,
+          "w": 12.0,
+          "h": 0.61,
+          "text": "Enterprise Action: From Tool Trial to Business Redesign",
+          "size": 25,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.44,
+          "y": 1.07,
+          "w": 9.0,
+          "h": 0.37,
+          "text": "A practical path for moving from scattered Al use cases to measurable business transformation.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.5,
+          "y": 1.57,
+          "w": 10.89,
+          "h": 0.43,
+          "text": "Identify high-value (2) Move from Copilot (3) Redesign workflows, (4) Build enterprise",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.83,
+          "y": 1.9,
+          "w": 9.86,
+          "h": 0.29,
+          "text": "cases 9 to Agent not just tasks context",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.09,
+          "y": 1.96,
+          "w": 0.47,
+          "h": 0.72,
+          "text": "@)",
+          "size": 38,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.5,
+          "y": 2.33,
+          "w": 11.12,
+          "h": 0.25,
+          "text": "Prioritize processes with Go beyond assistance and — Reassess data flow, Turn business data, rules,",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.49,
+          "y": 2.5,
+          "w": 10.8,
+          "h": 0.31,
+          "text": "clear pain points and connect tasks, systems, O approvals, and cross- and experience into",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.49,
+          "y": 2.7,
+          "w": 10.91,
+          "h": 0.25,
+          "text": "usable data. and owners. functional coordination. Al-usable knowledge.",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.52,
+          "y": 3.31,
+          "w": 11.07,
+          "h": 0.43,
+          "text": "Balance global Establish Al coding Measure business (8 Manage two kinds",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.51,
+          "y": 3.61,
+          "w": 10.06,
+          "h": 0.3,
+          "text": "standards with governance value of risk",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.52,
+          "y": 3.83,
+          "w": 6.66,
+          "h": 0.29,
+          "text": "local practice —",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.87,
+          "y": 4.13,
+          "w": 10.65,
+          "h": 0.28,
+          "text": "governance aligned Define rules for security, Track cycle time, cost, Address both Al usage",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.51,
+          "y": 4.31,
+          "w": 10.72,
+          "h": 0.27,
+          "text": "while allowing China IP, testing, and quality, risk, and risk and the risk of",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.51,
+          "y": 4.51,
+          "w": 10.73,
+          "h": 0.26,
+          "text": "to experiment. release control. revenue impact. moving too slowly.",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 6.63,
+          "y": 5.0,
+          "w": 0.44,
+          "h": 0.3,
+          "text": "pilot",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 2.44,
+          "y": 5.44,
+          "w": 10.26,
+          "h": 0.29,
+          "text": "O Human Business Cost Scale-up",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.17,
+          "y": 5.53,
+          "w": 7.09,
+          "h": 0.41,
+          "text": "Usage rate Active users Task time CO Error rate",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.07,
+          "y": 6.42,
+          "w": 9.47,
+          "h": 0.35,
+          "text": "The goal is not more Al tools. It is redesigning how value is created, governed, and scaled.",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.8,
+          "y": 6.95,
+          "w": 12.19,
+          "h": 0.35,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 21",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "background": "p22.jpg",
+      "text_overlays": [
+        {
+          "x": 0.44,
+          "y": 0.23,
+          "w": 7.51,
+          "h": 0.63,
+          "text": "Three Questions for LELI Chi",
+          "size": 27,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.44,
+          "y": 0.95,
+          "w": 6.36,
+          "h": 0.31,
+          "text": "Turning Al discussion into priority-setting for the China business.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.83,
+          "y": 1.43,
+          "w": 10.57,
+          "h": 0.5,
+          "text": "Where should China How should LELI combine 6 Which areas should",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.83,
+          "y": 1.81,
+          "w": 9.71,
+          "h": 0.32,
+          "text": "redesign workflows rather global standards with China",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.83,
+          "y": 2.06,
+          "w": 9.94,
+          "h": 0.33,
+          "text": "than simply add another tool? China speed and explore first?",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 6.09,
+          "y": 2.32,
+          "w": 1.49,
+          "h": 0.31,
+          "text": "market reality?",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.83,
+          "y": 2.69,
+          "w": 9.31,
+          "h": 0.22,
+          "text": "i i Finance and Tax",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.57,
+          "y": 2.69,
+          "w": 8.15,
+          "h": 0.37,
+          "text": "Which processes are still manual? What =@)",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 9.97,
+          "y": 3.23,
+          "w": 1.94,
+          "h": 0.22,
+          "text": "Sales and Customer Service",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.58,
+          "y": 3.29,
+          "w": 6.7,
+          "h": 0.31,
+          "text": "Where are decisions slowed by Where should local experimentation",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.58,
+          "y": 3.49,
+          "w": 5.01,
+          "h": 0.27,
+          "text": "fragmented data? be allowed?",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 9.97,
+          "y": 3.73,
+          "w": 2.22,
+          "h": 0.25,
+          "text": "Supply Chain and Manufacturing",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.58,
+          "y": 3.98,
+          "w": 6.53,
+          "h": 0.26,
+          "text": "Which approval steps may no How can risk control coexist with",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.58,
+          "y": 4.18,
+          "w": 10.34,
+          "h": 0.33,
+          "text": "longer faster iteration? Al Coding and Internal Tools",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 5.29,
+          "y": 4.85,
+          "w": 2.61,
+          "h": 0.29,
+          "text": "Possible follow-up questions",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.9,
+          "y": 5.33,
+          "w": 10.17,
+          "h": 0.25,
+          "text": "What can China What can later What data should be f How will success",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.9,
+          "y": 5.55,
+          "w": 9.96,
+          "h": 0.28,
+          "text": "pilot first? globally? prepared first? measured?",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.72,
+          "y": 6.23,
+          "w": 10.94,
+          "h": 0.6,
+          "text": "G The most important next step is not to discuss Al in general. It is to choose where China should move first.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 12.69,
+          "y": 6.95,
+          "w": 0.3,
+          "h": 0.26,
+          "text": "22",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.78,
+          "y": 7.13,
+          "w": 4.63,
+          "h": 0.21,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "background": "p23.jpg",
+      "text_overlays": [
+        {
+          "x": 0.49,
+          "y": 1.16,
+          "w": 7.01,
+          "h": 0.33,
+          "text": "What Thomas should take away from this discussion about Al reality.",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.51,
+          "y": 1.73,
+          "w": 10.04,
+          "h": 0.4,
+          "text": "China is not simply 5p, China’s distinctive Al is moving from",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.74,
+          "y": 1.85,
+          "w": 11.14,
+          "h": 0.6,
+          "text": "1 following a global Al 2 feature is the (| 3 productivity tools into",
+          "size": 15,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.51,
+          "y": 2.33,
+          "w": 10.31,
+          "h": 0.31,
+          "text": "playbook. It is combination of speed, workflows, decisions,",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.51,
+          "y": 2.6,
+          "w": 10.45,
+          "h": 0.31,
+          "text": "developing its own scale, market software development,",
+          "size": 10,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.51,
+          "y": 2.88,
+          "w": 10.06,
+          "h": 0.31,
+          "text": "path of adoption. integration, and and organizational",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 5.64,
+          "y": 3.15,
+          "w": 4.94,
+          "h": 0.31,
+          "text": "business experimentation. design.",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.5,
+          "y": 3.61,
+          "w": 10.84,
+          "h": 0.27,
+          "text": "The environment is shaped by open What matters is not only model The real management question is",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.51,
+          "y": 3.84,
+          "w": 10.65,
+          "h": 0.28,
+          "text": "models, rapid experimentation, capability, but the shorter loop no longer whether Al can help.",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.51,
+          "y": 4.07,
+          "w": 10.62,
+          "h": 0.28,
+          "text": "manufacturing depth, and business from technology to real It is what should change inside",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 9.9,
+          "y": 4.31,
+          "w": 1.08,
+          "h": 0.27,
+          "text": "the enterprise.",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 2.56,
+          "y": 4.99,
+          "w": 8.3,
+          "h": 0.47,
+          "text": "(2) Productivity Workflow Reinvention",
+          "size": 18,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.85,
+          "y": 5.82,
+          "w": 8.45,
+          "h": 0.67,
+          "text": "G The next question is not whether Al will change the business.",
+          "size": 14,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 2.46,
+          "y": 6.25,
+          "w": 9.16,
+          "h": 0.35,
+          "text": "It is how deliberately, measurably, and how quickly we choose to shape that change.",
+          "size": 12,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 0.4,
+          "y": 6.5,
+          "w": 0.14,
+          "h": 0.21,
+          "text": "x",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.81,
+          "y": 6.95,
+          "w": 12.18,
+          "h": 0.34,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 2 3",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "background": "p24.jpg",
+      "text_overlays": [
+        {
+          "x": 0.47,
+          "y": 1.15,
+          "w": 6.46,
+          "h": 0.31,
+          "text": "Balancing global governance, China speed, and enterprise redesign.",
+          "size": 11,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.33,
+          "y": 1.89,
+          "w": 8.0,
+          "h": 0.29,
+          "text": "Global Governance China Speed",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.88,
+          "y": 2.32,
+          "w": 1.76,
+          "h": 0.22,
+          "text": "What should China do first?",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 8.2,
+          "y": 2.48,
+          "w": 0.96,
+          "h": 0.2,
+          "text": "xperimentation",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.62,
+          "y": 2.73,
+          "w": 1.48,
+          "h": 0.34,
+          "text": "Management",
+          "size": 14,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 1.3,
+          "y": 2.93,
+          "w": 10.75,
+          "h": 0.43,
+          "text": "Compliance Agend a Customer expectations What must remain",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.88,
+          "y": 3.24,
+          "w": 1.43,
+          "h": 0.25,
+          "text": "globally standardized?",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.29,
+          "y": 3.45,
+          "w": 7.97,
+          "h": 0.31,
+          "text": "Architecture Local competition",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.88,
+          "y": 3.83,
+          "w": 1.52,
+          "h": 0.21,
+          "text": "Where should Al remain",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.3,
+          "y": 3.98,
+          "w": 11.06,
+          "h": 0.31,
+          "text": "Control Iteration supervised by humans?",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 4.81,
+          "y": 4.61,
+          "w": 7.53,
+          "h": 0.3,
+          "text": "Enterprise Redesign How will value and risk",
+          "size": 8,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.88,
+          "y": 4.83,
+          "w": 1.23,
+          "h": 0.21,
+          "text": "both be measured?",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 6.58,
+          "y": 5.04,
+          "w": 0.34,
+          "h": 0.33,
+          "text": "2",
+          "size": 13,
+          "color": "1B2D5C"
+        },
+        {
+          "x": 6.55,
+          "y": 5.28,
+          "w": 0.4,
+          "h": 0.19,
+          "text": "ooo",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 3.66,
+          "y": 5.42,
+          "w": 1.42,
+          "h": 0.33,
+          "text": "Workflow Context",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 1.66,
+          "y": 6.27,
+          "w": 10.67,
+          "h": 0.29,
+          "text": "The challenge is not only to adopt Al. It is to redesign the business deliberately while managing both action risk and inaction risk.",
+          "size": 9,
+          "color": "6B7280"
+        },
+        {
+          "x": 10.8,
+          "y": 6.62,
+          "w": 1.05,
+          "h": 0.21,
+          "text": "Discussion Q&A",
+          "size": 7,
+          "color": "6B7280"
+        },
+        {
+          "x": 0.79,
+          "y": 6.95,
+          "w": 12.21,
+          "h": 0.37,
+          "text": "Executive Discussion Deck China Al Environment and Business Reinvention 24",
+          "size": 7,
+          "color": "6B7280"
+        }
+      ]
+    }
+  ]
+}
