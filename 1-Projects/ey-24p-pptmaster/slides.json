@@ -1,0 +1,74 @@
+{
+  "deck_title": "Seeing China's AI Reality",
+  "pages_dir": "pages_jpg",
+  "page_size": {"width": 13.333, "height": 7.5},
+  "slides": [
+    {
+      "id": 1,
+      "type": "cover",
+      "background": "p01.jpg",
+      "text_overlays": [
+        {"x": 0.56, "y": 1.27, "w": 6.5, "h": 0.66, "text": "Seeing China's AI Reality", "size": 44, "color": "1B2D5C", "font": "serif", "bold": true, "align": "left"},
+        {"x": 0.56, "y": 2.46, "w": 6.5, "h": 0.42, "text": "A different path from productivity", "size": 22, "color": "00A3B4", "align": "left"},
+        {"x": 0.55, "y": 2.94, "w": 5, "h": 0.42, "text": "to business reinvention", "size": 22, "color": "00A3B4", "align": "left"},
+        {"x": 0.57, "y": 3.74, "w": 5, "h": 0.31, "text": "What has changed in China since 2024?", "size": 14, "color": "4A5A78", "italic": true, "align": "left"}
+      ]
+    },
+    {
+      "id": 2,
+      "type": "agenda",
+      "background": "p02.jpg",
+      "text_overlays": [
+        {"x": 0.54, "y": 1.49, "w": 8, "h": 0.3, "text": "How the discussion will move from China's AI environment to enterprise action.", "size": 14, "color": "00A3B4", "italic": true, "align": "left"},
+        {"x": 2.39, "y": 2.31, "w": 4, "h": 0.3, "text": "Part I — What Changed in China?", "size": 18, "color": "1B2D5C", "bold": true, "font": "serif", "align": "left"},
+        {"x": 2.39, "y": 3.30, "w": 4, "h": 0.5, "text": "环境扫描：AI 格局、规模、速度、开源、Physical AI", "size": 11, "color": "4A5A78", "align": "left"},
+        {"x": 8.35, "y": 2.24, "w": 4, "h": 0.3, "text": "Part II — What Changes Inside the Enterprise?", "size": 18, "color": "1B2D5C", "bold": true, "font": "serif", "align": "left"},
+        {"x": 8.35, "y": 3.19, "w": 4, "h": 0.5, "text": "组织变革：从工具采纳到工作流重设计", "size": 11, "color": "4A5A78", "align": "left"},
+        {"x": 2.39, "y": 4.31, "w": 4, "h": 0.3, "text": "Part III — What Does It Look Like in Real Business?", "size": 18, "color": "1B2D5C", "bold": true, "font": "serif", "align": "left"},
+        {"x": 2.39, "y": 5.18, "w": 4, "h": 0.5, "text": "实证落地：5 大行业用例", "size": 11, "color": "4A5A78", "align": "left"},
+        {"x": 8.31, "y": 4.31, "w": 4, "h": 0.3, "text": "Part IV — What Does This Mean for LELI China?", "size": 18, "color": "1B2D5C", "bold": true, "font": "serif", "align": "left"},
+        {"x": 8.31, "y": 5.18, "w": 4, "h": 0.5, "text": "行动落点：优先级与管理决策", "size": 11, "color": "4A5A78", "align": "left"}
+      ]
+    },
+    {
+      "id": 3,
+      "type": "section_divider",
+      "background": "p03.jpg",
+      "text_overlays": [
+        {"x": 0.60, "y": 1.47, "w": 2, "h": 0.3, "text": "PART 1", "size": 14, "color": "6B7280", "bold": true, "charSpacing": 5, "align": "left"},
+        {"x": 0.59, "y": 2.44, "w": 8, "h": 0.7, "text": "What Changed in China?", "size": 40, "color": "1B2D5C", "font": "serif", "bold": true, "align": "left"},
+        {"x": 0.61, "y": 3.48, "w": 9, "h": 0.3, "text": "Understanding how China's AI environment has changed since 2024.", "size": 16, "color": "00A3B4", "italic": true, "align": "left"},
+        {"x": 0.76, "y": 4.25, "w": 9, "h": 0.3, "text": "This section looks at the scale, speed, structure, and industrial depth of China's AI environment.", "size": 12, "color": "1B2D5C", "bold": true, "align": "left"}
+      ]
+    },
+    {
+      "id": 4,
+      "type": "data_dashboard",
+      "background": "p04.jpg",
+      "text_overlays": [
+        {"x": 0.58, "y": 0.67, "w": 12, "h": 0.6, "text": "China's AI market is no longer the same market", "size": 32, "color": "1B2D5C", "font": "serif", "bold": true, "align": "left"},
+        {"x": 0.60, "y": 1.65, "w": 6, "h": 0.3, "text": "What changed in just two years?", "size": 18, "color": "00A3B4", "italic": true, "align": "left"},
+        {"x": 2.06, "y": 2.53, "w": 1.33, "h": 0.42, "text": "515M", "size": 30, "color": "1B2D5C", "bold": true, "font": "serif", "align": "left"},
+        {"x": 5.17, "y": 2.53, "w": 2.38, "h": 0.48, "text": "36.5%", "size": 34, "color": "1B2D5C", "bold": true, "font": "serif", "align": "left"},
+        {"x": 9.00, "y": 2.53, "w": 3.5, "h": 0.48, "text": "302 → 868", "size": 32, "color": "1B2D5C", "bold": true, "font": "serif", "align": "left"},
+        {"x": 2.07, "y": 3.11, "w": 3, "h": 0.25, "text": "GenAI users in China", "size": 14, "color": "1B2D5C", "bold": true, "align": "left"},
+        {"x": 6.20, "y": 3.11, "w": 3, "h": 0.25, "text": "Population penetration", "size": 14, "color": "1B2D5C", "bold": true, "align": "left"},
+        {"x": 10.06, "y": 3.11, "w": 3, "h": 0.25, "text": "Filed GenAI services", "size": 14, "color": "1B2D5C", "bold": true, "align": "left"},
+        {"x": 2.07, "y": 3.48, "w": 2, "h": 0.2, "text": "Jun 2025", "size": 10, "color": "6B7280", "italic": true, "align": "left"},
+        {"x": 6.20, "y": 3.48, "w": 2, "h": 0.2, "text": "Jun 2025", "size": 10, "color": "6B7280", "italic": true, "align": "left"},
+        {"x": 10.05, "y": 3.48, "w": 3, "h": 0.2, "text": "YE 2024 to Apr 2026", "size": 10, "color": "6B7280", "italic": true, "align": "left"},
+        {"x": 2.05, "y": 4.25, "w": 2.24, "h": 0.42, "text": "RMB1.2T+", "size": 28, "color": "1B2D5C", "bold": true, "font": "serif", "align": "left"},
+        {"x": 6.19, "y": 4.15, "w": 1.12, "h": 0.42, "text": "30%+", "size": 28, "color": "1B2D5C", "bold": true, "font": "serif", "align": "left"},
+        {"x": 10.06, "y": 4.17, "w": 1.04, "h": 0.42, "text": "10B+", "size": 28, "color": "1B2D5C", "bold": true, "font": "serif", "align": "left"},
+        {"x": 2.06, "y": 4.68, "w": 3, "h": 0.25, "text": "AI core industry scale", "size": 14, "color": "1B2D5C", "bold": true, "align": "left"},
+        {"x": 6.20, "y": 4.68, "w": 3, "h": 0.25, "text": "Large manufacturers applying AI", "size": 14, "color": "1B2D5C", "bold": true, "align": "left"},
+        {"x": 10.05, "y": 4.68, "w": 3, "h": 0.25, "text": "Open-model cumulative downloads", "size": 14, "color": "1B2D5C", "bold": true, "align": "left"},
+        {"x": 2.07, "y": 5.16, "w": 1.5, "h": 0.2, "text": "2025", "size": 10, "color": "6B7280", "italic": true, "align": "left"},
+        {"x": 6.20, "y": 5.16, "w": 1.5, "h": 0.2, "text": "2025", "size": 10, "color": "6B7280", "italic": true, "align": "left"},
+        {"x": 10.06, "y": 5.16, "w": 1.5, "h": 0.2, "text": "2025", "size": 10, "color": "6B7280", "italic": true, "align": "left"},
+        {"x": 1.81, "y": 6.04, "w": 8, "h": 0.4, "text": "AI is becoming part of China's operating environment.", "size": 14, "color": "1B2D5C", "bold": true, "align": "left"},
+        {"x": 10.23, "y": 5.82, "w": 3, "h": 0.6, "text": "China also accounted for 54% of the world's new industrial robot installations in 2024.", "size": 12, "color": "1B2D5C", "bold": true, "align": "left"}
+      ]
+    }
+  ]
+}
