@@ -22,6 +22,16 @@ const slidesData = JSON.parse(
 // ============================================================
 // 2. 主题常量（EY 风格）
 // ============================================================
+const ICONS_DIR = path.join(VAULT, "1-Projects", "EY-China-AI-Reality", "PPT", "icons");
+const CHINA_MAP = path.join(ICONS_DIR, "china_map.png");
+
+function addIcon(slide, name, x, y, w, h) {
+  const fp = path.join(ICONS_DIR, name + ".png");
+  if (fs.existsSync(fp)) {
+    slide.addImage({ path: fp, x, y, w, h });
+  }
+}
+
 const C = {
   primary: "1B2D5C",     // EY 深海军蓝
   secondary: "00A3B4",   // EY teal 青色
@@ -89,7 +99,7 @@ function addArrow(slide, x1, y1, x2, y2, color = C.primary, width = 1.5) {
 
 function addFooter(slide, page, num) {
   // 左下角：地球图标 + footer text
-  addText(slide, "🌐", 0.3, 7.05, 0.25, 0.3, { size: 9, color: C.muted });
+  addText(slide, "⊙", 0.3, 7.05, 0.25, 0.3, { size: 9, color: C.muted });
   addText(slide, page.footer.left, 0.55, 7.05, 10, 0.3, { size: 8, color: C.muted });
   // 右下角：页码
   addText(slide, String(num), 12.5, 7.05, 0.6, 0.3, { size: 10, color: C.primary, bold: true, align: "right" });
@@ -109,7 +119,7 @@ function addPageTitle(slide, title, subtitle, color = C.primary) {
   }
 }
 
-function addCallout(slide, text, y = 6.5, icon = "🎯") {
+function addCallout(slide, text, y = 6.5, icon = "⊕") {
   // 底部金句条
   addRect(slide, 0.5, y, 12.3, 0.5, {
     radius: 0.06, fill: C.bg_subtle, line: C.secondary, lineWidth: 0.5,
@@ -233,7 +243,7 @@ function addSectionDividerSlide(slide, page) {
   addRect(slide, 0.5, 5.0, 7.5, 0.7, {
     radius: 0.08, fill: C.bg_subtle, line: C.secondary, lineWidth: 0.75,
   });
-  addText(slide, "🎯", 0.6, 5.05, 0.6, 0.6, { size: 16, align: "center" });
+  addText(slide, "⊕", 0.6, 5.05, 0.6, 0.6, { size: 16, align: "center" });
   addText(slide, page.callout, 1.2, 5.0, 6.7, 0.7, {
     size: 11, color: C.primary, bold: true, valign: "middle",
   });
@@ -272,13 +282,19 @@ function addDataDashboardSlide(slide, page) {
     addRect(slide, x, y, cardW, cardH, {
       radius: 0.06, fill: C.bg_alt, line: C.light_blue, lineWidth: 0.75,
     });
-    // icon 圆圈
+    // icon 圆圈 + PNG 图标
     addCircle(slide, x + 0.25, y + 0.25, 0.45, 0.45, {
       fill: C.bg_subtle, line: C.secondary, lineWidth: 1,
     });
-    addText(slide, "📊", x + 0.25, y + 0.25, 0.45, 0.45, {
-      size: 14, align: "center", valign: "middle",
-    });
+    const iconMap = { users: "users", gauge: "gauge", network: "network", buildings: "buildings", robot_arm: "robot_arm", download: "download" };
+    const iconFile = iconMap[card.icon];
+    if (iconFile && fs.existsSync(path.join(ICONS_DIR, iconFile + ".png"))) {
+      addIcon(slide, iconFile, x + 0.30, y + 0.30, 0.35, 0.35);
+    } else {
+      addText(slide, "▲", x + 0.25, y + 0.25, 0.45, 0.45, {
+        size: 14, color: C.secondary, bold: true, align: "center", valign: "middle",
+      });
+    }
     // 数据数字
     addText(slide, card.value, x + 0.25, y + 0.75, cardW - 0.5, 0.5, {
       size: 28, bold: true, color: C.primary, font: F.serif,
@@ -323,13 +339,19 @@ function addTimelineSlide(slide, page) {
   const gap = 0.25;
   page.milestones.forEach((m, i) => {
     const x = 0.5 + i * (milestoneW + gap);
-    // 节点圆
+    // 节点圆 + PNG 图标
     addCircle(slide, x + milestoneW / 2 - 0.4, 3.6, 0.8, 0.8, {
       fill: C.bg_subtle, line: C.secondary, lineWidth: 2,
     });
-    addText(slide, String(i + 1), x + milestoneW / 2 - 0.4, 3.6, 0.8, 0.8, {
-      size: 24, bold: true, color: C.secondary, align: "center", valign: "middle",
-    });
+    const iconMap = { doc: "doc", people: "people", factory: "factory", rising_bars: "rising_bars" };
+    const iconFile = iconMap[m.icon];
+    if (iconFile && fs.existsSync(path.join(ICONS_DIR, iconFile + ".png"))) {
+      addIcon(slide, iconFile, x + milestoneW / 2 - 0.30, 3.70, 0.60, 0.60);
+    } else {
+      addText(slide, String(i + 1), x + milestoneW / 2 - 0.4, 3.6, 0.8, 0.8, {
+        size: 24, bold: true, color: C.secondary, align: "center", valign: "middle",
+      });
+    }
     // 时间
     addText(slide, m.time, x, 2.2, milestoneW, 0.4, {
       size: 13, bold: true, color: C.primary, align: "center",
@@ -348,7 +370,7 @@ function addTimelineSlide(slide, page) {
     });
   });
   
-  addCallout(slide, page.callout, 6.4, "💡");
+  addCallout(slide, page.callout, 6.4, "★");
   addFooter(slide, page, page.id);
 }
 
@@ -410,7 +432,7 @@ function addLoopSlide(slide, page) {
     size: 13, bold: true, color: C.primary, font: F.serif,
   });
   
-  addCallout(slide, page.callout, 6.4, "🎯");
+  addCallout(slide, page.callout, 6.4, "⊕");
   addFooter(slide, page, page.id);
 }
 
@@ -467,7 +489,7 @@ function addHubAndSpokeSlide(slide, page) {
     });
   });
   
-  addCallout(slide, page.callout, 6.4, "🎯");
+  addCallout(slide, page.callout, 6.4, "⊕");
   addFooter(slide, page, page.id);
 }
 
@@ -544,7 +566,7 @@ function addFlow5StepSlide(slide, page) {
     });
   });
   
-  addCallout(slide, page.callout, 6.0, "🎯");
+  addCallout(slide, page.callout, 6.0, "⊕");
   addFooter(slide, page, page.id);
 }
 
@@ -627,7 +649,7 @@ function add3ColFrameworkSlide(slide, page) {
     });
   });
   
-  addCallout(slide, page.callout, 6.4, "💬");
+  addCallout(slide, page.callout, 6.4, "◐");
   addFooter(slide, page, page.id);
 }
 
@@ -720,7 +742,7 @@ function add3ColCompositeSlide(slide, page) {
     size: 10, color: C.white, bold: true, valign: "middle",
   });
   
-  addCallout(slide, page.callout, 6.6, "💬");
+  addCallout(slide, page.callout, 6.6, "◐");
   addFooter(slide, page, page.id);
 }
 
@@ -773,7 +795,7 @@ function addFramework5StageSlide(slide, page) {
     });
   });
   
-  addCallout(slide, page.callout, 6.5, "🎯");
+  addCallout(slide, page.callout, 6.5, "⊕");
   addFooter(slide, page, page.id);
 }
 
@@ -862,7 +884,7 @@ function addCoreFoundationSlide(slide, page) {
     }
   });
   
-  addCallout(slide, page.callout, 6.6, "🎯");
+  addCallout(slide, page.callout, 6.6, "⊕");
   addFooter(slide, page, page.id);
 }
 
@@ -917,7 +939,7 @@ function addCaseStudy3ColSlide(slide, page, opts = {}) {
     opts.renderRight(slide, page);
   }
   
-  addCallout(slide, page.callout, 6.4, opts.calloutIcon || "🎯");
+  addCallout(slide, page.callout, 6.4, opts.calloutIcon || "⊕");
   addFooter(slide, page, page.id);
 }
 
@@ -1002,7 +1024,7 @@ function addActionRoadmapSlide(slide, page) {
     });
   });
   
-  addCallout(slide, page.callout, 5.7, "🎯");
+  addCallout(slide, page.callout, 5.7, "⊕");
   addFooter(slide, page, page.id);
 }
 
@@ -1064,7 +1086,7 @@ function addQuestions3ColSlide(slide, page) {
     size: 10, color: C.muted, valign: "middle",
   });
   
-  addCallout(slide, page.callout, 6.5, "🎯");
+  addCallout(slide, page.callout, 6.5, "⊕");
   addFooter(slide, page, page.id);
 }
 
@@ -1112,7 +1134,7 @@ function addJudgments3ColSlide(slide, page) {
     }
   });
   
-  addCallout(slide, page.callout, 6.5, "🎯");
+  addCallout(slide, page.callout, 6.5, "⊕");
   addFooter(slide, page, page.id);
 }
 
@@ -1169,7 +1191,7 @@ function addClosingChallengeSlide(slide, page) {
     });
   });
   
-  addCallout(slide, page.callout, 6.0, "🎯");
+  addCallout(slide, page.callout, 6.0, "⊕");
   addFooter(slide, page, page.id);
 }
 
@@ -1207,7 +1229,7 @@ async function main() {
           addRect(slide, 7.4, 1.7, 5.5, 0.5, {
             radius: 0.04, fill: C.secondary, line: C.secondary, lineWidth: 0,
           });
-          addText(slide, "💬 " + page.right_qa_example.question, 7.5, 1.7, 5.3, 0.5, {
+          addText(slide, "◐ " + page.right_qa_example.question, 7.5, 1.7, 5.3, 0.5, {
             size: 11, bold: true, color: C.white, valign: "middle",
           });
           page.right_qa_example.drivers_8_icons.forEach((d, i) => {
@@ -1268,7 +1290,7 @@ async function main() {
             });
           });
           if (page.illustrative_note) {
-            addText(slide, "ℹ " + page.illustrative_note, 7.4, 5.8, 5.5, 0.3, {
+            addText(slide, "i  " + page.illustrative_note, 7.4, 5.8, 5.5, 0.3, {
               size: 8, color: C.muted, italic: true,
             });
           }
@@ -1280,7 +1302,7 @@ async function main() {
       leftTitle: "Why It's Accelerating",
       leftSteps: p.left_why_accelerating_5,
       middleSteps: [...(p.middle_how_ai_coding_used.above_3 || []), p.middle_how_ai_coding_used.center, ...(p.middle_how_ai_coding_used.below_3 || [])],
-      calloutIcon: "🎯",
+      calloutIcon: "⊕",
       renderRight: (slide, page) => {
         addText(slide, "Business Implications", 7.4, 1.7, 5.5, 0.4, {
           size: 13, bold: true, color: C.primary, font: F.serif,
@@ -1324,7 +1346,7 @@ async function main() {
           addRect(slide, x, y, 2.6, 0.5, {
             radius: 0.04, fill: C.bg_subtle, line: C.secondary, lineWidth: 0.5,
           });
-          addText(slide, "⚙ " + cap, x, y, 2.6, 0.5, {
+          addText(slide, "✦ " + cap, x, y, 2.6, 0.5, {
             size: 10, color: C.primary, bold: true, align: "center", valign: "middle",
           });
         });
@@ -1345,7 +1367,7 @@ async function main() {
           });
         });
         if (page.illustrative_note) {
-          addText(slide, "ℹ " + page.illustrative_note, 7.4, 6.0, 5.5, 0.3, {
+          addText(slide, "i  " + page.illustrative_note, 7.4, 6.0, 5.5, 0.3, {
             size: 8, color: C.muted, italic: true,
           });
         }
