@@ -148,21 +148,52 @@ ls /root/.openclaw/workspace/skills/typesafe-ai/  # 看到 SKILL.md + LICENSE + 
 
 ## 7. ⚠️ 避坑指南
 
-### 坑 1：Choice 的 `criteria` 必须是 dict 不是 array
+### 坑 1：三种 Question 的 `criteria` 格式不一样
 
-❌ 错误（API 报 422）：
+**Choice**：`criteria` 是 **dict**（key=选项名，value=描述）
 ```json
-"criteria": ["billing", "technical_support", "account_management", "other"]
+"topic": {
+  "type": "choice",
+  "instructions": "Pick the most relevant department",
+  "criteria": {
+    "billing": "Payment, charge, refund, or payout issues",      // ✅ dict
+    "technical_support": "Software bugs, service outages"
+  }
+}
 ```
 
-✅ 正确：
+**Score**：`criteria` 是 **array of strings**（有序等级描述，index 自动 0/1/2...）
 ```json
-"criteria": {
-  "billing": "Payment, charge, refund, or payout issues",
-  "technical_support": "Software bugs, service outages, or integration failures",
-  "account_management": "Account changes, cancellations, profile or permissions",
-  "other": "Does not fit the categories above"
+"frustration": {
+  "type": "score",
+  "instructions": "How frustrated the customer appears",
+  "criteria": [                                                  // ✅ array
+    "Calm, just stating facts",
+    "Frustrated but civil",
+    "Very angry, strong language"
+  ]
 }
+```
+API 返回时数组会自动转成 `legend` dict：
+```json
+"frustration": {
+  "score": 1.0,
+  "confidence": 1.0,
+  "legend": {"0":"Calm, just stating facts","1":"Frustrated but civil","2":"Very angry"},
+  "probabilities": {"0":0.0,"1":1.0,"2":0.0}
+}
+```
+
+**Noul**：**没有** `criteria` 字段，只有 `instructions`
+
+❌ Choice 写成 array（API 报 422）：
+```json
+"criteria": ["billing", "technical_support"]
+```
+
+❌ Score 写成 dict（API 报 422）：
+```json
+"criteria": {"0":"calm","1":"angry"}
 ```
 
 ### 坑 2：`system_overloaded` 不是 key 错误
@@ -199,7 +230,43 @@ typesafe.ai 这个服务在测试中，流量高峰会返回：
 | OpenClaw gateway restart | ❌ **待执行**（env vars 还没进 agent 进程） |
 | 端到端 API 验证 | ✅ 通过（9-21 15:28，3 次调用全部 200） |
 
-## 9. 关联文档
+## 9. 可选增强：装 Python SDK（按需）
+
+typesafe.ai 提供官方 Python SDK（要求 Python >= 3.10），**自动读 `TYPESAFE_API_KEY` env var**（正好跟我们 systemd EnvironmentFile 注入的变量对上）：
+
+```bash
+pip install typesafe-sdk     # 或 uv add typesafe-sdk
+```
+
+```python
+from typesafe_sdk import Choice, Noul, Score, TypeSafeClient
+
+client = TypeSafeClient()  # 自动读 $TYPESAFE_API_KEY
+
+response = client.system_one(
+    state="Help! My payouts have been failing for 3 days.",
+    questions={
+        "is_urgent": Noul(instructions="Does this convey urgency?"),
+        "topic": Choice(
+            instructions="Pick the department to route this to",
+            criteria={"billing":"Payment issues", "other":"Other"}
+        ),
+        "frustration": Score(
+            instructions="How frustrated the customer appears",
+            criteria=["Calm", "Frustrated", "Angry"]
+        ),
+    },
+)
+print(response.answers["is_urgent"].noul)     # 0.95
+print(response.answers["topic"].choice)       # "billing"
+print(response.answers["topic"].confidence)   # 1.0
+```
+
+**优点**：类型安全 + IDE 提示 + 不用每次写 curl
+**缺点**：多一层 Python 依赖 + 当前 OpenClaw agent 不直接用 Python（agent 是 Node + LLM prompt）
+**当前判断**：暂不装，等出现"agent 在 Python 工具里需要批量调 Jev"的场景再说
+
+## 10. 关联文档
 
 - 上游 skill 仓库：https://github.com/typesafe-ai/skills
 - 官方文档：https://docs.typesafe.ai/llms.txt
