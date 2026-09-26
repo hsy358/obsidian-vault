@@ -1,7 +1,7 @@
 ---
 type: document-metadata
 file_type: pdf
-file_path: /root/vault/0-Inbox/2026-09-26_pdf_AI-Native-Node-OS技术方案_v0.1_评审稿.pdf
+file_path: /root/vault/1-Projects/德勤/AI-Native/参考资料/2026-09-26_pdf_AI-Native-Node-OS技术方案_v0.1_评审稿.pdf
 source: 用户上传（微信）
 uploaded_date: 2026-09-26
 title: AI Native Node OS 技术方案 v0.1 评审稿
