@@ -52,6 +52,30 @@ pi herdr --2 activo 1 open -- 1m 2m 7m
 - 可恢复：recoverable 架构
 - 工作树交接：WORKTREE HANDOFF 支持任务迁移
 
+## 相关项目补充
+
+### CLM（Contrastive Language Models）
+
+| 类型 | 地址 |
+|---|---|
+| **GitHub** | https://github.com/Contrastive-LM/CLM |
+| **HuggingFace** | https://huggingface.co/Contrastive-LM |
+| **Blog** | https://contrastive-lm.notion.site |
+| **Discord** | https://discord.gg/5dAQEDJBs |
+
+**CLM-v0.1 定位**：System One 模型（快系统），用于快速决策
+- 基于 Qwen3-8B + 60M Nemotron 问答对预训练
+- 对标 Jev，在 computer-use / gaming / tool-calling 上延迟低 9 倍
+- 核心思路：状态与动作解耦，embedding 独立缓存复用
+- License: Apache-2.0
+
+```bash
+pip install contrastive-lm
+# vLLM 跑 encoder，clm-serve 跑 CLM-8B
+```
+
+---
+
 ## 截图文件
 
 `2026-09-28_screenshot_PiHerdrAgents.jpg`
