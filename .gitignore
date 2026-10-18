@@ -45,3 +45,8 @@ desktop.ini
 # Python 缓存
 __pycache__/
 *.pyc
+
+# OpenRig / Codex / Claude config backups with live secrets (2026-09-29)
+.openrig-backup-*/
+.claude.json
+codex/config.toml
