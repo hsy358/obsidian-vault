@@ -426,10 +426,120 @@ scheme=basic auth=present sess_cookie=no  uri="/"  ua="curl/8.5.0"
 | 11:38 | 截图 + 提问 | — |
 | 11:50-11:52 | API 200，但 `/assets/*.js`、`/env/keys` 401 | 缺 session cookie，Chrome 不回传 Basic 给子资源 |
 | 11:53-11:55 | 子资源仍 401 | 加 cookie 方案 + 修 `WWW-Authenticate` 滥加 |
-| **11:56 起** | **全部 200** | ✅ 修好 |
+| **11:56 起** | **全部 200** | ✅ 主文档 + 子资源修好 |
 | 11:56-12:21 | 持续 200，长连接正常 | — |
+| **12:23** | Edge 反复弹框 | ⚠️ **新问题**：XHR 也带 `WWW-Authenticate` |
+| **12:48** | **不再弹框** | ✅ 用 `Sec-Fetch-Dest` 区分导航/XHR（见 §5.10） |
 
 > 关键结论：**看日志比看用户描述可靠**。用户说"一直登录进不去"时，实际可能早已修好——消息发送时间和送达时间可能差几十分钟。所以第一件事永远是查日志的**时间轴**。
+>
+> 另一条结论：**"修好了"不等于"对"**。12:23 那一版确实是零 4xx/5xx、页面也渲染了，但 nginx 仍然在给 XHR 回 `WWW-Authenticate`，于是 Edge 一直弹框。**"日志干净"不等于"用户能用"** —— 必须模拟用户的真实浏览器行为去验证（见 §5.10 的 CDP 脚本），而不是只看状态码统计。
+
+### 5.10 补：只在「导航」上弹框，XHR 一律静默（Edge 反复弹框的真正元凶）⚠️
+
+这是最隐蔽的一个坑，也是**唯一会让用户「输入正确密码也没用」的那个**。
+
+#### 现象
+
+页面**已经渲染出来了**，OpenWork 界面清晰可见，但浏览器不停弹 HTTP Basic 登录框；用户输入正确的用户名密码 → 框清空 → 再弹 → 永远进不去。
+
+#### 根因
+
+之前的设计是「任何未通过认证的请求都返回 401 + `WWW-Authenticate`」。这对**导航**是对的，但对 **XHR / 子资源**是灾难：
+
+| 请求 | 实际行为 | 后果 |
+|---|---|---|
+| `GET /workspace/<id>/extensions` | app **没有**给这个接口附 Bearer token（实测上游无 token 也返回 200，这接口本来就不需要认证） | nginx 拒了 → 回 401 + `WWW-Authenticate` → **Edge 弹框** |
+| `GET /assets/app-*.js` | 同上 | 弹框 |
+| 任何 XHR | app 只在部分接口带 token | 弹框 |
+
+关键点：**弹框是 nginx 自己造的**。上游 openwork server 返回的 401 是干净的（实测响应头里没有 `WWW-Authenticate`），问题全在 nginx 这层。
+
+用户看到的是一个已经渲染好的页面 + 一个反复弹出的登录框 —— 他会认为「密码输错了」，但密码其实是对的，因为弹框根本不是由需要密码的请求触发的。
+
+#### 解法：用 `Sec-Fetch-Dest` 区分导航与 XHR
+
+```nginx
+# openwork-auth.conf
+map $http_sec_fetch_dest $ow_challenge_dest {
+    default 0;
+    document 1;
+}
+
+# 老浏览器不发 Sec-Fetch-Dest，用 Accept 兜底
+map $http_accept $ow_challenge_accept {
+    default 0;
+    "~*text/html" 1;
+}
+
+map "$ow_challenge_dest:$ow_challenge_accept" $ow_challenge {
+    default 0;
+    "~^1:" 1;
+    "~^0:1$" 1;
+}
+
+# 只有导航才带挑战头；XHR 的这个值为空 -> nginx 自动省略该头
+map $ow_challenge $ow_challenge_hdr {
+    default "";
+    1 'Basic realm="OpenWork"';
+}
+```
+
+```nginx
+# openwork.conf
+location @openwork_denied {
+    ...
+    add_header WWW-Authenticate $ow_challenge_hdr always;
+    return 401 'Authentication required';
+}
+```
+
+> 💡 **用空值控制 header 是否下发**，而不是用 `if` 加/不加 `add_header`。
+> nginx 的 `if` 块内 `add_header` 会被丢弃（经典坑），而且 `if` 里不能再嵌套 `if`，`return` 也不接受变量。
+
+#### 效果
+
+| 请求 | `Sec-Fetch-Dest` | 401 | `WWW-Authenticate` | 浏览器 |
+|---|---|---|---|---|
+| 页面导航 | `document` | ✅ | ✅ 有 | 弹框（正确） |
+| XHR / fetch | `empty` | ✅ | ❌ 无 | **静默** |
+| 子资源 | `script` / `style` | ✅ | ❌ 无 | **静默** |
+| 老浏览器导航 | 无 + `Accept: text/html` | ✅ | ✅ 有 | 弹框（正确） |
+
+#### 实战验证（模拟 Edge 真实行为）
+
+用 CDP 写了一个脚本，**完全复刻用户场景**：
+
+- 全新 profile、无缓存凭据
+- 导航请求 → 浏览器应答 Basic 挑战
+- app 的 XHR → 浏览器附上 app 自己的 Bearer token
+- 被动子资源（module script / css / manifest）→ **不带任何 Authorization**，只靠 session cookie
+
+结果：
+
+```
+总请求: 63
+4xx/5xx: (none)
+带 WWW-Authenticate 的响应: (none)      <- 只有第一次挑战，已被应答
+页面有 UI 元素: true
+页面文本: "Toggle Sidebar / OpenWork / Library / Workspaces / demo /
+          New session / final-check / e2e-2 / e2e-test / What do you need done?"
+```
+
+Edge 的那条原始请求重放：
+
+```
+/extensions  dest=empty  chal=0  -> 401，无 WWW-Authenticate  -> 不弹框
+/            dest=document chal=1 -> 401，有 WWW-Authenticate  -> 正常弹框
+```
+
+#### 三个必须记住的 nginx 坑（本次全部踩到）
+
+1. **`if` 不能嵌套 `if`**，`return` 也不接受变量 → 用 `map` 算好再引用
+2. **`if` 块内的 `add_header` 会被丢弃** → 用空值 map 控制 header
+3. **`map` 的正则要写在 value 上，不能写在 key 里**：
+   - ❌ `map "$a:$b" $m { ":~*text/html" 1; }` ← key 里写正则，永远不匹配
+   - ✅ `map $b $m { "~*text/html" 1; }` ← 单独一个 map，再组合
 
 ## 接入 MiniMax（已实测跑通）
 
