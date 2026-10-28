@@ -723,7 +723,104 @@ has_signin: NO                （没有登录界面）
 
 ---
 
+## 2026-10-28 晚：登录页方案（彻底消灭浏览器原生 Basic 弹框）
+
+> 何大人截图反馈：Edge 打开 session 仍弹出浏览器**原生登录框**（"登录 / 用户名 / 密码 / 取消"）。
+> 上面的"导航 401 + WWW-Authenticate"方案虽然技术上正确，但**用户体验很差**：
+> 原生弹框每次开 session 都弹、吞掉输入的密码、样式无法控制、Edge 上还会遮挡已渲染页面。
+
+### 最终方案：自建 HTML 登录页
+
+```
+导航无凭据
+   → nginx @openwork_denied 判定 $ow_challenge=1（document 导航）
+   → rewrite ^ /_login_gate last          ← 内部重定向，浏览器 URL 不变
+   → authd 渲染登录页（深色卡片）
+   → 用户输密码 → POST /_login
+   → authd 校验 → 下发 ow_sess cookie（30 天）→ 302 回原 URL
+   → 正常加载应用
+```
+
+**关键点**：
+- **不发 `WWW-Authenticate`** → 浏览器永远不会弹原生框
+- **内部重定向**（`rewrite ... last`）而非 302 → 浏览器地址栏保持原 URL
+- **原 URL 通过 `X-Original-URI` header 传给 authd** → 由 Python 做 URL 编码，
+  避开 nginx 无法转义 `&` / `?` 的问题（`next=/ws/x?a=1&b=2` 会被截断）
+- authd 下发的 `ow_sess` **就是 nginx 已经认可的那个值** → auth map 一行不用改
+- XHR / 子资源被拒仍然**静默 401**（不跳登录页，否则会替换掉已渲染的页面）
+
+### 文件与配置
+
+| 路径 | 作用 |
+|---|---|
+| `/root/.openclaw/openwork-auth/authd.py` | 登录页服务（Python 标准库，无依赖） |
+| `/etc/systemd/system/openwork-authd.service` | systemd 单元（127.0.0.1:8789） |
+| `/etc/nginx/conf.d/openwork.conf` | 加 `/_login_gate`（internal）、`/_login`、`/_logout`、`/_health` |
+| `/usr/local/bin/openwork-nginx-sync.sh` | 已改：移除 `$ow_challenge_hdr` map，注释同步更新 |
+
+### authd 的安全设计
+
+- 密码用 `hmac.compare_digest` 比较
+- **每 IP 限流**：5 分钟内 10 次失败 → 429
+- 日志**只记录**成败和 IP，**绝不记录凭据**
+- session secret 从 `0600` 文件读，服务只读不写
+- 跳转目标限制为**同站相对路径**（拒绝 `//evil.com`、反斜杠、控制字符）
+- systemd `ProtectSystem=full` + `ProtectHome=read-only` + `BindReadOnlyPaths`
+
+### 验证结果（无头 Chrome，全新 profile，模拟真实 Edge 流程）
+
+```
+打开 session URL      → title "OpenWork · 登录"，URL 保持不变 ✓
+原生认证框            → 不存在 ✓
+输入密码提交          → 302 回原 URL + ow_sess cookie (Max-Age=30d) ✓
+应用加载              → 侧边栏会话列表完整，模型 MiniMax-M3 ✓
+提问                  → "1+1 等于 2。" ✓
+Sign in for more free use → 无 ✓
+HTTP 汇总             → 200×N，401 仅 favicon.ico
+```
+
+### 认证矩阵（回归）
+
+| 场景 | 结果 |
+|---|---|
+| 无凭据 + 导航（document） | 200（渲染登录页）|
+| 无凭据 + 导航（带 query） | 200（登录页，next 完整保留）|
+| Basic + 导航 | 200 |
+| Bearer + 导航 | 200 |
+| cookie + 导航 | 200 |
+| cookie + 子资源（JS） | 200 |
+| 无凭据 + XHR | **401 静默**（无 WWW-Authenticate）|
+| `/_login` / `/_health` | 200（免认证）|
+| `/_logout` | 302 → `/_login` |
+
+### ⚠️ 运维要点
+
+```bash
+# 登录页服务状态
+systemctl status openwork-authd
+journalctl -u openwork-authd -n 30        # 或 /var/log/openwork-authd.log
+
+# 自检（免认证）
+curl -sk -o /dev/null -w '%{http_code}\n' https://101.35.52.96:8790/_health
+
+# 改密码后：只需重启 authd，无需动 nginx
+systemctl restart openwork-authd
+
+# 登录页在 /_login（用户可直接访问）
+```
+
+> **别再把 `WWW-Authenticate` 加回去。**
+> 那个 header 就是原生弹框的唯一触发条件。
+> sync 脚本里已刻意移除 `$ow_challenge_hdr` map 并留了注释警告。
+
+> **别只改 `openwork-auth.conf` 而不管 `openwork.conf`。**
+> 登录页路由在 `openwork.conf`（手写），认证 map 在 `openwork-auth.conf`（脚本生成）。
+> 两边语义要一致——上次就是"脚本覆盖配置"出的问题。
+
+---
+
 ## 附：本次排查用到的诊断手段（复用价值高）
+
 
 ### 1. nginx 认证诊断日志（不含凭据原文）
 `/var/log/nginx/openwork-auth.log`，字段：`ts/ip/scheme/auth/sess_cookie/dest/uri/ua`。
