@@ -221,6 +221,70 @@ tail -100 /var/log/nginx/access.log | grep 8790 | awk '{print $9}' | sort | uniq
 
 > 附带：开 `map` 后 `/env/keys` `/env/status` 仍返回 401，这是**正确的**——那是 host-token 专属接口（会读环境变量明文），web 模式下就不该给远程用户。
 
+### 5.4 补：必须加 session cookie，否则子资源 401（第二个必踩的坑）
+
+**症状**：主文档 200、`/experimental/*` 等 API 全 200，但 **`/assets/app-*.js`、`/assets/app-*.css`、`/manifest.webmanifest` 返回 401**。日志里特征很明显：
+
+```
+39.144.156.34 - - [28/Oct/2026:11:53:45 +0800] "GET /assets/app-DZr96oX3.js HTTP/1.1" 401 23
+39.144.156.34 - - [28/Oct/2026:11:53:45 +0800] "GET /assets/app-Bx1ym5U0.css HTTP/1.1" 401 23
+```
+
+**根因**：**真实 Chrome 不会在子资源请求（module script / CSS / manifest）上可靠地回传缓存的 Basic 凭据**。导航请求带 `Authorization: Basic`，子资源可能完全不带 `Authorization` 头 → 被上一版的 map 判为未认证 → 401 → 脚本和样式加载不出来 → 页面永远停在启动壳。
+
+> **踩坑复盘**：上一版的无头验证之所以“通过”，是因为我用 `Network.setExtraHTTPHeaders` 给**每一个**请求都手动塞了 Authorization，等于人为制造了一个比真实 Chrome 更宽松的环境。**测试方法本身有缺陷，必须模拟真实浏览器的 header 行为。**
+
+**解法**：Basic 认证通过后**下发一个 session cookie**，子资源靠 cookie 走（cookie 在同源子资源上必定回传）。
+
+```nginx
+# openwork-nginx-sync.sh 生成
+map $http_authorization $ow_auth_basic { default 0; "~*^Basic\s+\Q<b64>\E$" 1; }
+map $http_authorization $ow_auth_bearer { default 0; "~*^Bearer\s+\Q<token>\E$" 1; }
+map $cookie_ow_sess $ow_auth_cookie { default 0; "~^\Q<secret>\E$" 1; }
+map "$ow_auth_basic:$ow_auth_bearer:$ow_auth_cookie" $ow_auth_ok {
+    default 0; "~^1:" 1; "~^0:1:" 1; "~^0:0:1" 1;
+}
+# 仅当 Basic 匹配时下发 cookie；值为空时 nginx 自动省略该 header
+map $ow_auth_basic $ow_setcookie {
+    default "";
+    1 "ow_sess=<secret>; Path=/; HttpOnly; SameSite=Lax; Secure";
+}
+```
+
+```nginx
+location / {
+    if ($ow_auth_ok = 0) { return 401 'Authentication required'; }
+    add_header WWW-Authenticate 'Basic realm="OpenWork"' always;
+    add_header Set-Cookie $ow_setcookie always;
+    include /etc/nginx/conf.d/openwork-token.conf;
+    proxy_pass http://127.0.0.1:8788;
+    ...
+}
+```
+
+**验证方法**（覆盖三种情况）：
+
+```bash
+A="openwork:$(cat /root/.openwork_web_password)"
+# 1. 无凭据 -> 401
+curl -sk -o /dev/null -w "%{http_code}\n" https://101.35.52.96:8790/
+# 2. Basic -> 200 + Set-Cookie
+curl -sk -u "$A" -D- -o /dev/null https://101.35.52.96:8790/ | grep -E "HTTP|Set-Cookie"
+# 3. 只带 cookie（模拟子资源）-> 200
+C=$(curl -sk -u "$A" -D- -o /dev/null https://101.35.52.96:8790/ | grep -i '^set-cookie' | sed 's/.*ow_sess=\([^;]*\).*/\1/')
+for p in /assets/app-DZr96oX3.js /assets/app-Bx1ym5U0.css /manifest.webmanifest; do
+  curl -sk -H "Cookie: ow_sess=$C" -o /dev/null -w "$p %{http_code}\n" "https://101.35.52.96:8790$p"
+done
+```
+
+实测：1→401，2→200 + `Set-Cookie: ow_sess=...`，3→三个子资源全 200。
+
+> 注：`/env/keys`、`/env/status` 仍 401 是**正确的**——host-token 专属接口（会读环境变量明文），web 模式下不该给远程用户。
+
+### 5.5 补：openwork-nginx-sync.sh 改用 Python 写
+
+bash 写这个脚本有个坑：`$(python3 -c ...)`、`$(tr -d ...)` 这类命令替换在 heredoc / 多层引号里极易被写坏（本次实际出现过 `TOKEN=***` 被吞成乱码导致 nginx -t 报 `unknown "ow_setcookie" variable`）。已改写成纯 Python 脚本（`#!/usr/bin/env python3`），用 f-string 拼 nginx 配置，逻辑更稳。文件仍是 `/usr/local/bin/openwork-nginx-sync.sh`。
+
 ## 接入 MiniMax（已实测跑通）
 
 ### 根因：baseURL 用错协议 → 404
