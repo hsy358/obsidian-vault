@@ -23,6 +23,7 @@
 * [Harnss — Deep Research Report](2026-06-12 - Harnss - Deep Research.md) — The project is maintained by OpenSource03 and licensed under MIT. It is built wi...  `research-report`
 * [Goose — Deep Research Report](2026-06-12 - Goose - Deep Research.md) — 1. Project Overview 2. Technical Architecture 3. All Major Features 4. The MCP E...  `research-report`
 * [OpenConnector — AI Agent 的 SaaS 工具网关（GitHub 仓库分析）](2026-08-25 - OpenConnector - GitHub 仓库分析.md) — 位于 Agent 与外部 SaaS 之间的"工具调用层 + 凭据隔离层"：通过 MCP / HTTP / SDK / CLI / OpenAPI 五种协议暴露 1000+ SaaS 的 10000+ Actions，让 Agent 调用外部应用时永远不接触明文密钥。  `github-repo-analysis · 2026-08-25`
+* [DeepSeek Harness + DS Bot — 架构范式参考](2026-10-28 - DeepSeek Harness + DS Bot - 架构分析与德勤项目借鉴点.md) — DSH 是开源框架里把「可插拔执行器」做得最彻底的一个：**Capability Seam 三角色**（Definition / Provider / Consumer）正好是德勤执行器抽象层的现成范式；**Profile/Bundle** 打包的是配置行而非代码，直接回答「独立可部署 + 模块化打包」。DS Bot 的 **context steward checkpoint**（就地压缩、历史仍可检索）、**secret 遮蔽**、**「记忆是数据不是指令」** 均可借鉴。其致谢名单明确借鉴 **Hermes Agent / Hermes Bot Mode** → Hermes 路线有社区共识支撑。  `github-repo-analysis · 2026-10-28`
 
 
 ## OKF / 知识工程
