@@ -599,6 +599,163 @@ GET  /workspace/:wsId/opencode2/api/session/:sid/message # 读回复
 ```
 > 注意路径是 `/api/session/:id/prompt`，不是 `/message`（后者 404）。
 
+---
+
+## 2026-10-28 晚：「点菜单问问题就提示登录」的最终定案
+
+> 何大人反馈：只要点击菜单对话问问题就会提示登录。怀疑是 HTTPS 的问题。
+> **结论：不是 HTTPS 的问题。HTTPS 反而是必需的（否则 `crypto.randomUUID()` 不可用，页面直接空白）。**
+> 真实原因有 **3 个叠加**，前两个是服务端 bug，第三个是官方免费额度用尽。
+
+### 根因 A：nginx 只注入了 client token，漏了 host token ⭐
+
+`web-tokens.json` 里有**两个** token：
+
+| token | 用途 | 注入方式 |
+|---|---|---|
+| `token` (client token) | app 的所有 XHR | `Authorization: Bearer <token>` |
+| `hostToken` | `/env/key`、`/env/status` 等 host 作用域接口 | `X-OpenWork-Host-Token: <hostToken>` |
+
+nginx 之前**只注入了 Bearer**，导致 `/env/key` `/env/status` 返回：
+```json
+{"code":"unauthorized","message":"Invalid host token"}
+```
+app 收到 401 → 显示 **"Sign in for more free use"** 之类的登录界面。
+
+**修法**（`openwork-nginx-sync.sh` 里生成 `openwork-token.conf`）：
+```nginx
+proxy_set_header Authorization "Bearer <client-token>";
+proxy_set_header X-OpenWork-Host-Token "<host-token>";
+proxy_set_header X-OpenWork-Client-Id "openwork-web";
+```
+
+> 教训：**上游需要多个 token 时，nginx 要全部注入**。只注入一个 → 401 → 前端误判成"要登录"。
+
+### 根因 B：sync 定时任务会把 nginx 配置覆盖回旧版 ⭐⭐（最隐蔽）
+
+`openwork-nginx-sync.sh` 每次运行都会**全量重写** `openwork-auth.conf`。旧版脚本只生成 3 个 map，**不含** `$ow_challenge` / `$ow_deny_code` / `$ow_challenge_hdr` —— 而 `openwork.conf` 引用了它们。
+
+后果链：
+1. 12:57 sync 运行 → 覆盖文件 → `ow_challenge` 消失
+2. `nginx -t` 失败 → **没 reload** → 内存里的旧配置继续跑（**表面一切正常**）
+3. 但磁盘上的配置已经坏了 → **下次 reload 或重启，整站 401/502**
+
+**修法（脚本已重写）**：
+- 生成**完整** map 集（含 challenge 三兄弟）
+- 写入时先 `nginx -t` 验证，**失败自动回滚**，绝不留坏配置在磁盘
+- 幂等：内容不变则不写、不 reload
+
+```bash
+# 验证脚本没破坏配置
+grep -c ow_challenge /etc/nginx/conf.d/openwork-auth.conf   # 应为 5
+nginx -t
+journalctl -u openwork-nginx-sync.service -n 20   # 应显示 "unchanged"
+```
+
+> **教训**：生成 nginx 配置的脚本 = 定时炸弹。除非它**全量生成**所有被引用的变量，
+> 否则每次运行都在删别人的配置。而且 `nginx -t` 失败后**不要留下失败的文件**。
+
+### 根因 C：OpenWork 官方免费额度用尽（这才是"提示登录"的直接原因）
+
+```json
+GET /anonymous-inference/status
+{"state":"exhausted","code":"anonymous_limit_exceeded",
+ "allowance":{"limitUsd":0.2,"usedUsd":0.20079464,"remainingUsd":0,
+              "resetsAt":"2026-10-29T00:00:00.000Z"}}
+```
+
+- "Auto" 的 providerID 就是 **`openwork-free`**（`Gk="openwork-free"`）
+- 走 OpenWork 官方免费额度，**上限 $0.2**，用完就 exhausted
+- 前端逻辑：只有 `model.providerID === "openwork-free"` 时才调 `preflight` 检查额度
+  → 被拦 → 显示 **"You've used your free Auto for now / Sign in for more free use"**
+- 重置时间：**UTC 2026-10-29 00:00 = 北京时间 10-29 08:00**
+
+**解法：用自带的 minimax，别用 Auto**
+```bash
+WS=ws_33592afe9d6f
+C="ow_sess=$(curl -sk -D - -o /dev/null -u openwork:$(cat /root/.openwork_web_password) \
+      https://101.35.52.96:8790/ | grep -i '^set-cookie' | sed 's/^[Ss]et-[Cc]ookie: *//' | cut -d';' -f1)"
+
+# 1) 禁用 openwork-free，Auto 就再也选不到它
+curl -sk -X POST -H "Cookie: $C" -H "Content-Type: application/json" \
+  -d '{"providers":["openwork-free"]}' \
+  https://101.35.52.96:8790/workspace/$WS/runtime-config/disabled-providers
+
+# 2) 默认模型设为 minimax
+curl -sk -X PUT -H "Cookie: $C" -H "Content-Type: application/json" \
+  -d '{"model":{"providerID":"minimax","modelID":"MiniMax-M3"}}' \
+  https://101.35.52.96:8790/workspace/$WS/default-model
+```
+
+### ⚠️ 但服务端 default-model 不够 —— 前端 localStorage 优先
+
+前端逻辑（`app.js`）：
+```js
+function $b(){ const e=localStorage.getItem("openwork.defaultModel"); return HOe(e) ?? Zk }
+useEffect(()=>{ if(localStorage.getItem(ON)===null && defaultModel) wv(defaultModel) })
+```
+- localStorage 里有 `openwork.defaultModel` → **优先用它，服务端 default-model 被无视**
+- 只有 localStorage 为空时，才把服务端的值写进去
+- 而且前端每次加载会把自己选中的模型**回写**到服务端（750ms debounce）
+  → **所以 API 直写 default-model 会被前端覆盖回 Auto**（实测踩过）
+
+**真正的解法：改 localStorage**（在浏览器里，F12 → Console）：
+```js
+localStorage.setItem('openwork.defaultModel', 'minimax/MiniMax-M3');
+localStorage.setItem('openwork.modelChoice.explicit', '1');
+// 已有会话的模型也一并改掉
+const m = JSON.parse(localStorage.getItem('openwork.sessionModels.v1') || '{}');
+for (const k of Object.keys(m)) m[k].model = {providerID:'minimax', modelID:'MiniMax-M3'};
+localStorage.setItem('openwork.sessionModels.v1', JSON.stringify(m));
+```
+
+> **最省事**：直接在 UI 模型下拉里选一次 **MiniMax-M3**（不用 Auto）。
+> 这会写 localStorage + 回写服务端，一次到位。
+
+### 验证结果（无头 Chrome，全新会话）
+
+```
+模型区文本: MiniMax-M3        （不再是 Auto）
+has_signin: NO                （没有登录界面）
+提问 → 模型回答: "1+1 等于 2。"
+4xx/5xx: (none)
+```
+
+---
+
+## 附：本次排查用到的诊断手段（复用价值高）
+
+### 1. nginx 认证诊断日志（不含凭据原文）
+`/var/log/nginx/openwork-auth.log`，字段：`ts/ip/scheme/auth/sess_cookie/dest/uri/ua`。
+`dest=document` = 顶层导航（会弹框）；`dest=empty` = XHR（应静默）。
+
+### 2. 用访问日志区分"真人"和"模拟器"
+模拟脚本会从**服务器自己的 IP** 发出（`ip=101.35.52.96`），真人用户 IP 不同（`111.55.79.29`）。
+**先确认真人 IP 的请求分布，再下结论**，否则会被自己的模拟数据带偏。
+
+### 3. 看完整访问日志（不只是被拒的）
+`/var/log/nginx/access.log` 有**所有**请求的状态码：
+```bash
+grep "111.55.79.29" /var/log/nginx/access.log | awk '{print $9}' | sort | uniq -c
+# 468 200 / 10 401 → 修好后全绿
+```
+诊断日志只记**被拒**请求，看不到成功路径，容易误判。
+
+### 4. 前端反查（比猜快 10 倍）
+```bash
+curl -sk -H "Authorization: Bearer $TOKEN" https://101.35.52.96:8790/assets/app-DZr96oX3.js -o /tmp/app.js
+grep -o 'anonymous-inference/[a-z]*' /tmp/app.js | sort -u
+```
+压缩后的 JS 里能直接搜到端点名、i18n key、判定逻辑。
+
+### 5. 机器资源自查（Chrome 起不来时）
+```bash
+free -m; df -h /; du -sh /tmp/pip-* 2>/dev/null | tail -1
+```
+`/tmp` 里的 pip 临时目录能堆到 2GB+，磁盘 93% → Chrome OOM。
+清理：`find /tmp -maxdepth 1 -name "pip-*" -type d -exec rm -rf {} +`
+（**注意**：别把 `/tmp` 本身删了，删完要 `mkdir -p /tmp && chmod 1777 /tmp` 重建）
+
 ## 运维命令
 
 ## 认证 token 在哪
