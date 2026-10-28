@@ -3,8 +3,8 @@ title: "OpenWork 部署手册（Linux 服务器 + 公网访问）"
 source: self
 url: https://github.com/different-ai/openwork
 saved_date: 2026-10-28
-tags: ["OpenWork", "部署", "Linux", "systemd", "nginx", "Node24"]
-description: "2026-10-28 在 101.35.52.96 部署 OpenWork Server web 模式的完整过程、踩坑与配置"
+tags: ["OpenWork", "部署", "Linux", "systemd", "nginx", "Node24", "HTTPS", "MiniMax"]
+description: "2026-10-28 在 101.35.52.96 部署 OpenWork Server web 模式的完整过程、踩坑与配置（含 HTTPS + MiniMax 接入）"
 ---
 
 # OpenWork 部署手册
@@ -15,8 +15,9 @@ description: "2026-10-28 在 101.35.52.96 部署 OpenWork Server web 模式的�
 
 | 项 | 值 |
 |---|---|
-| 服务地址 | `http://101.35.52.96:8790` |
+| 服务地址 | **`https://101.35.52.96:8790`**（自签证书，浏览器需手动信任） |
 | 门禁 | HTTP Basic Auth（用户 `openwork`） |
+| 模型 | MiniMax-M3 / MiniMax-M3.1-Flash（已接入，workspace 默认 MiniMax-M3） |
 | 密码 | `/root/.openwork_web_password`（已生成，14 位随机） |
 | 版本 | openwork-server 0.18.63（OpenCode 期望 1.18.33，实际跑 1.19.4） |
 | 托管 | systemd `openwork-server.service`，开机自启 + 自动重启 |
@@ -24,6 +25,10 @@ description: "2026-10-28 在 101.35.52.96 部署 OpenWork Server web 模式的�
 | 状态 | ✅ 运行中，端点全部 200 |
 
 **已验证端点**：`/` `/health` `/status` `/capabilities` `/workspaces` `/workspace/:id/skills` `/workspace/:id/plugins` `/experimental/connect/skills` 全部 200，SSE `/workspace/:id/events` 正常。
+
+**已验证端到端**：UI 完整渲染（截图归档），模型下拉可见 MiniMax-M3 / MiniMax-M3.1-Flash；通过 UI 同一路径 `/workspace/:id/opencode2/api/session/:id/prompt` 真实提问「1+1等于几」→ MiniMax-M3 返回 `2`（finish=stop）。
+
+截图：`截图/2026-10-28 - OpenWork Web UI 完整渲染（MiniMax 模型下拉）.png`
 
 ## 资源占用
 
@@ -137,6 +142,103 @@ server {
 
 > 注意：nginx worker 是 www-data，htpasswd 文件必须 `chmod 644`（600 会 Permission denied → 500）。系统没装 `htpasswd` 命令，用 `openssl passwd -apr1` 生成。
 
+### 5.1 补：必须上 HTTPS（否则页面空白）⚠️
+
+**这是最大的坑**：用 `http://` 访问时页面只有「Starting OpenWork」空白壳，UI 永远起不来。
+
+根因：OpenWork Web UI 启动时调用 `crypto.randomUUID()`，而该 API **只在 secure context（HTTPS 或 localhost）可用**。公网 IP + 明文 HTTP = 非安全上下文 → 抛异常 → React 挂载失败 → 空白页。控制台可见 `TypeError: crypto.randomUUID is not a function`。
+
+解法：自签证书 + nginx TLS 终结。
+```bash
+openssl req -x509 -nodes -newkey rsa:2048 -days 3650 \
+  -keyout /etc/nginx/ssl/openwork.key -out /etc/nginx/ssl/openwork.crt \
+  -subj "/CN=101.35.52.96"
+# nginx server 块加：
+listen 8790 ssl;
+listen [::]:8790 ssl;
+ssl_certificate     /etc/nginx/ssl/openwork.crt;
+ssl_certificate_key /etc/nginx/ssl/openwork.key;
+ssl_protocols TLSv1.2 TLSv1.3;
+```
+> 浏览器首次访问会报「自签证书不受信任」→ 高级 → 继续前往。也可在 headless Chrome 加 `--ignore-certificate-errors`。
+
+### 5.2 补：nginx token 别硬编码（server 重启 token 会变）
+
+app 的 client token 存在 `~/.openwork/openwork-server/web-tokens.json`，**server 重装/重启可能重新生成**。硬编码在 nginx 里就会突然全站 401。
+
+解法：拆成独立 include 文件 + systemd 定时同步。
+```bash
+# /usr/local/bin/openwork-nginx-sync.sh
+TOKEN=$(python3 -c "import json;print(json.load(open('/root/.openwork/openwork-server/web-tokens.json'))['token'])")
+printf 'proxy_set_header Authorization "Bearer %s";\n' "$TOKEN" > /etc/nginx/conf.d/openwork-token.conf
+nginx -t && systemctl reload nginx
+```
+```nginx
+# openwork.conf 的 location / 里
+include /etc/nginx/conf.d/openwork-token.conf;
+```
+挂到 `openwork-server.service` 的 `ExecStartPost=` / `ExecReload=`，另加 `openwork-nginx-sync.timer`（每 30 分钟）。
+
+## 接入 MiniMax（已实测跑通）
+
+### 根因：baseURL 用错协议 → 404
+
+OpenWork 用 `@ai-sdk/openai-compatible` 拼 `/chat/completions`，所以 baseURL 必须是 **OpenAI 兼容端点**，不能填 Anthropic 兼容端点。
+
+| baseURL | 结果 |
+|---|---|
+| `https://api.minimaxi.com/anthropic/v1` | ❌ `HTTP 404 page not found`（拼成 `/anthropic/v1/chat/completions`） |
+| `https://api.minimaxi.com/v1` | ✅ 正常 |
+
+MiniMax key 放在两个地方（engine v2 配置）：
+- `/root/.config/openwork/opencode-v2/state/config/opencode.json` → `providers.minimax.settings.apiKey`
+- `~/.local/share/opencode/auth.json` → `{"minimax":{"type":"api","key":"sk-cp-..."}}`
+
+### 用官方 API 改配置（别手改 sqlite）
+
+server 提供 host-token 保护的接口，**必须用 `x-openwork-host-token` 头**（不是 `Authorization: Bearer`）：
+```bash
+HT=$(python3 -c "import json;print(json.load(open('/root/.openwork/openwork-server/web-tokens.json'))['hostToken'])")
+CT=$(python3 -c "import json;print(json.load(open('/root/.openwork/openwork-server/web-tokens.json'))['token'])")
+
+# 改 provider（PATCH，不是 PUT）
+curl -u "openwork:$(cat /root/.openwork_web_password)" \
+  -H "x-openwork-host-token: $HT" -H "Authorization: Bearer $CT" \
+  -X PATCH http://127.0.0.1:8788/runtime-config/providers \
+  -H "Content-Type: application/json" -d @provider.json
+# → {"ok":true,"changed":true,...,"reload":"reloaded"}
+
+# 设 workspace 默认模型
+curl -u "openwork:$(cat /root/.openwork_web_password)" \
+  -H "Authorization: Bearer $CT" -X PUT \
+  http://127.0.0.1:8788/workspace/$WS/default-model \
+  -H "Content-Type: application/json" \
+  -d '{"model":{"providerID":"minimax","modelID":"MiniMax-M3"}}'
+```
+> `default-model` 的 body 必须是 `{"model":{...}}` 嵌套结构，直接给 `{"providerID":...}` 会 400。
+
+### 认证分三段，别搞混
+
+| 层 | 头 | 值 |
+|---|---|---|
+| nginx 门禁 | `Authorization: Basic ...` | 浏览器弹框输入 |
+| nginx → app | `proxy_set_header Authorization` | 强制覆盖成 `Bearer <client-token>` |
+| app 内部管理接口 | `x-openwork-host-token` | host token |
+
+**curl 走公网时不要手动加 `Authorization: Bearer`**，会覆盖 Basic 头导致 401（nginx 只认 Basic）。
+
+### UI 实际调用的接口（和 curl 测试一致）
+
+```
+POST /workspace/:wsId/opencode2/api/session              # 建会话
+POST /workspace/:wsId/opencode2/api/session/:sid/prompt  # 发消息
+     body: {"text":"...","model":{"providerID":"minimax","modelID":"MiniMax-M3"}}
+GET  /workspace/:wsId/opencode2/api/session/:sid/message # 读回复
+```
+> 注意路径是 `/api/session/:id/prompt`，不是 `/message`（后者 404）。
+
+## 运维命令
+
 ## 认证 token 在哪
 
 - app client token / host token：`~/.openwork/openwork-server/web-tokens.json`（0600）
@@ -149,16 +251,18 @@ server {
 systemctl status openwork-server
 systemctl restart openwork-server
 tail -f /var/log/openwork-server.log
-curl -s -u "openwork:$(cat /root/.openwork_web_password)" http://101.35.52.96:8790/health
+curl -sk -u "openwork:$(cat /root/.openwork_web_password)" https://101.35.52.96:8790/health
+/usr/local/bin/openwork-nginx-sync.sh    # 手动同步 nginx token
 ```
 
 ## 还没做的
 
-- [ ] 未配模型（需要 API key 才能真正跑 agent）
-- [ ] 未配工作区（当前只有一个 demo 目录 `/root/openwork-workspace/demo`）
-- [ ] 未上 HTTPS（公网明文 HTTP + Basic Auth，密码会裸奔）
+- [x] 配模型（MiniMax-M3 / M3.1-Flash）
+- [x] 上 HTTPS（自签证书）
+- [ ] 未配更多工作区（当前只有一个 demo 目录 `/root/openwork-workspace/demo`）
 - [ ] 未审遥测（`ee/packages/telemetry`、`den-diagnostics` 存在，虽然本地部署没走 Den）
 - [ ] 未接 OpenWork MCP 到 OpenClaw（`https://api.openworklabs.com/mcp/agent` 需要 OpenWork 账号）
+- [ ] 未换自签证书为可信证书（Let\'s Encrypt 需域名，当前只有 IP）
 
 ## 备注
 
