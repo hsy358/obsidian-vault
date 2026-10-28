@@ -819,7 +819,135 @@ systemctl restart openwork-authd
 
 ---
 
+## 2026-10-28 夜：根治「You've used your free Auto for now」
+
+> 何大人又发来一张截图：应用内提示 **"You've used your free Auto for now"**，
+> 底部三个按钮：`Sign in for more free use` / `Get OpenWork Models` / `Use another model`。
+> 这是**根因 C**（官方免费额度耗尽）的正面表现。
+
+### 额度判定的真实链路
+
+```
+前端选中的模型 providerID === "openwork-free" ?
+   │ 是（= Auto）
+   ▼
+POST /anonymous-inference/preflight
+   ▼
+openwork-server 透传 → https://inference.openworklabs.com
+   │                （FREE_INFERENCE_ORIGIN 环境变量可覆盖）
+   ▼
+远端返回 { state: "exhausted", allowance: { limitUsd: 0.2, usedUsd: 0.2008 } }
+   ▼
+前端 O3e() 判定 blocked → 渲染 "You've used your free Auto for now" 卡片
+```
+
+**关键源码**（`dist/openwork-server.mjs`）：
+```js
+FREE_PROVIDER_ID = "openwork-free"
+FREE_MODEL_ID   = "openai/gpt-6-luna"
+FREE_STATUS_PATH = "/api/anonymous/status"   // 或 /api/v1/auto/status
+FREE_INFERENCE_ORIGIN → 默认 https://inference.openworklabs.com
+```
+前端判定（`app.js`）：
+```js
+async function O3e(e){
+  if (e.model.providerID !== Gk || !ir(e.model)) return null;  // Gk = "openwork-free"
+  const t = await e.client.desktopFreePreflight();
+  const n = T3e(t);
+  return n ? {outcome:"blocked", reason:"auto-access", wall:n} : null;
+}
+```
+→ **只要模型不是 openwork-free，这个检查整个跳过。**
+
+### ⚠️ 踩坑：服务端改 `disabled-providers` 会被前端抹掉
+
+第一次尝试：
+```bash
+curl -X POST .../runtime-config/disabled-providers -d '{"providers":["opencode","openwork-free"]}'
+# → 200, 读回确实写进去了
+# → 8 秒后被前端改回 {"disabledProviders":["opencode"]}
+```
+
+**原因**（`app.js` 的 `EIn` / `LIe`）：
+```js
+const d = r.filter(y => !l.has(y) && !c(y));   // toDisable
+const u = i.filter(y => l.has(y) && c(y));      // toReenable
+```
+前端每次加载都用「**所有 provider 减去已连接的**」重算一遍再写回。
+`openwork-free` 在引擎的静态目录里 → 每次都会被算回去。
+
+> **结论：通过 `runtime-config/disabled-providers` API 加的条目是不持久的。**
+> 前端会周期性用「provider 目录 − 已连接 provider」覆盖。
+
+### ✅ 真正的持久位置：SQLite 的 provider 目录
+
+`/root/.config/openwork/runtime.sqlite` →
+表 `runtime_opencode_configs`，行 `workspace_id = '__openwork_engine_global__'`，
+列 `config_json` 就是引擎配置的**唯一源头**。
+
+```python
+import sqlite3, json, time
+db = '/root/.config/openwork/runtime.sqlite'
+c = sqlite3.connect(db)
+cfg = json.loads(c.execute(
+    "SELECT config_json FROM runtime_opencode_configs "
+    "WHERE workspace_id='__openwork_engine_global__'").fetchone()[0])
+
+cfg['provider'].pop('openwork-free', None)          # ① 从 provider 目录移除
+dp = cfg.get('disabled_providers') or []
+if 'openwork-free' not in dp: dp.append('openwork-free')   # ② 并标记禁用
+cfg['disabled_providers'] = dp
+
+c.execute("UPDATE runtime_opencode_configs SET config_json=?, updated_at=? "
+          "WHERE workspace_id='__openwork_engine_global__'",
+          (json.dumps(cfg, ensure_ascii=False), int(time.time()*1000)))
+c.commit()
+```
+
+然后让引擎重新加载配置：
+```bash
+curl -sk -X POST -H "Cookie: $ow_sess" -H "Content-Type: application/json" -d '{}'   https://101.35.52.96:8790/workspace/<ws>/engine/reload
+# → {"ok":true,"reloadedAt":...}
+```
+
+**为什么这次能持久**：provider 目录里已经没有 `openwork-free` 了 →
+前端重算「provider 目录 − 已连接」时不会再把它算回来。
+
+实测：写入后 60 秒内 6 次轮询 + 前端持续活跃读写，配置稳定未被覆盖。
+
+### 三层一致性检查（改完必须确认）
+
+```bash
+# ① API 层
+curl -sk -H "Cookie: $C" .../workspace/<ws>/runtime-config/disabled-providers
+# ② DB 层
+python3 -c "import sqlite3,json; c=sqlite3.connect('/root/.config/openwork/runtime.sqlite'); print(json.loads(c.execute("SELECT config_json FROM runtime_opencode_configs WHERE workspace_id='__openwork_engine_global__'").fetchone()[0])['provider'].keys())"
+# ③ 文件层（引擎实际读的）
+python3 -c "import json; print(json.load(open('/root/.config/openwork/runtime-opencode-config.json'))['provider'].keys())"
+```
+三处必须一致：`provider` 只剩 `['minimax']`，`disabled_providers` 含 `openwork-free`。
+
+### 备份（改 DB 前务必做）
+
+```bash
+cp -a /root/.config/openwork/runtime.sqlite /root/.config/openwork/runtime.sqlite.bak-$(date +%H%M%S)
+```
+
+### 最终状态
+```
+default-model        → minimax/MiniMax-M3
+provider 目录        → ['minimax']
+disabled_providers   → ['opencode', 'openwork-free']
+匿名额度             → 仍 exhausted（不修，属于官方策略），但已无法被触发
+```
+
+> **不要去伪造或绕过远端额度判定**（`OPENWORK_FREE_INFERENCE_ORIGIN` 指向本地 mock 等）。
+> 正确做法是**让用户永远选不到那个耗尽的模型**。
+
+---
+
 ## 附：本次排查用到的诊断手段（复用价值高）
+
 
 
 ### 1. nginx 认证诊断日志（不含凭据原文）
