@@ -370,6 +370,67 @@ await send('Page.navigate', { url: 'https://101.35.52.96:8790/welcome' }, sessio
 
 bash 写这个脚本有个坑：`$(python3 -c ...)`、`$(tr -d ...)` 这类命令替换在 heredoc / 多层引号里极易被写坏（本次实际出现过 `TOKEN=***` 被吞成乱码导致 nginx -t 报 `unknown "ow_setcookie" variable`）。已改写成纯 Python 脚本（`#!/usr/bin/env python3`），用 f-string 拼 nginx 配置，逻辑更稳。文件仍是 `/usr/local/bin/openwork-nginx-sync.sh`。
 
+### 5.8 补：加认证诊断日志（下次"登录不进去"不用再猜）
+
+排查过程中最耗时的是**猜**浏览器到底发了什么头。加一条专用日志，下次直接看日志回答：
+
+```nginx
+# log_format 必须定义在 http 级别（本文件在 conf.d/ 下，本身就在 http 上下文里）
+log_format ow_auth_diag 'scheme=$ow_dbg_scheme auth=$ow_dbg_bucket sess_cookie=$ow_dbg_cookie uri="$request_uri" ua="$http_user_agent"';
+
+server {
+    ...
+    error_page 418 = @openwork_auth_challenge;
+
+    location @openwork_auth_challenge {
+        set $ow_dbg_scheme none;
+        if ($http_authorization ~* ^Basic)  { set $ow_dbg_scheme basic; }
+        if ($http_authorization ~* ^Bearer) { set $ow_dbg_scheme bearer; }
+        if ($http_authorization ~* ^Digest) { set $ow_dbg_scheme digest; }
+        set $ow_dbg_bucket none;
+        if ($http_authorization = "")        { set $ow_dbg_bucket empty; }
+        if ($http_authorization != "")       { set $ow_dbg_bucket present; }
+        set $ow_dbg_cookie no;
+        if ($cookie_ow_sess != "")           { set $ow_dbg_cookie yes; }
+        access_log /var/log/nginx/openwork-auth.log ow_auth_diag;
+
+        add_header WWW-Authenticate 'Basic realm="OpenWork"' always;
+        return 401 'Authentication required';
+    }
+}
+```
+
+日志样例：
+
+```
+scheme=none  auth=empty   sess_cookie=no  uri="/"  ua="curl/8.5.0"
+scheme=basic auth=present sess_cookie=no  uri="/"  ua="curl/8.5.0"
+```
+
+读法：
+- `scheme=none auth=empty` → 浏览器**根本没带凭据**（首次访问 / cookie 丢失）
+- `scheme=basic auth=present` → 带了 Basic，但**仍被拒** → 密码不对或格式异常
+- `scheme=basic sess_cookie=yes` → 带了 Basic 且有 cookie 却被拒 → 凭据校验逻辑有问题
+
+> ⚠️ **绝对不要把凭据本身写进日志**。只记 scheme 和「有没有」，不记值。用 `grep` 验证过：日志里搜不到密码和 token 原文。
+> ⚠️ `access_log` 的**第一个参数是 log_format 名**，不是任意字符串。写成 `access_log /path/to/file scheme=$var` 会报 `unknown log format`。
+> ⚠️ `log_format` 的单引号要闭合。漏一个单引号会报 `unexpected "s" in ...:32`（报错行号指向后面，看起来完全无关）。
+
+### 5.9 补：时间线复盘（本次事故全貌）
+
+回看 nginx 日志可以把整件事还原出来：
+
+| 时间 | 你的浏览器状态 | 对应改动 |
+|---|---|---|
+| 11:36-11:37 | 全部 401 | 认证头冲突期（Basic vs Bearer 抢占 `Authorization`） |
+| 11:38 | 截图 + 提问 | — |
+| 11:50-11:52 | API 200，但 `/assets/*.js`、`/env/keys` 401 | 缺 session cookie，Chrome 不回传 Basic 给子资源 |
+| 11:53-11:55 | 子资源仍 401 | 加 cookie 方案 + 修 `WWW-Authenticate` 滥加 |
+| **11:56 起** | **全部 200** | ✅ 修好 |
+| 11:56-12:21 | 持续 200，长连接正常 | — |
+
+> 关键结论：**看日志比看用户描述可靠**。用户说"一直登录进不去"时，实际可能早已修好——消息发送时间和送达时间可能差几十分钟。所以第一件事永远是查日志的**时间轴**。
+
 ## 接入 MiniMax（已实测跑通）
 
 ### 根因：baseURL 用错协议 → 404
