@@ -179,6 +179,48 @@ include /etc/nginx/conf.d/openwork-token.conf;
 ```
 挂到 `openwork-server.service` 的 `ExecStartPost=` / `ExecReload=`，另加 `openwork-nginx-sync.timer`（每 30 分钟）。
 
+### 5.3 补：认证头不能只用 auth_basic ⚠️（页面卡 "Starting OpenWork" 的第二个原因）
+
+**症状**：浏览器里页面永远停在 `Starting OpenWork`，但 HTML 本身 200、控制台无明显报错。
+
+**根因**：OpenWork Web UI 的 JS 在每个 XHR/fetch 上显式带 `Authorization: Bearer <client-token>`（token 由服务端注入 index.html 的 `__OPENWORK_BOOTSTRAP__`）；而浏览器导航请求带 `Authorization: Basic ...`。两者在**同一个头字段**上冲突。
+
+- nginx 用 `auth_basic` → 只认 Basic → App 自己的 XHR 全被 401 → 前端拿不到 `/capabilities` `/status` 等数据 → 永远停在启动壳
+- 加 `proxy_set_header Authorization "Bearer ..."` → **只覆盖了发往上游的头，没管入站判定** → nginx 照样把 App 的 XHR 拒了
+
+**解法**：用 `map` 同时认两种头，替掉 `auth_basic`：
+
+```nginx
+# /etc/nginx/conf.d/openwork-auth.conf（由 openwork-nginx-sync.sh 生成）
+map $http_authorization $ow_auth_ok {
+    default 0;
+    "~*^Basic\s+\Q<b64 of openwork:password>\E$"    1;
+    "~*^Bearer\s+\Q<client-token>\E$"                1;
+}
+```
+```nginx
+server {
+    ...
+    add_header WWW-Authenticate 'Basic realm="OpenWork"' always;  # 仍然弹 Basic 框
+    location / {
+        if ($ow_auth_ok = 0) { return 401 'Authentication required'; }
+        include /etc/nginx/conf.d/openwork-token.conf;  # 发往上游一律用 Bearer
+        proxy_pass http://127.0.0.1:8788;
+        ...
+    }
+}
+```
+
+> 安全性：Bearer 接受的那个 token 就是服务端塞进 index.html 的 client token，拿到页面就等于拿到它，不算扩大攻击面。真正的门禁仍是 Basic（外网用户必须过口令）。
+
+**排查手法**（下次再遇到空白页先看这个）：
+```bash
+tail -100 /var/log/nginx/access.log | grep 8790 | awk '{print $9}' | sort | uniq -c
+# 如果看到大量 401 且 URL 都是 /capabilities /status /experimental/* → 就是这个认证头冲突
+```
+
+> 附带：开 `map` 后 `/env/keys` `/env/status` 仍返回 401，这是**正确的**——那是 host-token 专属接口（会读环境变量明文），web 模式下就不该给远程用户。
+
 ## 接入 MiniMax（已实测跑通）
 
 ### 根因：baseURL 用错协议 → 404
