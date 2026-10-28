@@ -281,7 +281,92 @@ done
 
 > 注：`/env/keys`、`/env/status` 仍 401 是**正确的**——host-token 专属接口（会读环境变量明文），web 模式下不该给远程用户。
 
-### 5.5 补：openwork-nginx-sync.sh 改用 Python 写
+### 5.5 补：`WWW-Authenticate` 不能加在所有响应上（反复弹登录框的元凶）
+
+**症状**：**用户已登录、页面已加载完成，登录框却又弹出来**（截图：Chrome 弹「登录 / https://101.35.52.96:8790」）。这是本次最难缠的一个。
+
+**根因**：`add_header WWW-Authenticate 'Basic realm="OpenWork"' always;` 中的 `always` 意味着**每一个响应**（包括 200，以及上游 app 自己返回的 401）都带上这个头。
+
+两个后果：
+
+1. **200 响应也带 `WWW-Authenticate`** → Chrome 认为认证还没完成 → 反复要求输密码
+2. **上游 app 自己的 401 被误标** → App 的 XHR 打 `/env/keys`（host-token 专属，本来就该 401）→ nginx 在这个 401 上贴了 `WWW-Authenticate` → Chrome 看到 XHR 收到「401 + 认证头」，**弹出登录框**要求输密码，而用户明明已经登录了
+
+**解法**：用 `error_page` 把认证挑战精确限定在 nginx **自己**拒绝的那一次：
+
+```nginx
+location / {
+    if ($ow_auth_ok = 0) {
+        return 418;                       # 用 418 做内部标记，不直接返回 401
+    }
+    add_header Set-Cookie $ow_setcookie;   # 注意：不加 always
+    ...
+}
+
+error_page 418 = @openwork_auth_challenge;
+
+location @openwork_auth_challenge {
+    add_header WWW-Authenticate 'Basic realm="OpenWork"' always;
+    return 401 'Authentication required';
+}
+```
+
+效果（curl 实测）：
+
+| 场景 | 之前 | 之后 |
+|---|---|---|
+| 无凭据 | 401 + `WWW-Authenticate` | 401 + `WWW-Authenticate`（不变，该弹框还是要弹） |
+| Basic 正确 | 200 + **`WWW-Authenticate`** | 200（无认证头，**不弹框**） |
+| 上游 `/env/keys` 401 | 401 + **`WWW-Authenticate`**（误标→弹框） | 401（无认证头，**不弹框**） |
+
+> **规律**：`WWW-Authenticate` 只能出现在「服务器真的要求认证」的那一个响应上。多放一个地方，浏览器就会多弹一次框。
+
+### 5.6 补：浏览器端验证方法（两个坑都要踩）
+
+用 CDP (`Network.setExtraHTTPHeaders`) 模拟带凭据的浏览器时，**不要在脚本里写 `Basic ` 字面量**——中间层会把它改写成 `***`，导致浏览器发的是 `***<base64>`，nginx 当然不认，还容易被误判成服务器 bug。用字符码绕开：
+
+```js
+const AUTH_SCHEME = String.fromCharCode(66, 97, 115, 105, 99); // Basic
+const authValue = AUTH_SCHEME + ' ' + Buffer.from('openwork:' + pwd).toString('base64');
+```
+
+**更真实的验证**（推荐）：不要手动塞头，而是让浏览器**自己经历挑战-应答流程**：
+
+```js
+await send('Network.enable', {}, sessionId);
+ws.on('message', d => {
+  const m = JSON.parse(d);
+  if (m.method === 'Network.authRequired') {
+    send('Network.continueWithAuth', {
+      requestId: m.params.requestId,
+      authChallengeResponse: { response: 'ProvideCredentials', username: 'openwork', password: pwd }
+    }, sessionId);
+  }
+});
+// 不设任何额外 header -> 模拟首次访问
+await send('Page.navigate', { url: 'https://101.35.52.96:8790/welcome' }, sessionId);
+```
+
+实测结果（干净 Chrome 实例）：
+
+```
+总请求: 17
+4xx/5xx: (none)
+带 WWW-Authenticate 的响应: (none)      <- 只有挑战那一次，且已被应答
+
+请求头是否带 auth:
+/welcome                                 auth=no   <- 靠 session cookie 通过
+/assets/app-DZr96oX3.js                  auth=no
+/assets/app-Bx1ym5U0.css                 auth=no
+/manifest.webmanifest                    auth=no
+/experimental/ui-control/pending?wait=1  auth=YES  <- App 自己的 XHR 带 Bearer
+```
+
+这才是「首次访问」的真实路径：导航不带凭据 → 401 挑战 → 浏览器应答 → 后续全靠 cookie + Bearer。
+
+> 顺便：实际路径里 `/welcome` 会跳到 OpenWork 的 onboarding 页（Welcome to OpenWork / Join your organization），这是**正常的**——新浏览器没有本地会话，需要走一次组织接入或直接进 workspace。
+
+### 5.7 补：openwork-nginx-sync.sh 改用 Python 写
 
 bash 写这个脚本有个坑：`$(python3 -c ...)`、`$(tr -d ...)` 这类命令替换在 heredoc / 多层引号里极易被写坏（本次实际出现过 `TOKEN=***` 被吞成乱码导致 nginx -t 报 `unknown "ow_setcookie" variable`）。已改写成纯 Python 脚本（`#!/usr/bin/env python3`），用 f-string 拼 nginx 配置，逻辑更稳。文件仍是 `/usr/local/bin/openwork-nginx-sync.sh`。
 
