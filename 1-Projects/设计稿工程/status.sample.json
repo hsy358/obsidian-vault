@@ -1,0 +1,16 @@
+{
+  "project": { "name": "600+ 设计稿工程", "total_pages": 600, "done": 42, "in_flight": 14, "blocked": 4 },
+  "updated_at": "2026-11-03T11:05:00+08:00",
+  "needs_human": [
+    { "id": "TK-108", "pri": "P0", "type": "设计冲突", "age_min": 180,
+      "title": "用户列表「导出」按钮在 3 张稿里画法不同",
+      "detail": "#212 描边 / #377 面性 / #489 文字链",
+      "action": "设计方裁定后写回 tokens", "assignee": "架构师", "who": "设计方 + 何大人",
+      "links": { "spec": "spec/pages/TK-108.json", "diff": "reports/visual/TK-108.png" } }
+  ],
+  "shards": [
+    { "id": "shard-01", "module": "账户管理", "done": 9, "total": 12, "state": "running",
+      "worker": "claude-code", "last_progress_min": 3, "pass_rate": 0.78 }
+  ],
+  "log": ["11:04  [i] shard-02 · TK-129 视觉 diff 通过 (0.08%) → 提 PR #482"]
+}

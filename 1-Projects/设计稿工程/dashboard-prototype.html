@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Forge 看板 · 需要人处理</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--line:#262c36;--fg:#e6edf3;--dim:#8b949e;--red:#f85149;--yel:#d29922;--grn:#3fb950;--blu:#58a6ff;--pur:#bc8cff}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;padding:12px 12px 40px}
+header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+h1{font-size:17px;margin:0;font-weight:600}
+.meta{color:var(--dim);font-size:12px}
+.bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:10px 0 4px}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--blu),var(--pur))}
+h2{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin:22px 0 8px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:8px}
+.need{border-left:3px solid var(--yel)}
+.need.p0{border-left-color:var(--red)}
+.need.p2{border-left-color:var(--blu)}
+.row{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.t{font-weight:600;margin-bottom:4px}
+.d{color:var(--dim);font-size:12.5px}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:99px;border:1px solid var(--line);color:var(--dim);margin-right:5px;white-space:nowrap}
+.tag.r{color:var(--red);border-color:#5c2b2b}
+.tag.y{color:var(--yel);border-color:#5c4a1c}
+.tag.g{color:var(--grn);border-color:#1f4620}
+.tag.b{color:var(--blu);border-color:#1f3a5c}
+.age{color:var(--yel);font-size:11.5px;white-space:nowrap}
+.age.hot{color:var(--red);font-weight:600}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:12.5px;margin-top:8px;color:var(--dim)}
+.kv b{color:var(--fg);font-weight:500}
+.shards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.sh{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px}
+.sh .n{font-weight:600;font-size:13px}
+.mini{height:4px;background:var(--line);border-radius:99px;overflow:hidden;margin:7px 0 5px}
+.mini>i{display:block;height:100%;background:var(--grn)}
+.mini.warn>i{background:var(--yel)}
+.mini.bad>i{background:var(--red)}
+.mini.idle>i{background:var(--dim)}
+.log{font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--dim);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px;max-height:230px;overflow:auto}
+.log .e{color:var(--red)}.log .w{color:var(--yel)}.log .i{color:var(--grn)}
+details>summary{cursor:pointer;color:var(--dim);font-size:12.5px;padding:6px 0;list-style:none}
+.filebtn{display:inline-block;margin-left:8px;font-size:12px;padding:4px 10px;border:1px solid var(--line);border-radius:8px;color:var(--blu);cursor:pointer}
+.note{color:var(--dim);font-size:12px;margin:10px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>Forge 看板</h1>
+  <span class="meta" id="upd"></span>
+  <label class="filebtn">载入 status.json<input type="file" id="f" accept=".json" hidden></label>
+</header>
+<div class="bar"><i id="p1" style="width:0%"></i></div>
+<div class="meta" id="prog"></div>
+
+<h2>需要人处理 <span class="tag y" id="needn"></span></h2>
+<div id="needs"></div>
+
+<h2>分片状态</h2>
+<div class="shards" id="shards"></div>
+
+<details><summary>流水线日志（最近）</summary><div class="log" id="log"></div></details>
+<p class="note">设计原则（DeepSeek Super-agent）：<b>面板只显示"需要人处理"的，健康状态不占空间</b>。分片与日志默认折叠。</p>
+
+<script>
+const SAMPLE={
+ project:{name:"600+ 设计稿工程",total_pages:600,done:42,in_flight:14,blocked:4},
+ updated_at:"2026-11-03T11:05:00+08:00",
+ needs_human:[
+  {id:"TK-108",pri:"P0",type:"设计冲突",age_min:180,title:"用户列表「导出」按钮在 3 张稿里画法不同",
+   detail:"#212 (描边) / #377 (面性) / #489 (文字链) 三种；需设计方裁定后写回 tokens。",
+   action:"请设计方 15 分钟内选一个，其余 600 页会各自长歪",assignee:"架构师",who:"设计方 + 何大人",
+   links:{spec:"spec/pages/TK-108.json",diff:"reports/visual/TK-108.png"}},
+  {id:"TK-131",pri:"P0",type:"组件缺失",age_min:96,title:"缺 DateRangePicker 复合组件，3 个分片各自造轮子",
+   detail:"重复出现 ≥3 次 → 已升级为组件修复任务 TK-COMP-07（不是页面问题）。",
+   action:"开发 A 补组件并出 story + 截图基线",assignee:"开发A",who:"开发A",
+   links:{spec:"spec/conflicts/components.md"}},
+  {id:"TK-142",pri:"P1",type:"重试超限",age_min:55,title:"订单详情页视觉 diff 重试 3 次仍 0.8%（阈值 0.5%）",
+   detail:"差异集中在右上角操作区，疑似设计稿本身含 hover 态。",
+   action:"看差异图判定是实现问题还是设计问题",assignee:"架构师",who:"何大人",
+   links:{diff:"reports/visual/TK-142.png"}},
+  {id:"TK-201",pri:"P2",type:"需求-设计不一致",age_min:22,title:"Nation 条目写「状态 5 态」，Figma 只有 4 态",
+   detail:"业务口径以 Nation 为准，视觉以 Figma 为准，冲突需显式标注。",
+   action:"产品确认第 5 态长什么样",assignee:"产品",who:"产品",
+   links:{spec:"spec/conflicts/spec-conflicts.md"}},
+  {id:"SYS-07",pri:"P1",type:"成本闸",age_min:8,title:"今日 token 达日预算 82%，剩 3 个分片未开工",
+   detail:"按规则暂停新开片，已在跑的继续。",action:"确认是否追加预算或延后放量",assignee:"架构师",who:"何大人"}
+ ],
+ shards:[
+  {id:"shard-01",module:"账户管理",done:9,total:12,state:"running",worker:"claude-code",last_progress_min:3,pass_rate:0.78},
+  {id:"shard-02",module:"权限管理",done:11,total:14,state:"running",worker:"codex",last_progress_min:1,pass_rate:0.91},
+  {id:"shard-03",module:"订单中心",done:7,total:10,state:"warn",worker:"claude-code",last_progress_min:26,pass_rate:0.43},
+  {id:"shard-04",module:"报表",done:5,total:9,state:"running",worker:"openclaw",last_progress_min:8,pass_rate:0.67},
+  {id:"shard-05",module:"工作台",done:10,total:11,state:"idle",worker:"codex",last_progress_min:180,pass_rate:0.85},
+  {id:"shard-06",module:"消息中心",done:0,total:13,state:"queued",worker:"-",last_progress_min:0,pass_rate:0}
+ ],
+ log:[
+  "11:04  [i] shard-02 · TK-129 视觉 diff 通过 (0.08%) → 提 PR #482",
+  "11:03  [i] shard-01 · TK-133 视觉 diff 通过 (0.05%) → 提 PR #481",
+  "11:02  [w] shard-03 · TK-131 缺 DateRangePicker → 已升级为组件任务",
+  "11:00  [i] shard-04 · TK-125 视觉 diff 通过 (0.11%) → 提 PR #480",
+  "10:58  [e] shard-05 · TK-142 重试 3 次仍超阈值 → 挂起待人工",
+  "10:55  [i] 门禁 canary 自检通过（注入违规被正确拦截）"
+ ]
+};
+let S=SAMPLE;
+const esc=s=>String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+function ageClass(m){return m>=120?"hot":""}
+function render(){
+ document.getElementById("upd").textContent=(S.updated_at||"")+" · "+(S.project?.name||"");
+ const p=S.project||{};const pct=p.total_pages?Math.round(100*(p.done||0)/p.total_pages):0;
+ document.getElementById("p1").style.width=pct+"%";
+ document.getElementById("prog").innerHTML=`完成 <b>${p.done||0}/${p.total_pages}</b> 页（${pct}%）· 进行中 ${p.in_flight||0} · 挂起 ${p.blocked||0}`;
+ const ns=(S.needs_human||[]).slice().sort((a,b)=>(a.pri||"P2").localeCompare(b.pri||"P2"));
+ document.getElementById("needn").textContent=ns.length+" 项";
+ document.getElementById("needs").innerHTML=ns.length?ns.map(n=>`
+ <div class="card need ${(n.pri||"P2").toLowerCase()}">
+  <div class="row"><div class="t">${esc(n.title)}</div>
+   <div class="age ${ageClass(n.age_min)}">⏱ ${n.age_min??0}m</div></div>
+  <div class="d">${esc(n.detail)}</div>
+  <div style="margin-top:8px">
+   <span class="tag ${n.pri==="P0"?"r":n.pri==="P1"?"y":"b"}">${esc(n.pri||"P2")}</span>
+   <span class="tag">${esc(n.type||"")}</span>
+   <span class="tag">${esc(n.id)}</span>
+   <span class="tag">责任：${esc(n.assignee||"-")}</span>
+  </div>
+  <div class="kv"><b>要人做什么</b><span>${esc(n.action||"")}</span><b>找谁</b><span>${esc(n.who||n.assignee||"-")}</span></div>
+  ${n.links?`<div class="kv"><b>证据</b><span>${Object.entries(n.links).map(([k,v])=>`<span class="tag g">${esc(k)}</span>${esc(v)}`).join(" ")}</span></div>`:""}
+ </div>`).join(""):`<div class="card"><div class="d">✅ 没有需要人处理的事。健康状态不占空间。</div></div>`;
+ document.getElementById("shards").innerHTML=(S.shards||[]).map(s=>{
+  const cls=s.state==="running"?"":s.state==="warn"?"warn":s.state==="idle"||s.state==="queued"?"idle":"";
+  const bad=s.state==="warn"?"bad":"";
+  return `<div class="sh"><div class="n">${esc(s.module)} <span class="tag">${esc(s.id)}</span></div>
+  <div class="mini ${cls||bad}"><i style="width:${Math.round(100*(s.done||0)/(s.total||1))}%"></i></div>
+  <div class="d">${s.done}/${s.total} · ${esc(s.worker)} · ${s.last_progress_min===0?"—":s.last_progress_min+"m 前有进展"}</div>
+  <div style="margin-top:5px"><span class="tag ${s.pass_rate>=0.8?"g":s.pass_rate>=0.5?"y":"r"}">一次通过 ${Math.round((s.pass_rate||0)*100)}%</span></div></div>`}).join("");
+ document.getElementById("log").innerHTML=(S.log||[]).map(l=>{
+  const c=l.startsWith("11:0")&&/\[e\]/.test(l)?"e":/\[w\]/.test(l)?"w":/\[i\]/.test(l)?"i":"";
+  return `<div class="${c}">${esc(l)}</div>`}).join("");
+}
+document.getElementById("f").addEventListener("change",e=>{const r=new FileReader();r.onload=()=>{try{S=JSON.parse(r.result);render()}catch(x){alert("JSON 解析失败")}}r.readAsText(e.target.files[0])});
+render();
+</script>
+</body>
+</html>
