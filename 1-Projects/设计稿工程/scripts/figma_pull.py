@@ -139,7 +139,7 @@ def cmd_images(n=10):
     manifest = []
     for fid, url in (res.get("images") or {}).items():
         if not url: continue
-        fn = base / f"{fid}.png"
+        fn = base / f"{fid.replace(':', '_')}.png"   # Figma node id contains ":" -> illegal on NTFS
         with urllib.request.urlopen(url, timeout=120) as r:
             fn.write_bytes(r.read())
         manifest.append({"id": fid, "file": str(fn), "size": fn.stat().st_size})
