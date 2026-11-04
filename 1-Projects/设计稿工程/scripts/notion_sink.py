@@ -11,6 +11,7 @@ class H(http.server.BaseHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Headers", "*")
         self.send_header("Access-Control-Allow-Methods", "POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Private-Network", "true")
 
     def do_OPTIONS(self):
         self.send_response(204)
@@ -39,6 +40,6 @@ class H(http.server.BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    with socketserver.TCPServer(("127.0.0.1", 8913), H) as httpd:
-        print("listening 127.0.0.1:8913", flush=True)
+    with socketserver.TCPServer(("127.0.0.1", 8917), H) as httpd:
+        print("listening 127.0.0.1:8917", flush=True)
         httpd.serve_forever()
