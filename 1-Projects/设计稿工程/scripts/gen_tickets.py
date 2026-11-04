@@ -74,12 +74,23 @@ def main():
     ap.add_argument("--ids")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--out", default="tickets.md")
+    ap.add_argument("--shard", help="分片代号，如 S1/S2/.../S0")
+    ap.add_argument("--no-render", action="store_true", help="只生成 ticket，不渲染基线（大批量用）")
     a = ap.parse_args()
+
+    SHARDS = {
+        "S0": ("01 ",), "S1": ("10 ", "11 ", "12 ", "13 "), "S2": ("20 ", "21 ", "22 "),
+        "S3": ("40 ", "41 ", "42 ", "43 "), "S4": ("50 ", "51 ", "52 "),
+        "S5": ("60 ", "61 ", "62 "), "S6": ("70 ", "80 "),
+    }
 
     screens = json.loads((ROOT / "spec" / "screens.json").read_text())
     if a.ids:
         want = [i.strip() for i in a.ids.split(",")]
         sel = [s for s in screens if s["id"] in want]
+    elif a.shard:
+        pref = SHARDS[a.shard]
+        sel = [s for s in screens if s["page"].startswith(pref)]
     else:
         sel = [s for s in screens if s["page"] == a.page]
         if a.limit:
@@ -87,8 +98,12 @@ def main():
     if not sel:
         sys.exit("没有匹配到屏幕")
 
-    print(f"选中 {len(sel)} 屏 → 渲染基线")
-    paths = render([s["id"] for s in sel])
+    paths = {}
+    if a.no_render:
+        print(f"选中 {len(sel)} 屏（不渲染基线）")
+    else:
+        print(f"选中 {len(sel)} 屏 → 渲染基线")
+        paths = render([s["id"] for s in sel])
 
     tokens = json.loads((ROOT / "spec" / "tokens.final.json").read_text())
     tickets = []
@@ -142,7 +157,7 @@ def main():
         md += [f"## {t['req_domain']} · {t['req_no']} · {t['title']}", "",
                f"- **屏幕 id**：`{t['id']}`",
                f"- **视口**：{t['viewport']}（{t['size']}）",
-               f"- **基线图**：`{t['baseline']}`",
+               f"- **基线图**：`{t['baseline'] or '待渲染：python3 scripts/gen_tickets.py --ids ' + t['id'] + ' --out baseline/' + t['id'].replace(':', '_') + '.md'}`",
                f"- **文案全文（{t['n_text']} 条，页面文字必须逐条还原，不得自造文案）**：", ""]
         md += ["> " + " / ".join(t["texts"][:80]), "",
                "**必填字段**：标题、正文、状态标签、右侧操作区（按基线图逐个还原）", "",
