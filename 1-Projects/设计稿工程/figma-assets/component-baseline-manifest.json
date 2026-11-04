@@ -1,0 +1,1702 @@
+[
+  {
+    "page": "01 共用框架｜结构与适配",
+    "id": "149:10",
+    "name": "OUTIS1/Framework/Brand AppIcon",
+    "type": "COMPONENT",
+    "w": 40.0,
+    "h": 40.0,
+    "file": "figma-assets/component-baseline/149_10.png",
+    "bytes": 2017
+  },
+  {
+    "page": "01 共用框架｜结构与适配",
+    "id": "149:43",
+    "name": "OUTIS1/Framework/Product Header",
+    "type": "COMPONENT",
+    "w": 1440.0,
+    "h": 56.0,
+    "file": "figma-assets/component-baseline/149_43.png",
+    "bytes": 19235
+  },
+  {
+    "page": "01 共用框架｜结构与适配",
+    "id": "149:93",
+    "name": "OUTIS1/Framework/Global Rail",
+    "type": "COMPONENT",
+    "w": 64.0,
+    "h": 844.0,
+    "file": "figma-assets/component-baseline/149_93.png",
+    "bytes": 10864
+  },
+  {
+    "page": "01 共用框架｜结构与适配",
+    "id": "158:639",
+    "name": "OUTIS1/Icon/context-summary",
+    "type": "COMPONENT",
+    "w": 20.0,
+    "h": 20.0,
+    "file": "figma-assets/component-baseline/158_639.png",
+    "bytes": 447
+  },
+  {
+    "page": "01 共用框架｜结构与适配",
+    "id": "158:644",
+    "name": "OUTIS1/Icon/auxiliary-workspace",
+    "type": "COMPONENT",
+    "w": 20.0,
+    "h": 20.0,
+    "file": "figma-assets/component-baseline/158_644.png",
+    "bytes": 614
+  },
+  {
+    "page": "01 共用框架｜结构与适配",
+    "id": "158:748",
+    "name": "OUTIS1/Framework/Unified Windows Header",
+    "type": "COMPONENT",
+    "w": 1440.0,
+    "h": 56.0,
+    "file": "figma-assets/component-baseline/158_748.png",
+    "bytes": 19676
+  },
+  {
+    "page": "01 共用框架｜结构与适配",
+    "id": "178:1133",
+    "name": "OUTIS1/Framework/Windows Header Compact S1",
+    "type": "COMPONENT",
+    "w": 1024.0,
+    "h": 56.0,
+    "file": "figma-assets/component-baseline/178_1133.png",
+    "bytes": 18679
+  },
+  {
+    "page": "92 组件源｜头像",
+    "id": "188:2",
+    "name": "Kind=Human",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 36.0,
+    "file": "figma-assets/component-baseline/188_2.png",
+    "bytes": 1938
+  },
+  {
+    "page": "92 组件源｜头像",
+    "id": "188:4",
+    "name": "Kind=Agent",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 36.0,
+    "file": "figma-assets/component-baseline/188_4.png",
+    "bytes": 1675
+  },
+  {
+    "page": "92 组件源｜头像",
+    "id": "188:6",
+    "name": "Kind=Group",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 36.0,
+    "file": "figma-assets/component-baseline/188_6.png",
+    "bytes": 2177
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "262:783",
+    "name": "Checked=Off, State=Default",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/262_783.png",
+    "bytes": 1380
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "262:785",
+    "name": "Checked=On, State=Default",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/262_785.png",
+    "bytes": 1261
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:49",
+    "name": "Checked=Off, State=Hover",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_49.png",
+    "bytes": 1894
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:52",
+    "name": "Checked=Off, State=Focus",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_52.png",
+    "bytes": 1947
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:56",
+    "name": "Checked=Off, State=Disabled",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_56.png",
+    "bytes": 1352
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:60",
+    "name": "Checked=On, State=Hover",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_60.png",
+    "bytes": 1261
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:63",
+    "name": "Checked=On, State=Focus",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_63.png",
+    "bytes": 1886
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:67",
+    "name": "Checked=On, State=Disabled",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_67.png",
+    "bytes": 1288
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "262:792",
+    "name": "OUTIS2/Settings/Icon/账号",
+    "type": "COMPONENT",
+    "w": 17.0,
+    "h": 17.0,
+    "file": "figma-assets/component-baseline/262_792.png",
+    "bytes": 863
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "262:795",
+    "name": "OUTIS2/Settings/Icon/通用",
+    "type": "COMPONENT",
+    "w": 17.0,
+    "h": 17.0,
+    "file": "figma-assets/component-baseline/262_795.png",
+    "bytes": 497
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "262:798",
+    "name": "OUTIS2/Settings/Icon/通知",
+    "type": "COMPONENT",
+    "w": 17.0,
+    "h": 17.0,
+    "file": "figma-assets/component-baseline/262_798.png",
+    "bytes": 865
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "262:801",
+    "name": "OUTIS2/Settings/Icon/快捷键",
+    "type": "COMPONENT",
+    "w": 17.0,
+    "h": 17.0,
+    "file": "figma-assets/component-baseline/262_801.png",
+    "bytes": 659
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "262:804",
+    "name": "OUTIS2/Settings/Icon/本机与存储",
+    "type": "COMPONENT",
+    "w": 17.0,
+    "h": 17.0,
+    "file": "figma-assets/component-baseline/262_804.png",
+    "bytes": 440
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "262:807",
+    "name": "OUTIS2/Settings/Icon/关于 OUTIS",
+    "type": "COMPONENT",
+    "w": 17.0,
+    "h": 17.0,
+    "file": "figma-assets/component-baseline/262_807.png",
+    "bytes": 993
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "262:810",
+    "name": "State=Default",
+    "type": "COMPONENT",
+    "w": 184.0,
+    "h": 36.0,
+    "file": "figma-assets/component-baseline/262_810.png",
+    "bytes": 2287
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "262:815",
+    "name": "State=Selected",
+    "type": "COMPONENT",
+    "w": 184.0,
+    "h": 36.0,
+    "file": "figma-assets/component-baseline/262_815.png",
+    "bytes": 2161
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:70",
+    "name": "State=Focus",
+    "type": "COMPONENT",
+    "w": 184.0,
+    "h": 36.0,
+    "file": "figma-assets/component-baseline/281_70.png",
+    "bytes": 3043
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:76",
+    "name": "State=SelectedFocus",
+    "type": "COMPONENT",
+    "w": 184.0,
+    "h": 36.0,
+    "file": "figma-assets/component-baseline/281_76.png",
+    "bytes": 2911
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:6",
+    "name": "Type=Primary, State=Default",
+    "type": "COMPONENT",
+    "w": 104.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_6.png",
+    "bytes": 2583
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:8",
+    "name": "Type=Primary, State=Hover",
+    "type": "COMPONENT",
+    "w": 104.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_8.png",
+    "bytes": 2801
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:10",
+    "name": "Type=Primary, State=Focus",
+    "type": "COMPONENT",
+    "w": 104.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_10.png",
+    "bytes": 3249
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:13",
+    "name": "Type=Primary, State=Disabled",
+    "type": "COMPONENT",
+    "w": 104.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_13.png",
+    "bytes": 2875
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:15",
+    "name": "Type=Outline, State=Default",
+    "type": "COMPONENT",
+    "w": 104.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_15.png",
+    "bytes": 3067
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:17",
+    "name": "Type=Outline, State=Hover",
+    "type": "COMPONENT",
+    "w": 104.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_17.png",
+    "bytes": 3048
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:19",
+    "name": "Type=Outline, State=Focus",
+    "type": "COMPONENT",
+    "w": 104.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_19.png",
+    "bytes": 3752
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:22",
+    "name": "Type=Outline, State=Disabled",
+    "type": "COMPONENT",
+    "w": 104.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_22.png",
+    "bytes": 3038
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:24",
+    "name": "Type=Text, State=Default",
+    "type": "COMPONENT",
+    "w": 104.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_24.png",
+    "bytes": 2824
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:26",
+    "name": "Type=Text, State=Hover",
+    "type": "COMPONENT",
+    "w": 104.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_26.png",
+    "bytes": 2871
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:28",
+    "name": "Type=Text, State=Focus",
+    "type": "COMPONENT",
+    "w": 104.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_28.png",
+    "bytes": 3534
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:31",
+    "name": "Type=Text, State=Disabled",
+    "type": "COMPONENT",
+    "w": 104.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_31.png",
+    "bytes": 2754
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "262:788",
+    "name": "State=Default",
+    "type": "COMPONENT",
+    "w": 208.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/262_788.png",
+    "bytes": 3478
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:34",
+    "name": "State=Hover",
+    "type": "COMPONENT",
+    "w": 208.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_34.png",
+    "bytes": 3480
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:38",
+    "name": "State=Focus",
+    "type": "COMPONENT",
+    "w": 208.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_38.png",
+    "bytes": 4209
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:43",
+    "name": "State=Disabled",
+    "type": "COMPONENT",
+    "w": 208.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_43.png",
+    "bytes": 3390
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:82",
+    "name": "State=Default",
+    "type": "COMPONENT",
+    "w": 32.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_82.png",
+    "bytes": 447
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:86",
+    "name": "State=Hover",
+    "type": "COMPONENT",
+    "w": 32.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_86.png",
+    "bytes": 768
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "281:90",
+    "name": "State=Focus",
+    "type": "COMPONENT",
+    "w": 32.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/281_90.png",
+    "bytes": 1134
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:61",
+    "name": "类型=主要按钮, 种类=标准, 形状=长方形, 尺寸=中, 状态=默认",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_61.png",
+    "bytes": 2605
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:64",
+    "name": "类型=主要按钮, 种类=标准, 形状=长方形, 尺寸=中, 状态=悬停",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_64.png",
+    "bytes": 2825
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:67",
+    "name": "类型=主要按钮, 种类=标准, 形状=长方形, 尺寸=中, 状态=聚焦",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_67.png",
+    "bytes": 3308
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:70",
+    "name": "类型=主要按钮, 种类=标准, 形状=长方形, 尺寸=中, 状态=禁用",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_70.png",
+    "bytes": 2484
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:74",
+    "name": "类型=线框按钮, 种类=标准, 形状=长方形, 尺寸=中, 状态=默认",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_74.png",
+    "bytes": 3160
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:77",
+    "name": "类型=线框按钮, 种类=标准, 形状=长方形, 尺寸=中, 状态=悬停",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_77.png",
+    "bytes": 2769
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:80",
+    "name": "类型=线框按钮, 种类=标准, 形状=长方形, 尺寸=中, 状态=聚焦",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_80.png",
+    "bytes": 3737
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:83",
+    "name": "类型=线框按钮, 种类=标准, 形状=长方形, 尺寸=中, 状态=禁用",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_83.png",
+    "bytes": 3105
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:87",
+    "name": "类型=文本按钮, 种类=标准, 形状=长方形, 尺寸=中, 状态=默认",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_87.png",
+    "bytes": 2743
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:90",
+    "name": "类型=文本按钮, 种类=标准, 形状=长方形, 尺寸=中, 状态=悬停",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_90.png",
+    "bytes": 2938
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:93",
+    "name": "类型=文本按钮, 种类=标准, 形状=长方形, 尺寸=中, 状态=聚焦",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_93.png",
+    "bytes": 3663
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:96",
+    "name": "类型=文本按钮, 种类=标准, 形状=长方形, 尺寸=中, 状态=禁用",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_96.png",
+    "bytes": 2715
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:100",
+    "name": "尺寸=中, 填充=false, 多选=false, 悬停=false, 聚焦=false, 禁用=false",
+    "type": "COMPONENT",
+    "w": 208.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_100.png",
+    "bytes": 3938
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:106",
+    "name": "尺寸=中, 填充=false, 多选=false, 悬停=true, 聚焦=false, 禁用=false",
+    "type": "COMPONENT",
+    "w": 208.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_106.png",
+    "bytes": 3838
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:112",
+    "name": "尺寸=中, 填充=false, 多选=false, 悬停=false, 聚焦=false, 禁用=true",
+    "type": "COMPONENT",
+    "w": 208.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_112.png",
+    "bytes": 3912
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:118",
+    "name": "尺寸=中, 填充=false, 多选=false, 悬停=false, 聚焦=true, 禁用=false",
+    "type": "COMPONENT",
+    "w": 208.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/307_118.png",
+    "bytes": 4849
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:127",
+    "name": "类型=圆形, 尺寸=默认, 开启=true, 禁用=false, 滑块图标=false, 滑轨内容=无",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 20.0,
+    "file": "figma-assets/component-baseline/307_127.png",
+    "bytes": 2135
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:130",
+    "name": "类型=圆形, 尺寸=默认, 开启=true, 禁用=true, 滑块图标=false, 滑轨内容=无",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 20.0,
+    "file": "figma-assets/component-baseline/307_130.png",
+    "bytes": 2163
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:133",
+    "name": "类型=圆形, 尺寸=默认, 开启=false, 禁用=false, 滑块图标=false, 滑轨内容=无",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 20.0,
+    "file": "figma-assets/component-baseline/307_133.png",
+    "bytes": 2128
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "307:136",
+    "name": "类型=圆形, 尺寸=默认, 开启=false, 禁用=true, 滑块图标=false, 滑轨内容=无",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 20.0,
+    "file": "figma-assets/component-baseline/307_136.png",
+    "bytes": 2165
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "308:61",
+    "name": "Checked=Off, State=Default",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/308_61.png",
+    "bytes": 2079
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "308:65",
+    "name": "Checked=Off, State=Hover",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/308_65.png",
+    "bytes": 3226
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "308:70",
+    "name": "Checked=Off, State=Focus",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/308_70.png",
+    "bytes": 3112
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "308:75",
+    "name": "Checked=Off, State=Disabled",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/308_75.png",
+    "bytes": 2179
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "308:79",
+    "name": "Checked=On, State=Default",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/308_79.png",
+    "bytes": 2167
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "308:83",
+    "name": "Checked=On, State=Hover",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/308_83.png",
+    "bytes": 3149
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "308:88",
+    "name": "Checked=On, State=Focus",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/308_88.png",
+    "bytes": 3101
+  },
+  {
+    "page": "93 组件源｜设置与共享控件",
+    "id": "308:93",
+    "name": "Checked=On, State=Disabled",
+    "type": "COMPONENT",
+    "w": 36.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/308_93.png",
+    "bytes": 2204
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "375:2",
+    "name": "OUTIS2/Messaging/Arco Source/Tag",
+    "type": "COMPONENT",
+    "w": 63.0,
+    "h": 24.0,
+    "file": "figma-assets/component-baseline/375_2.png",
+    "bytes": 1954
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "376:2",
+    "name": "OUTIS2/Messaging/Arco Source/SearchBox",
+    "type": "COMPONENT",
+    "w": 220.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/376_2.png",
+    "bytes": 5556
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "376:8",
+    "name": "OUTIS2/Messaging/Arco Source/BadgeCount",
+    "type": "COMPONENT",
+    "w": 25.0,
+    "h": 20.0,
+    "file": "figma-assets/component-baseline/376_8.png",
+    "bytes": 1404
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "376:11",
+    "name": "OUTIS2/Messaging/Arco Source/BadgeDot",
+    "type": "COMPONENT",
+    "w": 6.002500057220459,
+    "h": 6.001500129699707,
+    "file": "figma-assets/component-baseline/376_11.png",
+    "bytes": 313
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "376:19",
+    "name": "OUTIS2/Messaging/Arco Source/DropdownItem",
+    "type": "COMPONENT",
+    "w": 120.0,
+    "h": 36.0,
+    "file": "figma-assets/component-baseline/376_19.png",
+    "bytes": 2135
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "377:2",
+    "name": "OUTIS2/Messaging/Arco Source/DropdownMenu",
+    "type": "COMPONENT",
+    "w": 124.0,
+    "h": 80.0,
+    "file": "figma-assets/component-baseline/377_2.png",
+    "bytes": 16507
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "377:9",
+    "name": "尺寸=中, 选中=true, 悬停=false, 禁用=false",
+    "type": "COMPONENT",
+    "w": 25.0,
+    "h": 40.0,
+    "file": "figma-assets/component-baseline/377_9.png",
+    "bytes": 1351
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "377:13",
+    "name": "尺寸=中, 选中=false, 悬停=false, 禁用=false",
+    "type": "COMPONENT",
+    "w": 25.0,
+    "h": 40.0,
+    "file": "figma-assets/component-baseline/377_13.png",
+    "bytes": 1210
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "379:2",
+    "name": "状态=默认, 填充=false",
+    "type": "COMPONENT",
+    "w": 300.0,
+    "h": 52.000099182128906,
+    "file": "figma-assets/component-baseline/379_2.png",
+    "bytes": 3832
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "379:9",
+    "name": "状态=悬停, 填充=false",
+    "type": "COMPONENT",
+    "w": 300.0,
+    "h": 52.000099182128906,
+    "file": "figma-assets/component-baseline/379_9.png",
+    "bytes": 3774
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "379:16",
+    "name": "状态=聚焦, 填充=false",
+    "type": "COMPONENT",
+    "w": 300.0,
+    "h": 52.000099182128906,
+    "file": "figma-assets/component-baseline/379_16.png",
+    "bytes": 3980
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "379:23",
+    "name": "状态=禁用, 填充=false",
+    "type": "COMPONENT",
+    "w": 300.0,
+    "h": 52.000099182128906,
+    "file": "figma-assets/component-baseline/379_23.png",
+    "bytes": 3593
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "379:28",
+    "name": "尺寸=中, 状态=默认, 填充=false",
+    "type": "COMPONENT",
+    "w": 220.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/379_28.png",
+    "bytes": 3021
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "379:38",
+    "name": "尺寸=中, 状态=悬停, 填充=false",
+    "type": "COMPONENT",
+    "w": 220.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/379_38.png",
+    "bytes": 2979
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "379:48",
+    "name": "尺寸=中, 状态=聚焦, 填充=false",
+    "type": "COMPONENT",
+    "w": 220.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/379_48.png",
+    "bytes": 3101
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "379:58",
+    "name": "尺寸=中, 状态=禁用, 填充=false",
+    "type": "COMPONENT",
+    "w": 220.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/379_58.png",
+    "bytes": 2972
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "424:12795",
+    "name": "OUTIS2/Messaging/Arco Source/Modal",
+    "type": "COMPONENT",
+    "w": 520.0,
+    "h": 192.0,
+    "file": "figma-assets/component-baseline/424_12795.png",
+    "bytes": 10506
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "424:13116",
+    "name": "OUTIS2/Messaging/Arco Source/Drawer",
+    "type": "COMPONENT",
+    "w": 1440.0,
+    "h": 900.0,
+    "file": "figma-assets/component-baseline/424_13116.png",
+    "bytes": 34609
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "424:13636",
+    "name": "形状=圆形, 类型=字符, 尺寸=中, 交互=无",
+    "type": "COMPONENT",
+    "w": 40.0,
+    "h": 40.0,
+    "file": "figma-assets/component-baseline/424_13636.png",
+    "bytes": 1884
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "424:13638",
+    "name": "形状=圆形, 类型=图标, 尺寸=中, 交互=无",
+    "type": "COMPONENT",
+    "w": 40.0,
+    "h": 40.0,
+    "file": "figma-assets/component-baseline/424_13638.png",
+    "bytes": 2266
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "424:13641",
+    "name": "形状=圆形, 类型=字符, 尺寸=小, 交互=无",
+    "type": "COMPONENT",
+    "w": 32.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/424_13641.png",
+    "bytes": 1630
+  },
+  {
+    "page": "94 组件源｜消息 Arco",
+    "id": "424:13643",
+    "name": "形状=圆形, 类型=图标, 尺寸=小, 交互=无",
+    "type": "COMPONENT",
+    "w": 32.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/424_13643.png",
+    "bytes": 1842
+  },
+  {
+    "page": "95 组件源｜知识 Arco",
+    "id": "412:196",
+    "name": "选中=false, 半选=false, 禁用=false, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/412_196.png",
+    "bytes": 322
+  },
+  {
+    "page": "95 组件源｜知识 Arco",
+    "id": "412:198",
+    "name": "选中=true, 半选=false, 禁用=false, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/412_198.png",
+    "bytes": 520
+  },
+  {
+    "page": "95 组件源｜知识 Arco",
+    "id": "412:206",
+    "name": "选中=false, 禁用=false, 图标=false, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/412_206.png",
+    "bytes": 880
+  },
+  {
+    "page": "95 组件源｜知识 Arco",
+    "id": "412:209",
+    "name": "选中=true, 禁用=false, 图标=false, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/412_209.png",
+    "bytes": 747
+  },
+  {
+    "page": "96 组件源｜能力资产卡片",
+    "id": "430:16757",
+    "name": "Skill=S-024, View=1440",
+    "type": "COMPONENT",
+    "w": 329.3299865722656,
+    "h": 177.0,
+    "file": "figma-assets/component-baseline/430_16757.png",
+    "bytes": 32982
+  },
+  {
+    "page": "96 组件源｜能力资产卡片",
+    "id": "430:16777",
+    "name": "Skill=DEMO-S-01, View=1440",
+    "type": "COMPONENT",
+    "w": 329.3299865722656,
+    "h": 177.0,
+    "file": "figma-assets/component-baseline/430_16777.png",
+    "bytes": 29273
+  },
+  {
+    "page": "96 组件源｜能力资产卡片",
+    "id": "430:16797",
+    "name": "Skill=DEMO-S-02, View=1440",
+    "type": "COMPONENT",
+    "w": 329.3399963378906,
+    "h": 177.0,
+    "file": "figma-assets/component-baseline/430_16797.png",
+    "bytes": 28914
+  },
+  {
+    "page": "96 组件源｜能力资产卡片",
+    "id": "430:16818",
+    "name": "Skill=DEMO-S-03, View=1440",
+    "type": "COMPONENT",
+    "w": 329.3299865722656,
+    "h": 177.0,
+    "file": "figma-assets/component-baseline/430_16818.png",
+    "bytes": 27870
+  },
+  {
+    "page": "96 组件源｜能力资产卡片",
+    "id": "430:16838",
+    "name": "Skill=DEMO-S-04, View=1440",
+    "type": "COMPONENT",
+    "w": 329.3299865722656,
+    "h": 177.0,
+    "file": "figma-assets/component-baseline/430_16838.png",
+    "bytes": 28085
+  },
+  {
+    "page": "96 组件源｜能力资产卡片",
+    "id": "430:16858",
+    "name": "Skill=DEMO-S-05, View=1440",
+    "type": "COMPONENT",
+    "w": 329.3399963378906,
+    "h": 177.0,
+    "file": "figma-assets/component-baseline/430_16858.png",
+    "bytes": 30915
+  },
+  {
+    "page": "96 组件源｜能力资产卡片",
+    "id": "430:16878",
+    "name": "Skill=S-024, View=1024",
+    "type": "COMPONENT",
+    "w": 445.0,
+    "h": 177.0,
+    "file": "figma-assets/component-baseline/430_16878.png",
+    "bytes": 33635
+  },
+  {
+    "page": "96 组件源｜能力资产卡片",
+    "id": "430:16899",
+    "name": "Skill=DEMO-S-01, View=1024",
+    "type": "COMPONENT",
+    "w": 445.0,
+    "h": 177.0,
+    "file": "figma-assets/component-baseline/430_16899.png",
+    "bytes": 29754
+  },
+  {
+    "page": "96 组件源｜能力资产卡片",
+    "id": "430:16920",
+    "name": "Skill=DEMO-S-02, View=1024",
+    "type": "COMPONENT",
+    "w": 445.0,
+    "h": 174.0,
+    "file": "figma-assets/component-baseline/430_16920.png",
+    "bytes": 29261
+  },
+  {
+    "page": "96 组件源｜能力资产卡片",
+    "id": "430:16941",
+    "name": "Skill=DEMO-S-03, View=1024",
+    "type": "COMPONENT",
+    "w": 445.0,
+    "h": 174.0,
+    "file": "figma-assets/component-baseline/430_16941.png",
+    "bytes": 28790
+  },
+  {
+    "page": "96 组件源｜能力资产卡片",
+    "id": "430:16962",
+    "name": "Skill=DEMO-S-04, View=1024",
+    "type": "COMPONENT",
+    "w": 445.0,
+    "h": 174.0,
+    "file": "figma-assets/component-baseline/430_16962.png",
+    "bytes": 27920
+  },
+  {
+    "page": "96 组件源｜能力资产卡片",
+    "id": "430:16983",
+    "name": "Skill=DEMO-S-05, View=1024",
+    "type": "COMPONENT",
+    "w": 445.0,
+    "h": 174.0,
+    "file": "figma-assets/component-baseline/430_16983.png",
+    "bytes": 30839
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "419:2544",
+    "name": "OUTIS2/Talent/Arco Source/Input/Default",
+    "type": "COMPONENT",
+    "w": 280.0,
+    "h": 36.0,
+    "file": "figma-assets/component-baseline/419_2544.png",
+    "bytes": 3248
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "419:2554",
+    "name": "OUTIS2/Talent/Arco Source/Input/Disabled",
+    "type": "COMPONENT",
+    "w": 280.0,
+    "h": 36.0,
+    "file": "figma-assets/component-baseline/419_2554.png",
+    "bytes": 3158
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "419:2564",
+    "name": "OUTIS2/Talent/Arco Source/Textarea/Default",
+    "type": "COMPONENT",
+    "w": 320.0,
+    "h": 88.0,
+    "file": "figma-assets/component-baseline/419_2564.png",
+    "bytes": 5886
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "419:2571",
+    "name": "OUTIS2/Talent/Arco Source/Textarea/Disabled",
+    "type": "COMPONENT",
+    "w": 320.0,
+    "h": 88.0,
+    "file": "figma-assets/component-baseline/419_2571.png",
+    "bytes": 5775
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "419:2575",
+    "name": "OUTIS2/Talent/Arco Source/Tab/Default",
+    "type": "COMPONENT",
+    "w": 58.0,
+    "h": 44.0,
+    "file": "figma-assets/component-baseline/419_2575.png",
+    "bytes": 2458
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "419:2580",
+    "name": "OUTIS2/Talent/Arco Source/Tab/Selected",
+    "type": "COMPONENT",
+    "w": 58.0,
+    "h": 44.0,
+    "file": "figma-assets/component-baseline/419_2580.png",
+    "bytes": 2399
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "419:2585",
+    "name": "OUTIS2/Talent/Arco Source/Tag/Default",
+    "type": "COMPONENT",
+    "w": 60.0,
+    "h": 20.0,
+    "file": "figma-assets/component-baseline/419_2585.png",
+    "bytes": 1862
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "424:9432",
+    "name": "Checked=Off",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_9432.png",
+    "bytes": 322
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "424:9434",
+    "name": "Checked=On",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_9434.png",
+    "bytes": 520
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "430:2762",
+    "name": "OUTIS2/Talent/Framework/TopBar/1440x56",
+    "type": "COMPONENT",
+    "w": 1440.0,
+    "h": 56.0,
+    "file": "figma-assets/component-baseline/430_2762.png",
+    "bytes": 18960
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "430:2792",
+    "name": "OUTIS2/Talent/Framework/TopBar/1024x56",
+    "type": "COMPONENT",
+    "w": 1024.0,
+    "h": 56.0,
+    "file": "figma-assets/component-baseline/430_2792.png",
+    "bytes": 18059
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "430:2817",
+    "name": "OUTIS2/Talent/Framework/ModuleRail/64x844",
+    "type": "COMPONENT",
+    "w": 64.0,
+    "h": 844.0,
+    "file": "figma-assets/component-baseline/430_2817.png",
+    "bytes": 8414
+  },
+  {
+    "page": "97 组件源｜人才与配置",
+    "id": "430:2842",
+    "name": "OUTIS2/Talent/Framework/ModuleRail/64x712",
+    "type": "COMPONENT",
+    "w": 64.0,
+    "h": 712.0,
+    "file": "figma-assets/component-baseline/430_2842.png",
+    "bytes": 7754
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:13647",
+    "name": "尺寸=中, 状态=默认, 填充=false",
+    "type": "COMPONENT",
+    "w": 220.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/424_13647.png",
+    "bytes": 3721
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:13657",
+    "name": "尺寸=中, 状态=禁用, 填充=false",
+    "type": "COMPONENT",
+    "w": 220.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/424_13657.png",
+    "bytes": 3724
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:13667",
+    "name": "尺寸=中, 状态=悬停, 填充=false",
+    "type": "COMPONENT",
+    "w": 220.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/424_13667.png",
+    "bytes": 3721
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:13677",
+    "name": "尺寸=中, 状态=聚焦, 填充=false",
+    "type": "COMPONENT",
+    "w": 220.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/424_13677.png",
+    "bytes": 4439
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:14814",
+    "name": "状态=默认, 填充=false",
+    "type": "COMPONENT",
+    "w": 300.0,
+    "h": 52.000099182128906,
+    "file": "figma-assets/component-baseline/424_14814.png",
+    "bytes": 4101
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:14821",
+    "name": "状态=悬停, 填充=false",
+    "type": "COMPONENT",
+    "w": 300.0,
+    "h": 52.000099182128906,
+    "file": "figma-assets/component-baseline/424_14821.png",
+    "bytes": 4101
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:14828",
+    "name": "状态=聚焦, 填充=false",
+    "type": "COMPONENT",
+    "w": 300.0,
+    "h": 52.000099182128906,
+    "file": "figma-assets/component-baseline/424_14828.png",
+    "bytes": 4849
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:14836",
+    "name": "状态=禁用, 填充=false",
+    "type": "COMPONENT",
+    "w": 300.0,
+    "h": 52.000099182128906,
+    "file": "figma-assets/component-baseline/424_14836.png",
+    "bytes": 4115
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:14841",
+    "name": "选中=false, 半选=false, 禁用=false, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_14841.png",
+    "bytes": 322
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:14843",
+    "name": "选中=false, 半选=false, 禁用=false, 悬停=true",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_14843.png",
+    "bytes": 1085
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:14850",
+    "name": "选中=true, 半选=false, 禁用=false, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_14850.png",
+    "bytes": 1519
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:14857",
+    "name": "选中=false, 半选=true, 禁用=false, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_14857.png",
+    "bytes": 347
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:14861",
+    "name": "选中=true, 半选=false, 禁用=true, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_14861.png",
+    "bytes": 421
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:14866",
+    "name": "选中=false, 半选=false, 禁用=true, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_14866.png",
+    "bytes": 323
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:15483",
+    "name": "选中=false, 禁用=false, 图标=false, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_15483.png",
+    "bytes": 880
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:15485",
+    "name": "选中=true, 禁用=false, 图标=false, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_15485.png",
+    "bytes": 747
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:15490",
+    "name": "选中=false, 禁用=false, 图标=false, 悬停=true",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_15490.png",
+    "bytes": 1537
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:15495",
+    "name": "选中=true, 禁用=true, 图标=false, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_15495.png",
+    "bytes": 751
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "424:15499",
+    "name": "选中=false, 禁用=true, 图标=false, 悬停=false",
+    "type": "COMPONENT",
+    "w": 14.0,
+    "h": 14.0,
+    "file": "figma-assets/component-baseline/424_15499.png",
+    "bytes": 850
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "427:17054",
+    "name": "State=Default",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/427_17054.png",
+    "bytes": 3082
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "427:17057",
+    "name": "State=Hover",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/427_17057.png",
+    "bytes": 2954
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "427:17060",
+    "name": "State=Focus",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/427_17060.png",
+    "bytes": 3731
+  },
+  {
+    "page": "98 组件源｜工作 Arco",
+    "id": "427:17064",
+    "name": "State=Disabled",
+    "type": "COMPONENT",
+    "w": 109.0,
+    "h": 32.0,
+    "file": "figma-assets/component-baseline/427_17064.png",
+    "bytes": 3356
+  },
+  {
+    "page": "99 组件源｜任务节点",
+    "id": "213:71",
+    "name": "State=Default, Detail=Summary",
+    "type": "COMPONENT",
+    "w": 164.0,
+    "h": 78.0,
+    "file": "figma-assets/component-baseline/213_71.png",
+    "bytes": 13402
+  },
+  {
+    "page": "99 组件源｜任务节点",
+    "id": "213:84",
+    "name": "State=Selected, Detail=Summary",
+    "type": "COMPONENT",
+    "w": 164.0,
+    "h": 78.0,
+    "file": "figma-assets/component-baseline/213_84.png",
+    "bytes": 10455
+  },
+  {
+    "page": "99 组件源｜任务节点",
+    "id": "213:96",
+    "name": "State=External, Detail=Summary",
+    "type": "COMPONENT",
+    "w": 164.0,
+    "h": 78.0,
+    "file": "figma-assets/component-baseline/213_96.png",
+    "bytes": 11215
+  },
+  {
+    "page": "99 组件源｜任务节点",
+    "id": "213:111",
+    "name": "State=Default, Detail=Expanded",
+    "type": "COMPONENT",
+    "w": 164.0,
+    "h": 112.0,
+    "file": "figma-assets/component-baseline/213_111.png",
+    "bytes": 16308
+  },
+  {
+    "page": "99 组件源｜任务节点",
+    "id": "213:127",
+    "name": "State=Selected, Detail=Expanded",
+    "type": "COMPONENT",
+    "w": 164.0,
+    "h": 112.0,
+    "file": "figma-assets/component-baseline/213_127.png",
+    "bytes": 12686
+  },
+  {
+    "page": "99 组件源｜任务节点",
+    "id": "213:142",
+    "name": "State=External, Detail=Expanded",
+    "type": "COMPONENT",
+    "w": 164.0,
+    "h": 112.0,
+    "file": "figma-assets/component-baseline/213_142.png",
+    "bytes": 14279
+  },
+  {
+    "page": "90 规范｜色彩与字阶",
+    "id": "61:2",
+    "name": "OUTIS · V1.0 规范｜色彩、字阶与尺寸",
+    "type": "FRAME",
+    "w": 1360.0,
+    "h": 864.0,
+    "file": "figma-assets/component-baseline/61_2.png",
+    "bytes": 203461
+  },
+  {
+    "page": "90 规范｜色彩与字阶",
+    "id": "61:6",
+    "name": "主要色板",
+    "type": "FRAME",
+    "w": 1232.0,
+    "h": 126.0,
+    "file": "figma-assets/component-baseline/61_6.png",
+    "bytes": 25695
+  },
+  {
+    "page": "90 规范｜色彩与字阶",
+    "id": "61:31",
+    "name": "Typography and Geometry",
+    "type": "FRAME",
+    "w": 797.0,
+    "h": 286.0,
+    "file": "figma-assets/component-baseline/61_31.png",
+    "bytes": 105391
+  },
+  {
+    "page": "90 规范｜色彩与字阶",
+    "id": "61:48",
+    "name": "Spacing Scale",
+    "type": "FRAME",
+    "w": 381.0,
+    "h": 42.0,
+    "file": "figma-assets/component-baseline/61_48.png",
+    "bytes": 3833
+  },
+  {
+    "page": "90 规范｜色彩与字阶",
+    "id": "61:73",
+    "name": "Interaction rules",
+    "type": "FRAME",
+    "w": 1264.0,
+    "h": 96.0,
+    "file": "figma-assets/component-baseline/61_73.png",
+    "bytes": 32177
+  },
+  {
+    "page": "91 组件源｜通用控件与图标",
+    "id": "62:2",
+    "name": "OUTIS基础组件 / Codex 截图基线 V1.0",
+    "type": "FRAME",
+    "w": 1440.0,
+    "h": 1796.0,
+    "file": "figma-assets/component-baseline/62_2.png",
+    "bytes": 408581
+  },
+  {
+    "page": "91 组件源｜通用控件与图标",
+    "id": "62:6",
+    "name": "Lucide source icons",
+    "type": "FRAME",
+    "w": 592.0,
+    "h": 20.0,
+    "file": "figma-assets/component-baseline/62_6.png",
+    "bytes": 7011
+  },
+  {
+    "page": "91 组件源｜通用控件与图标",
+    "id": "62:69",
+    "name": "RailIconButton / specimen",
+    "type": "FRAME",
+    "w": 1344.0,
+    "h": 162.0,
+    "file": "figma-assets/component-baseline/62_69.png",
+    "bytes": 39039
+  },
+  {
+    "page": "91 组件源｜通用控件与图标",
+    "id": "62:99",
+    "name": "ToolbarIconButton / specimen",
+    "type": "FRAME",
+    "w": 1344.0,
+    "h": 150.0,
+    "file": "figma-assets/component-baseline/62_99.png",
+    "bytes": 36637
+  },
+  {
+    "page": "91 组件源｜通用控件与图标",
+    "id": "62:134",
+    "name": "ObjectRow / specimen",
+    "type": "FRAME",
+    "w": 1344.0,
+    "h": 154.0,
+    "file": "figma-assets/component-baseline/62_134.png",
+    "bytes": 39546
+  },
+  {
+    "page": "91 组件源｜通用控件与图标",
+    "id": "62:157",
+    "name": "WorkspaceTab / specimen",
+    "type": "FRAME",
+    "w": 1344.0,
+    "h": 158.0,
+    "file": "figma-assets/component-baseline/62_157.png",
+    "bytes": 47652
+  },
+  {
+    "page": "91 组件源｜通用控件与图标",
+    "id": "62:189",
+    "name": "MenuItem / specimen",
+    "type": "FRAME",
+    "w": 1344.0,
+    "h": 154.0,
+    "file": "figma-assets/component-baseline/62_189.png",
+    "bytes": 42243
+  },
+  {
+    "page": "91 组件源｜通用控件与图标",
+    "id": "62:215",
+    "name": "PrimaryPill / specimen",
+    "type": "FRAME",
+    "w": 1344.0,
+    "h": 162.0,
+    "file": "figma-assets/component-baseline/62_215.png",
+    "bytes": 48189
+  },
+  {
+    "page": "91 组件源｜通用控件与图标",
+    "id": "62:236",
+    "name": "Tooltip / specimen",
+    "type": "FRAME",
+    "w": 1344.0,
+    "h": 154.0,
+    "file": "figma-assets/component-baseline/62_236.png",
+    "bytes": 50527
+  },
+  {
+    "page": "91 组件源｜通用控件与图标",
+    "id": "62:245",
+    "name": "SendButton / specimen",
+    "type": "FRAME",
+    "w": 1344.0,
+    "h": 162.0,
+    "file": "figma-assets/component-baseline/62_245.png",
+    "bytes": 41115
+  }
+]

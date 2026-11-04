@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "product": "OUTIS",
+    "version": "V1.0 FINAL",
+    "figmaFileKey": "0f4FTbWCeMRIRcCGCBELe4",
+    "source": "Figma 全文件样式反推 + 00 交付说明官方口径",
+    "generated": "2026-11-04",
+    "status": "待设计方确认（颜色/字阶/圆角三处为定稿建议，官方值已锁）",
+    "lockedByDeliveryNotes": {
+      "primary": "#165DFF",
+      "primaryLightBg": "#E8F3FF",
+      "buttonHeight": 32,
+      "buttonRadius": 4
+    }
+  },
+  "color": {
+    "brand": {
+      "primary": { "value": "#165DFF", "official": true, "note": "主蓝（Arco blue-6），交付说明锁定" },
+      "primaryHover": { "value": "#4080FF", "official": false },
+      "primaryActive": { "value": "#0E42D2", "official": false },
+      "primaryLight": { "value": "#E8F3FF", "official": true, "note": "浅蓝选中，交付说明锁定" },
+      "primaryBorder": { "value": "#BEDAFF", "official": false },
+      "primaryText": { "value": "#165DFF", "official": true }
+    },
+    "text": {
+      "title": { "value": "#1D2129", "count": 9450 },
+      "body": { "value": "#4E5969", "count": 13342 },
+      "secondary": { "value": "#86909C", "count": 6073 },
+      "placeholder": { "value": "#C9CDD4", "official": false, "note": "由边框强色复用" },
+      "disabled": { "value": "#C9CDD4", "official": false },
+      "inverse": { "value": "#FFFFFF", "count": 5131 }
+    },
+    "border": {
+      "default": { "value": "#E5E6EB", "count": 7948 },
+      "strong": { "value": "#C9CDD4", "count": 1302 },
+      "primary": { "value": "#165DFF", "count": 3409 },
+      "blueLight": { "value": "#DBE4EF", "count": 261 }
+    },
+    "surface": {
+      "base": { "value": "#FFFFFF", "count": 5131 },
+      "page": { "value": "#F7F8FA", "count": 2573 },
+      "group": { "value": "#F2F3F5", "count": 1883 },
+      "hover": { "value": "#F7F8FA", "official": false },
+      "warm": { "value": "#FBFAF6", "count": 639, "note": "唯一暖底，保留为特例" }
+    },
+    "status": {
+      "success": { "value": "#00B42A", "official": false },
+      "warning": { "value": "#FF7D00", "official": false },
+      "danger": { "value": "#F53F3F", "official": false },
+      "info": { "value": "#165DFF", "official": true }
+    }
+  },
+  "typography": {
+    "fontFamily": { "value": "Noto Sans SC", "note": "全文件 36921 文本节点 100% 单一家族" },
+    "scale": {
+      "display": { "size": 24, "lineHeight": 30, "weight": 600, "from": [24, 23, 22] },
+      "title": { "size": 20, "lineHeight": 26, "weight": 600, "from": [20, 19, 18] },
+      "titleSm": { "size": 16, "lineHeight": 22, "weight": 600, "from": [16, 17] },
+      "body": { "size": 14, "lineHeight": 21, "weight": 400, "from": [14, 13, 15] },
+      "caption": { "size": 12, "lineHeight": 18, "weight": 400, "from": [12, 11, 10, 9, 11.7, 9.2] },
+      "micro": { "size": 10, "lineHeight": 14, "weight": 400, "from": [] }
+    },
+    "weights": { "400": 27358, "500": 3668, "600": 3456, "700": 2297, "900": 142 },
+    "letterSpacing": { "value": 0.3, "note": "全文件字间距几乎全为 0.3" }
+  },
+  "radius": {
+    "xs": { "value": 2, "from": [2, 2.5] },
+    "sm": { "value": 3, "from": [3] },
+    "md": { "value": 4, "from": [4, 5], "official": true, "note": "常规按钮 4 圆角，交付说明锁定" },
+    "lg": { "value": 6, "from": [6] },
+    "xl": { "value": 12, "from": [12, 13] },
+    "2xl": { "value": 16, "from": [16, 16.5] },
+    "pill": { "value": 36, "from": [36] }
+  },
+  "shadow": {
+    "card": { "value": "0 1px 2px rgba(29,33,41,0.03)", "count": 301 },
+    "overlay": { "value": "0 14px 44px rgba(21,35,59,0.14)", "count": 50 },
+    "dialog": { "value": "0 16px 50px rgba(29,33,41,0.20)", "count": 6 },
+    "note": "5 套近似阴影归并为 3 套：卡片微阴影 / 弹层 / 对话框"
+  },
+  "size": {
+    "buttonHeight": { "value": 32, "official": true, "note": "常规按钮 32 高，交付说明锁定" },
+    "headerHeight": { "value": 56, "from": "OUTIS1/Framework/Product Header 1440×56" },
+    "railWidth": { "value": 64, "from": "OUTIS1/Framework/Global Rail 64×844" },
+    "viewport": { "desktop": "1440×900", "compact": "1024×768" }
+  },
+  "spacing": {
+    "note": "间距标尺以 Figma `90 规范｜色彩与字阶` 页 Spacing Scale 图板为准（该页已渲染为基线图）",
+    "base": 4
+  }
+}
