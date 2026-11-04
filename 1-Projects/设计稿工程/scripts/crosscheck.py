@@ -32,21 +32,31 @@ def parse_rows():
                 # 找 ID 列
                 idx = None
                 for i, c in enumerate(cells):
-                    if ID_RE.fullmatch(c.strip()):
+                    m = re.match(r"^(WK|MSG|FRM|KN|TAL|CAP|SET|XMOD|CUS|PRJ)-\d{3}\b", c.strip())
+                    if m:
                         idx = i
                         break
                 if idx is None:
                     continue
-                rid = cells[idx].strip()
-                if not ID_RE.fullmatch(rid):
-                    continue
-                d = dict(zip(["id", "domain", "requirement", "acceptance", "source"], cells)) if len(cells) == 5 else None
-                if d is None:
-                    d = {"id": rid}
-                    for i, c in enumerate(cells):
-                        if i == idx:
-                            continue
-                        d.setdefault("col%d" % i, c)
+                rid = re.match(r"^(WK|MSG|FRM|KN|TAL|CAP|SET|XMOD|CUS|PRJ)-\d{3}", cells[idx].strip()).group(0)
+                d = {"id": rid}
+                hdr = header or []
+                for i, c in enumerate(cells):
+                    if i == idx:
+                        continue
+                    h = hdr[i] if i < len(hdr) else ""
+                    key = "col%d" % i
+                    if re.search(r"要求|功能|最小业务|必须实现", h):
+                        key = "requirement"
+                    elif re.search(r"来源|追踪", h):
+                        key = "source"
+                    elif re.search(r"验收|异常|状态", h):
+                        key = "acceptance"
+                    d[key] = c
+                if "requirement" not in d and "col0" in d:
+                    d["requirement"] = d.pop("col0")
+                if "source" not in d and "col1" in d:
+                    d["source"] = d.pop("col1")
                 d["page"] = page
                 reqs.append(d)
             elif ln.strip() == "":
@@ -93,10 +103,8 @@ def main():
             fig_by_dom["XMOD"] += v["screens"]
         elif d.startswith("FLOW"):
             fig_by_dom["FLOW"] += v["screens"]
-    fig_by_dom["FRM"] = dom.get("01 Web", {}).get("screens", 0) + sum(
-        v["screens"] for k, v in dom.items() if k.startswith("0") and "Windows" in k or k.startswith(("0", "1")) and "Web" in k)
-    fig_by_dom["FRM"] = sum(v["screens"] for k, v in dom.items()
-                            if k.startswith(("0", "1")) and ("Web" in k or "Windows" in k))
+    # 公共框架：Figma 页「01 共用框架｜结构与适配」共 20 帧
+    fig_by_dom["FRM"] = sum(1 for s in scr if s["page"].startswith("01 "))
 
     # MSG-12 缺口
     msg_fig = sorted(int(c.split("-")[1]) for c in dom if c.startswith("MSG-"))

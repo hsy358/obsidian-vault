@@ -163,6 +163,30 @@ def main():
                "**必填字段**：标题、正文、状态标签、右侧操作区（按基线图逐个还原）", "",
                "**验收命令**：`npm run visual:diff -- --screen " + t["id"] + "`", ""]
 
+    # 需求附录：按分片挂对应需求域的需求条目
+    SHARD_REQ = {"S0": ["FRM"], "S1": ["WK"], "S2": ["MSG"], "S3": ["KN"],
+                 "S4": ["TAL"], "S5": ["CAP"], "S6": ["SET", "XMOD"]}
+    if a.shard and (ROOT / "spec" / "requirements.json").exists():
+        reqs = json.loads((ROOT / "spec" / "requirements.json").read_text())
+        want = SHARD_REQ.get(a.shard, [])
+        picked = [r for r in reqs if r["id"].split("-")[0] in want]
+        if picked:
+            md += ["---", "", f"## 附录：本分片需求清单（Notion《研发需求 V1.0》· {len(picked)} 条）", "",
+                   "> 每条需求的「状态／异常与验收标准」列可直接转成行为测试用例；**静态稿还原 ≠ 行为已实现**。", ""]
+            for r in picked:
+                rid = r["id"]
+                body = r.get("requirement") or r.get("col0") or ""
+                acc = r.get("acceptance") or r.get("col2") or ""
+                src = r.get("source") or r.get("col1") or ""
+                md.append(f"### {rid}")
+                if body:
+                    md.append(f"- **要求**：{body}")
+                if acc:
+                    md.append(f"- **状态／异常与验收**：{acc}")
+                if src:
+                    md.append(f"- **来源／验收追踪**：{src}")
+                md.append("")
+
     (TICKETS / out_name).write_text("\n".join(md))
     (TICKETS / (out_name[:-3] + ".json")).write_text(json.dumps(tickets, ensure_ascii=False, indent=2))
     print(f"✓ {TICKETS/out_name}")
