@@ -123,3 +123,44 @@ related_notes:
 ---
 
 *资料来源：Agent Autoloop README（2026-11-05 抓取）、DeepSeek Super-agent 设计文章 + dsh-superagent-prototype docs/000–007、已有 vault 笔记两份。检索时间：2026-11-05。*
+
+---
+
+## 附：Autoloop 的规则是「人写死的确定性代码」还是「AI 自规划」？（源码核查，2026-11-05）
+
+**结论：调度层是人写死的确定性配置，AI 不参与派活决策；但 AI 在「执行中」可以在规则授权范围内自规划下一步。**
+
+### 源码证据
+
+| 事实 | 证据 |
+|---|---|
+| 内核 **零 LLM 调用** | 全仓 `kernel/ protocol/ host/` grep `llm|model|openai|anthropic` 仅命中 2 处：`protocol/rules.ts:155` 与 `protocol/schema.json:464`——都是 **Agent 配置里的 `model` 字段**（指定 CLI Agent 用哪个模型），不是内核自己调模型 |
+| 规则匹配是**纯代码** | `kernel/rules.ts:29-33` `typeMatch/typeMatches`：`when` 只有两种形态——`{cron: "0 9 * * *"}`（cron 解析）或 `{source, types[]}`（支持 `x.*`/`*` 通配）。命中即派活，无模型参与 |
+| `rules` 变更只来自**文件监听** | `kernel/decide.ts:513-522` `HANDLERS.rules` 由 host 读 `rules.json` 后推入；**没有任何输入类型允许 Agent 回写规则** |
+| 规则变更带版本与审计 | 每次写入 `version: draft.seq`；已排队未领取的任务在领活时**按新规则重算 Agent/目录/权限**（`assignQueued`），已领取的保留旧配置到本次结束 |
+| 规则写错不致命 | `rulesError` → 旧规则继续跑 + 推卡片说明错在哪（`protocol/rules.ts` 校验错误带位置） |
+
+### AI 自规划真正发生在哪里（运行时的 Agent 侧）
+
+不是改规则，而是**在规则给的权限内决定下一步**：
+
+| 机制 | 作用 | 约束 |
+|---|---|---|
+| `events` | Agent 在回复里发新事件 → 触发新一轮派活（**这才是"AI 自规划"的真实位置**） | 规则须用 `emits` 声明可发的事件类型；**跳数 > 8 层熔断**（`kernel/decide.ts:34 MAX_HOPS = 8`），人工提问与定时复查都不清零 |
+| `later` | 预约复查（"半小时后再看"） | 走同一套 due/deadline 机制 |
+| `ask` | 不可逆动作要人拍板（删数据/停服/花钱/对外发消息/改产品方向/新建轮换密钥/改权限——`protocol/rules.ts:17 ASK_FIRST`） | 人答完接原会话续跑 |
+| `skill` | 规则挂一个流程手册给 Agent 照做 | 手册是**事先写好的文档**（人或 AI 帮写），不是运行时自规划 |
+
+### 由此得出的关键对比结论
+
+> **Autoloop = Super-agent 的「Policy + 派单」层，但把 Super-agent 的 Router（模型决策）换成了人写规则。**
+
+| | Super-agent | Autoloop |
+|---|---|---|
+| 派活决策者 | **模型**（Router，1.6–6.4s/次，token 消耗显著） | **人写的确定性规则**（p99 1.82ms，近零 token） |
+| 规则没覆盖的新情况 | Router 凭模型判断，**能接住** | **没人接**，事件直接落空 |
+| 覆盖面 | 开放式 | 封闭式（但可预测、可压测、可复现） |
+
+**代价换收益的取舍很清楚**：用"覆盖面"换"确定性 + 可审计 + 零决策成本 + 可复现测试"。
+这也解释了两者为什么互补：Autoloop 适合**规则清晰的高频运维/交付流水线**，Super-agent 适合**规则说不清的长尾任务**。
+
