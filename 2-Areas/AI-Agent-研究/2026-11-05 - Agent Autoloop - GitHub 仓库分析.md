@@ -170,3 +170,80 @@ JSON 写错 → 只让它在原会话里重写最后一段，不重做业务；�
 1. **配置手册要写成"给 AI 读的"**（P0）：Autoloop 把整套配置说明做成 SKILL.md 分发给 Agent，让实施期由 Agent 帮客户生成规则与手册——**交付实施成本大幅下降**。我们的交付物应配套一份同样形态的 SKILL.md/配置指南，而不是只有 PDF 文档。
 2. **AI 生成的规则必须带"首投灰度"**（P0）：AI 生成的 rules.json 可能埋雷（权限过宽、cwd 指错、askFirst 漏配、prompt 写歪）。Autoloop 自身的防线是「规则校验 + 版本审计 + 写错旧规则继续跑 + 报错卡片」；**缺的是"未经人审的规则首次上线"这道闸**——正好用 Super-agent 的 **observe 模式**补：AI 新写的规则第一次上线先只记录不执行，人核对后再放开。
    → 两项目互补关系落地：**Autoloop 的确定性派活 + AI 辅助生成配置，配 Super-agent 的 observe 灰度**，是一套相当完整的落地组合。
+
+---
+
+## 追加（2026-11-05 上午）：怎么用？启动入口与需求入口在哪
+
+### A. Agent Autoloop
+
+**装什么**
+```bash
+# 官方安装（装程序 + 启用登录后常驻服务）
+curl -fsSL https://raw.githubusercontent.com/KKKKhazix/agent-autoloop/main/install.sh | sh
+# 或：把 INSTALL.md 丢给 Claude Code / Codex，让它代装（作者推荐）
+# 本地源码安装：sh install.sh --agent codex   （--agent claude / --command 'hermes chat -q {prompt}'）
+```
+- 程序：`~/.agent-autoloop/app`；配置：`~/.agent-autoloop/rules.json` + `config.json` + 密钥
+- 前置：Node ≥24、Git、curl、**一个已登录的命令行 Agent**；目录权限 0700
+
+**启动（三种）**
+| 方式 | 命令 | 说明 |
+|---|---|---|
+| 常驻服务（默认） | 安装脚本自动装 systemd/launchd 服务 | 装完即在后台跑 |
+| 前台跑 | `agent-autoloop up` | 调试/临时用 |
+| 服务管理 | `agent-autoloop service install / start / stop` | |
+| 自检 | `agent-autoloop status` / `doctor` / `try` | `try` 会真花额度跑一遍问答 |
+
+**需求入口 = 事件，不是对话**（关键点）
+| 入口 | 怎么接 |
+|---|---|
+| 定时 | rules.json 的 `when: {cron: "0 9 * * *"}` |
+| GitHub / GitLab | Webhook 插件（内置） |
+| 任意系统 | `agent-autoloop key new source <名字>` → 对方 `POST /v1/events` |
+| 推不动的系统 | 轮询脚本 + `use: "command"` 的 Agent + `emits`（没新东西直接退出，**不花 token**） |
+| 外部应用里的定时任务 | `agent-autoloop tell <编号> --task <任务名>` |
+| **人要拍板** | 中台推卡片 → `agent-autoloop answer <卡片> <序号>` / `resolve` / `stop` |
+
+**skill 的角色**：**可选**。`skills/agent-autoloop/SKILL.md` 是给 AI 读的"安装+配置手册"——装的时候让 Claude Code/Codex 读它来装、写规则、写 Skill；**装完运行时不依赖 skill**。
+
+> 一句话：**不是"在 Codex 里跟它聊天"**。中台是常驻服务，事件进 → 内核按 rules.json 派活 → Codex 在自己的会话里干活 → 结果/卡片回来。你跟中台之间只有卡片交互。
+
+### B. DeepSeek Super-agent（dsh-superagent-prototype）
+
+**装什么**：它是 **DSH 的 bundle 插件**（Cordis patch），不是独立程序 → 必须先有 DeepSeek Harness。
+前置：Node 22.19+/24、pnpm、git、tmux、python3、**GitHub CLI**、DSH、模型 provider；还要**专用 GitHub 账号**（agent account，agent 的所有发言都在这个名下）。
+
+**安装**：官方也是"让 AI 带你装"——
+> 「Read SETUP.md in this repository and set up dsh-superagent with me.」
+
+SETUP.md 要求 AI **一次只问一个问题**，共 9 问：来源（GitHub only / +飞书）→ 仓库 → agent 账号 → 飞书群 → GitHub 允许名单 → 飞书允许人 → checkout 目录 → commit 身份 → **是否自动合并**（默认否）。
+默认项：`profile superagent`（DSH web profile 的副本，独立端口 **3082**）、状态目录 `~/.dsh/state/superagent`、分支前缀 `agent/`、**accept mode = observe**（先记录不动手）、每小时自检修复。
+
+**启动**：`dsh superagent --from-default-profile`（首次）或改 `cordis.patch.yml`；`scripts/dsh-superagent status` 退出码 0 = 正常。
+
+**需求入口 = 聊天 / PR 评论里 @它**（跟 Autoloop 最大的不同）
+- GitHub：在 issue 上评论 `@<agent登录名> <需求>` → **约 1 分钟内**面板出现一个 Ticket
+- 飞书：@机器人 或私聊
+- **Web 面板**：端口 3082，侧边栏 **Superagent** 条目，**只显示"需要人处理"的**
+- 设置通过 Management API 保存：`github` source → `feishu` source → `policy`（允许名单）→ `executor` → prompts（含 commit 身份与自动合并要求）
+
+**给人交底的三条规矩**（000-philosophy）：从窄的范围开始、往少噪音调、agent 说的话自己负责。
+
+### C. 两者并排看「入口」
+
+| | Agent Autoloop | DeepSeek Super-agent |
+|---|---|---|
+| 装的东西 | 独立程序 + 已登录 CLI Agent | DSH + bundle + 专用 GitHub 账号(+飞书) |
+| 常驻进程 | 中台 hub 服务（+ worker） | DSH profile 进程（tmux）|
+| **人怎么提需求** | **不聊天**：发事件（cron/webhook/HTTP/轮询） | **聊天**：issue 评论 @它 / 飞书 @它 |
+| 人怎么收到回应 | 桌面通知/飞书卡片 → `answer` | 面板（只看需人处理）+ 原对话里回 + PR |
+| skill 是否必需 | 可选（AI 读的安装配置手册） | 必需（SETUP.md 就是给 AI 的安装剧本）|
+| 上手成本 | **低**（一条 curl） | **高**（DSH + 账号 + 名单 + 飞书）|
+| 最小验证 | `agent-autoloop try` | `dsh-superagent status` + 在 issue 上 @ 它 |
+
+### D. 对我们的现实结论
+
+- **我们的服务器上想最快验证 → 选 Autoloop**（Linux 匹配，一条 curl，可接 `openclaw agent exec {prompt}`）
+- **Super-agent 起步重**：DSH + 专用 GitHub 账号 + 允许名单 + 飞书机器人，我们目前没有这些前置
+- **注意 OpenClaw 已覆盖的部分**：常驻 + 多频道 + 直接聊天入口 = Super-agent 的"人机入口"；Autoloop 补的是 **事件→规则→派活→审计** 这一段确定性中台。二者不冲突
