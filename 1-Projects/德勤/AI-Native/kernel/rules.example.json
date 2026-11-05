@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "name": "每日巡检",
+      "when": { "source": "cron", "types": ["cron.fire"] },
+      "to": { "name": "巡检员", "use": "hermes-chat", "access": ["read", "exec"] },
+      "cwd": "/root/vault",
+      "skill": "ops-check",
+      "prompt": "执行每日巡检：检查待办、失败任务与异常告警，输出结论。",
+      "mode": "observe",
+      "group": "ops",
+      "parallel": 1,
+      "max_hops": 8
+    },
+    {
+      "name": "Issue 处理",
+      "when": { "source": "github", "types": ["issue.opened", "issue.*"] },
+      "to": { "name": "Issue 处理器", "use": "dryrun", "access": ["read"] },
+      "cwd": "/root/vault",
+      "prompt": "处理新 Issue：先复述需求与影响面，再给方案。",
+      "mode": "execute",
+      "group": "issue",
+      "parallel": 2,
+      "max_hops": 8
+    },
+    {
+      "name": "流水线失败排查",
+      "when": { "source": "ci", "types": ["pipeline.failed"] },
+      "to": { "name": "排查员", "use": "dryrun", "access": ["read"] },
+      "prompt": "分析失败的流水线，定位失败步骤与可能原因。",
+      "mode": "execute",
+      "group": "ci",
+      "parallel": 1,
+      "max_hops": 8
+    }
+  ]
+}
