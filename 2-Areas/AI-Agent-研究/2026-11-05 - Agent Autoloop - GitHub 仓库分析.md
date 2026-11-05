@@ -98,3 +98,31 @@ JSON 写错 → 只让它在原会话里重写最后一段，不重做业务；�
 - 上手：`curl -fsSL https://raw.githubusercontent.com/KKKKhazix/agent-autoloop/main/install.sh | sh` → `agent-autoloop try`
 - 文档：`docs/protocol.md`（通信协议）、`docs/plugins.md`（插件开发）、`skills/agent-autoloop/SKILL.md`（配置手册）、`SECURITY.md`（安全边界）
 - 自测：`node sim/random.ts 24301 200000`（随机/崩溃/重复提交模拟）、`node sim/crash.ts 1000 12648430`（强杀 1000 次）、`npm run benchmark`
+
+---
+
+## 追加（2026-11-05 晚）：作者系列解读要点 + 源码交叉核验
+
+何大人转来作者（Samuel）的系列解读稿，补充了 README 之外的细节。逐条与源码核对：
+
+| 作者口径 | 源码核验 | 结论 |
+|---|---|---|
+| 「内核只做四件事：收事件、按规则分活、把活派给 Agent、把每一步记下来，其余什么都不干」 | `kernel/` 共 8 个模块：`decide`(决策) / `rules`(规则形态) / `cron` / `due`(到期) / `query` / `evolve`(事实日志) / `store` / `state` / `card-page` | ✅ 属实 |
+| 「内核自己也绝对不往外连，需要联网的都放插件里」 | `kernel/*.ts` 的 import 汇总**只有** `node:crypto`、`node:sqlite` + 自身模块，**零 http client、零 fetch** | ✅ 属实，且比"零 LLM 调用"更强：**内核零出站网络** |
+| 「内核里绝不允许写死具体产品名字（Claude/Codex/Hermes 都不关心）」 | `kernel/rules.ts` 里 `Agent` 是 `{name, worker, use, access, command?, model?}` 抽象；具体 Agent 全在 `plugins/{claude,codex,acp,command}/` | ✅ 属实，**厂商中立** |
+| 「同一件事短时间内连续来好几条消息会合成一轮，不一窝蜂去改同一个东西」 | `kernel/decide.ts:157-167 enqueue()`：同 `rule` + 同 `lane` 的排队 run **被复用**，事件累加进同一 run 的 `run_events`；`lane = rule.parallel ? subject : ""`（无 parallel 时整条 rule 一条 lane，有则按 subject 分线）；`groupLimit` 再限并发 | ✅ 属实，是**真合并**（复用同一 run），不只是排队限流 |
+| 「是否需要审批、能执行什么操作一律以本机 rules.json 为准，能防一些 Prompt 注入」 | `protocol/rules.ts` 校验事件字段白名单（`cwd`/`agent`/`access` 拒收），外部文本只落文件不进提示词；`ASK_FIRST` 清单：删数据/停服/花钱/对外发消息/改产品方向/新建轮换密钥/改权限 | ✅ 属实 |
+| 「跳数熔断：Agent 每叫醒下一个 Agent 就加一层，超过 8 层自动停下来并发卡片」 | `kernel/decide.ts:34 MAX_HOPS = 8`；人工提问与定时复查都不清零 | ✅ 属实 |
+| 「轮询脚本没新东西就直接退出，不叫醒大模型，不花 token」 | `examples/watch-github-issues.sh` 属**事件源侧**，在模型之外 | ✅ 属实 |
+
+### 作者的框架叙事（可复用到我们自己的对外表达）
+
+> 事件 → 派活 → 执行 → 交付 → **批奏折**（拿不准就找人拍板）
+
+其中"**批奏折**"这个中文隐喻很好：**决策权上移到人，但只在需要决策时**。可作为德勤项目对客户讲"人在环"的设计话术。
+
+### 对德勤的三条新增借鉴
+
+1. **内核零出站网络**（P0）→ 我们的执行器/调度层应坚持"核心不出网、联网能力全在适配层"。这条与"每个组件独立可部署"要求天然契合，也方便金融/政务做网络分区审查。
+2. **厂商中立的内核抽象**（P0）→ 内核只认 `{name, use, access, command?}`，不认 Claude/Codex/Hermes。这正是德勤"每种 harness 都能接"的最小可行形态，可直接写进执行器抽象层的接口定义。
+3. **事件合并（复用同一 run + lane 分线）**（P1）→ 我们的编排层也需要"同一对象上的连续事件合并成一轮"，否则会出现多个 Agent 同时改同一交付物。作者的说法在这点上是准确的，README 没写清。
