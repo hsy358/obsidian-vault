@@ -31,6 +31,10 @@
 * [Google Cloud OKF — Open Knowledge Format](2026-06-22 - Google Cloud OKF Open Knowledge Format.md) — 不是 SDK、不是查询语言、不是中间件——就是一组带 frontmatter 的 .md 文件 + 目录结构。  `research`
 
 
+## 物理智能 / Physical AI
+
+* [Apple HALO — 感知式人形机器人全身动作（纯仿真数据 + 零样本 sim2real 91%）与德勤 Physical AI 借鉴点](2026-11-17 - Apple HALO - 感知式人形机器人全身动作（纯仿真数据 + 零样本 sim2real 91%）与德勤 Physical AI 借鉴点.md) — 苹果 arXiv:2611.06908：1000 套程序化住宅合成 300 小时第一视角「图像+语言+全身动作」语料，三层全机载栈（编排器 0.5Hz / 动作生成器 3Hz / 感知式跟踪器 50Hz），在 6 个未建图真实家庭、360 次试验中单任务 91%、多任务 70%。⚠️ 代码公开但 **LICENSE 是 Apple 专有协议**，不可 fork 进客户交付物。最值得抄：训练时前缀条件化（接缝连续性 +18 分）、环境数量边际曲线（加场景比加动作便宜）、特权专家→多教师蒸馏→多 critic 微调三阶段。  `research-note · 2026-11-17`
+
 ## 其他研究
 
 * [Self-Driving R&D v3.4 — 每个环节细化设计方案](2026-06-17 - Self-Driving R&D v3.4 每个环节细化设计.md) — 详见 A1. Access stage。  `technical-spec · 2026-06-17`
