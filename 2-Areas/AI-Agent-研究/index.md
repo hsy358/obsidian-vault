@@ -1,6 +1,6 @@
 # Research/ Index
 
-> 由 `gen_index.py` 自动生成（27 条目）。OKF 规范渐进披露。
+> 由 `gen_index.py` 自动生成（28 条目）。OKF 规范渐进披露。
 
 
 ## AI-Native / R&D
@@ -26,6 +26,8 @@
 * [DeepSeek Harness + DS Bot — 架构范式参考](2026-10-28 - DeepSeek Harness + DS Bot - 架构分析与德勤项目借鉴点.md) — DSH 是开源框架里把「可插拔执行器」做得最彻底的一个：**Capability Seam 三角色**（Definition / Provider / Consumer）正好是德勤执行器抽象层的现成范式；**Profile/Bundle** 打包的是配置行而非代码，直接回答「独立可部署 + 模块化打包」。DS Bot 的 **context steward checkpoint**（就地压缩、历史仍可检索）、**secret 遮蔽**、**「记忆是数据不是指令」** 均可借鉴。其致谢名单明确借鉴 **Hermes Agent / Hermes Bot Mode** → Hermes 路线有社区共识支撑。  `github-repo-analysis · 2026-10-28`
 * [rust-anything —— AI Agent 驱动的渐进式 Rust 重写（录制-对拍-闸门）与德勤执行器验收借鉴](2026-11-19 - rust-anything - AI Agent 驱动的渐进式 Rust 重写（录制-对拍-闸门）与德勤执行器验收借鉴.md) — MIT / Rust / 2026-11-16 建仓（3 天 3.3k star）。**不翻译代码**：profile 找热点 → analyze 排波次 → bridge 生成绑定 → record 录下原实现真实行为（cases.jsonl）→ Agent 写 Rust → diff 回放对拍 → shadow 生产双跑 → gate 机器判定"算不算完"。⚠️ 17x/20x 是 **batch 场景**（把循环搬进 Rust），逐条桥接通常更慢（TS 0.2–0.4x）。**可抄的不是 Rust，是「录制—对拍—闸门」验收范式** → 正好补德勤执行器抽象层缺的"等价性验收"，可作内核下限第 9 条。  `research-note · 2026-11-19`
 
+
+* [LobeHub × DeepSeek Harness（super-agent）—— 组织级 Agent 两条路线对比与德勤借鉴点](2026-11-22 - LobeHub × DeepSeek Harness（super-agent）- 组织级 Agent 路线对比与德勤借鉴点.md) — **两者不在同一层**：DSH/super-agent = 可白嫖的架构范式（MIT/Apache-2.0，能进交付物）；LobeHub = 组织操作系统成品（主仓 **LobeHub Community License，衍生分发需商业授权**，⚠️ 与 Apple HALO 同类坑）。⭐ LobeHub `lh hetero` 已把 **DeepSeek Harness / OpenClaw / Hermes** 一起纳管 → 我们的执行器抽象层有了真实商业对标物。⭐ **Acceptance（Apache-2.0）** 把验收做成 observable checks + 截图录屏 + 单条打回 + 批注沉淀为下一轮 lesson → 补 DSH/super-agent 最弱的一环，可作内核下限第 9 条。⚠️ **「Lobe 70%/$1.68」未证实**（FrontierHarness 榜单无 LobeHub）；⚠️ 「Vercel 300 秒 / 队列+Redis / Remote Tool Calling」非官方口径；⚠️ 官方无「三层 Agent」命名（是 Agent / Group+Orchestrator / Task / Workspace）。  `comparison-note · 2026-11-22`
 
 ## OKF / 知识工程
 
